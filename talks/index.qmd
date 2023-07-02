@@ -1,7 +1,5 @@
 ---
 title: "Palestras"
-description: |
-  Palestras Ministradas.
 listing:
   - id: ehr
     max-description-length: 500
@@ -14,4 +12,3 @@ listing:
     
 ---
 
-# Talks I've given
