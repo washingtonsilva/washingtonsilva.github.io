@@ -1,20 +1,46 @@
 ---
 about:
   template: trestles
-  image: mariecurie.png
+  image: wss.jpg
+  image-shape: rounded
   links:
-    - icon: twitter
-      text: twitter
-      href: https://twitter.com/mariecurie
-    - icon: github
-      text: github
-      href: https://github.com/mariecurie
+    - icon: linkedin
+      text: linkedin
+      href: https://www.linkedin.com/in/washingtonssilva/
     - icon: envelope
-      text: mail
-      href: mailto:Marie.Curie@ens.fr
+      text: e-mail
+      href: mailto:washington.silva@ifmg.edu.br
 ---
 
-**Professor Marie Skłodowska-Curie**<br>
-School of Physics & Chemistry<br>
-École Normale Supérieure<br>
-Paris, France
+**Washington Santos da Silva** <br>
+Professor and Researcher at [Mestrado Profissional em Administração](https://www.formiga.ifmg.edu.br/mestrado). <br>
+[IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br), Minas Gerais, Brazil.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<ul class="fa-ul">
+
+  <li><a href="http://lattes.cnpq.br/7319553236390710"><i class="fa-li ai ai-google-scholar" style="padding-top:4px;"></i>CV Lattes</a></li>
+
+  <li><a href="https://orcid.org/0000-0003-2396-3507"><i class="fa-li ai ai-orcid" style="padding-top:4px;"></i>ORCID</a></li>
+  
+</ul>
+
+:::
+
+::: {.column width="50%"}
+
+<ul class="fa-ul">
+
+  <li><a href="https://scholar.google.com.br/citations?hl=pt-BR&user=hRQ0bCIAAAAJ"><i class="fa-li ai ai-google-scholar" style="padding-top:4px;"></i>Google Scholar</a></li>
+  
+  <li><a href="https://github.com/washingtonsilva"><i class="fa-li fa-brands fa-github"></i>GitHub</a></li>
+
+</ul>
+
+:::
+
+::::
+

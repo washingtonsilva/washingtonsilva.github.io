@@ -16,4 +16,12 @@ AutoAppendNewline: Yes
 StripTrailingWhitespace: Yes
 LineEndingConversion: Native
 
+BuildType: Website
+
 UseNativePipeOperator: Yes
+
+PythonType: system
+PythonVersion: 3.11.4
+PythonPath: /opt/homebrew/bin/python3
+
+SpellingDictionary: pt_BR

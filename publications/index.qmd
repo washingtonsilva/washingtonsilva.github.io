@@ -1,4 +1,5 @@
 ---
+lang: pt
 listing:
   contents: .
   template: pubs.ejs

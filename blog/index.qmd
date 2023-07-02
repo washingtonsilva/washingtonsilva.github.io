@@ -1,12 +1,13 @@
 ---
-title: "My blog"
-description: Thoughts on research
+title: "Blog"
+lang: pt
+description: Pensamentos sobre pesquisa
 listing:
   contents: .
   sort: "date desc"
   type: default
-  categories: cloud
-  sort-ui: true
-  filter-ui: true
+  categories: false
+  sort-ui: false
+  filter-ui: false
 page-layout: full
 ---

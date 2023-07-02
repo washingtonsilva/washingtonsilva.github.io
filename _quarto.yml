@@ -5,31 +5,33 @@ project:
     - "*.md"
 
 website:
-  title: "Marie Curie"
+  title: "Washington S. da Silva"
   site-url: "https://mariecurie.com"
   navbar:
-    background: "#536878"
+    background: "#3b444b"
     left:
       - href: blog/index.qmd
         text: Blog
+      - href: projects/index.qmd
+        text: Projects
       - href: publications/index.qmd
         text: Publications
-      - href: software/index.qmd
-        text: Software
-      - href: talks/index.qmd
-        text: Talks
+      - href: tutorials/index.qmd
+        text: Tutorials
       - href: teaching/index.qmd
         text: Teaching
+      - href: talks/index.qmd
+        text: Talks
       - href: about/index.qmd
         text: About
   page-footer:
-    left: "Copyright 2022, Marie Curie"
+    left: "Copyright 2023, Washington Santos da Silva"
     right:
       - icon: github
-        href: https://github.com/mariecurie
-      - icon: twitter
-        href: https://twitter.com/mariecurie
-    background: "#536878"
+        href: https://github.com/washingtonsilva
+      - icon: linkedin
+        href: https://www.linkedin.com/in/washingtonssilva/
+    background: "#3b444b"
 
 date-format: "D MMMM YYYY"
 
@@ -41,3 +43,4 @@ format:
     html-math-method: katex
     include-in-header:
       file: header.html
+

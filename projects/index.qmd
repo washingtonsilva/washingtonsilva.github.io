@@ -1,17 +1,24 @@
 ---
-title: "Palestras"
+title: " "
 description: |
-  Palestras Ministradas.
+  Projetos nos quais estou trabalhando.
 listing:
   - id: ehr
     max-description-length: 500
     image-height: 150px
     fields: [image, title, description]
     contents: 
-      - french_academy
+      - projeto01
+      - projeto02
     type: grid
     grid-item-border: false
     
 ---
 
-# Talks I've given
+
+
+::: {#ehr}
+:::
+
+
+
