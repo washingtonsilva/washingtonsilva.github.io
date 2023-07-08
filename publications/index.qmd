@@ -14,4 +14,4 @@ page-layout: full
 title-block-banner: false
 ---
 
-# Publications
+# Papers
