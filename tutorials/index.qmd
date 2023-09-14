@@ -1,0 +1,14 @@
+
+# Linguagem R/RStudio/Visual Studio Code
+
+*TO DO*
+
+
+# Estatística Experimental
+
+## Delineamento em Blocos Completos Aleatorizados (DBCA)
+
+<p><a href="https://washingtonsilva.github.io/dbca/" target="_blank">Um tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R</a>.</p>
+
+
+

@@ -1,9 +1,25 @@
-# Advanced Chemistry
+
+# Graduate
+
+## Introdução à Ciência dos Dados
 
 Blah blah
 
+
+## Análise Multivariada
+
+Blah blah
+
+
 * * *
 
-# Advanced Physics
+# Undergraduate
 
-Don't forget to bring your lab coats
+## Análise Multivariada
+
+Blah blah
+
+
+## Introdução à Ciência dos Dados
+
+Blah blah

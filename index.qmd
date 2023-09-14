@@ -13,8 +13,7 @@ about:
 ---
 
 **Washington Santos da Silva** <br>
-Professor and Researcher at [Mestrado Profissional em Administração](https://www.formiga.ifmg.edu.br/mestrado). <br>
-[IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br), Minas Gerais, Brazil.
+Full Professor and Researcher at <a href = "https://www.formiga.ifmg.edu.br" target="_blank">IFMG - Campus Formiga</a>, Minas Gerais, Brazil.<br>
 
 :::: {.columns}
 
@@ -22,9 +21,9 @@ Professor and Researcher at [Mestrado Profissional em Administração](https://w
 
 <ul class="fa-ul">
 
-  <li><a href="http://lattes.cnpq.br/7319553236390710"><i class="fa-li ai ai-google-scholar" style="padding-top:4px;"></i>CV Lattes</a></li>
+  <li><a href="http://lattes.cnpq.br/7319553236390710" target="_blank"><i class="fa-li ai ai-google-scholar" style="padding-top:4px;"></i>CV Lattes</a></li>
 
-  <li><a href="https://orcid.org/0000-0003-2396-3507"><i class="fa-li ai ai-orcid" style="padding-top:4px;"></i>ORCID</a></li>
+  <li><a href="https://orcid.org/0000-0003-2396-3507" target="_blank"><i class="fa-li ai ai-orcid" style="padding-top:4px;"></i>ORCID</a></li>
   
 </ul>
 
@@ -34,9 +33,9 @@ Professor and Researcher at [Mestrado Profissional em Administração](https://w
 
 <ul class="fa-ul">
 
-  <li><a href="https://scholar.google.com.br/citations?hl=pt-BR&user=hRQ0bCIAAAAJ"><i class="fa-li ai ai-google-scholar" style="padding-top:4px;"></i>Google Scholar</a></li>
+  <li><a href="https://scholar.google.com.br/citations?hl=pt-BR&user=hRQ0bCIAAAAJ" target="_blank"><i class="fa-li ai ai-google-scholar" style="padding-top:4px;"></i>Google Scholar</a></li>
   
-  <li><a href="https://github.com/washingtonsilva"><i class="fa-li fa-brands fa-github"></i>GitHub</a></li>
+  <li><a href="https://github.com/washingtonsilva" target="_blank"><i class="fa-li fa-brands fa-github"></i>GitHub</a></li>
 
 </ul>
 

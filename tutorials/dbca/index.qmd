@@ -1,0 +1,10 @@
+---
+title: "Delineamento em Blocos Completos Aleatorizados (DBCA)"
+categories: [tutorial, code]
+description: |
+  Tutoriais.
+---
+
+
+Um tutorial sobre o delineamento em Blocos Completos e sua análise 
+utilizando a linguagem R.

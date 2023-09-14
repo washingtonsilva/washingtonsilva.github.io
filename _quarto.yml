@@ -8,20 +8,20 @@ website:
   title: "Washington S. da Silva"
   site-url: "https://mariecurie.com"
   navbar:
-    background: "#3b444b"
+    background: "#000000"
     left:
-      - href: blog/index.qmd
-        text: Blog
-      - href: projects/index.qmd
-        text: Projects
       - href: publications/index.qmd
         text: Publications
+      - href: blog/index.qmd
+        text: Blog
       - href: tutorials/index.qmd
         text: Tutorials
       - href: teaching/index.qmd
         text: Teaching
-      - href: talks/index.qmd
-        text: Talks
+      - href: projects/index.qmd
+        text: Projects
+#      - href: talks/index.qmd
+#        text: Talks
       - href: about/index.qmd
         text: About
   page-footer:
@@ -31,7 +31,7 @@ website:
         href: https://github.com/washingtonsilva
       - icon: linkedin
         href: https://www.linkedin.com/in/washingtonssilva/
-    background: "#3b444b"
+    background: "#000000"
 
 date-format: "D MMMM YYYY"
 
