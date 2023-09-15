@@ -8,7 +8,7 @@
 
 ## Delineamento em Blocos Completos Aleatorizados (DBCA)
 
-<p><a href="https://washingtonsilva.github.io/dbca/" target="_blank">Um tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R</a>.</p>
+<p><a href="https://washingtonsilva.github.io/dbca/" target="_blank">Um tutorial sobre o Delineamento em Blocos Completos Aleatorizados e sua análise utilizando a linguagem R</a>.</p>
 
 
 

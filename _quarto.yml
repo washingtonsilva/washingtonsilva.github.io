@@ -18,8 +18,8 @@ website:
         text: Tutorials
       - href: teaching/index.qmd
         text: Teaching
-      - href: projects/index.qmd
-        text: Projects
+#      - href: projects/index.qmd
+#        text: Projects
 #      - href: talks/index.qmd
 #        text: Talks
       - href: about/index.qmd

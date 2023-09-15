@@ -3,7 +3,8 @@ title: "Blog"
 lang: pt
 description: Pensamentos sobre pesquisa
 listing:
-  contents: .
+  contents: 
+    - p01
   sort: "date desc"
   type: default
   categories: false
