@@ -1,7 +1,7 @@
 ---
 title: " "
 description: |
-  Projetos nos quais estou trabalhando.
+  Projetos de PD&I em execução.
 listing:
   - id: ehr
     max-description-length: 500
@@ -9,7 +9,7 @@ listing:
     fields: [image, title, description]
     contents: 
       - projeto01
-      - projeto02
+      #- projeto02
     type: grid
     grid-item-border: false
 ---

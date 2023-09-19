@@ -1,8 +1,4 @@
 
-# Linguagem R/RStudio/Visual Studio Code
-
-*TO DO*
-
 
 # Estatística Experimental
 

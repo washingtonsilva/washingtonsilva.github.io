@@ -13,7 +13,7 @@ about:
 ---
 
 **Washington Santos da Silva** <br>
-Full Professor and Researcher at <a href = "https://www.formiga.ifmg.edu.br" target="_blank">IFMG - Campus Formiga</a>, Minas Gerais, Brazil.<br>
+Full Professor and Researcher at <a href = "https://www.formiga.ifmg.edu.br" target="_blank">IFMG - Campus Formiga</a>. Minas Gerais, Brazil.<br>
 
 :::: {.columns}
 

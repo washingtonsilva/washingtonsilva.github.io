@@ -14,12 +14,12 @@ website:
         text: Publications
       - href: blog/index.qmd
         text: Blog
-      - href: tutorials/index.qmd
-        text: Tutorials
       - href: teaching/index.qmd
         text: Teaching
-#      - href: projects/index.qmd
-#        text: Projects
+      - href: projects/index.qmd
+        text: Projects
+      - href: tutorials/index.qmd
+        text: Tutorials
 #      - href: talks/index.qmd
 #        text: Talks
       - href: about/index.qmd
