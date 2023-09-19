@@ -1,11 +1,11 @@
 ---
 lang: pt
 date: "2023-09-15"
-title: "My experiments"
+title: "Primeiro Post"
 categories:
   - R language
   - programming
 image: Rlogo.png
 ---
 
-I've been playing with uranium rays ...
+I've been...

@@ -1,7 +1,7 @@
 ---
 title: "Blog"
 lang: pt
-description: Pensamentos sobre pesquisa
+description: My Journey
 listing:
   contents: 
     - p01
