@@ -12,7 +12,7 @@ about:
       href: mailto:washington.silva@ifmg.edu.br
 ---
 
-**Washington Santos da Silva** <br>
+**Washington Santos da Silva, Phd.** <br>
 Full Professor and Researcher at <a href = "https://www.formiga.ifmg.edu.br" target="_blank">IFMG - Campus Formiga</a>. Minas Gerais, Brazil.<br>
 
 :::: {.columns}
