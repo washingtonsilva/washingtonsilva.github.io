@@ -11,7 +11,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Primeiro Post\n\n\n\n\n\n\n\n\n\n\n\n\n15 setembro 2023\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "15 setembro 2023\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "blog/p01/rprogramming.html",
@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Washington S. da Silva",
     "section": "",
-    "text": "Washington Santos da Silva  Full Professor and Researcher at IFMG - Campus Formiga. Minas Gerais, Brazil.\n\n\n\n\nCV Lattes\n\n\nORCID\n\n\n\n\n\nGoogle Scholar\n\n\nGitHub"
+    "text": "CV Lattes\n\n\nORCID\n\n\n\n\n\nGoogle Scholar\n\n\nGitHub"
   },
   {
     "objectID": "projects/index.html",
@@ -96,6 +96,13 @@
     "title": "Washington S. da Silva",
     "section": "",
     "text": "Um tutorial sobre o Delineamento em Blocos Completos Aleatorizados e sua análise utilizando a linguagem R."
+  },
+  {
+    "objectID": "Readme.html",
+    "href": "Readme.html",
+    "title": "Washington S. da Silva",
+    "section": "",
+    "text": "The page uses the template provided by Prof. Rob Hyndman."
   },
   {
     "objectID": "publications/anchoring_effect.html",
