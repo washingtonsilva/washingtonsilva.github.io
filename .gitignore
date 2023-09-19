@@ -3,6 +3,7 @@ _freeze/*
 *_cache/
 *_files/
 
+
 /.quarto/
 .Rproj.user
 
