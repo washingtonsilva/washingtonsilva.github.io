@@ -6,6 +6,7 @@ project:
     - "*.md"
 
 website:
+  google-analytics: "G-X7TV071MD7"
   title: "Washington S. da Silva"
   site-url: "https://mariecurie.com"
   navbar:
