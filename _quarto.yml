@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: docs
   render:
     - "*.qmd"
     - "*.md"
@@ -8,7 +7,7 @@ project:
 website:
   cookie-consent:
     type: express
-    style: simple
+    style: headline
     palette: dark
   google-analytics:
     tracking-id: "G-X7TV071MD7"
