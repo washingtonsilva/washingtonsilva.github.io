@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: docs
   render:
     - "*.qmd"
     - "*.md"
@@ -14,7 +13,7 @@ website:
     tracking-id: "G-X7TV071MD7"
     anonymize-ip: true
   title: "Washington S. da Silva"
-  site-url: "https://mariecurie.com"
+  site-url: "https://washingtonsilva.github.io"
   navbar:
     background: "#000000"
     left:
