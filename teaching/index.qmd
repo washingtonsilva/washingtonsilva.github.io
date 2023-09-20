@@ -1,21 +1,21 @@
 
 # Graduate
 
-## Introdução à Ciência dos Dados (*in Portuguese*)
+## Introdução à Ciência dos Dados (*portuguese*)
 
-## Econometria Aplicada à Finanças (*in Portuguese*)
+## Econometria Aplicada à Finanças (*portuguese*)
 
 
 * * *
 
 # Undergraduate
 
-## Introdução à Ciência dos Dados (*in Portuguese*)
+## Introdução à Ciência dos Dados (*portuguese*)
 
-## Métodos Quantitativos Aplicados à Administração (*in Portuguese*)
+## Métodos Quantitativos Aplicados à Administração (*portuguese*)
 
-## MMétodos Computacionais Aplicados à Administração (*in Portuguese*)
+## Métodos Computacionais Aplicados à Administração (*portuguese*)
 
-## Análise Multivariada (*in Portuguese*)
+## Análise Multivariada (*portuguese*)
 
 
