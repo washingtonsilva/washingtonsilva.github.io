@@ -6,7 +6,13 @@ project:
     - "*.md"
 
 website:
-  google-analytics: "G-X7TV071MD7"
+  cookie-consent:
+    type: express
+    style: headline
+    palette: dark
+  google-analytics:
+    tracking-id: "G-X7TV071MD7"
+    anonymize-ip: true
   title: "Washington S. da Silva"
   site-url: "https://mariecurie.com"
   navbar:
