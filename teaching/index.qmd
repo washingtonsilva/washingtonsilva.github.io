@@ -1,14 +1,16 @@
 
-# Graduate
+# Graduate Courses
 
 ## Introdução à Ciência dos Dados (*portuguese*)
 
 ## Econometria Aplicada à Finanças (*portuguese*)
 
+## Análise Multivariada (*portuguese*)
+
 
 * * *
 
-# Undergraduate
+# Undergraduate Courses
 
 ## Análise Multivariada (*portuguese*)
 
