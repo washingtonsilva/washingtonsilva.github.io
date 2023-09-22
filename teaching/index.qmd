@@ -10,12 +10,14 @@
 
 # Undergraduate
 
+## Análise Multivariada (*portuguese*)
+
 ## Introdução à Ciência dos Dados (*portuguese*)
 
 ## Métodos Quantitativos Aplicados à Administração (*portuguese*)
 
 ## Métodos Computacionais Aplicados à Administração (*portuguese*)
 
-## Análise Multivariada (*portuguese*)
+## Estatística (*portuguese*)
 
 
