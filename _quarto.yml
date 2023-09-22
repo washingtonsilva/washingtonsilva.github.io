@@ -44,7 +44,7 @@ date-format: "D MMMM YYYY"
 
 format:
   html:
-    theme: tango
+    theme: lux
     css: styles.css
     toc: true
     html-math-method: katex
