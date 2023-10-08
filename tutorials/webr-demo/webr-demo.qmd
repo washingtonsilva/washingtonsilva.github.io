@@ -1,0 +1,14 @@
+---
+title: "WebR Demo"
+filters: 
+ - webr
+---
+
+## Quarto WebR Extension
+
+Teste
+
+```{webr-r}
+1 + 1
+```
+
