@@ -3,8 +3,7 @@ lang: pt
 date: "2023-09-15"
 title: "Primeiro Post"
 categories:
-  - R language
-  - programming
+  - change
 image: paineira.jpg
 ---
 

@@ -2,6 +2,7 @@ _site/*
 _freeze/*
 *_cache/
 *_files/
+.DS_Store
 
 
 /.quarto/
