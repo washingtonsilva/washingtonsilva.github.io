@@ -1,5 +1,23 @@
 [
   {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/french_academy/french_academy_1901.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/projeto01/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/p01/rprogramming.html"
+    ]
+  },
+  {
     "listing": "/publications/index.html",
     "items": [
       "/publications/overconfidence.html",
@@ -14,24 +32,6 @@
       "/publications/time_speckle.html",
       "/publications/hedge.html",
       "/publications/arch.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/p01/rprogramming.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/projeto01/index.html"
-    ]
-  },
-  {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/french_academy/french_academy_1901.html"
     ]
   }
 ]
