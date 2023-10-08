@@ -4,7 +4,7 @@ date: "2023-09-15"
 title: "Primeiro Post"
 categories:
   - change
-image: eu-sjdr.jpg
+image: eu_sjdr.jpg
 ---
 
 I've been...
