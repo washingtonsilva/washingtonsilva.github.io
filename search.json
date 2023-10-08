@@ -53,7 +53,7 @@
     "href": "tutorials/index.html",
     "title": "Estatística Experimental",
     "section": "",
-    "text": "Um tutorial sobre o Delineamento em Blocos Completos Aleatorizados e sua análise utilizando a linguagem R."
+    "text": "Um tutorial sobre o Delineamento em Blocos Completos Aleatorizados e sua análise utilizando a linguagem R.\n\n\n\n\nTeste da Extensão"
   },
   {
     "objectID": "tutorials/index.html#delineamento-em-blocos-completos-aleatorizados-dbca",
@@ -61,6 +61,13 @@
     "title": "Estatística Experimental",
     "section": "",
     "text": "Um tutorial sobre o Delineamento em Blocos Completos Aleatorizados e sua análise utilizando a linguagem R."
+  },
+  {
+    "objectID": "tutorials/index.html#webr-quarto-extension",
+    "href": "tutorials/index.html#webr-quarto-extension",
+    "title": "Estatística Experimental",
+    "section": "",
+    "text": "Teste da Extensão"
   },
   {
     "objectID": "teaching/index.html#análise-multivariada-portuguese-1",
