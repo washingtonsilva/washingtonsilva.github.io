@@ -6,8 +6,5 @@
 
 <p><a href="https://washingtonsilva.github.io/dbca/" target="_blank">Um tutorial sobre o Delineamento em Blocos Completos Aleatorizados e sua análise utilizando a linguagem R</a>.</p>
 
-## WebR Quarto Extension 
-
-[Teste da Extensão](tutorials/webr-demo/webr-demo.qmd)
 
 
