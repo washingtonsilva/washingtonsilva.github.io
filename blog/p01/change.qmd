@@ -1,0 +1,11 @@
+---
+lang: pt
+date: "2023-09-15"
+title: "Primeiro Post"
+categories:
+  - R language
+  - programming
+image: paineira.jpg
+---
+
+I've been...
