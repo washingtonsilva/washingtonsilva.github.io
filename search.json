@@ -53,7 +53,7 @@
     "href": "tutorials/index.html",
     "title": "Washington S. da Silva",
     "section": "",
-    "text": "Workflows Orientados a Projetos\n\n\n\n\n\nUm tutorial sobre boas práticas para a estruturação de projetos de análise de dados. \n\n\n\n\n\n23 janeiro 2024\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "Workflows Orientados a Projetos\n\n\n\n\n\nUm tutorial sobre boas práticas para a estruturação de projetos de análise de dados. \n\n\n\n\n\n29 janeiro 2024\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese-1",
@@ -151,7 +151,21 @@
     "href": "blog/p01/primeiro_post.html",
     "title": "Primeiro Post",
     "section": "",
-    "text": "Testando incorporar a fantástica webR Extension for Quarto\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Testando incorporar a fantástica webR Extension for Quarto"
+  },
+  {
+    "objectID": "blog/p01/primeiro_post.html#dplyr",
+    "href": "blog/p01/primeiro_post.html#dplyr",
+    "title": "Primeiro Post",
+    "section": "dplyr",
+    "text": "dplyr\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "blog/p01/primeiro_post.html#ggplot2",
+    "href": "blog/p01/primeiro_post.html#ggplot2",
+    "title": "Primeiro Post",
+    "section": "ggplot2",
+    "text": "ggplot2\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "projects/index.html",
