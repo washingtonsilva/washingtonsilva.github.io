@@ -7,8 +7,21 @@
     ]
   },
   {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/projeto01/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/p01/primeiro_post.html"
+    ]
+  },
+  {
     "listing": "/publications/index.html",
     "items": [
+      "/publications/portfolio_svm.html",
       "/publications/overconfidence.html",
       "/publications/premio_voto.html",
       "/publications/heavy_metals.html",
@@ -21,18 +34,6 @@
       "/publications/time_speckle.html",
       "/publications/hedge.html",
       "/publications/arch.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/p01/primeiro_post.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/projeto01/index.html"
     ]
   },
   {
