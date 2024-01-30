@@ -53,7 +53,7 @@
     "href": "tutorials/index.html",
     "title": "Washington S. da Silva",
     "section": "",
-    "text": "Workflows Orientados a Projetos\n\n\n\n\n\nUm tutorial sobre boas práticas para a estruturação de projetos de análise de dados. \n\n\n\n\n\n29 janeiro 2024\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "Introdução à Linguagem R\n\n\n\n\n\nUm tutorial sobre a linguagem R. \n\n\n\n\n\n29 janeiro 2024\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese-1",
@@ -266,9 +266,23 @@
     "text": "Referências\n\n\nCASELLA, G. Statistical Design. [s.l.] Springer, 2008.\n\n\nCOHEN, J. Statistical power analysis for the behavioral sciences. 2. ed. [s.l.] Routledge, 1988.\n\n\nCOOPER, H. Reporting quantitative research in psychology: How to meet APA style journal article reporting standards. [s.l.] American Psychological Association, 2018.\n\n\nFERGUSON, C. J. Methodological issues and strategies in clinical research. Em: KAZDIN, A. E. (Ed.). [s.l.] American Psychological Association, [s.d.].\n\n\nFRITZ, C. O.; MORRIS, P. E.; RICHLER, J. J. Effect size estimates: current use, calculations, and interpretation. Journal of Experimental Psychology: General, v. 141, n. 1, p. 2, 2012.\n\n\nHUMMEL, D.; MAEDCHE, A. How effective is nudging? A quantitative review on the effect sizes and limits of empirical nudging studies. Journal of Behavioral and Experimental Economics, v. 80, p. 47–58, 2019.\n\n\nMEIER, L. ANOVA and Mixed Models: A Short Introduction Using R. [s.l.] CRC Press, 2022.\n\n\nMONTGOMERY, D. C. Design and Analysis of Experiments. 5. ed. [s.l.] John Wiley & sons, 2001."
   },
   {
+    "objectID": "tutorials/project_workflows/index.html",
+    "href": "tutorials/project_workflows/index.html",
+    "title": "Introdução à Linguagem R",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "tutorials/project_workflows/index.html#introdução",
+    "href": "tutorials/project_workflows/index.html#introdução",
+    "title": "Introdução à Linguagem R",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
     "objectID": "tutorials/project_workflows/index.html#referências",
     "href": "tutorials/project_workflows/index.html#referências",
-    "title": "Workflows Orientados a Projetos",
+    "title": "Introdução à Linguagem R",
     "section": "Referências",
     "text": "Referências"
   },
