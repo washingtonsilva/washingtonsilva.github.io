@@ -160,8 +160,8 @@ a.badge.badge-green {
 }
 
 .badge-large {
-  font-size: 18px !important;
-  text-transform: none !important;
+  font-size: 18px;
+  text-transform: none;
   padding: 5px 5px 3px 5px;
   text-transform: none;
   font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
