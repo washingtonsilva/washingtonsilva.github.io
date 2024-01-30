@@ -3,7 +3,7 @@
 body {
   text-align: justify;
   font-family: 'Merriweather', Georgia, 'Times New Roman', Times, Serif;
-  font-size: 0.85em;
+  font-size: 0.90em;
   line-height: 1.5em;
   background-color: #faf8f8;
 }
@@ -94,7 +94,7 @@ blockquote:before {
 }
 
 .table {
-  --bs-table-bg: @faf8f8 !important;
+  --bs-table-bg: !important;
 }
 
 td, th {
@@ -118,13 +118,14 @@ dd {
 
 /* =Code
 -----------------------------------------------------------------------------*/
+
 pre,
 code,
 kbd,
 samp,
 var,
 output {
-  font-size: 100%;
+  font-size: 120%;
   font-style: normal;
   font-family: 'Source Code Pro', "Lucida Console", "Courier New", monospace;
 }
@@ -142,6 +143,7 @@ a.nav-link,a.navbar-brand {
 a.nav-link:hover,a.navbar-brand:hover {
   color: #efce14;
 }
+
 
 /* Badges */
 
