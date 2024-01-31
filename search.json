@@ -53,7 +53,7 @@
     "href": "tutorials/index.html",
     "title": "Washington S. da Silva",
     "section": "",
-    "text": "Introdução à Linguagem R\n\n\n\n\n\nUm tutorial sobre a linguagem R. \n\n\n\n\n\n30 janeiro 2024\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "Introdução à Linguagem R\n\n\n\n\n\nUm tutorial sobre a linguagem R. \n\n\n\n\n\n30 janeiro 2024\n\n\nWashington Santos da Silva, Lelis Pedro de Andrade\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese-1",
@@ -287,25 +287,39 @@
     "text": "Referências\n\n\nCASELLA, G. Statistical Design. [s.l.] Springer, 2008.\n\n\nCOHEN, J. Statistical power analysis for the behavioral sciences. 2. ed. [s.l.] Routledge, 1988.\n\n\nCOOPER, H. Reporting quantitative research in psychology: How to meet APA style journal article reporting standards. [s.l.] American Psychological Association, 2018.\n\n\nFERGUSON, C. J. Methodological issues and strategies in clinical research. Em: KAZDIN, A. E. (Ed.). [s.l.] American Psychological Association, [s.d.].\n\n\nFRITZ, C. O.; MORRIS, P. E.; RICHLER, J. J. Effect size estimates: current use, calculations, and interpretation. Journal of Experimental Psychology: General, v. 141, n. 1, p. 2, 2012.\n\n\nHUMMEL, D.; MAEDCHE, A. How effective is nudging? A quantitative review on the effect sizes and limits of empirical nudging studies. Journal of Behavioral and Experimental Economics, v. 80, p. 47–58, 2019.\n\n\nMEIER, L. ANOVA and Mixed Models: A Short Introduction Using R. [s.l.] CRC Press, 2022.\n\n\nMONTGOMERY, D. C. Design and Analysis of Experiments. 5. ed. [s.l.] John Wiley & sons, 2001."
   },
   {
-    "objectID": "tutorials/introR/index.html",
-    "href": "tutorials/introR/index.html",
+    "objectID": "tutorials/introR/index.html#filosofia-da-linguagem-s-por-john-chambers",
+    "href": "tutorials/introR/index.html#filosofia-da-linguagem-s-por-john-chambers",
     "title": "Introdução à Linguagem R",
-    "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page."
+    "section": "Filosofia da Linguagem S por John Chambers",
+    "text": "Filosofia da Linguagem S por John Chambers\n\n\nQueríamos que os usuários fossem capazes de começar em um ambiente interativo, onde não pensassem conscientemente como programadores. Então, com suas necessidades tornando-se mais claras e sua sofisticação aumentando, eles deveriam ser capazes de tornarem-se gradualmente programadores, quando os aspectos da linguagem e do sistema tornariam-se mais importantes.\n\n\n(tradução livre)"
   },
   {
-    "objectID": "tutorials/introR/index.html#introdução",
-    "href": "tutorials/introR/index.html#introdução",
+    "objectID": "tutorials/introR/index.html#histórico-da-linguagem-r",
+    "href": "tutorials/introR/index.html#histórico-da-linguagem-r",
     "title": "Introdução à Linguagem R",
-    "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page."
+    "section": "Histórico da linguagem R",
+    "text": "Histórico da linguagem R\n\n1991: R é criada na Nova Zelândia por Ross Ihaka e Robert Gentleman.\n1993: Primeiro anúnico do R ao Público.\n1995: Martin Machler convence Ross e Robert a usarem a licença GNU para tornar R um software Livre.\n1997: The R Core Group é criado. Este grupo controla o código fonte da linguagem.\n2000: A versão R 1.0.0 é lançada.\n2023: R version 4.3.2 é lançada."
   },
   {
-    "objectID": "tutorials/introR/index.html#referências",
-    "href": "tutorials/introR/index.html#referências",
+    "objectID": "tutorials/introR/index.html#tipos-principais",
+    "href": "tutorials/introR/index.html#tipos-principais",
     "title": "Introdução à Linguagem R",
-    "section": "Referências",
-    "text": "Referências"
+    "section": "Tipos Principais",
+    "text": "Tipos Principais\n\n\n\n\n\n\n\n\n\ntypeof\nmode\nstorage.mode\ndescrição\n\n\n\n\ndouble\nnumeric\ndouble\nvetor contendo valores reais\n\n\ninteger\nnumeric\ninteger\nvetor contendo valores inteiros\n\n\ncharacter\ncharacter\ncharacter\nvetor contendo caracteres/strings\n\n\nlogical\nlogical\nlogical\nvetor contendo valores lógicos\n\n\ncomplex\ncomplex\ncomplex\nvetor contendo valores complexos\n\n\nraw\nraw\nraw\nutilizado para representar bytes brutos"
+  },
+  {
+    "objectID": "tutorials/introR/index.html#tipos-especiais",
+    "href": "tutorials/introR/index.html#tipos-especiais",
+    "title": "Introdução à Linguagem R",
+    "section": "Tipos Especiais",
+    "text": "Tipos Especiais\n\n\n\n\nDescrição\n\n\n\n\nNA\nNot Available: representa dados faltantes\n\n\nNaN\nNot a Number: 0/0, Inf - Inf\n\n\nInf\n+ \\infty ou - \\infty"
+  },
+  {
+    "objectID": "tutorials/introR/index.html#vetores",
+    "href": "tutorials/introR/index.html#vetores",
+    "title": "Introdução à Linguagem R",
+    "section": "Vetores",
+    "text": "Vetores"
   },
   {
     "objectID": "publications/anchoring_effect.html",
