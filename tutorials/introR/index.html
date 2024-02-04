@@ -27,6 +27,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 1em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -221,16 +222,8 @@ window.Quarto = {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#a-linguagem-r" id="toc-a-linguagem-r" class="nav-link active" data-scroll-target="#a-linguagem-r">A Linguagem R</a>
-  <ul class="collapse">
-  <li><a href="#filosofia-da-linguagem-s-por-john-chambers" id="toc-filosofia-da-linguagem-s-por-john-chambers" class="nav-link" data-scroll-target="#filosofia-da-linguagem-s-por-john-chambers">Filosofia da Linguagem S por John Chambers</a></li>
-  <li><a href="#histórico-da-linguagem-r" id="toc-histórico-da-linguagem-r" class="nav-link" data-scroll-target="#histórico-da-linguagem-r">Histórico da linguagem R</a></li>
-  </ul></li>
-  <li><a href="#tipos-básicos-de-dados" id="toc-tipos-básicos-de-dados" class="nav-link" data-scroll-target="#tipos-básicos-de-dados">Tipos Básicos de Dados</a>
-  <ul class="collapse">
-  <li><a href="#tipos-principais" id="toc-tipos-principais" class="nav-link" data-scroll-target="#tipos-principais">Tipos Principais</a></li>
-  <li><a href="#tipos-especiais" id="toc-tipos-especiais" class="nav-link" data-scroll-target="#tipos-especiais">Tipos Especiais</a></li>
-  </ul></li>
+  <li><a href="#a-linguagem-r" id="toc-a-linguagem-r" class="nav-link active" data-scroll-target="#a-linguagem-r">A Linguagem R</a></li>
+  <li><a href="#tipos-básicos-de-dados" id="toc-tipos-básicos-de-dados" class="nav-link" data-scroll-target="#tipos-básicos-de-dados">Tipos Básicos de Dados</a></li>
   <li><a href="#estrurutas-de-dados" id="toc-estrurutas-de-dados" class="nav-link" data-scroll-target="#estrurutas-de-dados">Estrurutas de Dados</a>
   <ul class="collapse">
   <li><a href="#vetores" id="toc-vetores" class="nav-link" data-scroll-target="#vetores">Vetores</a></li>
@@ -285,7 +278,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">30 janeiro 2024</p>
+      <p class="date">3 fevereiro 2024</p>
     </div>
   </div>
   
@@ -304,39 +297,36 @@ window.Quarto = {
 </div>
 <section id="a-linguagem-r" class="level1">
 <h1>A Linguagem R</h1>
+<p>R é uma linguagem de programação, interpretada e livre. Conforme <span class="citation" data-cites="Rmanual">VENABLES; SMITH; R CORE TEAM (<a href="#ref-Rmanual" role="doc-biblioref">2023</a>)</span>, a linguagem R pode ser considerada uma implementação da linguagem S, que foi desenvolvida nos Laboratórios Bell por Rick Becker, John Chambers e Allan Wilks, e que também serviu como base para os sistemas S-PLUS.</p>
+<p>A linguagem S foi iniciada em 1976 como uma linguagem para análise estatística originalmente implementada como um conjunto de bibliotecas Fortran. O objetivo da linguagem S, conforme expresso por John Chambers, era “traduzir ideias em software, de forma rápida e fiel”.</p>
+<p>A evolução da linguagem S é caracterizada por três livros de John Chambers e coautores. Para R, a referência básica é <span class="citation" data-cites="blue">BECKER; CHAMBERS; WILKS (<a href="#ref-blue" role="doc-biblioref">1988</a>)</span>. As novas características da versão de 1991 da linguagem S são abordadas em <span class="citation" data-cites="white">CHAMBERS; HASTIE (<a href="#ref-white" role="doc-biblioref">1992</a>)</span>. Os métodos e classes formais do pacote <em>methods</em> são baseados em <span class="citation" data-cites="green">CHAMBERS (<a href="#ref-green" role="doc-biblioref">1998</a>)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Histórico da linguagem R
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>R é uma <strong>linguagem de programação</strong>, <strong>interpretada</strong> e <strong>livre</strong>.</p></li>
-<li><p>R é um dialeto da linguagem <strong>S</strong>.</p></li>
-<li><p>S é uma linguagem que foi desenvolvida por John Chambers e equipe no lendário <em>Bell Labs</em>.</p></li>
-<li><p>S foi iniciada em 1976 como uma linguagem para análise estatística originalmente implementada como um conjunto de bibliotecas Fortran.</p></li>
-<li><p>Em 1988, a linguagem foi reescrita em C e começou a se parecer com o sistema que temos hoje (S3).</p></li>
-<li><p>A versão 4 (S4) da linguagem S foi lançada em 1998 e é a versão que nós usamos hoje.</p></li>
-<li><p>Em 1998, John Chambers ganhou o <em>Association for Computing Machinery’s Software System Award</em> pela linguagem S.</p></li>
-</ul>
-<section id="filosofia-da-linguagem-s-por-john-chambers" class="level2">
-<h2 class="anchored" data-anchor-id="filosofia-da-linguagem-s-por-john-chambers">Filosofia da Linguagem S por John Chambers</h2>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p><em>Queríamos que os usuários fossem capazes de começar em um ambiente interativo, onde não pensassem conscientemente como programadores. Então, com suas necessidades tornando-se mais claras e sua sofisticação aumentando, eles deveriam ser capazes de tornarem-se gradualmente programadores, quando os aspectos da linguagem e do sistema tornariam-se mais importantes</em>.</p>
-</blockquote>
-</blockquote>
-<p>(tradução livre)</p>
-</section>
-<section id="histórico-da-linguagem-r" class="level2">
-<h2 class="anchored" data-anchor-id="histórico-da-linguagem-r">Histórico da linguagem R</h2>
-<ul>
-<li><p>1991: R é criada na Nova Zelândia por Ross Ihaka e Robert Gentleman.</p></li>
-<li><p>1993: Primeiro anúnico do R ao Público.</p></li>
+<li><p>1976: A linguagem S é iniciada como uma linguagem para análise estatística originalmente implementada como um conjunto de bibliotecas Fortran.</p></li>
+<li><p>1988: a linguagem S é reescrita em C e começa a se parecer com o sistema atual (S3).</p></li>
+<li><p>1991: A linguagem R é criada na Nova Zelândia por Ross Ihaka e Robert Gentleman.</p></li>
+<li><p>1993: Primeiro anúnico da linguagem R ao Público.</p></li>
 <li><p>1995: Martin Machler convence Ross e Robert a usarem a licença GNU para tornar R um software Livre.</p></li>
 <li><p>1997: The <em>R Core Group</em> é criado. Este grupo controla o código fonte da linguagem.</p></li>
+<li><p>1998: A versão 4 (S4) da linguagem S foi lançada, esta é a versão que usada atualmente hoje. John Chambers recebe o <em>Association for Computing Machinery’s Software System Award</em> pela linguagem S.</p></li>
 <li><p>2000: A versão R 1.0.0 é lançada.</p></li>
 <li><p>2023: R version 4.3.2 é lançada.</p></li>
 </ul>
-</section>
+</div>
+</div>
 </section>
 <section id="tipos-básicos-de-dados" class="level1">
 <h1>Tipos Básicos de Dados</h1>
-<p>R tem cincto tipos vetoriais básicos (‘atômicos’):</p>
+<p>R tem seis tipos vetoriais básicos (também chamados de tipos ‘atômicos’):</p>
 <ul>
 <li><code>logical</code></li>
 <li><code>integer</code></li>
@@ -346,89 +336,115 @@ window.Quarto = {
 <li><code>raw</code></li>
 </ul>
 <p>Os tipos (<code>typeof</code>), modos (<code>mode</code>) e modos de armazenamento (<code>storage.mode</code>) para os diferentes tipos de vetores estão listados na tabela a seguir.</p>
-<p>Números únicos, como 4.2, e strings, como “quatro pontos dois” ainda são vetores, de tamanho 1, ou seja, na linguagem R não existe um tipo escalar. Vetores com tamanho zero são possíveis (e úteis).</p>
-<section id="tipos-principais" class="level2">
-<h2 class="anchored" data-anchor-id="tipos-principais">Tipos Principais</h2>
-<table class="table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 17%">
-<col style="width: 50%">
-</colgroup>
+<div class="cell">
+<div id="tbl-01" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1<strong>.</strong> Tipos Vetoriais Básicos
+</figcaption>
+<div aria-describedby="tbl-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">typeof</th>
 <th style="text-align: left;">mode</th>
-<th style="text-align: left;">storage.mode</th>
-<th style="text-align: left;">descrição</th>
+<th style="text-align: left;">storage_mode</th>
+<th style="text-align: left;">descricao</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>double</code></td>
-<td style="text-align: left;"><code>numeric</code></td>
-<td style="text-align: left;"><code>double</code></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">double</td>
 <td style="text-align: left;">vetor contendo valores reais</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>integer</code></td>
-<td style="text-align: left;"><code>numeric</code></td>
-<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">integer</td>
 <td style="text-align: left;">vetor contendo valores inteiros</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>character</code></td>
-<td style="text-align: left;"><code>character</code></td>
-<td style="text-align: left;"><code>character</code></td>
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">character</td>
 <td style="text-align: left;">vetor contendo caracteres/strings</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>logical</code></td>
-<td style="text-align: left;"><code>logical</code></td>
-<td style="text-align: left;"><code>logical</code></td>
+<td style="text-align: left;">logical</td>
+<td style="text-align: left;">logical</td>
+<td style="text-align: left;">logical</td>
 <td style="text-align: left;">vetor contendo valores lógicos</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>complex</code></td>
-<td style="text-align: left;"><code>complex</code></td>
-<td style="text-align: left;"><code>complex</code></td>
+<td style="text-align: left;">complex</td>
+<td style="text-align: left;">complex</td>
+<td style="text-align: left;">complex</td>
 <td style="text-align: left;">vetor contendo valores complexos</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>raw</code></td>
-<td style="text-align: left;"><code>raw</code></td>
-<td style="text-align: left;"><code>raw</code></td>
-<td style="text-align: left;">utilizado para representar bytes brutos</td>
+<td style="text-align: left;">raw</td>
+<td style="text-align: left;">raw</td>
+<td style="text-align: left;">raw</td>
+<td style="text-align: left;">utilizado para representar bytes</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="tipos-especiais" class="level2">
-<h2 class="anchored" data-anchor-id="tipos-especiais">Tipos Especiais</h2>
-<table class="table">
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-02" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;2<strong>.</strong> Tipos Especiais
+</figcaption>
+<div aria-describedby="tbl-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th></th>
-<th style="text-align: left;">Descrição</th>
+<th style="text-align: left;">typeof</th>
+<th style="text-align: left;">descricao</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>NA</code></td>
-<td style="text-align: left;"><code>Not Available</code>: representa dados faltantes</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Not Available: representa dados faltantes</td>
 </tr>
 <tr class="even">
-<td><code>NaN</code></td>
-<td style="text-align: left;"><code>Not a Number</code>: 0/0, Inf - Inf</td>
+<td style="text-align: left;">NaN</td>
+<td style="text-align: left;">Not a Number: 0/0, Inf - Inf</td>
 </tr>
 <tr class="odd">
-<td><code>Inf</code></td>
+<td style="text-align: left;">Inf</td>
 <td style="text-align: left;"><span class="math inline">+ \infty</span> ou <span class="math inline">- \infty</span></td>
 </tr>
 </tbody>
 </table>
-</section>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R não possui um tipo escalar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Números únicos, como 4.2, e strings, como “quatro pontos dois” ainda são vetores, de tamanho 1, ou seja, na linguagem R não existe um tipo escalar. Vetores com tamanho zero são possíveis (e úteis).</p>
+</div>
+</div>
 </section>
 <section id="estrurutas-de-dados" class="level1">
 <h1>Estrurutas de Dados</h1>
@@ -438,8 +454,19 @@ window.Quarto = {
 </section>
 <section id="referências" class="level1">
 <h1>Referências</h1>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list">
+<div id="ref-blue" class="csl-entry" role="listitem">
+BECKER, R. A.; CHAMBERS, J. M.; WILKS, A. R. <strong>The New S Language</strong>. New York: Chapman &amp; Hall, 1988.
+</div>
+<div id="ref-green" class="csl-entry" role="listitem">
+CHAMBERS, J. M. <strong>Programming with Data.</strong> New York: Springer, 1998.
+</div>
+<div id="ref-white" class="csl-entry" role="listitem">
+CHAMBERS, J. M.; HASTIE, T. J. (EDS.). <strong>Statistical Models in S</strong>. New York: Chapman &amp; Hall, 1992.
+</div>
+<div id="ref-Rmanual" class="csl-entry" role="listitem">
+VENABLES, W. N.; SMITH, D. M.; R CORE TEAM, THE. <strong><a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">An Introduction to R</a></strong>. Vienna, Austria: R Foundation for Statistical Computing, 2023.
+</div>
 </div>
 
 
@@ -448,7 +475,7 @@ window.Quarto = {
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citação</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{santos da silva2024,
   author = {Santos da Silva, Washington and Pedro de Andrade, Lelis},
   title = {Introdução à Linguagem R},
-  date = {2024-01-30},
+  date = {2024-02-03},
   url = {https://washingtonsilva.github.io/tutorials/introR/},
   langid = {pt}
 }
