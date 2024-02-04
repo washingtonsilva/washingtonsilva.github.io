@@ -53,7 +53,7 @@
     "href": "tutorials/index.html",
     "title": "Washington S. da Silva",
     "section": "",
-    "text": "Introdução à Linguagem R\n\n\n\n\n\nUm tutorial sobre a linguagem R. \n\n\n\n\n\n3 fevereiro 2024\n\n\nWashington Santos da Silva, Lelis Pedro de Andrade\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "Linguagem R: Um Tutorial Interativo\n\n\n\n\n\nUm tutorial sobre a linguagem R. \n\n\n\n\n\n4 fevereiro 2024\n\n\nWashington Santos da Silva, Lelis Pedro de Andrade\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese-1",
@@ -289,9 +289,9 @@
   {
     "objectID": "tutorials/introR/index.html#vetores",
     "href": "tutorials/introR/index.html#vetores",
-    "title": "Introdução à Linguagem R",
-    "section": "Vetores",
-    "text": "Vetores"
+    "title": "Linguagem R: Um Tutorial Interativo",
+    "section": "4.1 Vetores",
+    "text": "4.1 Vetores"
   },
   {
     "objectID": "publications/anchoring_effect.html",
