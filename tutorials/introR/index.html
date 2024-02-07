@@ -225,7 +225,7 @@ window.Quarto = {
   <ul>
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
   <li><a href="#a-linguagem-r" id="toc-a-linguagem-r" class="nav-link" data-scroll-target="#a-linguagem-r"><span class="header-section-number">2</span> A Linguagem R</a></li>
-  <li><a href="#tipos-básicos-de-dados" id="toc-tipos-básicos-de-dados" class="nav-link" data-scroll-target="#tipos-básicos-de-dados"><span class="header-section-number">3</span> Tipos Básicos de Dados</a></li>
+  <li><a href="#tipos-primitivos-de-dados" id="toc-tipos-primitivos-de-dados" class="nav-link" data-scroll-target="#tipos-primitivos-de-dados"><span class="header-section-number">3</span> Tipos Primitivos de Dados</a></li>
   <li><a href="#estrurutas-de-dados" id="toc-estrurutas-de-dados" class="nav-link" data-scroll-target="#estrurutas-de-dados"><span class="header-section-number">4</span> Estrurutas de Dados</a>
   <ul class="collapse">
   <li><a href="#vetores" id="toc-vetores" class="nav-link" data-scroll-target="#vetores"><span class="header-section-number">4.1</span> Vetores</a></li>
@@ -280,7 +280,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4 fevereiro 2024</p>
+      <p class="date">7 fevereiro 2024</p>
     </div>
   </div>
   
@@ -300,8 +300,7 @@ window.Quarto = {
 <section id="introdução" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
 <p>Bem-vindo a Linguagem R: Um Tutorial Interativo, um guia para estudantes e profissionais das áreas administração, economia e contabilidade sobre o que é programação, por que é útil e como fazê-la usando a linguagem R.</p>
-<p>O tutorial tem como objetivo dar a você as habilidades necessárias para programar com o ojetivo de resolver problemas da área de adminstração e das ciências sociais aplicadas em geral, ao mesmo tempo em que fornece dicas e truques sobre programação de forma mais geral e que podem ser úteis.</p>
-<p>Se você é um iniciante completo em programação, projetamos os primeiras seções para ajudá-lo a começar do zero. Mas se você já se envolveu antes, ou mesmo se é um programador com alguma experiência, é provável que haja material relevante para você também.</p>
+<p>O tutorial tem como objetivo dar a você as habilidades necessárias para programar com o ojetivo de resolver problemas da área de adminstração e das ciências sociais aplicadas em geral.</p>
 </section>
 <section id="a-linguagem-r" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> A Linguagem R</h1>
@@ -338,9 +337,9 @@ Histórico da linguagem R
 </div>
 </div>
 </section>
-<section id="tipos-básicos-de-dados" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Tipos Básicos de Dados</h1>
-<p>R tem seis tipos vetoriais básicos (também chamados de tipos ‘atômicos’):</p>
+<section id="tipos-primitivos-de-dados" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Tipos Primitivos de Dados</h1>
+<p>R tem seis tipos vetoriais primitivos (também chamados de tipos ‘atômicos’):</p>
 <ul>
 <li><code>logical</code></li>
 <li><code>integer</code></li>
@@ -349,7 +348,7 @@ Histórico da linguagem R
 <li><code>character</code> (em C também conhecido como ‘string’) e</li>
 <li><code>raw</code></li>
 </ul>
-<p>Os tipos (<code>typeof</code>), modos (<code>mode</code>) e modos de armazenamento (<code>storage.mode</code>) para os diferentes tipos de vetores estão listados na <a href="#tbl-01" class="quarto-xref">Tabela&nbsp;1</a>.</p>
+<p>Os seis tipos primitivos estão detalhados na <a href="#tbl-01" class="quarto-xref">Tabela&nbsp;1</a>.</p>
 <div class="cell">
 <div id="tbl-01" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -362,45 +361,31 @@ Tabela&nbsp;1<strong>.</strong> Tipos Vetoriais Básicos
 <thead>
 <tr class="header">
 <th style="text-align: left;">typeof</th>
-<th style="text-align: left;">mode</th>
-<th style="text-align: left;">storage_mode</th>
 <th style="text-align: left;">descricao</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">double</td>
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">double</td>
 <td style="text-align: left;">vetor contendo valores reais</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">integer</td>
-<td style="text-align: left;">numeric</td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">vetor contendo valores inteiros</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">character</td>
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">character</td>
 <td style="text-align: left;">vetor contendo caracteres/strings</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">logical</td>
-<td style="text-align: left;">logical</td>
 <td style="text-align: left;">logical</td>
 <td style="text-align: left;">vetor contendo valores lógicos</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">complex</td>
-<td style="text-align: left;">complex</td>
-<td style="text-align: left;">complex</td>
 <td style="text-align: left;">vetor contendo valores complexos</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">raw</td>
-<td style="text-align: left;">raw</td>
 <td style="text-align: left;">raw</td>
 <td style="text-align: left;">utilizado para representar bytes</td>
 </tr>
@@ -411,7 +396,7 @@ Tabela&nbsp;1<strong>.</strong> Tipos Vetoriais Básicos
 </figure>
 </div>
 </div>
-<p>Os tipos vetoriais especiais estão descritos na <a href="#tbl-02" class="quarto-xref">Tabela&nbsp;2</a>.</p>
+<p>A linguagem R possui ainda tipos vetoriais especiais, descritos na <a href="#tbl-02" class="quarto-xref">Tabela&nbsp;2</a>.</p>
 <div class="cell">
 <div id="tbl-02" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -490,7 +475,7 @@ VENABLES, W. N.; SMITH, D. M.; R CORE TEAM, THE. <strong><a href="https://cran.r
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citação</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{santos da silva2024,
   author = {Santos da Silva, Washington and Pedro de Andrade, Lelis},
   title = {Linguagem R: Um Tutorial Interativo},
-  date = {2024-02-04},
+  date = {2024-02-07},
   url = {https://washingtonsilva.github.io/tutorials/introR/},
   langid = {pt}
 }
