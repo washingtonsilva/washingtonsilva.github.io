@@ -41,5 +41,11 @@
     "items": [
       "/talks/french_academy/french_academy_1901.html"
     ]
+  },
+  {
+    "listing": "/techreports/index.html",
+    "items": [
+      "/techreports/relatorio_ifs/index.html"
+    ]
   }
 ]
