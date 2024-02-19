@@ -95,16 +95,16 @@ blockquote:before {
 }
 
 .table {
-  --bs-table-bg: !important;
+  --bs-table-bg:;
 }
 
 td, th {
-  background-color: #faf8f8 !important;
+  background-color: #faf8f8;
 }
 
 table th,
 table td {
-  border-bottom: 0px !important;
+  border-bottom: 0px;
   padding: 0.2em .2em;
 }
 
@@ -208,7 +208,7 @@ a.badge.badge-green {
 .badge-blue,
 .badge-red,
 .badge-green {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .label-black,
@@ -259,10 +259,10 @@ a.badge.badge-green {
 }
 
 .quarto-title-meta-heading {
-  margin: 1ex 1ex 0 1ex !important;
+  margin: 1ex 1ex 0 1ex;
 }
 .quarto-title-meta-contents {
-  margin: 0ex 1ex 1ex 1ex !important;
+  margin: 0ex 1ex 1ex 1ex;
 }
 
 
@@ -285,7 +285,7 @@ a.badge.badge-green {
 }
 
 .quarto-listing-category.category-cloud {
-  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .figure-caption {
@@ -303,7 +303,7 @@ div.quarto-about-trestles .about-entity .about-link:hover {
 
 .quarto-category:hover, .listing-category:hover {
   background-color: #36454f;
-  color: #ebebeb !important;
+  color: #ebebeb;
   opacity: .6;
 }
 
@@ -312,5 +312,5 @@ div.quarto-about-trestles .about-entity .about-link:hover {
 }
 
 #mlb2-4240669.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody, #mlb2-4240669.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-  padding: 0px !important;
+  padding: 0px;
 }
