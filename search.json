@@ -53,7 +53,7 @@
     "href": "tutorials/index.html",
     "title": "Washington S. da Silva",
     "section": "",
-    "text": "Linguagem R: Um Tutorial Interativo\n\n\n\n\n\nUm tutorial sobre a linguagem R. \n\n\n\n\n\n19 fevereiro 2024\n\n\nWashington Santos da Silva, Lelis Pedro de Andrade\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "Linguagem R: Um Tutorial Interativo\n\n\n\n\n\nUm tutorial sobre a linguagem R. \n\n\n\n\n\n20 fevereiro 2024\n\n\nWashington Santos da Silva, Lelis Pedro de Andrade\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n5 janeiro 2023\n\n\nProf. Washington S. da Silva\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "techreports/relatorio_ifs/index.html",
@@ -170,23 +170,30 @@
   {
     "objectID": "blog/p01/primeiro_post.html",
     "href": "blog/p01/primeiro_post.html",
-    "title": "Primeiro Post",
+    "title": "Mudança Profissional em Tempos de Disrupção",
     "section": "",
-    "text": "Testando incorporar a fantástica webR Extension for Quarto"
+    "text": "Ao longo de 17 anos dedicados ao magistério federal, minha trajetória foi predominantemente marcada por 16 anos ininterruptos em funções executivas na administração pública federal, conciliando-as com a docência e pesquisa, contribuindo com orientação, coorientação, para a publicação de alguns artigos científicos e executando projetos de PD&I. Avalio positivamente minhas contribuições e aprendizados dessa experiência executiva, reconhecendo o custo pessoal, mas sem grandes arrependimentos.\nAo concluir meu mandato como Diretor-Geral do IFMG - Campus Formiga, o que encerrou minha experiência executiva, foi intensificado o desejo de explorar outras carreiras, buscando mais liberdade, autonomia, oportunidades de aprendizado e de resolução de problemas relevantes. É paradoxal constatar que, mesmo atuando em uma instituição de ensino e pesquisa, as condições institucionais não favoreçam o desenvolvimento profissional contínuo, o que explica muitas questões."
   },
   {
-    "objectID": "blog/p01/primeiro_post.html#dplyr",
-    "href": "blog/p01/primeiro_post.html#dplyr",
-    "title": "Primeiro Post",
-    "section": "dplyr",
-    "text": "dplyr\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "blog/p01/primeiro_post.html#recomeçar",
+    "href": "blog/p01/primeiro_post.html#recomeçar",
+    "title": "Mudança Profissional em Tempos de Disrupção",
+    "section": "",
+    "text": "Ao longo de 17 anos dedicados ao magistério federal, minha trajetória foi predominantemente marcada por 16 anos ininterruptos em funções executivas na administração pública federal, conciliando-as com a docência e pesquisa, contribuindo com orientação, coorientação, para a publicação de alguns artigos científicos e executando projetos de PD&I. Avalio positivamente minhas contribuições e aprendizados dessa experiência executiva, reconhecendo o custo pessoal, mas sem grandes arrependimentos.\nAo concluir meu mandato como Diretor-Geral do IFMG - Campus Formiga, o que encerrou minha experiência executiva, foi intensificado o desejo de explorar outras carreiras, buscando mais liberdade, autonomia, oportunidades de aprendizado e de resolução de problemas relevantes. É paradoxal constatar que, mesmo atuando em uma instituição de ensino e pesquisa, as condições institucionais não favoreçam o desenvolvimento profissional contínuo, o que explica muitas questões."
   },
   {
-    "objectID": "blog/p01/primeiro_post.html#ggplot2",
-    "href": "blog/p01/primeiro_post.html#ggplot2",
-    "title": "Primeiro Post",
-    "section": "ggplot2",
-    "text": "ggplot2\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "objectID": "blog/p01/primeiro_post.html#o-sistema-federal-de-ensino-e-pesquisa-e-seus-desafios",
+    "href": "blog/p01/primeiro_post.html#o-sistema-federal-de-ensino-e-pesquisa-e-seus-desafios",
+    "title": "Mudança Profissional em Tempos de Disrupção",
+    "section": "O Sistema Federal de Ensino e Pesquisa e seus desafios:",
+    "text": "O Sistema Federal de Ensino e Pesquisa e seus desafios:\nPor falar em instituição federal de ensino e e pesquisa, permitam-me uma breve digressão sobre o sistema federal de ensino e pesquisa.\nConsidero que a complexa missão do sistema federal de ensino e pesquisa, gravada pela precariedade das condições administrativas para sua gestão, pela grave disfuncionalidade do sistema político, pela disrupção acelerada provocada pela inteligência artificial que pode extinguir profissões e instituições, exigem uma rápida evolução do sistema para que seja mais resiliente à precáriedade das condições e recursos e aos desafios postos.\nNo entanto, as evidências indicam que essa evolução é improvável, pois não se vê nenhuma reflexão ou ação das instâncias que podem impusionar sua evolução. Em um cenário otimista, décadas de avanços e retrocessos serão necessários para que o sistema se torne mais funcional e responda aos desafios do século XXI. Em um cenário pessimista, não haverá sistema e, talvez, não haverá carreira no magistério federal."
+  },
+  {
+    "objectID": "blog/p01/primeiro_post.html#uma-nova-esperança",
+    "href": "blog/p01/primeiro_post.html#uma-nova-esperança",
+    "title": "Mudança Profissional em Tempos de Disrupção",
+    "section": "Uma Nova Esperança",
+    "text": "Uma Nova Esperança\nConsidero a possibilidade de construir um negócio inovador ou migrar para uma nova trajetória no setor público, embora ambas as opções sejam desafiadoras. Outra possibilidade, talvez mais factível imediatamente, é construir uma “carreira paralela” para tornar o trabalho atual mais suportável. Essas possibilidades não serão um passeio no parque mas, talvez, podem ser mais divertidas e gratificantes.\nConstruir um site pessoal e esse blog foram os primeiros passos para explorar novas possibilidades e, principalmente, abriram uma nova trilha de aprendizado contínuo que envolve habilidades pelas quais tenho enorme apetite. Enfim, mãos à obra, e rápido."
   },
   {
     "objectID": "about/index.html",
@@ -205,9 +212,9 @@
   {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
-    "title": "Blog",
+    "title": "侘寂",
     "section": "",
-    "text": "Primeiro Post\n\n\n\n\n\n\n\n\n\n\n\n15 setembro 2023\n\n\n\n\n\n\nNenhum item correspondente"
+    "text": "Mudança Profissional em Tempos de Disrupção\n\n\n\n\n\n\nmudança de carreira\n\n\ninteligência artificial\n\n\n\n\n\n\n\n\n\n15 September 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
