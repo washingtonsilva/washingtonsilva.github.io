@@ -268,7 +268,7 @@ cookieconsent.run({
 const initializeWebRTimerStart = performance.now();
 
 // Determine if we need to install R packages
-var installRPackagesList = [''];
+var installRPackagesList = ['xts'];
 // Check to see if we have an empty array, if we do set to skip the installation.
 var setupRPackages = !(installRPackagesList.indexOf("") !== -1);
 var autoloadRPackages = true;
@@ -905,30 +905,25 @@ window.Quarto = {
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
   <li><a href="#algumas-dicas" id="toc-algumas-dicas" class="nav-link" data-scroll-target="#algumas-dicas"><span class="header-section-number">2</span> Algumas dicas</a></li>
   <li><a href="#a-linguagem-r" id="toc-a-linguagem-r" class="nav-link" data-scroll-target="#a-linguagem-r"><span class="header-section-number">3</span> A Linguagem R</a></li>
-  <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">4</span> Objetos</a>
+  <li><a href="#webr-r-no-navegador" id="toc-webr-r-no-navegador" class="nav-link" data-scroll-target="#webr-r-no-navegador"><span class="header-section-number">4</span> WebR: R no Navegador</a></li>
+  <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">5</span> Objetos</a>
   <ul class="collapse">
-  <li><a href="#criando-objetos" id="toc-criando-objetos" class="nav-link" data-scroll-target="#criando-objetos"><span class="header-section-number">4.1</span> Criando objetos</a></li>
-  <li><a href="#nomeando-objetos" id="toc-nomeando-objetos" class="nav-link" data-scroll-target="#nomeando-objetos"><span class="header-section-number">4.2</span> Nomeando objetos</a></li>
+  <li><a href="#criando-objetos" id="toc-criando-objetos" class="nav-link" data-scroll-target="#criando-objetos"><span class="header-section-number">5.1</span> Criando objetos</a></li>
+  <li><a href="#nomeando-objetos" id="toc-nomeando-objetos" class="nav-link" data-scroll-target="#nomeando-objetos"><span class="header-section-number">5.2</span> Nomeando objetos</a></li>
   </ul></li>
-  <li><a href="#operadores-e-funções-matemáticas" id="toc-operadores-e-funções-matemáticas" class="nav-link" data-scroll-target="#operadores-e-funções-matemáticas"><span class="header-section-number">5</span> Operadores e Funções Matemáticas</a>
+  <li><a href="#operadores-e-funções-matemáticas" id="toc-operadores-e-funções-matemáticas" class="nav-link" data-scroll-target="#operadores-e-funções-matemáticas"><span class="header-section-number">6</span> Operadores e Funções Matemáticas</a>
   <ul class="collapse">
-  <li><a href="#precedência-de-operações-aritméticas" id="toc-precedência-de-operações-aritméticas" class="nav-link" data-scroll-target="#precedência-de-operações-aritméticas"><span class="header-section-number">5.1</span> Precedência de Operações Aritméticas</a></li>
+  <li><a href="#precedência-de-operações-aritméticas" id="toc-precedência-de-operações-aritméticas" class="nav-link" data-scroll-target="#precedência-de-operações-aritméticas"><span class="header-section-number">6.1</span> Precedência de Operações Aritméticas</a></li>
   </ul></li>
-  <li><a href="#operadores-lógicos" id="toc-operadores-lógicos" class="nav-link" data-scroll-target="#operadores-lógicos"><span class="header-section-number">6</span> Operadores Lógicos</a></li>
-  <li><a href="#tipos-primitivos-de-dados" id="toc-tipos-primitivos-de-dados" class="nav-link" data-scroll-target="#tipos-primitivos-de-dados"><span class="header-section-number">7</span> Tipos Primitivos de Dados</a>
+  <li><a href="#operadores-relacionais" id="toc-operadores-relacionais" class="nav-link" data-scroll-target="#operadores-relacionais"><span class="header-section-number">7</span> Operadores Relacionais</a></li>
+  <li><a href="#tipos-primitivos-de-dados" id="toc-tipos-primitivos-de-dados" class="nav-link" data-scroll-target="#tipos-primitivos-de-dados"><span class="header-section-number">8</span> Tipos Primitivos de Dados</a>
   <ul class="collapse">
-  <li><a href="#verificando-tipos-de-dados" id="toc-verificando-tipos-de-dados" class="nav-link" data-scroll-target="#verificando-tipos-de-dados"><span class="header-section-number">7.1</span> Verificando Tipos de Dados</a></li>
-  <li><a href="#função-str" id="toc-função-str" class="nav-link" data-scroll-target="#função-str"><span class="header-section-number">7.2</span> Função <code>str()</code></a></li>
-  <li><a href="#exemplos" id="toc-exemplos" class="nav-link" data-scroll-target="#exemplos"><span class="header-section-number">7.3</span> Exemplos</a></li>
-  <li><a href="#convertendo-um-objeto-para-um-tipo-específico" id="toc-convertendo-um-objeto-para-um-tipo-específico" class="nav-link" data-scroll-target="#convertendo-um-objeto-para-um-tipo-específico"><span class="header-section-number">7.4</span> Convertendo um Objeto para um Tipo Específico</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">7.5</span> Exercícios</a></li>
-  </ul></li>
-  <li><a href="#estruturas-de-dados" id="toc-estruturas-de-dados" class="nav-link" data-scroll-target="#estruturas-de-dados"><span class="header-section-number">8</span> Estruturas de Dados</a>
-  <ul class="collapse">
-  <li><a href="#vector" id="toc-vector" class="nav-link" data-scroll-target="#vector"><span class="header-section-number">8.1</span> vector</a></li>
-  <li><a href="#factor" id="toc-factor" class="nav-link" data-scroll-target="#factor"><span class="header-section-number">8.2</span> factor</a></li>
-  <li><a href="#data-frame-e-tibble" id="toc-data-frame-e-tibble" class="nav-link" data-scroll-target="#data-frame-e-tibble"><span class="header-section-number">8.3</span> data frame e tibble</a></li>
-  <li><a href="#matrix" id="toc-matrix" class="nav-link" data-scroll-target="#matrix"><span class="header-section-number">8.4</span> matrix</a></li>
+  <li><a href="#verificando-tipos-de-dados" id="toc-verificando-tipos-de-dados" class="nav-link" data-scroll-target="#verificando-tipos-de-dados"><span class="header-section-number">8.1</span> Verificando Tipos de Dados</a></li>
+  <li><a href="#função-str" id="toc-função-str" class="nav-link" data-scroll-target="#função-str"><span class="header-section-number">8.2</span> Função <code>str()</code></a></li>
+  <li><a href="#exemplos" id="toc-exemplos" class="nav-link" data-scroll-target="#exemplos"><span class="header-section-number">8.3</span> Exemplos</a></li>
+  <li><a href="#verificando-o-tipoclasse-de-um-objeto" id="toc-verificando-o-tipoclasse-de-um-objeto" class="nav-link" data-scroll-target="#verificando-o-tipoclasse-de-um-objeto"><span class="header-section-number">8.4</span> Verificando o Tipo/Classe de um Objeto</a></li>
+  <li><a href="#convertendo-um-objeto-para-um-tipo-específico" id="toc-convertendo-um-objeto-para-um-tipo-específico" class="nav-link" data-scroll-target="#convertendo-um-objeto-para-um-tipo-específico"><span class="header-section-number">8.5</span> Convertendo um Objeto para um Tipo Específico</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">8.6</span> Exercícios</a></li>
   </ul></li>
   <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">9</span> Referências</a></li>
   </ul>
@@ -1156,17 +1151,17 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 <section id="introdução" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
 <p>Seja bem-vindo(a) a “Linguagem R: Um Tutorial Interativo”!</p>
-<p>Este tutorial foi criado especialmente para você, estudante ou profissional das áreas de administração, economia e contabilidade, que busca aprimorar suas habilidades na análise e modelagem de dados com a linguagem R.</p>
+<p>Este tutorial foi criado especialmente para estudantes e profissionais das áreas de administração, economia e contabilidade, que buscam aprimorar suas habilidades na análise e modelagem de dados com a linguagem R.</p>
 <p><strong>O que você encontrará neste tutorial</strong>:</p>
 <ul>
-<li><p>Uma introdução completa à linguagem R, incluindo Tipos e Estruturas de Dados. Programação: estruturas de controle e funções. Técnicas para sumarização, visualização e modelagem de dados.</p></li>
+<li><p>Uma introdução completa à linguagem R, incluindo Tipos e Estruturas de Dados. Técnicas para sumarização, visualização e modelagem de dados.</p></li>
 <li><p>Aplicação prática da linguagem R em estudos de caso reais nas áreas de administração, economia e contabilidade.</p></li>
 <li><p>Um ambiente interativo para você colocar em prática o que aprendeu, com exercícios e atividades propostos ao longo do tutorial.</p></li>
 </ul>
 <p><strong>Público-alvo</strong>:</p>
 <ul>
 <li><p>Alunos do Mestrado Profissional em Administração e do Bacharelado em Administração do IFMG - Campus Formiga.</p></li>
-<li><p>Estudantes e profissionais de administração, economia e contabilidade que desejam aprender a utilizar a linguagem R para análise de dados.</p></li>
+<li><p>Estudantes e profissionais de administração, economia e contabilidade que desejam aprender a utilizar a linguagem R para a análise de dados.</p></li>
 </ul>
 <p><strong>Pré-requisitos</strong>:</p>
 <ul>
@@ -1177,14 +1172,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 </section>
 <section id="algumas-dicas" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Algumas dicas</h1>
-<p>Uma pergunta que nos é feita com frequência é “qual é a melhor forma de aprender R?”. Infelizmente, não temos uma resposta pronta para essa pergunta, pois todos tendem a aprender R (ou qualquer outra linguagem) à sua maneira e no seu próprio ritmo. Dito isso, aqui estão algumas coisas a ter em mente que podem ajudar:</p>
+<p>Uma pergunta que nos é feita com frequência é “qual é a melhor forma de aprender R?”. Infelizmente, não temos uma resposta pronta para essa pergunta, pois, em geral, todos tendem a aprender R (ou qualquer outra linguagem) à sua maneira e no seu próprio ritmo.</p>
+<p>Dito isso, aqui estão algumas coisas a ter em mente que podem ajudar:</p>
 <ul>
-<li><p><strong>Use R com frequência e use-o regularmente</strong> - encontre qualquer desculpa para ativar o RStudio ou apenas o interpretador da linguagem R.</p></li>
-<li><p>Aprender R <strong>não é um teste de memória</strong>. Uma das belezas de uma linguagem de script é que você sempre terá seu código para se referir quando inevitavelmente esquecer como fazer algo.</p></li>
+<li><p><strong>Use R com frequência e regularmente</strong> - encontre qualquer desculpa para ativar o interpretador da linguagem R ou algum Ambiente de Desenvolvimento Integrado adequado para a linguagem R.</p></li>
+<li><p>Aprender R <strong>não é um teste de memória</strong>. Uma das vantagens de uma linguagem como R é que você sempre terá seu código para se referir quando inevitavelmente esquecer como fazer algo.</p></li>
 <li><p><strong>Você não precisa saber tudo sobre R para usá-la de forma produtiva</strong>. Se você ficar preso, pesquise no Google, não é trapaça, e escrever uma boa consulta de pesquisa é uma habilidade muito importante. Apenas certifique-se de verificar cuidadosamente se o código que você encontra está fazendo o que você quer que ele faça.</p></li>
-<li><p>Se você se encontrar olhando para o código por horas tentando descobrir por que não está funcionando, então <strong>faça uma pausa</strong>. Perdemos a conta do número de vezes que conseguimos identificar nosso erro quase imediatamente depois de voltar de uma pequena pausa.</p></li>
+<li><p>Se você se encontrar olhando para o código por horas tentando descobrir por que não está funcionando, então <strong>faça uma pausa</strong>. Perdemos a conta do número de vezes que conseguimos identificar erros quase imediatamente depois de voltar de uma pequena pausa.</p></li>
 <li><p>Em qualquer linguagem e em R, <strong>há muitas maneiras de resolver um problema específico</strong>. Se o seu código não se parece com o de outra pessoa, mas faz o que você quer que ele faça em um tempo razoável e de forma robusta, então não se preocupe com isso - trabalho feito.</p></li>
-<li><p>Relacionado ao nosso ponto anterior, lembre-se de que R é apenas uma ferramenta para ajudá-lo a responder às suas perguntas interessantes. Embora possa ser divertido mergulhar em uma linguagem, <strong>não perca de vista o que é importante - sua(s) pergunta(s) de pesquisa e seus dados</strong>. Nenhuma quantidade de habilidade usando R ajudará se sua pergunta for vaga e a coleta de dados for fundamentalmente falha.</p></li>
+<li><p>Relacionado ao ponto anterior, lembre-se de que R é apenas uma ferramenta para ajudá-lo a responder às suas perguntas interessantes. Embora possa ser divertido mergulhar em uma linguagem, <strong>não perca de vista o que é importante - sua(s) pergunta(s) de pesquisa e seus dados</strong>. Nenhuma quantidade de habilidade usando R ajudará se sua pergunta for vaga e os dados forem de baixa qualidade.</p></li>
 <li><p><strong>Aceite que haverá momentos em que as coisas ficarão um pouco difíceis ou frustrantes</strong>, isso acontece com todos nós. Tente aceitar esses períodos como parte do processo natural de aprender uma nova habilidade, lembre-se de que o tempo e a energia que você investir agora serão mais do que pagos em um futuro não muito distante.</p></li>
 </ul>
 </section>
@@ -1195,7 +1191,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 <p>A evolução da linguagem S é caracterizada por três livros de John Chambers e coautores. Para R, a referência básica é <span class="citation" data-cites="blue">BECKER; CHAMBERS; WILKS (<a href="#ref-blue" role="doc-biblioref">1988</a>)</span>. As novas características da versão de 1991 da linguagem S são abordadas em <span class="citation" data-cites="white">CHAMBERS; HASTIE (<a href="#ref-white" role="doc-biblioref">1992</a>)</span>. Os métodos e classes formais do pacote <em>methods</em> são baseados em <span class="citation" data-cites="green">CHAMBERS (<a href="#ref-green" role="doc-biblioref">1998</a>)</span>.</p>
 <p>R é uma linguagem de programação para computação estatística e visualização de dados, sendo adotada em diversas áreas do conhecimento e na indústria. A linguagem principal é aumentada por um grande número de pacotes, os quais contém, em geral, código reutilizável, documentação e dados.</p>
 <p>A linguagem R é de código aberto e livre. É licenciada pelo Projeto GNU e disponível sob a General Public Licnce (GPL). A linguagem é escrita principalmente em C, Fortran e R. Existem executáveis pré-compilados para vários sistemas operacionais.</p>
-<p>Como uma linguagem interpretada, R tem uma interface de linha de comando nativa.</p>
 <p>A sessão de informações a seguir contém um breve histórico do desenvolvimento das linguagens S e R, clique na caixa para que o conteúdo seja expandido.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -1224,39 +1219,12 @@ Histórico da linguagem R
 </div>
 </div>
 </section>
-<section id="objetos" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Objetos</h1>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>Para entender os cálculos em R, dois slogans são úteis: 1) Tudo o que existe é um objeto e 2) Tudo o que acontece é uma chamada de função. — John Chambers.</p>
-</blockquote>
-</blockquote>
-<p>No coração de quase tudo o que você fará (ou provavelmente fará) em R está o conceito de que tudo na linguagem R é um <strong>objeto</strong>. Isso não significa que estamos fazendo programação orientada a objetos (POO) sobre a qual você pode ter ouvido falar, um paradigma de programação associado a algunas linguagems, como C++. Objetos R não são como objetos C++.</p>
-<p>Esses objetos podem ser quase qualquer coisa, desde um único número ou sequência de caracteres (como uma palavra) até estruturas muito complexas, como o resultado de um gráfico, um resumo de sua análise estatística ou um conjunto de comandos R que executam uma tarefa específica.</p>
-<p>Entender como você <strong>cria objetos e atribui valores a objetos</strong> é uma das chaves para entender a linguagem.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tópico Avançado: R, Orientação a Objetos, Linguagem Funcional.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Objetos R não são como objetos C++. Em R, tudo é um objeto. Em C++, apenas coisas muito especiais que são instâncias de classes C++ criadas com o operador <code>new</code> são objetos. Em R, números, funções, bits da linguagem R (expressões R) também são objetos. Em C++, essas coisas definitivamente não são objetos. A linguagem de programação C não tem nenhum objeto, seja no sentido C++ ou no sentido R.</p>
-<p>R não é uma linguagem particularmente orientada a objetos. R tem três sistemas de programaçõa orientada a objetos diferentes em seu núcleo (Base R): S3, S4 e R6. Além disso, há vários outros sistemas de POO em pacotes encontrados no CRAN. Mas nenhum desses sistemas de POO funciona como o sistema de programação orientada a objetos de C++. Além disso, nenhum dos sistemas de POO é necessário para a maioria da programação R.</p>
-<p>R é uma <strong>linguagem funcional</strong>. Isso significa que as funções são objetos de primeira classe com os quais você pode fazer qualquer coisa que possa fazer com qualquer outro objeto. Você pode atribuí-los a nomes de variáveis, ou pode atribuí-los para serem partes de objetos compostos (como listas), ou pode usá-los como argumentos ou valores de outras funções.</p>
-<p>Neste aspecto, R se parece muito com Lisp, Scheme, Haskell, Scala, Clojure e com outras linguagens de programação funcionais.</p>
-</div>
-</div>
-</div>
-<section id="criando-objetos" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="criando-objetos"><span class="header-section-number">4.1</span> Criando objetos</h2>
-<p>Para criar um objeto, simplesmente damos um nome ao objeto. Podemos então atribuir um valor a este objeto usando o operador de atribuição <code>&lt;-</code>.</p>
-<p>O operador de atribuição é um símbolo composto composto por um símbolo ’menor que <code>&lt;</code> e um hífen <code>-</code>.</p>
+<section id="webr-r-no-navegador" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> WebR: R no Navegador</h1>
+<p>Neste tutorial utilizaremos WebR. WebR é uma versão da linguagem R compilada para navegadores e <a href="https://nodejs.org/en/" target="_blank">Node.js</a> usando <a href="https://webassembly.org/" target="_blank">WebAssembly</a>, via <a href="https://emscripten.org/" target="_blank">Emscripten</a>.</p>
+<p>O WebR possibilita a execução de código R no navegador, sem a necessidade de um servidor para executar o código. O interpretador R é executado diretamente no seu navegador.</p>
+<p>Na sequência deste tutorial, você irá encontrar diversas “caixas” como a exibida a seguir. Na verdade, essa “caixa” é a interface de linha de comando da linguagem R.</p>
+<p>Para executar um código, basta clicar em <kbd>Run Code</kbd>. Experimente executar o código a seguir:</p>
 <div id="qwebr-insertion-location-1"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1272,31 +1240,68 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `meu_obj <- 48`, 
+  `# simula 1000 variaveis aleatórias com distribuicao log-normal
+vetor_dados <- rlnorm(1000)
+
+# calcula um sumário de estatísticas
+summary(vetor_dados)`, 
   1);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>No código acima, criamos um objeto chamado <code>meu_obj</code> e atribuímos a ele o número 48 usando o operador de atribuição. Ao executar o código acima, nenhuma informação é exibida, pois apenas foi feita uma atribuição, caso houvesse um erro seria exibida uma mensagem de erro.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<p>Na linguagem R, o símbolo <code>#</code> representa comentários da linguagem, assim, tudo que está após <code>#</code> é ignorado quando executamos o código. Na sessão de dicas a seguir, explicamos a importância de inserirmos comentários em nossos códigos R e damos dicas sobre como usá-los.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Operadores de Atribuição
+Importância dos comentários em código:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Você provavelmente descobrirá que que ambos os operadores <code>&lt;-</code> e <code>=</code>, são usados para atribuir valores a variáveis, e isso tende a causar alguma confusão.</p>
-<p>Tecnicamente, R irá aceitar qualquer um deles ao atribuir variáveis, entretanto, isso é considerado uma má prática e nós o desencorajamos a usar <code>=</code> como um operador de atribuição. Podem ocorrer problemas com <code>=</code> no uso de algumas funções em alguns contextos.</p>
-<p>Ambientes de Desenvolvimento integrado, como o RStudio, oferecem atalhos para a inserção de <code>&lt;-</code>. No RStudio, para inserir <code>&lt;-</code>, basta clicar em <kbd>Alt</kbd> e <kbd>-</kbd>, em sequência.</p>
+<p>Enumeramos a seguir algumas razões da importância de inserir comentários em códigos da linguagem R (e de qualquer linguagem de programação).</p>
+<ol type="1">
+<li><strong>Compreensão</strong>:</li>
+</ol>
+<ul>
+<li><p>Explicam o que o código faz: facilitam o entendimento do código para você mesmo e para outros, mesmo após um tempo.</p></li>
+<li><p>Descrevem a lógica: esclarecem as decisões e os métodos utilizados no código.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Manutenção</strong>:</li>
+</ol>
+<ul>
+<li><p>Facilitam a atualização: tornam o código mais fácil de modificar e adaptar no futuro.</p></li>
+<li><p>Documentam o código: servem como um guia para quem precisa entender ou modificar o código.</p></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Depuração</strong>:</li>
+</ol>
+<ul>
+<li><p>Identificam problemas: facilitam a localização de erros e falhas no código.</p></li>
+<li><p>Ajudam na correção: fornecem informações sobre o que o código deveria fazer e como ele está funcionando.</p></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Colaboração</strong>:</li>
+</ol>
+<ul>
+<li><p>Melhoram a comunicação: permitem que outros programadores compreendam suas ideias e intenções.</p></li>
+<li><p>Facilitam o trabalho em equipe: tornam o código mais legível e acessível para todos os envolvidos.</p></li>
+</ul>
+<p><strong>Dicas para comentários:</strong></p>
+<ul>
+<li>Use frases curtas e concisas.</li>
+<li>Evite comentários óbvios ou redundantes.</li>
+<li>Explique o “porquê”, não apenas o “como”.</li>
+<li>Atualize os comentários ao modificar o código.</li>
+</ul>
 </div>
 </div>
 </div>
-<p>Para visualizar o valor do objeto, basta digitar o nome do objeto e executá-lo. Em Windows/Linux, aperte <kbd>Enter</kbd>, para MacOs: aperte <kbd>Return</kbd></p>
-<p>Em nosso caso, clique em <kbd>Run Code</kbd> em uma janela de comando contendo o nome do objeto:</p>
+<p>Esta “caixa”, na verdade, é a interface de linha de comando da linguagem R, que em geral recebe o nome de <code>console</code>. <strong>Você pode editar os comandos exibidos e testar outros</strong>.</p>
+<p>Vários pacotes R também foram portados para uso com o webR e podem ser carregados da maneira usual usando a função <code>library()</code>.</p>
 <div id="qwebr-insertion-location-2"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1312,11 +1317,51 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `meu_obj`, 
+  `# ativa o pacote xts
+library(xts)
+
+# simula uma série de preços como um movimento browniano
+precos_simulados <- xts(cumsum(rnorm(1000)), Sys.Date()-1:1000)
+
+# grafico de linha dos preços simulados
+plot(precos_simulados)`, 
   2);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Outras possibilidades para visualizar o conteúdo de um objeto são, usar a função print:</p>
+</section>
+<section id="objetos" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Objetos</h1>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>Para entender os cálculos em R, dois slogans são úteis: 1) Tudo o que existe é um objeto e 2) Tudo o que acontece é uma chamada de função. — John Chambers.</p>
+</blockquote>
+</blockquote>
+<p>No coração de quase tudo o que você fará (ou provavelmente fará) em R está o conceito de que tudo na linguagem R é um <strong>objeto</strong>. Isso não significa que estamos fazendo programação orientada a objetos (POO) sobre a qual você pode ter ouvido falar, um paradigma de programação associado a algunas linguagems, como C++. Objetos R não são como objetos C++.</p>
+<p>Esses objetos podem ser quase qualquer coisa, desde um único número ou sequência de caracteres (como uma palavra) até estruturas muito complexas, como o resultado de um gráfico, um resumo de sua análise estatística ou um conjunto de comandos R que executam uma tarefa específica.</p>
+<p>Entender como você <strong>cria objetos e atribui valores a objetos</strong> é uma das chaves para entender a linguagem.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tópico Avançado: R, Orientação a Objetos, Linguagem Funcional.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Objetos R não são como objetos C++. Em R, tudo é um objeto. Em C++, apenas coisas muito especiais que são instâncias de classes C++ criadas com o operador <code>new</code> são objetos. Em R, números, funções, bits da linguagem R (expressões R) também são objetos. Em C++, essas coisas definitivamente não são objetos. A linguagem de programação C não tem nenhum objeto, seja no sentido C++ ou no sentido R.</p>
+<p>R não é uma linguagem particularmente orientada a objetos. R tem três sistemas de programaçõa orientada a objetos diferentes em seu núcleo (Base R): S3, S4 e R6. Além disso, há vários outros sistemas de POO em pacotes encontrados no CRAN. Mas nenhum desses sistemas de POO funciona como o sistema de programação orientada a objetos de C++. Além disso, nenhum dos sistemas de POO é necessário para a maioria da programação R.</p>
+<p>R é uma <strong>linguagem funcional</strong>. Isso significa que as funções são objetos de primeira classe com os quais você pode fazer qualquer coisa que possa fazer com qualquer outro objeto. Você pode atribuí-los a nomes de variáveis, ou pode atribuí-los para serem partes de objetos compostos (como listas), ou pode usá-los como argumentos ou valores de outras funções.</p>
+<p>Neste aspecto, R se parece muito com Lisp, Scheme, Haskell, Scala, Clojure e com outras linguagens de programação funcionais.</p>
+</div>
+</div>
+</div>
+<section id="criando-objetos" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="criando-objetos"><span class="header-section-number">5.1</span> Criando objetos</h2>
+<p>Para criar um objeto, simplesmente damos um nome ao objeto. Podemos então atribuir um valor a este objeto usando o operador de atribuição <code>&lt;-</code>.</p>
+<p>O operador de atribuição é um símbolo composto composto por um símbolo ’menor que <code>&lt;</code> e um hífen <code>-</code>.</p>
 <div id="qwebr-insertion-location-3"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1332,11 +1377,31 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `print(meu_obj)`, 
+  `meu_obj <- 48`, 
   3);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Ou, envolver a expressão que criou o objeto com parênteses:</p>
+<p>No código acima, criamos um objeto chamado <code>meu_obj</code> e atribuímos a ele o número 48 usando o operador de atribuição. Ao executar o código acima, nenhuma informação é exibida, pois apenas foi feita uma atribuição, caso houvesse um erro seria exibida uma mensagem de erro.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Operadores de Atribuição
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Você provavelmente descobrirá que que ambos os operadores <code>&lt;-</code> e <code>=</code>, são usados para atribuir valores a variáveis, e isso tende a causar alguma confusão.</p>
+<p>Tecnicamente, R irá aceitar qualquer um deles ao atribuir variáveis, entretanto, isso é considerado uma má prática e nós o desencorajamos a usar <code>=</code> como um operador de atribuição. Podem ocorrer problemas com <code>=</code> no uso de algumas funções em alguns contextos.</p>
+<p>Ambientes de Desenvolvimento integrado, como o RStudio, oferecem atalhos para a inserção de <code>&lt;-</code>. No RStudio, para inserir <code>&lt;-</code>, basta clicar em <kbd>Alt</kbd> e <kbd>-</kbd>, em sequência.</p>
+</div>
+</div>
+</div>
+<p>Para visualizar o valor do objeto, basta digitar o nome do objeto e executá-lo. Em Windows/Linux, aperte <kbd>Enter</kbd>, para MacOs: aperte <kbd>Return</kbd></p>
+<p>Em nosso caso, clique em <kbd>Run Code</kbd> em uma janela de comando contendo o nome do objeto:</p>
 <div id="qwebr-insertion-location-4"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1352,11 +1417,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `(meu_obj <- 48)`, 
+  `meu_obj`, 
   4);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Podemos utilizar a função <code>ls()</code> (de <em>list</em>) para listar os nomes dos objetos ativos no ambiente atual:</p>
+<p>Outras possibilidades para visualizar o conteúdo de um objeto são, usar a função print:</p>
 <div id="qwebr-insertion-location-5"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1372,11 +1437,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ls()`, 
+  `print(meu_obj)`, 
   5);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Existem muitos tipos diferentes de valores que você pode atribuir a um objeto. Por exemplo:</p>
+<p>Ou, envolver a expressão que criou o objeto com parênteses:</p>
 <div id="qwebr-insertion-location-6"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1392,12 +1457,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `meu_obj2 <- "R is cool"
-meu_obj2`, 
+  `(meu_obj <- 48)`, 
   6);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Criamos um objeto chamado <code>meu_obj2</code> e atribuímos a ele o texto <code>"R é legal"</code>, que é uma string de caracteres. Observe que envolvemos o texto entre aspas. Se você esquecer de usar as aspas, receberá uma mensagem de erro:</p>
+<p>Podemos utilizar a função <code>ls()</code> (de <em>list</em>) para listar os nomes dos objetos ativos no ambiente atual:</p>
 <div id="qwebr-insertion-location-7"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1413,11 +1477,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `meu_obj2 <- R is cool`, 
+  `ls()`, 
   7);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Nosso <code>workspace</code> agora contém os dois objetos que criamos até agora:</p>
+<p>Existem muitos tipos diferentes de valores que você pode atribuir a um objeto. Por exemplo:</p>
 <div id="qwebr-insertion-location-8"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1433,11 +1497,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ls()`, 
+  `meu_obj2 <- "R is cool"
+meu_obj2`, 
   8);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Para alterar o valor de um objeto existente, simplesmente atribuímos um novo valor a ele. Por exemplo, para alterar o valor de <code>meu_obj2</code> de “R é legal” para o número <code>1024</code> fazemos:</p>
+<p>Criamos um objeto chamado <code>meu_obj2</code> e atribuímos a ele o texto <code>"R é legal"</code>, que é uma string de caracteres. Observe que envolvemos o texto entre aspas. Se você esquecer de usar as aspas, receberá uma mensagem de erro:</p>
 <div id="qwebr-insertion-location-9"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1453,12 +1518,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `meu_obj2 <- 1024
-meu_obj2`, 
+  `meu_obj2 <- R is cool`, 
   9);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Depois de criarmos alguns objetos, podemos fazer coisas com nossos objetos. Por exemplo, o código a seguir cria um novo objeto meu_obj3 e atribui a ele o valor de meu_obj adicionado a meu_obj2, que é 1072 (48 + 1024 = 1072):</p>
+<p>Nosso <code>workspace</code> agora contém os dois objetos que criamos até agora:</p>
 <div id="qwebr-insertion-location-10"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1474,13 +1538,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `meu_obj3 <- meu_obj + meu_obj2
-meu_obj3`, 
+  `ls()`, 
   10);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Observe que, para exibir o valor de <code>meu_obj3</code>, também precisamos escrever o nome do objeto.</p>
-<p>O código acima funciona porque os valores de <code>meu_obj</code> e <code>meu_obj2</code> são numéricos (ou seja, números). Se você tentar fazer isso com objetos com valores de caracteres, receberá uma erro:</p>
+<p>Para alterar o valor de um objeto existente, simplesmente atribuímos um novo valor a ele. Por exemplo, para alterar o valor de <code>meu_obj2</code> de “R é legal” para o número <code>1024</code> fazemos:</p>
 <div id="qwebr-insertion-location-11"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1496,18 +1558,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `x <- "hello"
-y <- "world!"
-soma <- x + y`, 
+  `meu_obj2 <- 1024
+meu_obj2`, 
   11);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>A mensagem de erro está essencialmente dizendo que um ou ambos os objetos, <code>x</code> e/ou <code>y</code>, não é um número e, portanto, não pode ser somado.</p>
-<p>Quando você começa a aprender R, lidar com Error (mensagens de erro) e <code>warnings</code> (avisos) pode ser frustrante, pois muitas vezes são difíceis de entender: o que é um argumento? O que é um operador binário?.</p>
-<p>Uma maneira de descobrir mais informações sobre um erro específico é pesquisar no Google uma versão generalizada da mensagem de erro. Para o erro acima, tente pesquisar no Google <code>non-numeric argument to binary operator erro + R</code> ou <code>commom r error messages</code>.</p>
-<p>Outra mensagem de erro que você receberá bastante quando começar a usar R pela é:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> object <span class="st">'XXX'</span> not found. </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Por exemplo, dê uma olhada no código abaixo:</p>
+<p>Depois de criarmos alguns objetos, podemos fazer coisas com nossos objetos. Por exemplo, o código a seguir cria um novo objeto meu_obj3 e atribui a ele o valor de meu_obj adicionado a meu_obj2, que é 1072 (48 + 1024 = 1072):</p>
 <div id="qwebr-insertion-location-12"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1523,12 +1579,13 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `meu_obj <- 48
-meu_obj4 <- meu_obj + no_obj`, 
+  `meu_obj3 <- meu_obj + meu_obj2
+meu_obj3`, 
   12);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>R retorna uma mensagem de erro porque ainda não criamos (definimos) o objeto <code>no_obj</code>. Outra pista de que há um problema com este código é que, se você verificar seu ambiente, verá que o objeto my_obj4 não foi criado:</p>
+<p>Observe que, para exibir o valor de <code>meu_obj3</code>, também precisamos escrever o nome do objeto.</p>
+<p>O código acima funciona porque os valores de <code>meu_obj</code> e <code>meu_obj2</code> são numéricos (ou seja, números). Se você tentar fazer isso com objetos com valores de caracteres, receberá uma erro:</p>
 <div id="qwebr-insertion-location-13"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1544,11 +1601,18 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ls()`, 
+  `x <- "hello"
+y <- "world!"
+soma <- x + y`, 
   13);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Podemos apagar os objetos criados anteriormente na sessão usando a função <code>rm()</code> (de <em>remove</em>):</p>
+<p>A mensagem de erro está essencialmente dizendo que um ou ambos os objetos, <code>x</code> e/ou <code>y</code>, não é um número e, portanto, não pode ser somado.</p>
+<p>Quando você começa a aprender R, lidar com Error (mensagens de erro) e <code>warnings</code> (avisos) pode ser frustrante, pois muitas vezes são difíceis de entender: o que é um argumento? O que é um operador binário?.</p>
+<p>Uma maneira de descobrir mais informações sobre um erro específico é pesquisar no Google uma versão generalizada da mensagem de erro. Para o erro acima, tente pesquisar no Google <code>non-numeric argument to binary operator erro + R</code> ou <code>commom r error messages</code>.</p>
+<p>Outra mensagem de erro que você receberá bastante quando começar a usar R pela é:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> object <span class="st">'XXX'</span> not found. </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Por exemplo, dê uma olhada no código abaixo:</p>
 <div id="qwebr-insertion-location-14"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1564,11 +1628,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `rm(meu_obj, meu_obj2, meu_obj3, x, y)`, 
+  `meu_obj <- 48
+meu_obj4 <- meu_obj + no_obj`, 
   14);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Ao apagar um objeto, não será mais possível efetuar operações com o mesmo. Para isso, será necssário criar novamente o objeto. Vejamos se os objetos foram apagados:</p>
+<p>R retorna uma mensagem de erro porque ainda não criamos (definimos) o objeto <code>no_obj</code>. Outra pista de que há um problema com este código é que, se você verificar seu ambiente, verá que o objeto my_obj4 não foi criado:</p>
 <div id="qwebr-insertion-location-15"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1588,9 +1653,49 @@ qwebrCreateMonacoEditorInstance(
   15);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Podemos apagar os objetos criados anteriormente na sessão usando a função <code>rm()</code> (de <em>remove</em>):</p>
+<div id="qwebr-insertion-location-16"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-16");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    16
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `rm(meu_obj, meu_obj2, meu_obj3, x, y)`, 
+  16);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Ao apagar um objeto, não será mais possível efetuar operações com o mesmo. Para isso, será necssário criar novamente o objeto. Vejamos se os objetos foram apagados:</p>
+<div id="qwebr-insertion-location-17"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-17");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    17
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ls()`, 
+  17);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>O resultado <code>character(0)</code> indica que não há nenhum objetivo ativo na sessão.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1599,7 +1704,7 @@ R e Linguagens de Programação
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>R é uma linguagem de programação com tipagem dinâmica (<em>dynamic typing</em>), ou fracamente tipada (<em>weakly typed</em>). Isso significa duas coisas basicamente:</p>
 <ul>
@@ -1611,13 +1716,13 @@ R e Linguagens de Programação
 </div>
 </div>
 </section>
-<section id="nomeando-objetos" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="nomeando-objetos"><span class="header-section-number">4.2</span> Nomeando objetos</h2>
+<section id="nomeando-objetos" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="nomeando-objetos"><span class="header-section-number">5.2</span> Nomeando objetos</h2>
 <p>Nomear seus objetos é uma das coisas mais difíceis que você fará em R, estamos falando sério. Idealmente, seus nomes de objetos devem ser <strong>curtos</strong> e <strong>informativos</strong>, o que nem sempre é fácil.</p>
 <p>Se você precisar criar objetos com várias palavras em seu nome, use um sublinhado ou um ponto entre as palavras ou capitalize as diferentes palavras (estilo chamado <em>camel case</em>). Nós preferimos usar o estilo <em>camel case</em> neste tutorial.</p>
 <p>Recomendamos a leitura das dicas para nomear objetos contidas na seção de dicas a seguir. Clique na caixa para expandir seu conteúdo.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1626,7 +1731,7 @@ Dicas para nomear objetos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Descritivo e informativo:</strong></p>
 <ul>
@@ -1660,8 +1765,8 @@ Dicas para nomear objetos
 <li><code>funcao_calcula_media</code></li>
 </ul></li>
 </ul>
-<section id="maus-exemplos-de-nomes-de-objetos-em-r" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="maus-exemplos-de-nomes-de-objetos-em-r"><span class="header-section-number">4.3</span> Maus exemplos de nomes de objetos em R:</h2>
+<section id="maus-exemplos-de-nomes-de-objetos-em-r" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="maus-exemplos-de-nomes-de-objetos-em-r"><span class="header-section-number">5.3</span> Maus exemplos de nomes de objetos em R:</h2>
 <ul>
 <li><p><strong>Nomes muito curtos ou genéricos:</strong> <code>x</code>, <code>y</code>, <code>data</code>, <code>df</code>.</p></li>
 <li><p><strong>Nomes com abreviações ou termos técnicos obscuros:</strong> <code>reg_lin</code>, <code>coef_est</code>, <code>rmse</code></p></li>
@@ -1690,8 +1795,8 @@ Dicas para nomear objetos
 </div>
 </section>
 </section>
-<section id="operadores-e-funções-matemáticas" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Operadores e Funções Matemáticas</h1>
+<section id="operadores-e-funções-matemáticas" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Operadores e Funções Matemáticas</h1>
 <p>Alguns dos principais operadores e funções matemáticas da linguagem R são descritos na <a href="#tbl-01" class="quarto-xref">Tabela&nbsp;1</a>.</p>
 <div class="cell">
 <div id="tbl-01" class="cell quarto-float anchored">
@@ -1762,7 +1867,7 @@ Tabela&nbsp;1<strong>.</strong> Alguns Operadores e Funções Matemáticas
 </div>
 <p>Recomendamos fortemente que você estude a sessão de informações a seguir sbore o uso de funções em R, será importante para você entender o uso das funções matemáticas apresentadas nesta sessão. Clique na caixa a seguir para que o conteúdo seja expandido.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1771,7 +1876,7 @@ Usando funções em R
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><strong>Sintaxe básica:</strong></li>
@@ -1795,14 +1900,14 @@ Usando funções em R
 <li><strong>Ajuda e documentação:</strong></li>
 </ol>
 <p>Para obter informações detalhadas sobre uma função, utilize <code>?nome_da_funcao</code> ou <code>help(nome_da_funcao)</code>. Isso oferece descrições, exemplos e informações sobre cada argumento.</p>
-<div id="qwebr-insertion-location-16"></div>
+<div id="qwebr-insertion-location-18"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-16");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-18");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    16
+    18
   );
 
 // Add the interactive element into the document scope
@@ -1811,17 +1916,17 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `?mean`, 
-  16);
+  18);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-17"></div>
+<div id="qwebr-insertion-location-19"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-17");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-19");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    17
+    19
   );
 
 // Add the interactive element into the document scope
@@ -1830,7 +1935,7 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `help(mean)`, 
-  17);
+  19);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ol start="5" type="1">
@@ -1851,50 +1956,6 @@ qwebrCreateMonacoEditorInstance(
 <ul>
 <li><strong>Adição</strong>:</li>
 </ul>
-<div id="qwebr-insertion-location-18"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-18");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    18
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `3 + 4`, 
-  18);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ul>
-<li><strong>Subtração</strong></li>
-</ul>
-<div id="qwebr-insertion-location-19"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-19");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    19
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `3 - 4`, 
-  19);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ul>
-<li><strong>Multiplicação</strong></li>
-</ul>
 <div id="qwebr-insertion-location-20"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1910,12 +1971,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `10*11`, 
+  `3 + 4`, 
   20);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Divisão</strong></li>
+<li><strong>Subtração</strong></li>
 </ul>
 <div id="qwebr-insertion-location-21"></div>
 <script type="module">
@@ -1932,12 +1993,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `8/4`, 
+  `3 - 4`, 
   21);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Potenciação</strong></li>
+<li><strong>Multiplicação</strong></li>
 </ul>
 <div id="qwebr-insertion-location-22"></div>
 <script type="module">
@@ -1954,13 +2015,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `2^3 # ou 
-2**3`, 
+  `10*11`, 
   22);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Logaritmo Natural</strong>: use a função <code>log()</code></li>
+<li><strong>Divisão</strong></li>
 </ul>
 <div id="qwebr-insertion-location-23"></div>
 <script type="module">
@@ -1977,12 +2037,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `log(100)`, 
+  `8/4`, 
   23);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Logaritmo na base 10</strong>: use a função <code>log10()</code></li>
+<li><strong>Potenciação</strong></li>
 </ul>
 <div id="qwebr-insertion-location-24"></div>
 <script type="module">
@@ -1999,11 +2059,14 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `log10(100)`, 
+  `2^3 # ou 
+2**3`, 
   24);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Na verdade pode-se calcular o logaritmo de um número em uma determinada base usando o argumento <code>base</code> da função <code>log</code>:</p>
+<ul>
+<li><strong>Logaritmo Natural</strong>: use a função <code>log()</code></li>
+</ul>
 <div id="qwebr-insertion-location-25"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2019,12 +2082,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `log(100, base = 2)`, 
+  `log(100)`, 
   25);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Exponencial</strong>: use a função <code>exp()</code></li>
+<li><strong>Logaritmo na base 10</strong>: use a função <code>log10()</code></li>
 </ul>
 <div id="qwebr-insertion-location-26"></div>
 <script type="module">
@@ -2041,13 +2104,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `exp(10)`, 
+  `log10(100)`, 
   26);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ul>
-<li><strong>Raíz Quadrada</strong>: use a função <code>sqrt()</code></li>
-</ul>
+<p>Na verdade pode-se calcular o logaritmo de um número em uma determinada base usando o argumento <code>base</code> da função <code>log</code>:</p>
 <div id="qwebr-insertion-location-27"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2063,12 +2124,12 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `sqrt(100)`, 
+  `log(100, base = 2)`, 
   27);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Valor absoluto</strong> (ou módulo): use a função <code>abs()</code></li>
+<li><strong>Exponencial</strong>: use a função <code>exp()</code></li>
 </ul>
 <div id="qwebr-insertion-location-28"></div>
 <script type="module">
@@ -2085,14 +2146,13 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `abs(-3)`, 
+  `exp(10)`, 
   28);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Arredondamento</strong>: use a função <code>round(x, digits = 0)</code></li>
+<li><strong>Raíz Quadrada</strong>: use a função <code>sqrt()</code></li>
 </ul>
-<p>A função <code>round</code> arredonda os valores em seu primeiro argumento (<code>x</code>) para o número especificado de casas decimais:</p>
 <div id="qwebr-insertion-location-29"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2108,11 +2168,13 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `round(3.1415, digits = 2)`, 
+  `sqrt(100)`, 
   29);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Por padrão, o argumento <code>digits = 0</code></p>
+<ul>
+<li><strong>Valor absoluto</strong> (ou módulo): use a função <code>abs()</code></li>
+</ul>
 <div id="qwebr-insertion-location-30"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2128,14 +2190,14 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `round(3.1415)`, 
+  `abs(-3)`, 
   30);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li><strong>Resto da divisão</strong></li>
+<li><strong>Arredondamento</strong>: use a função <code>round(x, digits = 0)</code></li>
 </ul>
-<p>o operador <code>%%</code>é usado para calcular o resto da divisão entre dois valores.</p>
+<p>A função <code>round</code> arredonda os valores em seu primeiro argumento (<code>x</code>) para o número especificado de casas decimais:</p>
 <div id="qwebr-insertion-location-31"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2151,14 +2213,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `7 %% 3`, 
+  `round(3.1415, digits = 2)`, 
   31);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ul>
-<li><strong>Divisão Inteira</strong></li>
-</ul>
-<p>P operador <code>%/%</code> é usado para realizar a divisão inteira entre dois valores. A divisão inteira é diferente da divisão normal (operador <code>/</code>) porque o resultado é sempre um número inteiro, e a parte decimal é truncada:</p>
+<p>Por padrão, o argumento <code>digits = 0</code></p>
 <div id="qwebr-insertion-location-32"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2174,13 +2233,60 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `7 %% 3`, 
+  `round(3.1415)`, 
   32);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="precedência-de-operações-aritméticas" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="precedência-de-operações-aritméticas"><span class="header-section-number">5.1</span> Precedência de Operações Aritméticas</h2>
-<p>A linguagem R segue regras específicas de precedência de operações aritméticas para determinar a ordem em que as operações são avaliadas. A precedência refere-se à prioridade que cada operador tem em relação aos outros. Aqui estão as principais regras de precedência na linguagem R, da mais alta para a mais baixa:</p>
+<ul>
+<li><strong>Resto da divisão</strong></li>
+</ul>
+<p>o operador <code>%%</code>é usado para calcular o resto da divisão entre dois valores.</p>
+<div id="qwebr-insertion-location-33"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-33");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    33
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `7 %% 3`, 
+  33);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li><strong>Divisão Inteira</strong></li>
+</ul>
+<p>P operador <code>%/%</code> é usado para realizar a divisão inteira entre dois valores. A divisão inteira é diferente da divisão normal (operador <code>/</code>) porque o resultado é sempre um número inteiro, e a parte decimal é truncada:</p>
+<div id="qwebr-insertion-location-34"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-34");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    34
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `7 %/% 3`, 
+  34);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="precedência-de-operações-aritméticas" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="precedência-de-operações-aritméticas"><span class="header-section-number">6.1</span> Precedência de Operações Aritméticas</h2>
+<p>A linguagem R segue regras específicas de precedência de operações aritméticas para determinar a ordem em que as operações são avaliadas. A precedência refere-se à prioridade que cada operador tem em relação aos outros.</p>
+<p>A seguir são descritas as principais regras de precedência na linguagem R, da mais alta para a mais baixa:</p>
 <ol type="1">
 <li><strong>Parênteses</strong>:
 <ul>
@@ -2197,53 +2303,6 @@ qwebrCreateMonacoEditorInstance(
 <li>Multiplicação e divisão têm a mesma prioridade e são avaliadas da esquerda para a direita. Veja dois exemplos:</li>
 </ul></li>
 </ol>
-<div id="qwebr-insertion-location-33"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-33");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    33
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `2*3/4 `, 
-  33);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-34"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-34");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    34
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `2/3*4`, 
-  34);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>No primeiro exemplo, a multiplicação é realizada antes da divisão, resultando em 1.5. No segundo exemplo, a divisão é realizada antes da multiplicação, resultando em 2.666667.</p>
-<ol start="4" type="1">
-<li><strong>Adição e Subtração</strong>:
-<ul>
-<li>Adição e subtração têm a menor prioridade entre as operações aritméticas e também são avaliadas da esquerda para a direita.</li>
-</ul></li>
-</ol>
-<p>Ao usar expressões aritméticas em R, é importante entender essas regras de precedência para garantir que as operações sejam avaliadas na ordem desejada. Se necessário, o uso de parênteses pode ser empregado para explicitamente indicar a ordem de avaliação desejada.</p>
-<p>Por exemplo:</p>
 <div id="qwebr-insertion-location-35"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2259,12 +2318,10 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `resultado <- 2 + 3 * 4^2
-resultado`, 
+  `2*3/4 `, 
   35);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Neste caso, a exponenciação (<code>4^2</code>) será avaliada primeiro, seguida pela multiplicação (<code>3 * 16</code>). Se a ordem desejada for diferente, parênteses podem ser usados para modificar a precedência:</p>
 <div id="qwebr-insertion-location-36"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2280,14 +2337,63 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
+  `2/3*4`, 
+  36);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>No primeiro exemplo, a multiplicação é realizada antes da divisão, resultando em 1.5. No segundo exemplo, a divisão é realizada antes da multiplicação, resultando em 2.666667.</p>
+<ol start="4" type="1">
+<li><strong>Adição e Subtração</strong>:
+<ul>
+<li>Adição e subtração têm a menor prioridade entre as operações aritméticas e também são avaliadas da esquerda para a direita.</li>
+</ul></li>
+</ol>
+<p>Ao usar expressões aritméticas em R, é importante entender essas regras de precedência para garantir que as operações sejam avaliadas na ordem desejada. Se necessário, o uso de parênteses pode ser empregado para explicitamente indicar a ordem de avaliação desejada.</p>
+<p>Por exemplo:</p>
+<div id="qwebr-insertion-location-37"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-37");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    37
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `resultado <- 2 + 3 * 4^2
+resultado`, 
+  37);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Neste caso, a exponenciação (<code>4^2</code>) será avaliada primeiro, seguida pela multiplicação (<code>3 * 16</code>). Se a ordem desejada for diferente, parênteses podem ser usados para modificar a precedência:</p>
+<div id="qwebr-insertion-location-38"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-38");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    38
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
   `resultado <- (2 + 3) * 4^2
 resultado`, 
-  36);
+  38);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Nesse caso, a adição (<code>2 + 3</code>) é avaliada primeiro devido aos parênteses.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2296,17 +2402,17 @@ Armazenamento de Números em Computadores
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<section id="o-que-é-um-número-de-ponto-flutuante" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="o-que-é-um-número-de-ponto-flutuante"><span class="header-section-number">5.1.1</span> O que é um número de ponto flutuante?</h3>
+<section id="o-que-é-um-número-de-ponto-flutuante" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="o-que-é-um-número-de-ponto-flutuante"><span class="header-section-number">6.1.1</span> O que é um número de ponto flutuante?</h3>
 <p>Em qualquer linguagem de programação, os dados são armazenados pelo computador na memória usando valores binários. Um valor binário tem apenas dois estados possíveis, 1 e 0. Na memória do computador, estes estados representam a presença ou ausência de carga elétrica, portanto também estão ON e OFF.</p>
 <p>Um número de ponto flutuante é um tipo de dado numérico que representa números reais em um computador usando notação científica binária, ou seja, na base 2, assim, números são representados apenas por 1 e 0. O nome <em>ponto flutuante</em> refere-se à vírgula decimal, que pode “flutuar” para diferentes posições dentro do número. Isso permite representar uma ampla gama de valores numéricos, tanto muito grandes quanto muito pequenos.</p>
 <p>A representação de números em ponto flutuante é fundamental para o funcionamento dos computadores. Essa representação permite armazenar e manipular números reais com diferentes magnitudes e precisões.</p>
 <p>Por exemplo, podemos ver o número 42 na tela, mas isso é graças ao computador que traduz o que foi armazenado no que esperamos ver. Isto pode é extremamente útil, mas também um tanto perigoso, como discutiremos a seguir.</p>
 </section>
-<section id="importância-de-entender-a-representação-de-números" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="importância-de-entender-a-representação-de-números"><span class="header-section-number">5.1.2</span> Importância de entender a representação de números</h3>
+<section id="importância-de-entender-a-representação-de-números" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="importância-de-entender-a-representação-de-números"><span class="header-section-number">6.1.2</span> Importância de entender a representação de números</h3>
 <p>Compreender como os números são representados em um computador é fundamental para:</p>
 <ul>
 <li>Interpretar os resultados de cálculos.</li>
@@ -2314,8 +2420,8 @@ Armazenamento de Números em Computadores
 <li>Escolher o tipo de dado numérico adequado para cada situação.</li>
 </ul>
 </section>
-<section id="padrão-ieee-754" class="level3" data-number="5.1.3">
-<h3 data-number="5.1.3" class="anchored" data-anchor-id="padrão-ieee-754"><span class="header-section-number">5.1.3</span> Padrão IEEE 754</h3>
+<section id="padrão-ieee-754" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="padrão-ieee-754"><span class="header-section-number">6.1.3</span> Padrão IEEE 754</h3>
 <p>O padrão IEEE 754 define um formato binário para representar números de ponto flutuante. Este padrão é utilizado pela maioria dos computadores e garante a interoperabilidade entre diferentes sistemas.</p>
 <p>O padrão define diferentes tipos de dados de ponto flutuante, como <code>float</code>, <code>double</code> e <code>long double</code>, com diferentes precisões e faixas de valores.</p>
 <p>As arquiteturas de computadores de 32 e 64 bits diferem na forma como representam números de ponto flutuante, impactando a precisão, a faixa de valores e o desempenho das operações matemáticas.</p>
@@ -2336,59 +2442,11 @@ Armazenamento de Números em Computadores
 <li><p>Mantissa: Representa a parte decimal do número (52 bits em 32 bits).</p></li>
 </ul>
 </section>
-<section id="consequências" class="level3" data-number="5.1.4">
-<h3 data-number="5.1.4" class="anchored" data-anchor-id="consequências"><span class="header-section-number">5.1.4</span> Consequências</h3>
+<section id="consequências" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="consequências"><span class="header-section-number">6.1.4</span> Consequências</h3>
 <p>Um computador tem uma capacidade limitada para armazenar informações, inclusive números, cuja representação é definida pelo Padrão IEEE 754. Além disso, muitos números decimais não possuem uma representação binária exata.</p>
 <p>Assim, coisas estranhas e problemas graves podem ocorrer há um cientista de dados iletrado na representaçào em ponto flutuante.</p>
 <p>Por exemplo: Qual seria o resultado da seguinte subtração no sistema decimal?</p>
-<div id="qwebr-insertion-location-37"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-37");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    37
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `(0.3 - 0.2) - 0.1`, 
-  37);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Como vimos, a representação em ponto flutante é uma variação binária (base-dois) da notação científica, sendo esta a representação utilizada por computadores para armazenar números.</p>
-<p>Por exemplo, podemos escrever o número <span class="math inline">0,0006926</span> com quatro dígitos significativos em notação científica como <span class="math inline">6,926 × 10^{-4}</span>. Esta representação pode representar qualquer valor entre <span class="math inline">0,00069255</span> e <span class="math inline">0,00069265</span>.</p>
-<p>As representações em ponto flutuante em computadores são semelhantes, exceto que uma potência de 2 é usada em vez de uma potência de 10, e a fração é escrita em notação binária.</p>
-<p>O número <span class="math inline">0,0006926</span> é escrito como <span class="math inline">1,0112 \times 2^{-11}</span> se a precisão de quatro dígitos binários for usada. <span class="math inline">.0112</span> representa a <em>mantissa</em> e <span class="math inline">11</span> o <em>expoente</em>.</p>
-<p>No entanto, <span class="math inline">6,926 × 10^{−4}</span> e <span class="math inline">1,0112 × 2^{−11}</span> não são idênticos.</p>
-<p>Quatro dígitos binários fornecem menos precisão que quatro dígitos decimais. Uma faixa de valores entre 0,000641 a 0,000702 obteria a mesma representação com precisão de quatro dígitos binários.</p>
-<p>De fato, <span class="math inline">6,926 × 10^{−4}</span> não pode ser representado exatamente em notação binária em um número finito de dígitos.</p>
-<p>O problema é semelhante a tentar representar <span class="math inline">1/3</span> como um decimal: <span class="math inline">0,3333</span> é apenas uma aproximação.</p>
-<p><code>.Machine</code> é uma variável que contém informações sobre as características numéricas da máquina em que a linguagem R está sendo executada, como o maior <code>double</code> ou inteiro e a precisão da máquina.</p>
-<div id="qwebr-insertion-location-38"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-38");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    38
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `.Machine`, 
-  38);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>A constante <code>double.eps</code> representa o menor número positivo que pode ser representado no tipo <code>double</code> antes que a precisão seja perdida. Vejamos se o valor absoluto de (0.3 - 0.2) - 0.1 é menor que <code>double.eps</code>:</p>
 <div id="qwebr-insertion-location-39"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -2404,8 +2462,56 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `abs((0.3 - 0.2) - 0.1) < .Machine$double.eps`, 
+  `(0.3 - 0.2) - 0.1`, 
   39);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Como vimos, a representação em ponto flutante é uma variação binária (base-dois) da notação científica, sendo esta a representação utilizada por computadores para armazenar números.</p>
+<p>Por exemplo, podemos escrever o número <span class="math inline">0,0006926</span> com quatro dígitos significativos em notação científica como <span class="math inline">6,926 × 10^{-4}</span>. Esta representação pode representar qualquer valor entre <span class="math inline">0,00069255</span> e <span class="math inline">0,00069265</span>.</p>
+<p>As representações em ponto flutuante em computadores são semelhantes, exceto que uma potência de 2 é usada em vez de uma potência de 10, e a fração é escrita em notação binária.</p>
+<p>O número <span class="math inline">0,0006926</span> é escrito como <span class="math inline">1,0112 \times 2^{-11}</span> se a precisão de quatro dígitos binários for usada. <span class="math inline">.0112</span> representa a <em>mantissa</em> e <span class="math inline">11</span> o <em>expoente</em>.</p>
+<p>No entanto, <span class="math inline">6,926 × 10^{−4}</span> e <span class="math inline">1,0112 × 2^{−11}</span> não são idênticos.</p>
+<p>Quatro dígitos binários fornecem menos precisão que quatro dígitos decimais. Uma faixa de valores entre 0,000641 a 0,000702 obteria a mesma representação com precisão de quatro dígitos binários.</p>
+<p>De fato, <span class="math inline">6,926 × 10^{−4}</span> não pode ser representado exatamente em notação binária em um número finito de dígitos.</p>
+<p>O problema é semelhante a tentar representar <span class="math inline">1/3</span> como um decimal: <span class="math inline">0,3333</span> é apenas uma aproximação.</p>
+<p><code>.Machine</code> é uma variável que contém informações sobre as características numéricas da máquina em que a linguagem R está sendo executada, como o maior <code>double</code> ou inteiro e a precisão da máquina.</p>
+<div id="qwebr-insertion-location-40"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-40");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    40
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `.Machine`, 
+  40);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>A constante <code>double.eps</code> representa o menor número positivo que pode ser representado no tipo <code>double</code> antes que a precisão seja perdida. Vejamos se o valor absoluto de (0.3 - 0.2) - 0.1 é menor que <code>double.eps</code>:</p>
+<div id="qwebr-insertion-location-41"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-41");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    41
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `abs((0.3 - 0.2) - 0.1) < .Machine$double.eps`, 
+  41);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Ou seja, a precisão padrão da linguagem R (e náo apenas da linguagem R) é de 53 bits (dígitos binários), o que equivale a cerca de 15 ou 16 dígitos decimais.</p>
@@ -2415,8 +2521,8 @@ qwebrCreateMonacoEditorInstance(
 <p>Algumas operações são particularmente propensas a erros de arredondamento, por exemplo, <strong>subtração</strong> de dois números quase iguais, ou (equivalentemente) adição de dois números com quase a mesma magnitude, mas sinais opostos.</p>
 <p>Isso ocorre por que os bits principais nas expansões binárias de números quase iguais serão correspondentes, assim serão cancelados na subtração, e o resultado vai depender do que está armazenado nos bits posteriores.</p>
 </section>
-<section id="cancelamento-catastrófico" class="level3" data-number="5.1.5">
-<h3 data-number="5.1.5" class="anchored" data-anchor-id="cancelamento-catastrófico"><span class="header-section-number">5.1.5</span> Cancelamento Catastrófico</h3>
+<section id="cancelamento-catastrófico" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="cancelamento-catastrófico"><span class="header-section-number">6.1.5</span> Cancelamento Catastrófico</h3>
 <p>O cancelamento catastrófico ocorre quando subtrai-se dois números muito próximos, resultando em uma perda significativa de precisão devido aos limites da representação numérica em computadores.</p>
 </section>
 </div>
@@ -2424,8 +2530,275 @@ qwebrCreateMonacoEditorInstance(
 </div>
 </section>
 </section>
-<section id="operadores-lógicos" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Operadores Lógicos</h1>
+<section id="operadores-relacionais" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Operadores Relacionais</h1>
+<p>Grande parte de análises de dados resume-se à comparação de valores. Há menos <code>y</code>do que há uma década? <code>z</code> cresceu esta semana? <code>j</code> é mais rápido que <code>k</code>? Algum dos <code>m</code> efeitos é significativo? Se não exigíssemos comparações entre dados, a codificação das análises seriam bastante diretas - sempre faça isso, depois aquilo, depois outra coisa.</p>
+<p>Porém, como exigimos comparações, devemos saber como dizer a R para comparar valores. O resultado de uma comparação será sempre um <em>valor lógico</em>, <code>TRUE</code> ou <code>FALSE</code> (ou <code>NA</code>).</p>
+<p>As comparações mais simples que você pode fazer são:</p>
+<ul>
+<li><p>“x maior que y?”: <span class="math inline">(x &gt; y)</span></p></li>
+<li><p>“x é menor que y?”: <span class="math inline">(x &lt; y)</span>,</p></li>
+</ul>
+<p>usando os operadores “maior que” (<code>&gt;</code>) e “menor que” (<code>&lt;</code>):</p>
+<div id="qwebr-insertion-location-42"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-42");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    42
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `7 > 4`, 
+  42);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-43"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-43");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    43
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `9 < 3`, 
+  43);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Também podemos testar se:</p>
+<ul>
+<li>“x é maior ou igual a y?” <span class="math inline">(x &gt;= y)</span> e;</li>
+<li>“x é menor ou igual a y?” <span class="math inline">(x &lt;= y)</span>.</li>
+</ul>
+<div id="qwebr-insertion-location-44"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-44");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    44
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `5 >= 6`, 
+  44);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-45"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-45");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    45
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `3 <= 3`, 
+  45);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Podemos testar se dois números são iguais entre si com um “duplo igual” (<code>==</code>), que pergunta “x tem o mesmo valor que y?”, <code>x == y</code>.</p>
+<p>A pergunta oposta pode ser feita também: “x é um valor diferente de y?” ou “x não é igual a y?”, <code>x != y</code>.</p>
+<div id="qwebr-insertion-location-46"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-46");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    46
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `3 == 3`, 
+  46);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-47"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-47");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    47
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `7 != 3`, 
+  47);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Alguns cuidados precisam ser tomados com esses operadores. Em alguns casos, eles testam se dois valores parecem ser os mesmos, mas não se são precisamente os mesmos.</p>
+<p>Embora você possa especificar um valor semelhante a um número inteiro como um número inteiro ou um número real, eles são armazenados de forma diferente. Entretanto, eles representam o mesmo valor, então o operador <code>==</code> os trata como iguais ao testar:</p>
+<div id="qwebr-insertion-location-48"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-48");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    48
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `5L == 5`, 
+  48);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Se você realmente deseja testar se são a mesma coisa, a função <code>idêntical()</code> verifica os tipos dos objetos antes de declarar se são idênticas:</p>
+<div id="qwebr-insertion-location-49"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-49");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    49
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `identical(x = 5L, y = 5)`, 
+  49);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comparações entre números reais
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Tenha muito cuidado ao comparar números não inteiros (reais) entre si. Lembra-se da sessão sobre como computadores armazenam dados usando um sistema binário (ou seja, como uns e zeros)? E que não é possível representar exatamente números decimais nesse sistema?</p>
+<p>Por causa disso, há uma limitação na precisão com que os números decimais podem ser armazenados. Você pode inserir o valor 0.3, mas o computador tenta, como pode, armazenar tantos dígitos (zeros neste caso) no final.</p>
+<p>Da mesma forma que não podemos escrever <span class="math inline">1/3 =0,33333\ldots</span> exatamente, os computadores não podem armazenar valores que não sejam potências exatas de 2 sem alguma perda de precisão.</p>
+<p>Podemos ver isso solicitando mais dígitos na saída da função <code>print()</code>:</p>
+<div id="qwebr-insertion-location-50"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-50");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    50
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `print(x = 0.3, digits = 17)`, 
+  50);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Quando ocorrem operações matemáticas, esses bits extras ou ausentes também contribuem. Então, embora você possa ver um bom valor arredondado como resultado, em termos dos dígitos que o computador pode armazenar, pode ser um pouco diferente disso, levando a resultados inesperados:</p>
+<div id="qwebr-insertion-location-51"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-51");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    51
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `print(x = 0.1 + 0.2)`, 
+  51);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-52"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-52");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    52
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `print(x = 0.1 + 0.2, digits = 17)`, 
+  52);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-53"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-53");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    53
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `0.1 + 0.2 > 0.3`, 
+  53);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Essa característica não é exclusiva da linguagem, é inerente a qualquer linguagem de programação.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div id="tbl-logicos" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -2486,11 +2859,11 @@ Tabela&nbsp;2<strong>.</strong> Operadores lógicos em R
 </div>
 </div>
 </section>
-<section id="tipos-primitivos-de-dados" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Tipos Primitivos de Dados</h1>
+<section id="tipos-primitivos-de-dados" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Tipos Primitivos de Dados</h1>
 <p>Conhecer os tipos de dados é crucial para realizar a análise correta e evitar erros. Este sessão irá equipá-lo com as habilidades para verificar os tipos primitivos de dados em R.</p>
 <p>Uma operação ubíqua para um analista ou cientista de dados é a importação de arquivos externos de dados de várias fontes, sendo que muitas vezes os dados não terão o tipo ou classe adequado para que possam ser analisados, assim, o conhecimento dos tipos de dados é fundamental para que você possa alterar o tipo ou classe de suas variáveis para o tipo adequado para a análise que precisa ser realizada, sendo comum a necessidade de alterar o tipo ou classe dos dados durante uma análise.</p>
-<p>Imagine seus dados como uma coleção diversificada de pessoas. Algumas podem ser números (como idade ou peso), enquanto outras podem ser texto (como nomes ou empresas) e outras podem ser datas. Essas diferentes categorias são chamadas de tipos (ou classe em alguns casos) de dados.</p>
+<p>Imagine seus dados como uma coleção diversificada de objetos. Alguns podem ser números (como idade ou peso), enquanto outros podem ser texto (como nomes ou empresas) e outros podem ser datas. Essas diferentes categorias são chamadas de tipos (ou classe) de dados.</p>
 <p>Os cinco tipos vetoriais primitivos (também chamados de tipos ‘atômicos’) mais comuns da linguagem R são:</p>
 <ul>
 <li><code>logical</code></li>
@@ -2499,7 +2872,17 @@ Tabela&nbsp;2<strong>.</strong> Operadores lógicos em R
 <li><code>complex</code></li>
 <li><code>character</code> (em C também conhecido como ‘string’) e</li>
 </ul>
-<p>Outros, menos usuais, são: <code>raw</code>, <code>list</code>, <code>NULL</code>, <code>closure</code> (funções), <code>special</code>, <code>builtin</code> (operadores e funções básicas), <code>environment</code> e <code>S4</code> e outros que não pouco vistos no nível do usuário.</p>
+<p>Outros, menos usuais, são:</p>
+<ul>
+<li><code>raw</code></li>
+<li><code>list</code></li>
+<li><code>NULL</code></li>
+<li><code>closure</code>: para funções</li>
+<li><code>special</code></li>
+<li><code>builtin</code>: operadores e funções básicas</li>
+<li><code>environment</code></li>
+<li><code>S4</code></li>
+</ul>
 <p>Os cinco tipos primitivos mais comuns estão detalhados na <a href="#tbl-01" class="quarto-xref">Tabela&nbsp;1</a>.</p>
 <div class="cell">
 <div id="tbl-02" class="cell quarto-float anchored">
@@ -2593,13 +2976,22 @@ R não possui um tipo escalar
 <p>Números únicos, como 4.2, e strings, como “quatro pontos dois” ainda são vetores, de tamanho 1, ou seja, na linguagem R não existe um tipo escalar. Vetores com tamanho zero são possíveis (e úteis).</p>
 </div>
 </div>
-<section id="verificando-tipos-de-dados" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="verificando-tipos-de-dados"><span class="header-section-number">7.1</span> Verificando Tipos de Dados</h2>
+<section id="verificando-tipos-de-dados" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="verificando-tipos-de-dados"><span class="header-section-number">8.1</span> Verificando Tipos de Dados</h2>
 <p>Agora, vamos nos equipar com as ferramentas para identificar esses tipos de dados em nossos projetos R. Aqui estão duas funções poderosas: <code>typeof()</code> e <code>class()</code>.</p>
-<p>As funções <code>typeof</code> e <code>class</code> da linguagem R são usadas para determinar a natureza de um objeto, mas diferem em alguns aspectos importantes:</p>
+<p>As funções <code>typeof()</code> e <code>class()</code> da linguagem R são usadas para determinar a natureza de um objeto, mas diferem em aspectos importantes:</p>
 <ul>
 <li><p><code>typeof()</code>: Retorna o tipo de armazenamento interno do objeto, sendo que os tipos mais comuns são: <code>double</code>, <code>integer</code>, <code>logical</code>, <code>character</code>, <code>complex</code>.</p></li>
-<li><p><code>class()</code>: etorna a classe S3 do objeto, que é uma classificação mais abstrata que define seu comportamento e as funções que podem ser aplicadas a ele. As classes S3 são predefinidas no R e podem ser personalizadas pelo usuário. Exemplos de classes: <code>numeric</code>, <code>character</code>, <code>logical</code>, <code>data.frame</code>, <code>matrix</code>, <code>array</code>.</p></li>
+<li><p><code>class()</code>: etorna a classe S3 do objeto, que é uma classificação mais abstrata que define seu comportamento e as funções que podem ser aplicadas a ele. As classes S3 são predefinidas em R e podem ser personalizadas pelo usuário.</p></li>
+</ul>
+<p>Exemplos de classes:</p>
+<ul>
+<li><code>numeric</code>: se um objeto é do tipo <code>integer</code> ou <code>double</code>, sua classe é <code>numeric</code>;</li>
+<li><code>character</code>;</li>
+<li><code>logical</code>;</li>
+<li><code>data.frame</code>;</li>
+<li><code>matrix</code>;</li>
+<li><code>array</code>.</li>
 </ul>
 <p>Em resumo:</p>
 <ul>
@@ -2607,19 +2999,19 @@ R não possui um tipo escalar
 <li><p><code>class()</code> informa o classe (ou tipo semântico) do objeto e suas propriedades.</p></li>
 </ul>
 </section>
-<section id="função-str" class="level2 callout-info" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="função-str"><span class="header-section-number">7.2</span> Função <code>str()</code></h2>
+<section id="função-str" class="level2 callout-info" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="função-str"><span class="header-section-number">8.2</span> Função <code>str()</code></h2>
 <p>Uma outra função muito utilizada para exibir a estrutura interna de um objeto, é a função <code>str()</code> (de <em>structure</em>).</p>
 <p>Em geral, utilizamos <code>str()</code> para exibir a estrutura de objetos mais complexos tais como <code>data.frame</code> e <code>list</code>.</p>
 <p>No código a seguir, criamos uma data.frame chamada <code>df_str</code> usando a função <code>data.frame</code>. Para criar as 3 variáveis que irão compor a data frame, utilizamos a função <code>c()</code> (de <em>concatenate</em>) que concatena os elementos inseridos em um vetor.</p>
-<div id="qwebr-insertion-location-40"></div>
+<div id="qwebr-insertion-location-54"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-40");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-54");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    40
+    54
   );
 
 // Add the interactive element into the document scope
@@ -2636,20 +3028,21 @@ df_str <- data.frame(
 
 # exibe a estrutura interna do objeto
 str(df_str)`, 
-  40);
+  54);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section id="exemplos" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="exemplos"><span class="header-section-number">7.3</span> Exemplos</h2>
-<div id="qwebr-insertion-location-41"></div>
+<p>Vejamos alguns exemplos da aplicação da funções <code>typeof()</code> e <code>class()</code></p>
+<section id="exemplos" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="exemplos"><span class="header-section-number">8.3</span> Exemplos</h2>
+<div id="qwebr-insertion-location-55"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-41");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-55");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    41
+    55
   );
 
 // Add the interactive element into the document scope
@@ -2660,17 +3053,17 @@ qwebrCreateMonacoEditorInstance(
   `num_01 <- 1
 typeof(num_01) 
 class(num_01)`, 
-  41);
+  55);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-42"></div>
+<div id="qwebr-insertion-location-56"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-42");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-56");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    42
+    56
   );
 
 // Add the interactive element into the document scope
@@ -2681,18 +3074,19 @@ qwebrCreateMonacoEditorInstance(
   `num_02 <- 1.0
 typeof(num_02) 
 class(num_02) `, 
-  42);
+  56);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Pelos dois exemplos anteriores, você deve ter percebido que um valor que se parece com um número inteiro ainda será armazenado como um número tipo <code>double</code> ou da classe <code>numeric</code>. Isso ocorre, porque, por padrão, R assumirá o tipo mais geral de dados conforme você os atribui a uma variável. A menos que você diga especificamente ao R o contrário, nesse caso, para que um número tenha o tipo inteiro, é necessário acrescentar um <code>L</code> maiúsculo à sua direita:</p>
-<div id="qwebr-insertion-location-43"></div>
+<p>Pelos dois exemplos anteriores, você deve ter percebido que um valor que se parece com um número inteiro ainda será armazenado como um número tipo <code>double</code> ou da classe <code>numeric</code>. Isso ocorre, porque, por padrão, R assumirá o tipo mais geral de dados conforme você os atribui a uma variável.</p>
+<p>A menos que você diga especificamente ao R o contrário, nesse caso, para que um número tenha o tipo inteiro, é necessário acrescentar um <code>L</code> maiúsculo à sua direita:</p>
+<div id="qwebr-insertion-location-57"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-43");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-57");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    43
+    57
   );
 
 // Add the interactive element into the document scope
@@ -2703,17 +3097,17 @@ qwebrCreateMonacoEditorInstance(
   `num_03 <- 1L
 typeof(num_03) 
 class(num_03) `, 
-  43);
+  57);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-44"></div>
+<div id="qwebr-insertion-location-58"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-44");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-58");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    44
+    58
   );
 
 // Add the interactive element into the document scope
@@ -2724,17 +3118,17 @@ qwebrCreateMonacoEditorInstance(
   `num_complexo <- 2 - 3i
 typeof(num_complexo)
 class(num_complexo)`, 
-  44);
+  58);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-45"></div>
+<div id="qwebr-insertion-location-59"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-45");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-59");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    45
+    59
   );
 
 // Add the interactive element into the document scope
@@ -2745,17 +3139,17 @@ qwebrCreateMonacoEditorInstance(
   `string_01 <- "Olá" 
 typeof(string_01)
 class(string_01) `, 
-  45);
+  59);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-46"></div>
+<div id="qwebr-insertion-location-60"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-46");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-60");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    46
+    60
   );
 
 // Add the interactive element into the document scope
@@ -2766,18 +3160,18 @@ qwebrCreateMonacoEditorInstance(
   `is_employed <- TRUE
 typeof(is_employed)
 class(is_employed)`, 
-  46);
+  60);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Veja alguns exemplos dos tipos especiais:</p>
-<div id="qwebr-insertion-location-47"></div>
+<div id="qwebr-insertion-location-61"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-47");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-61");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    47
+    61
   );
 
 // Add the interactive element into the document scope
@@ -2786,17 +3180,17 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `0/0 `, 
-  47);
+  61);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-48"></div>
+<div id="qwebr-insertion-location-62"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-48");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-62");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    48
+    62
   );
 
 // Add the interactive element into the document scope
@@ -2805,17 +3199,17 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `100/0 `, 
-  48);
+  62);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-49"></div>
+<div id="qwebr-insertion-location-63"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-49");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-63");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    49
+    63
   );
 
 // Add the interactive element into the document scope
@@ -2824,11 +3218,11 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `-100/0`, 
-  49);
+  63);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2837,7 +3231,7 @@ A classe <code>Date</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Em R, a classe <code>Date</code> é utilizada para representar datas. Esta classe é especialmente útil para manipulações e cálculos envolvendo datas, permitindo operações específicas que respeitam a natureza temporal dos dados.</p>
 <p>Vamos explorar a classe <code>Date</code> em mais detalhes:</p>
@@ -2849,14 +3243,14 @@ A classe <code>Date</code>
 <li><strong>Construção de Objetos Date:</strong></li>
 </ul>
 <p>Você pode criar um objeto <code>Date</code> utilizando a função <code>as.Date()</code>. Por exemplo:</p>
-<div id="qwebr-insertion-location-50"></div>
+<div id="qwebr-insertion-location-64"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-50");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-64");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    50
+    64
   );
 
 // Add the interactive element into the document scope
@@ -2865,7 +3259,7 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `as.Date("2024-03-04")`, 
-  50);
+  64);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
@@ -2882,14 +3276,14 @@ qwebrCreateMonacoEditorInstance(
 <ol type="1">
 <li>Criação de Objetos Date:</li>
 </ol>
-<div id="qwebr-insertion-location-51"></div>
+<div id="qwebr-insertion-location-65"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-51");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-65");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    51
+    65
   );
 
 // Add the interactive element into the document scope
@@ -2900,17 +3294,17 @@ qwebrCreateMonacoEditorInstance(
   `# Cria uma data a partir de uma string
 data_exemplo <- as.Date("2024-03-04")
 data_exemplo `, 
-  51);
+  65);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-52"></div>
+<div id="qwebr-insertion-location-66"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-52");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-66");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    52
+    66
   );
 
 // Add the interactive element into the document scope
@@ -2923,20 +3317,20 @@ datas_sequencia <- seq(as.Date("2024-03-01"),
                        as.Date("2024-03-10"), 
                        by = "days")
 datas_sequencia`, 
-  52);
+  66);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ol start="2" type="1">
 <li>Operações com Datas:</li>
 </ol>
-<div id="qwebr-insertion-location-53"></div>
+<div id="qwebr-insertion-location-67"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-53");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-67");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    53
+    67
   );
 
 // Add the interactive element into the document scope
@@ -2947,20 +3341,20 @@ qwebrCreateMonacoEditorInstance(
   `# Calcula a diferença entre duas datas
 diferenca_dias <- as.Date("2024-03-07") - as.Date("1973-02-28")
 diferenca_dias`, 
-  53);
+  67);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ol start="3" type="1">
 <li>Manipulação de Formatos:</li>
 </ol>
-<div id="qwebr-insertion-location-54"></div>
+<div id="qwebr-insertion-location-68"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-54");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-68");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    54
+    68
   );
 
 // Add the interactive element into the document scope
@@ -2971,7 +3365,7 @@ qwebrCreateMonacoEditorInstance(
   `# Exibe a data em formato específico
 data_formatada <- format(data_exemplo, "%d/%m/%Y")
 data_formatada`, 
-  54);
+  68);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
@@ -2996,8 +3390,112 @@ data_formatada`,
 </div>
 <p>Ao entender e verificar efetivamente os tipos de dados, você estará no caminho correto para dominar a manipulação e análise de dados em R. Lembre-se, a prática leva à perfeição, e quanto mais você experimentar, mais confortável você se tornará com os tipos de dados em R. Então, continue explorando, continue programando e continue desmistificando seus dados!</p>
 </section>
-<section id="convertendo-um-objeto-para-um-tipo-específico" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="convertendo-um-objeto-para-um-tipo-específico"><span class="header-section-number">7.4</span> Convertendo um Objeto para um Tipo Específico</h2>
+<section id="verificando-o-tipoclasse-de-um-objeto" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="verificando-o-tipoclasse-de-um-objeto"><span class="header-section-number">8.4</span> Verificando o Tipo/Classe de um Objeto</h2>
+<p>Existem funções da linguagem para verificarmos se um objeto é, ou não, de um determinado tipo ou classe. Algumas das principais funções desta família de funções são:</p>
+<ul>
+<li><code>is.numeric()</code></li>
+</ul>
+<p>A função <code>is.numeric()</code> é utilizada para verificar se um objeto é da classe <code>numeric</code>. Retorna <code>TRUE</code> se o objeto for numérico e <code>FALSE</code> caso contrário. Vejamos um exemplo:</p>
+<div id="qwebr-insertion-location-69"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-69");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    69
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `x <- 5
+is.numeric(x) `, 
+  69);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li><code>is.character()</code></li>
+</ul>
+<p>A função <code>is.character()</code> é empregada para verificar se um objeto é do tip/classe <code>character</code>. Retorna <code>TRUE</code> se o objeto for um caracter e <code>FALSE</code> caso contrário.</p>
+<p>Exemplo:</p>
+<div id="qwebr-insertion-location-70"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-70");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    70
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `y <- "Olá, mundo!"
+is.character(y) `, 
+  70);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li><code>is.logical()</code></li>
+</ul>
+<p>A função <code>is.logical()</code> verifica se um objeto é do tipo/classe <code>logical</code>, ou seja, se assume os valores <code>TRUE</code> ou <code>FALSE</code>.</p>
+<p>Exemplo:</p>
+<div id="qwebr-insertion-location-71"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-71");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    71
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `z <- TRUE
+is.logical(z) `, 
+  71);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li><code>is.factor()</code></li>
+</ul>
+<p>A função <code>is.factor()</code> é utilizada para verificar se um objeto é do tipo/classe <code>factor</code>. Fatores são estruturas de dadso usadas para representar variáveis categóricas em R, veremos mais detalhes nas próximas sessões.</p>
+<p>Exemplo:</p>
+<div id="qwebr-insertion-location-72"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-72");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    72
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `w <- factor("A", levels = c("A", "B", "C"))
+is.factor(w)`, 
+  72);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Essas funções são úteis para verificar e validar tipos de dados em R, contribuindo para a consistência e integridade na manipulação de dados.</p>
+</section>
+<section id="convertendo-um-objeto-para-um-tipo-específico" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="convertendo-um-objeto-para-um-tipo-específico"><span class="header-section-number">8.5</span> Convertendo um Objeto para um Tipo Específico</h2>
 <p>Às vezes, os dados não são do tipo que você deseja. Então, o que podemos fazer? R possui um grupo de funções que começam com <code>as.</code> que tentam converter (coagir)quaisquer dados de entrada em outro tipo.</p>
 <p>As funções importantes são:</p>
 <ul>
@@ -3009,14 +3507,14 @@ data_formatada`,
 <li><code>as.POSIXct()</code> e <code>as.POSIXlt()</code></li>
 </ul>
 <p>Essas funções tentam converter um dado existente para um tipo específico. Então, se você tiver um número, mas você deseja que R o trate como texto (<code>character</code>), você pode usar <code>as.character()</code>:</p>
-<div id="qwebr-insertion-location-55"></div>
+<div id="qwebr-insertion-location-73"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-55");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-73");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    55
+    73
   );
 
 // Add the interactive element into the document scope
@@ -3024,30 +3522,503 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `num_as_caracter <- as.character(x = 1234)
-str(object = num_as_caracter)`, 
-  55);
+  `num_as_string <- as.character(x = 1234)
+typeof(num_as_string)
+class(num_as_string)`, 
+  73);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Você pode forçar isso ao inserir os dados colocando aspas ao redor do número, fazendo com que seja do tipo <code>character</code>:</p>
+<div id="qwebr-insertion-location-74"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-74");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    74
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `num_as_string <- "1234"
+typeof(num_as_string)
+class(num_as_string)`, 
+  74);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Mas às vezes você precisa converter um valor já armazenado em uma variável, por exemplo, contida em um arquivo de dados importado. Se você tiver alguns dados numéricos que foram importados como sequências de caracteres, poderá convertê-los novamente em números:</p>
+<div id="qwebr-insertion-location-75"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-75");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    75
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `string_as_num <- as.numeric(x = "3.14159")
+typeof(string_as_num)
+class(string_as_num)`, 
+  75);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Converter números inteiros para números contínuos (tipo <code>double</code> ou classe <code>numeric</code>) é simples, e recomendamos usar a funçõa <code>as.numeric</code>:</p>
+<div id="qwebr-insertion-location-76"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-76");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    76
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `as.numeric(x = 10)`, 
+  76);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Existem limites para o que R pode converter. E se você fornecer algo que claramente não é um número inteiro? Você pode testar isso com alguns valores e ver se obtém o resultado esperado:</p>
+<div id="qwebr-insertion-location-77"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-77");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    77
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `as.integer(x = 3.14)`, 
+  77);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Faz sentido, talvez. Esse é certamente o número inteiro mais próximo (número inteiro) daquele valor. Vamos tentar outro:</p>
+<div id="qwebr-insertion-location-78"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-78");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    78
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `as.integer(x = 2.99)`, 
+  78);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Era isso que você esperava? Depende de como você supôs que a função poderia funcionar. <code>as.integer()</code> coage para o número inteiro mais próximo, arredondando em direção a zero.</p>
+<p>E quanto aos números negativos?</p>
+<div id="qwebr-insertion-location-79"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-79");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    79
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `as.integer(x = -22.6)`, 
+  79);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Novamente o arredondamento ocorre em direção a zero. Portanto, conversões podem, ou não, ser o que você deseja, então certifique-se de que o resultado seja correto esta ao usar as funções de conversão.</p>
+<p>R fará o possível para converter de qualquer tipo para qualquer outro tipo que você solicitar, mas apenas algumas combinações são possíveis. De inteiro para numérico é simples. Numérico para inteiro, como você acabou de ver, funciona, desde que você saiba que será arredondado para zero.</p>
 </section>
-<section id="exercícios" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">7.5</span> Exercícios</h2>
-<p><strong>Desafio Bônus</strong>: Você consegue pensar em situações em que saber o tipo de dados é crucial para a sua análise?</p>
-</section>
-</section>
-<section id="estruturas-de-dados" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Estruturas de Dados</h1>
-<section id="vector" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="vector"><span class="header-section-number">8.1</span> vector</h2>
-</section>
-<section id="factor" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="factor"><span class="header-section-number">8.2</span> factor</h2>
-</section>
-<section id="data-frame-e-tibble" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="data-frame-e-tibble"><span class="header-section-number">8.3</span> data frame e tibble</h2>
-</section>
-<section id="matrix" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="matrix"><span class="header-section-number">8.4</span> matrix</h2>
+<section id="exercícios" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">8.6</span> Exercícios</h2>
+<p><strong>Exercício 1</strong> : Identificando Tipos de Dados</p>
+<p>Crie variáveis (objetos) apropriadas para armazenar:</p>
+<ul>
+<li>Sua idade:</li>
+</ul>
+<div id="qwebr-insertion-location-80"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-80");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    80
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta
+# apague os comentáriso se desejar`, 
+  80);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Seu nome:</li>
+</ul>
+<div id="qwebr-insertion-location-81"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-81");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    81
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  81);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Se você considera que possui boa saúde mental:</li>
+</ul>
+<div id="qwebr-insertion-location-82"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-82");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    82
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  82);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Utilize as funções <code>typeof()</code> e <code>class()</code> para verificar o tipo e a classe de cada variável.</li>
+</ul>
+<div id="qwebr-insertion-location-83"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-83");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    83
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  83);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Exercício 2</strong>: Testando Tipos de Dados</p>
+<ul>
+<li>Crie uma variável chamada <code>valor</code> que pode ser numérica ou caractere.</li>
+</ul>
+<div id="qwebr-insertion-location-84"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-84");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    84
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  84);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Utilize <code>is.numeric()</code> e <code>is.character()</code> para verificar o tipo em diferentes cenários (atribuindo valores numéricos e de caracteres).</li>
+</ul>
+<div id="qwebr-insertion-location-85"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-85");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    85
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  85);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Exercício 3</strong>: Convertendo Tipos de Dados</p>
+<ul>
+<li>Crie uma variável chamada <code>numero</code> que receba um valor numérico como string (“123”):</li>
+</ul>
+<div id="qwebr-insertion-location-86"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-86");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    86
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  86);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Converta a variável para a classe <code>numeric</code> usando <code>as.numeric()</code>:</li>
+</ul>
+<div id="qwebr-insertion-location-87"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-87");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    87
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  87);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Utilize <code>class()</code> para verificar se a conversão foi realizada com sucesso:</li>
+</ul>
+<div id="qwebr-insertion-location-88"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-88");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    88
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  88);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Exercício 4</strong>: Operações com Tipos de Dados</p>
+<ul>
+<li>Crie as variáveis <code>num1</code> e <code>num2</code> com valores numéricos:</li>
+</ul>
+<div id="qwebr-insertion-location-89"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-89");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    89
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  89);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Some <code>num1</code> e <code>num2</code> e verifique o tipo do resultado.</li>
+</ul>
+<div id="qwebr-insertion-location-90"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-90");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    90
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  90);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Concatene <code>num1</code> e <code>num2</code> como caracteres usando a função <code>paste()</code> e verifique o tipo do resultado.</li>
+</ul>
+<div id="qwebr-insertion-location-91"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-91");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    91
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  91);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica sobre a função <code>paste()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A função <code>paste()</code> concatena vários objetos em um único. É uma ferramenta versátil para combinar objetos.</p>
+<p>A sintáxe da função é:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(x, y, ..., <span class="at">sep =</span> <span class="st">""</span>, <span class="at">collapse =</span> <span class="st">""</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>sendo: - <code>x</code>, <code>y</code>, …: Objetos a serem concatenados. - <code>sep</code>: Separador entre os objetos (opcional, padrão: espaço em branco). - <code>collapse</code>: Caractere para unir linhas (opcional, padrão: nova linha)</p>
+<p>exemplo:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>num1 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>num2 <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">paste</span>(num1, num2)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>resultado</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><strong>Exercício 5</strong>: Este exercício ilustra a manipulação de datas na linguagem R, utilizando a classe <code>Date</code>.</p>
+<p>Crie duas variáveis do tipo <code>Date</code>:</p>
+<ul>
+<li><code>data_nascimento</code>: Sua data de nascimento.</li>
+</ul>
+<div id="qwebr-insertion-location-92"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-92");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    92
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  92);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li><code>data_hoje</code>: A data de hoje (use <code>Sys.Date()</code>).</li>
+</ul>
+<div id="qwebr-insertion-location-93"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-93");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    93
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  93);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>Calcule a diferença entre as duas datas em dias.</li>
+</ul>
+<div id="qwebr-insertion-location-94"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-94");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    94
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# digite aqui sua resposta`, 
+  94);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Desafio Bônus</strong>: Identifique situações em que saber o tipo de dados é crucial para a sua análise.</p>
 </section>
 </section>
 <section id="referências" class="level1" data-number="9">
