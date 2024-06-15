@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Lelis P. de Andrade, Washington S. da Silva, Bruno C. de M. Moreira, Daniel F. Costa">
+<meta name="dcterms.date" content="2023-12-28">
 
-<title>Washington S. da Silva - Back to Basics</title>
+<title>Washington S. da Silva - Flexibilidade Financeira e Retorno de Ações das Companhias Brasileiras: Evidências Durante a Crise Causada Pela Covid-19</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -57,48 +57,19 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Nenhum resultado",
-    "search-matching-documents-text": "documentos correspondentes",
-    "search-copy-link-title": "Copiar link para a busca",
-    "search-hide-matches-text": "Esconder correspondências adicionais",
-    "search-more-match-text": "mais correspondência neste documento",
-    "search-more-matches-text": "mais correspondências neste documento",
-    "search-clear-button-title": "Limpar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Procurar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X7TV071MD7"></script>
 
 <script type="text/plain" cookie-consent="tracking">
@@ -121,7 +92,7 @@ cookieconsent.run({
   "preferences_center_close_button_hide":false,
   "website_name":""
   ,
-"language":"pt"
+"language":"en"
   });
 });
 </script> 
@@ -130,49 +101,6 @@ cookieconsent.run({
 <script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -188,14 +116,14 @@ window.Quarto = {
     <span class="navbar-title">Washington S. da Silva</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Procurar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
@@ -226,79 +154,87 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categorias</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tudo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="carreira alternativa">carreira alternativa <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mudança de carreira">mudança de carreira <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Back to Basics</h1>
+<h1 class="title">Flexibilidade Financeira e Retorno de Ações das Companhias Brasileiras: Evidências Durante a Crise Causada Pela Covid-19</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
-    
-  
-    
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+            <p>Lelis P. de Andrade, Washington S. da Silva, Bruno C. de M. Moreira, Daniel F. Costa 
+      </p>
+          </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 December 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Publication details</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">
+        <em>Revista Evidenciação Contábil &amp; Finanças</em>, 11:2, 83-100
+      </p>
+    </div>
+  </div>
+  
+  <div>
+    <div class="quarto-title-meta-heading">Links</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date" style="color: #fff !important;">
+            <a href="https://doi.org/https://doi.org/10.22478/ufpb.2318-1001.2023v11n2.66094" class="badge badge badge-blue">DOI</a>
+                                    <a href="https://periodicos.ufpb.br/ojs2/index.php/recfin/article/view/66094" class="badge badge badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;pdf</a>
+                  
+      
+      
+      
+      </p>
+    </div>
+
+  </div>
+</div>
 
 
+
+
+
+
+
+<p>&nbsp;</p>
 </header>
 
 
+<p>Abstract</p>
+<p><strong>Objective</strong>: The objective was to verify the effect of financial flexibility on the value of shares of Brazilian companies during the pandemic period caused by COVID-19.</p>
+<p><strong>Background</strong>: Financial flexibility is associated with the ability of a company to face financial diffi-culties, but there are still no studies in Brazil that show its relationship with the value of shares in periods with a shock to companies’ revenues.</p>
+<p><strong>Method</strong>: Regression analysis was applied to a cross-section of data with 102 companies listed on the Brazil Broad Index (IBRA). Two economic periods of the pandemic were considered, the col-lapse, between 2/2/2020 and 3/23/2020, and the stimulus to the economy, on 3/24/2020.</p>
+<p><strong>Results</strong>: The evidence show that in the period of economic collapse, the financial flexibility due to debt capacity proved to be valuable for companies, especially for those most affected by COVID-19, which had more pronounced reductions in revenues in the first half of 2020. We have also ob-served that the level of cash retention had no impact on stock returns during the collapse period. On the date of economic stimulus, the companies’ cash level showed a positive relationship with the value of shares, but there were no evidence that this appreciation occurred for companies with more affected revenues.</p>
+<p><strong>Contributions</strong>: This study contributes to the literature by verifying the impact of financial flexibil-ity on the value of shares of Brazilian companies during two different economic moments of the pandemic, namely: the collapse and the stimulus to the economy.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="mudança de carreira,carreira alternativa" data-listing-date-sort="1694746800000" data-listing-file-modified-sort="1708651749958" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41">
-<div class="thumbnail">
-<p><a href="../blog/p01/primeiro_post.html" class="no-external"></a></p><a href="../blog/p01/primeiro_post.html" class="no-external">
-<p><img src="../blog/p01/paineira.jpg" class="thumbnail-image"></p>
-</a><p><a href="../blog/p01/primeiro_post.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/p01/primeiro_post.html" class="no-external">Mudança Profissional em Tempos de Disrupção</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/p01/primeiro_post.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('mudança de carreira'); return false;">
-mudança de carreira
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('carreira alternativa'); return false;">
-carreira alternativa
-</div>
-</div>
-<div class="listing-description">
-<a href="../blog/p01/primeiro_post.html" class="no-external">A concepção de um site pessoal e deste blog representa os primeiros passos em uma nova jornada voltada à exploração de oportunidades profissionais inexploradas e à…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/p01/primeiro_post.html" class="no-external">
-<div class="listing-date">
-15 setembro 2023
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-Nenhum item correspondente
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -353,12 +289,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiada");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiada");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -713,6 +649,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
