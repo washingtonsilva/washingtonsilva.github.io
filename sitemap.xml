@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://washingtonsilva.github.io/tutorials/dbca/index.html</loc>
+    <lastmod>2024-05-14T17:07:13.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/tutorials/introR/index.html</loc>
+    <lastmod>2024-03-07T01:18:20.778Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/techreports/index.html</loc>
+    <lastmod>2024-02-19T20:32:42.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/talks/french_academy/french_academy_1901.html</loc>
+    <lastmod>2023-09-19T20:42:05.035Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/publications/index.html</loc>
+    <lastmod>2023-09-19T20:42:05.034Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/projects/projeto01/index.html</loc>
+    <lastmod>2024-02-20T20:38:16.110Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/index.html</loc>
+    <lastmod>2024-06-16T02:14:48.689Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/blog/index.html</loc>
+    <lastmod>2024-06-15T18:25:31.722Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/teaching/index.html</loc>
+    <lastmod>2024-06-16T02:20:29.328Z</lastmod>
+  </url>
+  <url>
     <loc>https://washingtonsilva.github.io/publications/vies_confirmacao.html</loc>
     <lastmod>2023-09-19T20:42:05.035Z</lastmod>
   </url>
@@ -21,44 +57,44 @@
     <lastmod>2024-06-16T02:28:37.457Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/publications/biospecke.html</loc>
-    <lastmod>2024-01-30T14:03:11.989Z</lastmod>
+    <loc>https://washingtonsilva.github.io/publications/efeito_cotas.html</loc>
+    <lastmod>2024-07-07T00:12:14.245Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/publications/arch.html</loc>
+    <lastmod>2023-09-19T20:42:05.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://washingtonsilva.github.io/Readme.html</loc>
+    <lastmod>2023-09-19T20:55:37.655Z</lastmod>
   </url>
   <url>
     <loc>https://washingtonsilva.github.io/publications/anchoring_effect.html</loc>
     <lastmod>2023-09-19T20:42:05.033Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/tutorials/introR/index.html</loc>
-    <lastmod>2024-03-07T01:18:20.778Z</lastmod>
+    <loc>https://washingtonsilva.github.io/publications/biospecke.html</loc>
+    <lastmod>2024-01-30T14:03:11.989Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/tutorials/dbca/index.html</loc>
-    <lastmod>2024-05-14T17:07:13.535Z</lastmod>
+    <loc>https://washingtonsilva.github.io/publications/estrutura_capital.html</loc>
+    <lastmod>2024-01-30T14:02:31.932Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/techreports/index.html</loc>
-    <lastmod>2024-02-19T20:32:42.831Z</lastmod>
+    <loc>https://washingtonsilva.github.io/publications/heavy_metals.html</loc>
+    <lastmod>2024-01-30T14:03:35.366Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/talks/index.html</loc>
-    <lastmod>2023-09-19T20:42:05.036Z</lastmod>
+    <loc>https://washingtonsilva.github.io/publications/overconfidence.html</loc>
+    <lastmod>2024-01-30T02:46:46.667Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/publications/index.html</loc>
-    <lastmod>2023-09-19T20:42:05.034Z</lastmod>
+    <loc>https://washingtonsilva.github.io/publications/system_dynamics.html</loc>
+    <lastmod>2024-01-30T14:03:58.637Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/projects/projeto01/index.html</loc>
-    <lastmod>2024-02-20T20:38:16.110Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/index.html</loc>
-    <lastmod>2024-06-16T02:14:48.689Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/blog/index.html</loc>
-    <lastmod>2024-06-15T18:25:31.722Z</lastmod>
+    <loc>https://washingtonsilva.github.io/publications/toxic_metals.html</loc>
+    <lastmod>2024-01-30T14:04:32.631Z</lastmod>
   </url>
   <url>
     <loc>https://washingtonsilva.github.io/about/index.html</loc>
@@ -81,47 +117,15 @@
     <lastmod>2024-01-30T02:46:19.882Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/talks/french_academy/french_academy_1901.html</loc>
-    <lastmod>2023-09-19T20:42:05.035Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/teaching/index.html</loc>
-    <lastmod>2024-06-16T02:20:29.328Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/techreports/relatorio_ifs/index.html</loc>
-    <lastmod>2024-06-16T17:20:33.203Z</lastmod>
+    <loc>https://washingtonsilva.github.io/talks/index.html</loc>
+    <lastmod>2023-09-19T20:42:05.036Z</lastmod>
   </url>
   <url>
     <loc>https://washingtonsilva.github.io/tutorials/index.html</loc>
     <lastmod>2024-04-21T05:30:16.812Z</lastmod>
   </url>
   <url>
-    <loc>https://washingtonsilva.github.io/Readme.html</loc>
-    <lastmod>2023-09-19T20:55:37.655Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/publications/arch.html</loc>
-    <lastmod>2023-09-19T20:42:05.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/publications/estrutura_capital.html</loc>
-    <lastmod>2024-01-30T14:02:31.932Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/publications/heavy_metals.html</loc>
-    <lastmod>2024-01-30T14:03:35.366Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/publications/overconfidence.html</loc>
-    <lastmod>2024-01-30T02:46:46.667Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/publications/system_dynamics.html</loc>
-    <lastmod>2024-01-30T14:03:58.637Z</lastmod>
-  </url>
-  <url>
-    <loc>https://washingtonsilva.github.io/publications/toxic_metals.html</loc>
-    <lastmod>2024-01-30T14:04:32.631Z</lastmod>
+    <loc>https://washingtonsilva.github.io/techreports/relatorio_ifs/index.html</loc>
+    <lastmod>2024-06-16T17:20:33.203Z</lastmod>
   </url>
 </urlset>

@@ -6,14 +6,9 @@
     ]
   },
   {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/french_academy/french_academy_1901.html"
-    ]
-  },
-  {
     "listing": "/publications/index.html",
     "items": [
+      "/publications/efeito_cotas.html",
       "/publications/portfolio_svm.html",
       "/publications/flexibilidade_covid19.html",
       "/publications/overconfidence.html",
@@ -40,6 +35,12 @@
     "listing": "/projects/index.html",
     "items": [
       "/projects/projeto01/index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/french_academy/french_academy_1901.html"
     ]
   },
   {
