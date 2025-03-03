@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Washington S. da Silva">
+<meta name="description" content="Um tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R.">
+
+<title>Delineamento em Blocos Completos Aleatorizados (DBCA) – Washington S. da Silva</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d733bae8d25ee96a5ec25d3f450c87d8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X7TV071MD7"></script>
+
+<script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X7TV071MD7', { 'anonymize_ip': true});
+</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"headline",
+  "consent_type":"express",
+  "palette":"dark",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"pt"
+  });
+});
+</script> 
+  
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Washington S. da Silva</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications/index.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorials/index.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#conceitos-básicos" id="toc-conceitos-básicos" class="nav-link active" data-scroll-target="#conceitos-básicos">Conceitos Básicos</a></li>
+  <li><a href="#visão-geral" id="toc-visão-geral" class="nav-link" data-scroll-target="#visão-geral">Visão Geral</a></li>
+  <li><a href="#dbca-modelo-linear-normal---efeitos-fixos." id="toc-dbca-modelo-linear-normal---efeitos-fixos." class="nav-link" data-scroll-target="#dbca-modelo-linear-normal---efeitos-fixos.">DBCA: Modelo Linear Normal - Efeitos Fixos.</a></li>
+  <li><a href="#dbca-tabela-da-análise-da-variância---efeitos-fixos" id="toc-dbca-tabela-da-análise-da-variância---efeitos-fixos" class="nav-link" data-scroll-target="#dbca-tabela-da-análise-da-variância---efeitos-fixos">DBCA: Tabela da Análise da Variância - Efeitos Fixos</a></li>
+  <li><a href="#sumário-das-principais-características-de-um-dbc" id="toc-sumário-das-principais-características-de-um-dbc" class="nav-link" data-scroll-target="#sumário-das-principais-características-de-um-dbc">Sumário das Principais Características de um DBC</a></li>
+  <li><a href="#etapas-da-análise-de-um-dbca" id="toc-etapas-da-análise-de-um-dbca" class="nav-link" data-scroll-target="#etapas-da-análise-de-um-dbca">Etapas da Análise de um DBCA</a></li>
+  <li><a href="#análise" id="toc-análise" class="nav-link" data-scroll-target="#análise">Análise</a>
+  <ul class="collapse">
+  <li><a href="#identifique-o-bloco-fator-de-perturbação-o-fator-de-interesse-tratamento-e-seus-níveis-e-a-variável-resposta-deste-experimento.-além-disso-descreva-o-modelo-linear-do-experimento." id="toc-identifique-o-bloco-fator-de-perturbação-o-fator-de-interesse-tratamento-e-seus-níveis-e-a-variável-resposta-deste-experimento.-além-disso-descreva-o-modelo-linear-do-experimento." class="nav-link" data-scroll-target="#identifique-o-bloco-fator-de-perturbação-o-fator-de-interesse-tratamento-e-seus-níveis-e-a-variável-resposta-deste-experimento.-além-disso-descreva-o-modelo-linear-do-experimento.">1. Identifique o bloco (fator de perturbação), o fator de interesse (tratamento) e seus níveis e a variável resposta deste experimento. Além disso, descreva o modelo linear do experimento.</a></li>
+  <li><a href="#estruturação-e-importação-do-arquivo-de-dados" id="toc-estruturação-e-importação-do-arquivo-de-dados" class="nav-link" data-scroll-target="#estruturação-e-importação-do-arquivo-de-dados">2. Estruturação e Importação do Arquivo de Dados</a></li>
+  <li><a href="#faça-uma-análise-exploratória-dos-dados" id="toc-faça-uma-análise-exploratória-dos-dados" class="nav-link" data-scroll-target="#faça-uma-análise-exploratória-dos-dados">3. Faça uma Análise Exploratória dos Dados</a></li>
+  <li><a href="#diagnóstico-do-modelo." id="toc-diagnóstico-do-modelo." class="nav-link" data-scroll-target="#diagnóstico-do-modelo.">5. Diagnóstico do modelo.</a></li>
+  <li><a href="#os-resultados-indicaram-diferenças-entre-os-crescimentos-médios-de-bactérias-produzidos-pelas-três-soluções" id="toc-os-resultados-indicaram-diferenças-entre-os-crescimentos-médios-de-bactérias-produzidos-pelas-três-soluções" class="nav-link" data-scroll-target="#os-resultados-indicaram-diferenças-entre-os-crescimentos-médios-de-bactérias-produzidos-pelas-três-soluções">6. Os resultados indicaram diferenças entre os crescimentos médios de bactérias produzidos pelas três soluções?</a></li>
+  <li><a href="#qual-solução-deveria-ser-recomendada-utilize-os-testes-de-fisher-e-tukey." id="toc-qual-solução-deveria-ser-recomendada-utilize-os-testes-de-fisher-e-tukey." class="nav-link" data-scroll-target="#qual-solução-deveria-ser-recomendada-utilize-os-testes-de-fisher-e-tukey.">7. Qual solução deveria ser recomendada? Utilize os testes de Fisher e Tukey.**</a></li>
+  <li><a href="#comunicando-os-resultados-finais-da-análise." id="toc-comunicando-os-resultados-finais-da-análise." class="nav-link" data-scroll-target="#comunicando-os-resultados-finais-da-análise.">8. Comunicando os resultados finais da análise.</a></li>
+  <li><a href="#utilize-um-método-não-paramétrico" id="toc-utilize-um-método-não-paramétrico" class="nav-link" data-scroll-target="#utilize-um-método-não-paramétrico">9. Utilize um Método Não-Paramétrico</a></li>
+  </ul></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Delineamento em Blocos Completos Aleatorizados (DBCA)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Estatística Experimental</div>
+    <div class="quarto-category">Delineamento em Blocos Aleatorizados</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Um tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R.</p>
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autor</div>
+  <div class="quarto-title-meta-heading">Afiliação</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof.&nbsp;Washington S. da Silva </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.formiga.ifmg.edu.br/mestrado">
+            IFMG - Campus Formiga - Mestrado Profissional em Administração.
+            </a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 janeiro 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="conceitos-básicos" class="level2">
+<h2 class="anchored" data-anchor-id="conceitos-básicos">Conceitos Básicos</h2>
+<p>Os conceitos a seguir foram baseados em <span class="citation" data-cites="casella2008">Casella (<a href="#ref-casella2008" role="doc-biblioref">2008</a>)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Unidade Experimental
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A unidade experimental é a unidade (sujeito, planta, vaso, animal…) que é atribuído aleatoriamente a um tratamento.</p>
+</div>
+</div>
+<p>A unidade experimental, como o nome indica, é a unidade básica do experimento, e <em>define a unidade a ser replicada para aumentar os graus de liberdade</em>. Na definição de unidade experimental, a frase “atribuída aleatoriamente” é de importância crucial.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Unidade de Amostragem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma unidade de amostragem é o objeto que é medido em um experimento. Pode ser diferente da unidade experimental.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Repetição
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O princípio da repetição consiste em aplicarm o mesmo tratamento a várias unidades experimentais em um mesmo experimento.</p>
+</div>
+</div>
+<p>O princípo da repetição permite obter a variação entre unidades experimentais, ou seja, permite obter uma estimativa do erro experimental.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aleatorização
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Talvez o princípio mais fundamental da experimentação seja a aleatorização, ou seja, obter as observações (ou, mais precisamente, as unidades experimentais) em um forma aleatória que é tão livre de viés quanto possível.</p>
+</div>
+</div>
+<p>A ideia básica da aleatorização é que, dado um delineamento, a atribuição das unidades experimentais aos tratamentos deve ser escolhida aleatoriamente, com igual probabilidade, entre todas as atribuições possíveis. Essa estratégia resulta em uma amostra aleatória simples.</p>
+<p>A atribuição aleatória de unidades experimentais a tratamentos deve resultar nos seguintes resultados desejáveis:</p>
+<p><strong>Eliminação de viés sistemático</strong>. O viés vem em muitas formas, e algumas delas são desconhecidas. Alguns exemplos são gradientes de luz ou temperatura, tendência de entrevistador em pesquisas e outras ocorrências. A aleatorização é uma maneira de quebrar um efeito sistemático.</p>
+<p><strong>Obtenção de uma amostra representativa</strong>. O objetivo final em qualquer experimento é fazer uma inferência válida para uma população, portanto, os dados devem ser representativos dessa população. A aleatorização é necessária para se obter uma amostra representativa.</p>
+<p><strong>Controla variáveis ou fatores de confundimento</strong></p>
+<p>Fatores de confundimento existem em todas os experimentos. Por exemplo, considere um experimento com seres humanosp para testar o efeito de dietas na pressão arterial, medida em 12 indivíduos. Embora possamos recrutar sujeitos com um estado geral de saúde semelhante, fatores de confundimento como estilo de vida, raça, disposição genética ou muitos outros fatores podem influenciar os resultados.</p>
+<p>Apesar de ser possível controlar alguns fatores de confundmento, tal como raça, outros fatores são incontroláveis, e até mesmo desconhecidos, como a disposição genética. A aleatorização ajudará a distribuir essa variação desconhecida ao longo do experimento, quebrando a influência do fator de confundimento.</p>
+</section>
+<section id="visão-geral" class="level2">
+<h2 class="anchored" data-anchor-id="visão-geral">Visão Geral</h2>
+<p>Em muitas situações sabemos que as unidades experimentais <strong>não são homogêneas</strong>, e fazer o uso explícito da estrutura especial das unidades experimentais geralmente ajuda a reduzir o erro experimental (<span class="citation" data-cites="meier2022">Meier (<a href="#ref-meier2022" role="doc-biblioref">2022</a>)</span>).</p>
+<p>Em um curso de estatística básica, aprendemos como aplicar o teste <span class="math inline">t</span> emparelhado. Esse teste é utilizado em situações em que dois tratamentos são aplicados no mesmo “objeto” ou “sujeito”. Pense, por exemplo, na aplicação de dois tratamentos, em paralelo, em seres humanos, como a aplicação de dois tipos de colírios diferentes, cada um aplicado em um dos dois olhos.</p>
+<p>Sabemos que os indivíduos podem ser muito diferentes, mas devido ao fato de aplicarmos ambos os tratamentos no mesmo indivíduo, obtemos uma imagem clara do efeito do tratamento em cada indivíduo, tomando a diferença dos valores da variável resposta correspondentes aos dois tratamentos.</p>
+<p>Isso faz com que a variabilidade de sujeito para sujeito seja muito reduzida. Também dizemos que bloqueamos os sujeitos ou que um sujeito individual é um bloco.</p>
+<p>Sob uma abordagem mais geral, conforme <span class="citation" data-cites="montgomery2001">Montgomery (<a href="#ref-montgomery2001" role="doc-biblioref">2001</a>)</span>, podemos afirmar que em qualquer experimento, a variabilidade proveniente de um <strong>fator de perturbação</strong> pode afetar os resultados.</p>
+<p>Em geral, definimos um fator de perturbação como um fator do delineamento que, provavelmente tem um efeito sobre a variável resposta (<span class="math inline">y</span>), mas em cujo efeito o experimentador não está interessado. Assim, a variabilidade que ele pode transmitir para a variável resposta deve ser minimizada.</p>
+<p>Em alguns experimentos, o fator de perturbação é desconhecido e incontrolável, isto é, não sabemos se o fator está afetando a variável resposta e se os seus níveis são os mesmos durante a realização do experimento. O princípio da experimentação que denominamos <strong>aleatorização</strong> é a técnica que permite ao experimentador proteger o experimento desse fator de perturbação à espreita.</p>
+<p>Em outros casos, o fator de perturbação é conhecido, mensurável, mas incontrolável. Se o experimentador conseguir pelo menos observar os valores desse fator em cada execução do experimento, ele pode ser incorporado na análise pela técnica denominada Análise de Covariância</p>
+<p>Quando o fator de perturbação da variabilidade é <strong>conhecido e controlável</strong>, o experimentador utiliza a técnica denominada <strong>blocagem</strong> para minimizar ou reduzir sistematicamente seu efeito sobre as comparações das médias dos tratamentos. A blocagem é uma técnica de experimentação extremamente importante e usada extensivamente.</p>
+<p>Fatores de perturbação, conhecidos e controláveis, são chamados de <strong>blocos</strong>. O objetivo da blocagem é tornar um ambiente heterogêneo em <strong>subambientes homogêneos</strong>.</p>
+<p>Fatores de perturbação (blocos) típicos incluem localização, o tempo, se um experimento é realizado em diferentes períodos de tempo (dia, semestre, ano etc.), pessoas, etc.</p>
+<p>Em inglês, um delineamento em blocos completamente aleatorizados (DBCA) pode ser traduzidp por <em>Randomized Complete Block Design (RCBD)</em>. O que significa cada termo?</p>
+<ul>
+<li><p><strong><em>Randomized</em></strong>: os tratamentos sáo atribuídos aleatoriamente dentro de cada bloco.</p></li>
+<li><p><strong><em>Complete</em></strong>: Todos os tratamentos estão presentes em todos os bloco e cada tratamento é utilizado o mesmo número de vezes, geralmente uma vez, dentro de cada bloco.</p></li>
+<li><p><strong><em>Block</em></strong>: as unidades experimentais são agrupadas de forma a criar subgrupos homogênos.</p></li>
+<li><p><strong><em>Design</em></strong>: É o seu experimento.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemplo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um estudo no qual os participantes são, inicialmente, divididos em blocos (subconjuntos relativamente homogêneos) de acordo com alguma característica (por exemplo, idade) que não é um foco de interesse e são então atribuídos, aleatoriamente, aos diferentes tratamentos de tal forma que cada tratamento aparece uma vez em cada bloco.</p>
+<p>Assim, o número de participantes em cada bloco deve ser igual ao número de níveis do tratamento. Por exemplo, o seguinte arranjo de um tratamento com quatro níveis (A, B, C, D) e 16 indivíduos (de quatro grupos etários) é um delineamento em blocos completos:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Tratamentos</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bloco</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>criancas</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr class="odd">
+<td>adolescentes</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td>adultos</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td>idosos</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+</tr>
+</tbody>
+</table>
+<p>Ao garantir que o fator de perturbação (aqui, idade) seja igualmente representado em todos as condições experimentais, um DBC reduz ou elimina sua contribuição para o erro experimental.</p>
+</div>
+</div>
+</section>
+<section id="dbca-modelo-linear-normal---efeitos-fixos." class="level2">
+<h2 class="anchored" data-anchor-id="dbca-modelo-linear-normal---efeitos-fixos.">DBCA: Modelo Linear Normal - Efeitos Fixos.</h2>
+<p>O modelo estatístico linear associado a um DBCA pode ser representado por,</p>
+<p><span class="math display">
+y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij}, \, \text{sendo}\, \epsilon_{ij} \sim i.i.d \quad N(0,\sigma^2)
+    \begin{cases}
+    i = 1,\ldots,a \\
+    j =  1,\ldots,b
+    \end{cases}
+</span> Sendo:</p>
+<p><span class="math inline">\mu</span> = média global de <span class="math inline">y</span>.</p>
+<p><span class="math inline">\tau_i</span> = efeito em <span class="math inline">y_{i.}</span> devido ao tratamento <span class="math inline">i</span>. Ou seja, o efeito do tratamento <span class="math inline">i</span>. Sáo também denominados como <strong>efeitos principais</strong>.</p>
+<p><span class="math inline">\beta_j</span> = efeito (sem interesse) do bloco <span class="math inline">j</span>.</p>
+<p><span class="math inline">y_{ij}</span> = resposta observada na unidade <span class="math inline">j</span> devida ao tratamento <span class="math inline">i</span>.</p>
+<p><span class="math inline">\epsilon_{ij}</span> = erro não observado (ou erro experimental).</p>
+<p>O DBCA é um modelo linear, portanto, assume que entre os blocos e os níveis dos fatores.</p>
+</section>
+<section id="dbca-tabela-da-análise-da-variância---efeitos-fixos" class="level2">
+<h2 class="anchored" data-anchor-id="dbca-tabela-da-análise-da-variância---efeitos-fixos">DBCA: Tabela da Análise da Variância - Efeitos Fixos</h2>
+<span class="math display">\begin{array}{l|l|l|l|l}
+        \hline
+\text{Fonte de Variação} &amp; \text{gl}  &amp; \text{SQ}        &amp; \text{QM}                       &amp; F_{calculado} \\
+        \hline
+        \text{tratamentos}  &amp; a-1        &amp; SQ_{tratamentos}  &amp; \frac{SQ_{tratamentos}}{a-1}    &amp; \frac{QM_{tratamentos}}{QM_{resíduos}}    \\
+        \text{blocos}       &amp; b-1        &amp; SQ_{blocos}       &amp; \frac{SQ_{blocos}}{b-1}         &amp;                 \\
+        \text{resíduo}      &amp; (a-1)(b-1) &amp; SQ_{resíduo}      &amp; \frac{SQ_{resíduo}}{(a-1)(b-1)} &amp;                 \\
+        \hline
+        \text{total}        &amp; ab - 1    &amp; SQ_{total}         &amp;                                 &amp;                 \\
+        \hline
+\end{array}</span>
+<p><span class="math inline">F_{tabelado}=F_{\nu_1 = (a-1), \nu_2 = (a-1)(b-1)}</span>.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estimador do Erro Experimental
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O quadrado médio do resíduo:</p>
+<p><span class="math display">
+QM_{resíduo} = \frac{SQ_{resíduo}}{(a-1)(b-1)}
+</span> é o estimador do erro experimental no contexto deste modelo de um DBCA.</p>
+</div>
+</div>
+<p>Considerando que são <span class="math inline">a</span> níveis do fator de interesse e <span class="math inline">b</span> blocos. A hipótese de interesse é:</p>
+<p><span class="math display">
+\begin{cases}
+H_o:  &amp; \mu_1 = \mu_2 = \ldots = \mu_a \,\, \text{(as médias dos tratamentos são iguais)}  \\
+H_a:  &amp; \text{Pelo menos duas médias são diferentes}
+\end{cases}
+</span></p>
+<p><strong>Regras de Decisão do teste F</strong>:</p>
+<p>Se <span class="math inline">F_{calculado} &gt; F_{tabelado}</span>, rejeitamos a hipótese nula de que as médias dos tratamentos são iguais, caso contrátio, náo rejeitamos a hipótese nula, dado o nível de significância <span class="math inline">\alpha</span> escolhido.</p>
+<p>Entretanto, a alternativa mais comum para interpretar o resultado do teste F é utilizar o valor-p do teste. Por exemplo, caso adote-se <span class="math inline">\alpha = 0.05</span> = 5%, a regra de decisão é:</p>
+<ul>
+<li><p>Se valor-p <span class="math inline">&lt;</span> 0.05, o teste fornece evidência para rejeitar a hipótese nula de que as médias dos tratamentos são iguais.</p></li>
+<li><p>Se valor-p <span class="math inline">&gt;</span> 0.05, o teste fornece evidência para rejeitar a hipótese nula de que as médias dos tratamentos são iguais.</p></li>
+</ul>
+</section>
+<section id="sumário-das-principais-características-de-um-dbc" class="level2">
+<h2 class="anchored" data-anchor-id="sumário-das-principais-características-de-um-dbc">Sumário das Principais Características de um DBC</h2>
+<p><strong>Uso:</strong></p>
+<ul>
+<li><p>Apropriado quando se tem <strong>um</strong> fator de perturbação atuando sobre a variável resposta.</p></li>
+<li><p>O ideal é que cada tratamento ocorra em cada bloco o mesmo número de vezes, usualmente uma vez.</p></li>
+<li><p>Deve-se minimizar a variação dentro de cada bloco e maximizar a variação entre os blocos.</p></li>
+</ul>
+<p><strong>Vantagens:</strong></p>
+<ul>
+<li><p>Controla um fator de perturbação (conhecido e controlável) que pode atuar sobre a variável resposta (tempo, temperatura etc.), aumentando a precisão do experimento, ou seja, reduzindo o erro experimental.</p></li>
+<li><p>Um DBCA pode acomodar qualquer número de tratamentos e qualquer número de blocos. Entretanto, o ideal é que cada tratamento seja replicado o mesmo número de vezes em cada bloco.</p></li>
+<li><p>Utilizando blocos com diferentes condições, os resultados do experimento podem ter uma amplitude maior.</p></li>
+<li><p>A análise estatística é simples.</p></li>
+</ul>
+<p><strong>Desvantagens:</strong></p>
+<ul>
+<li><p>Dados faltantes reduzem o poder dos testes e a cobertura dos intervalos de confiança.</p></li>
+<li><p>Se existir mais de uma fator de perturbação, conhecido e controlável, a utilização do DBCA é ineficiente.</p></li>
+<li><p>Se as condições experimentais forem de fato homogêneas, um delineamento inteiramente aleatorizado é mais eficiente que o DBCA.</p></li>
+<li><p>Na medida em que aumenta-se o número de tratamentos, mais itens heterogêneos podem ser utilizados e a blocagem correta torna-se cada vez mais complexa, neste caso outros delineamentos podem ser mais eficientes.</p></li>
+</ul>
+</section>
+<section id="etapas-da-análise-de-um-dbca" class="level2">
+<h2 class="anchored" data-anchor-id="etapas-da-análise-de-um-dbca">Etapas da Análise de um DBCA</h2>
+<ol type="1">
+<li><p>Estruturação e Importação do Arquivo de Dados.</p></li>
+<li><p>Análise Exploratória dos Dados</p></li>
+<li><p>Estimação do Modelo Linear Normal da ANOVA.</p></li>
+<li><p>Diagnóstico do Modelo (verificar as hipóteses do modelo linear normal).</p></li>
+<li><p>Comparações Múltiplas.</p></li>
+</ol>
+<p>As etapas típicas da análise dos dados produzidos por um DBCA serão ilustradas pela resolução das questões (1 a 9) associadas ao seguinte experimento:</p>
+</section>
+<section id="análise" class="level2">
+<h2 class="anchored" data-anchor-id="análise">Análise</h2>
+<p>Vamos ilustrar a análise de dados de um experimento que utilizou um DBCA utilizando o seguinte experimento:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Experimento
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Três soluções de lavagem estão sendo comparadas para avaliar a sua eficiência em retardar o crescimento de bactérias em containers de leite. A Análise é feita em um laboratório, e apenas três ensaios podem ser executados em qualquer dia. O experimentador decide usar um delineamento em blocos completos aleatorizados (DBCA). As observações são tomadas durante quatro dias, e os dados são apresentados na tabela abaixo.</p>
+</div>
+</div>
+<section id="identifique-o-bloco-fator-de-perturbação-o-fator-de-interesse-tratamento-e-seus-níveis-e-a-variável-resposta-deste-experimento.-além-disso-descreva-o-modelo-linear-do-experimento." class="level3">
+<h3 class="anchored" data-anchor-id="identifique-o-bloco-fator-de-perturbação-o-fator-de-interesse-tratamento-e-seus-níveis-e-a-variável-resposta-deste-experimento.-além-disso-descreva-o-modelo-linear-do-experimento.">1. Identifique o bloco (fator de perturbação), o fator de interesse (tratamento) e seus níveis e a variável resposta deste experimento. Além disso, descreva o modelo linear do experimento.</h3>
+<ul>
+<li><p>Fator de Perturbação/Blocos: <strong>dias</strong>.</p></li>
+<li><p>Fator de Interesse/Tratamento: <strong>soluções para lavagem de containers de leite.</strong></p></li>
+<li><p>Níveis do Fator de Interesse/Tratamento: <strong>As três soluções de lavagem distintas</strong></p></li>
+<li><p>variável Resposta (<span class="math inline">y</span>)]: <strong>O crescimento, medido pela contagem, de bactérias</strong></p></li>
+</ul>
+<p>Sendo o crescimento (contagem) de bactérias a variável resposta e representada por <span class="math inline">y_{ij}</span>, as solucões testadas os tratamentos e representados por <code>sol</code>, os quatro dias os blocos e representados por <code>dia</code>, podemos representar o modelo linear do experimento como:</p>
+<p><span class="math display">
+y_{ij} = \mu +
+                      \tau_1 sol_{1} +
+                      \tau_2 sol_{2} +
+                      \tau_3 sol_{3} +
+                      \beta_{1}dia_{1} +
+                      \beta_{2}dia_{2} +
+                      \beta_{3}dia_{3} +
+                      \beta_{4}dia_{4} +
+                      \epsilon_{ij}
+</span></p>
+</section>
+<section id="estruturação-e-importação-do-arquivo-de-dados" class="level3">
+<h3 class="anchored" data-anchor-id="estruturação-e-importação-do-arquivo-de-dados">2. Estruturação e Importação do Arquivo de Dados</h3>
+<p>A estrutura correta de um arquivo de dados para o caso de um experimento que utilizou um DBCA é ilustrada a seguir:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-hover caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">solucao</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">dia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S1</td>
+<td style="text-align: left;">D1</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S1</td>
+<td style="text-align: left;">D2</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S1</td>
+<td style="text-align: left;">D3</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S1</td>
+<td style="text-align: left;">D4</td>
+<td style="text-align: right;">39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S2</td>
+<td style="text-align: left;">D1</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S2</td>
+<td style="text-align: left;">D2</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S2</td>
+<td style="text-align: left;">D3</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S2</td>
+<td style="text-align: left;">D4</td>
+<td style="text-align: right;">44</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">D1</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">D2</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">D3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">D4</td>
+<td style="text-align: right;">22</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Considerando que o script <code>R</code> que contém seus código para analisa os dados<br>
+estão em uma pasta qualquer contendo uma subpasta denominada <code>dado</code> que contem seu arquivo de dados, para importar, por exemplo, um arquivo texto separado por tabulações denominado <code>solucao.txt</code>, pode-se utilizar o seguinte código</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pacotes utilizados</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando os dados</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"dados/solucao.txt"</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando os dados</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 12
+Columns: 3
+$ solucao &lt;chr&gt; "S1", "S1", "S1", "S1", "S2", "S2", "S2", "S2", "S3", "S3", "S…
+$ dia     &lt;chr&gt; "D1", "D2", "D3", "D4", "D1", "D2", "D3", "D4", "D1", "D2", "D…
+$ y       &lt;dbl&gt; 13, 22, 18, 39, 16, 24, 17, 44, 5, 4, 1, 22</code></pre>
+</div>
+</div>
+<p>Em experimentos, em geral, fatores (ou tratamentos) são variáveis categóricas, como usamos a linguagem R, é melhor converter o tratamento (<code>solucao</code>) e os blocos (<code>dia</code>) para a classe <code>factor</code> para efetuar a análise dos dados. Essa conversão pode ser obtida usando a função <code>transmute</code> do pacote <code>dplyr</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote utlizado</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span> <span class="fu">transmute</span>(<span class="at">solucao =</span> <span class="fu">as.factor</span>(solucao),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">dia =</span> <span class="fu">as.factor</span>(dia),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> <span class="fu">as.numeric</span>(y))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 12
+Columns: 3
+$ solucao &lt;fct&gt; S1, S1, S1, S1, S2, S2, S2, S2, S3, S3, S3, S3
+$ dia     &lt;fct&gt; D1, D2, D3, D4, D1, D2, D3, D4, D1, D2, D3, D4
+$ y       &lt;dbl&gt; 13, 22, 18, 39, 16, 24, 17, 44, 5, 4, 1, 22</code></pre>
+</div>
+</div>
+<p>Com esses passsos, os dados foram importados e estruturados em um formato adequado para a análise.</p>
+</section>
+<section id="faça-uma-análise-exploratória-dos-dados" class="level3">
+<h3 class="anchored" data-anchor-id="faça-uma-análise-exploratória-dos-dados">3. Faça uma Análise Exploratória dos Dados</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica: Análise Exploratória dos Dados
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma Análise Exploratória dos Dados com gráficos e estatísticas, é uma parte importante de qualquer análise para:</p>
+<ul>
+<li>entender as <em>propriedades</em> dos dados.</li>
+<li><em>estruturar os dados</em> no formato adequado para análise.</li>
+<li>encontrar <em>padrões</em> nos dados.</li>
+<li><em>descrever</em> os dados/fenômeno.</li>
+<li>identificar <em>erros</em> nos dados.</li>
+<li>sugerir <em>estratégias de modelagem</em>.</li>
+<li><em>depurar</em> análises.</li>
+<li><em>comunicar</em> resultados.</li>
+</ul>
+</div>
+</div>
+<p>Um boxplot comparativo das distribuições é o gráfico exploratório usual para explorar dados envolvendo uma variável numérica e uma ou mais variáveis categóricas.</p>
+<p>Entretanto, um boxplot requer uma amostra considerável (50 observações por grupo pelo menos), e caso seja utilizado em amostras pequenas, tende distorcer ou ocultar as propriedades da distribuição.</p>
+<p>Para amostras menores, como a do experimento em questão um gráfico de violino (<em>violin plot</em>) é mais adequado e tende a retratar melhor as propriedades das distribuições por grupo (no caso, por tratamento).</p>
+<p>Para produzir um gráfico de violino usando o pacote <code>ggplot2</code>, podemos utilizar a função <code>geom_violin()</code> e o seguinte código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violin plot entre y e solucao</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> solucao, <span class="at">y =</span> y)) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_violin</span>() <span class="sc">+</span>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">stat_summary</span>(<span class="at">fun.y =</span> <span class="st">"median"</span>, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ylab</span>(<span class="st">"crescimento (quantidade) de bactérias"</span>) <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_jitter</span>(<span class="at">shape  =</span> <span class="dv">16</span>, <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="fl">0.2</span>)) <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"S1"</span> <span class="ot">=</span> <span class="st">"Solução 1"</span>, </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"S2"</span> <span class="ot">=</span> <span class="st">"Solução 2"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"S3"</span> <span class="ot">=</span> <span class="st">"Solução 3"</span>)) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_minimal</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig01" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-fig01-1.png" class="img-fluid figure-img" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<strong>Fig.</strong>&nbsp;1<strong>.</strong> Gráfico de violino comparativo entre a medida de crescimento de bactérias e as soluções testadas. O ponto vermelho representa a mediana dos dados e os pontos pretos os dados.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Observando a <a href="#fig-fig01" class="quarto-xref">Figura&nbsp;1</a>, pode-se verificar que a solução 3, aparentemente, foi a que apresentou a maior redução no crescimento de bactérias nos containers de leite. Além disso, parece não haver diferença entre os resultados produzidos pelas soluções 1 e 2. Por fim, a <a href="#fig-fig01" class="quarto-xref">Figura&nbsp;1</a> mostra que as distribuições dos dados três soluções apresentam assimetria positiva devido a possíveis outliers nas distribuições dos resultados das três soluções.</p>
+<section id="estimação-do-modelo-linear-normal." class="level4">
+<h4 class="anchored" data-anchor-id="estimação-do-modelo-linear-normal.">4. Estimação do Modelo Linear Normal.</h4>
+<p>A estimação do modelo linear normal associado a um DBCA consiste, basicamente, na obtenção da tabela da Análise da Variância apropriada. No caso do DBCA d experimento que estamos analisando, podemos obtê-la com o seguinte código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimação do Modelo com blocagem dos dias</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mod_dbca <span class="ot">&lt;-</span> <span class="fu">aov</span>(y <span class="sc">~</span> solucao <span class="sc">+</span> dia, <span class="at">data =</span> dados)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_dbca)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+solucao      2  703.5   351.8   40.72 0.000323 ***
+dia          3 1106.9   369.0   42.71 0.000192 ***
+Residuals    6   51.8     8.6                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>A tabela da ANOVA resultante lista inicialmente os fatores analisados que estão sendo testadas no modelo, neste caso, temos <code>solucao</code> (tratamento ou fator de interesse) e <code>dia</code> (bloco ou fator de perturbação) e os resíduos do modelo (<code>Residuals</code>). Toda a variação que não é explicada pelos tratamentos e pelos blocos está incorporada na variância residual.</p>
+<p>A seguir descrevemos as colunas da tabela da ANOVA obtida:</p>
+<ul>
+<li><p><strong><code>Df</code></strong>: A coluna <code>Df</code> exibe os graus de liberdade para a variável independente (o número de níveis na variável menos 1) e os graus de liberdade para os resíduos (o número total de observações menos um e menos o número de níveis nas variáveis independentes).</p></li>
+<li><p><strong><code>Sum Sq</code></strong>: A coluna <code>Sum Sq</code> exibe a partição da soma de quadrados total dos dados efetuada pela ANOVA.</p></li>
+<li><p><strong><code>Mean Sq</code></strong>: A coluna <code>Mean Sq</code> são os quadrados médios associados aos fatores em análise e aos resíduos, calculados dividindo-se a soma dos quadrados pelos respectivos graus de liberdade associados a cada fator e aos resíduos do modelo.</p></li>
+<li><p><strong><code>F value</code></strong>: A coluna <code>F value</code> é a estatística de teste do teste F, obtida pela divisão do quadrado médio de cada fator pelo quadrado médio dos resíduos. Quanto maior o valor F, maior a probabilidade de que a variação causada pelos tratamentos seja real e não devida ao acaso, ou à variabilidade natural do fenômeno.</p></li>
+<li><p><strong><code>Pr(&gt;F)</code></strong>: A coluna <code>Pr(&gt;F)</code> é o valor-p do teste F, que estima a probabilidade de obtermos a estatística do teste F calculada a partir dos dados ter ocorrido, se a hipótese nula de nenhuma diferença entre os médias dos tratamentos fosse verdadeira. Portanto, quanto menor o valor-p, em relação ao nível de significância adotado (em geral, <span class="math inline">\alpha = 0.05</span>), maior a chance de rejeitarmos a hipótese nula de que não há diferença entre as médias dos tratamentos, e vice-versa.</p></li>
+</ul>
+<p>Como o valor-p associado ao teste F entre as médias de contatem de bactérias das soluções testadas foi 0,0003, os dados fornecem forte evidência para rejeitarmos a hipótese nula de que as médias dos tratamentos são iguais.</p>
+<p><strong>Tamanho do Efeito</strong></p>
+<p>Tornou-se um padrão reportar tamanhos de efeitos em artigos científicos de diversas áreas, por diversas razões, para uma visão geral recomendo <span class="citation" data-cites="cohen1988">Cohen (<a href="#ref-cohen1988" role="doc-biblioref">1988</a>)</span>, <span class="citation" data-cites="fritz2012">Fritz, Morris e Richler (<a href="#ref-fritz2012" role="doc-biblioref">2012</a>)</span> e <span class="citation" data-cites="ferguson2016">Ferguson (<a href="#ref-ferguson2016" role="doc-biblioref">[s.d.]</a>)</span>. Para analisar uma visão de sua importâcnia em economica comportamental veja <span class="citation" data-cites="hummel2019">Hummel e Maedche (<a href="#ref-hummel2019" role="doc-biblioref">2019</a>)</span>.</p>
+<p>Para ilustrar o conceito de tamanho do efeito para uma Análise da Variância, no contexto do experimento analisado, podemos perguntar inicialmente qual é a porcentagem da variação total no crescimento de bactérias associada aos tratamentos (soluções de lavagem). Esta medida é chamada de <em>Eta-quadrático</em> (<span class="math inline">\eta^{2}</span>):</p>
+<p><span class="math display">
+\eta^2 = \frac{SQ_{tratamento}}{SQ_{total}} = \frac{703.5}{703.5 + 1106.9 + 51.8} =
+0.38 = 38\%
+</span> Podemos utilizar a função <code>eta_squared()</code> do pacote <code>effectsize</code> para estimar o <span class="math inline">\eta^{2}</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimação dos tamanhos de efeitos</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">eta_squared</span>(mod_dbca, <span class="at">partial =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA (Type I)
+
+Parameter | Eta2 |       95% CI
+-------------------------------
+solucao   | 0.38 | [0.00, 1.00]
+dia       | 0.59 | [0.00, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+</div>
+<p>Quando adicionamos mais termos ao modelo que estamos analisando (lembrando que no experimento que estamos anlisando temos um fator de interesse (tratamento) e um fator de perturbação (blocos)) podemos fazer uma pergunta diferente: qual a porcentagem da variação é explicada <em>ao controlar quaisquer outros fatores</em>.</p>
+<p><span class="math display">
+\eta^{2}_p = \frac{SQ_{tratamento}}{SQ_{tratamento} + SQ_{resíduo}} = \frac{703.5}{703.5 + 51.8} = 0.93 = 93\%
+</span></p>
+<p>Essa última pergunta é respondida pelo Eta-parcial quadrático <span class="math inline">\eta^{2}_{p}</span>, que é a porcentagem da variância <em>parcial</em> (após controlar outros fatores no modelo) associada a um fator.</p>
+<p>Em outras palavras, <span class="math inline">\eta^{2}_{p}</span> descreve a proporção de variação associada a um fator quando a variação associada a todos os outros efeitos incluídos no modeo foi removida.</p>
+<p>Novamente, podemos utiizar a função <code>eta_squared(..., partial = TRUE)</code> do pacote <code>effectsize</code> para estimar o <span class="math inline">\eta^{2}_p</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimação dos tamanhos de efeitos</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">eta_squared</span>(mod_dbca, <span class="at">partial =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA (Type I)
+
+Parameter | Eta2 (partial) |       95% CI
+-----------------------------------------
+solucao   |           0.93 | [0.75, 1.00]
+dia       |           0.96 | [0.83, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+</div>
+<p>Na falta de conhecimento mais profundo e de outras referências, a regra de bolso (<span class="citation" data-cites="cohen1988">Cohen (<a href="#ref-cohen1988" role="doc-biblioref">1988</a>)</span>) para a interpretação da magnitude de <span class="math inline">\eta^{2}_p</span> é:</p>
+<ul>
+<li><span class="math inline">\eta^{2}_p \approx 0.01</span> indica um efeito fraco ou pequeno.</li>
+<li><span class="math inline">\eta^{2}_p \approx 0.06</span> indica um efeito moderado.</li>
+<li><span class="math inline">\eta^{2}_p \approx 0.16</span> indica um efeito forte ou grande.</li>
+</ul>
+</section>
+</section>
+<section id="diagnóstico-do-modelo." class="level3">
+<h3 class="anchored" data-anchor-id="diagnóstico-do-modelo.">5. Diagnóstico do modelo.</h3>
+<p>Uma das partes mais importantes da análise dos dados de um DBCA (e dos demais delineamentos), consiste em verificar se o modelo linear normal utilizado é adequado.</p>
+<p>Em geral, no caso de um DBCA, precisamos verificar:</p>
+<ol type="1">
+<li><p>A validade da hipótese da normalidade aproximada dos resíduos do modelo,</p></li>
+<li><p>A validade da hipótese da variância dos resíduos ser aproximadamente constante (ou homogênea) em relação aos tratamentos.</p></li>
+<li><p>A validade da hipótese de aditividade do modelo linear normal, isto é, de que não há interação entre blocos e tratamentos.</p></li>
+</ol>
+<section id="verificação-da-normalidade-dos-resíduos" class="level4">
+<h4 class="anchored" data-anchor-id="verificação-da-normalidade-dos-resíduos">5.1 Verificação da normalidade dos resíduos</h4>
+<p>É sempre importante analisar gráficos dos resíduos de modelos estatísticos, entretanto, infelizmente, não é usual reportar esses gráficos nos artigos científicos, prática que depoe contra o artigo e as práticas da revista.</p>
+<p>Além da relevância, em si, de se analisar gráficos dos resíduos, sua importância deve-se também às conhecidas limitações dos testes de hipóteses formais comumente utilizados e reportados nas revistas.</p>
+<p><strong>Grágico Quantil-Quantil dos Resíduos</strong></p>
+<p>Podemos utilizar a função <code>ggqqplot()</code> do pacote <code>ggpubr</code> para produzirmos um gráfico quantil-quantil dos resíduos. Além dos resíduos, a função produz intervalos de confiança, caso os resíduos estejam dentro da região cinza, que representa os intervalos de confiança, temos evidência de que os resíduos seguem uma distribuição aproximadamente normal.</p>
+<p>Para o experimento em questão tempos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote utilizado</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico quantil-quantil dos resíduos</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(<span class="fu">residuals</span>(mod_dbca)) <span class="sc">+</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"quantis teóricos de uma distribuição normal padrão"</span>) <span class="sc">+</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"resíduos"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig02" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-fig02-1.png" class="img-fluid figure-img" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<strong>Fig.</strong>&nbsp;2<strong>.</strong> Gráfico quantil-quantil para analisar a normalidade dos resíduos.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Analisando a <a href="#fig-fig02" class="quarto-xref">Figura&nbsp;2</a>, é fácil verificar que os resíduos estão situados dentro da região de confiança (95%), portanto podemos considerar a distribuição dos resíduos compatível com uma distribuição normal padrão aproximada.</p>
+<p><strong>Teste de Shapiro-Wilk de normalidade dos resíduos</strong></p>
+<p>Um dos testes mais comumente utlizados para testar formalmente se os resíduos de um modelo linear experimental são aproximadamente normais é o teste de <a href="https://en.wikipedia.org/wiki/Shapiro–Wilk_test">Shapiro-Wilk</a>.</p>
+<p>De forma simplificada, podemos dizer que a hipótese nula do teste é que os resíduos são, aproximadamente, normalmente distribuídos. Assim, se o valor-p do teste for menor que o nível de significância escolhido (<span class="math inline">\alpha</span>), então a hipótese nula é rejeitada e há evidências de que os resíduos testados não são normalmente distribuídos.</p>
+<p>Por outro lado, se o valor-p for maior que o nível de significância escolhido, a hipótese nula (de que os dados vieram de uma população normalmente distribuída) não pode ser rejeitada. Por exemplo, para um nível <span class="math inline">\alpha</span> de 0,05, um valor p inferior a 0,05 implica na rejeição da hipótese nula de que os dados são de uma população com distribuição (aproximadamente) normalmente distribuída.</p>
+<p>Para o experimento que estamos analisando, podemos executar o teste de Shapiro-Wilk utilizando a função interna <code>shapiro.test()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Teste de Shapiro-Wilks</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(mod_dbca<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  mod_dbca$residuals
+W = 0.93208, p-value = 0.4027</code></pre>
+</div>
+</div>
+<p>Considerando <span class="math inline">\alpha = 0.05</span>, como o valor-p do teste é muito superior ao nível de significância escolhido, os dados fornecem forte evidência para não rejeitarmos a hipótese nula de que os resíduos seguem uma distribuição aproximadamente normal.</p>
+</section>
+<section id="verificação-da-constância-aproximada-da-variância-dos-resíduos" class="level4">
+<h4 class="anchored" data-anchor-id="verificação-da-constância-aproximada-da-variância-dos-resíduos">5.2 Verificação da constância aproximada da variância dos resíduos</h4>
+<p>Para testar a hipóteses de constância da variância dos resíduos entre os níveis dos tratamentos, as três soluções no caso, recomendo utilizar a função interna <code>fligner.test()</code> que implementa o teste de constância da variância de Fligner-Killeen.</p>
+<p>A recomendação deve-se ao fato de que o teste Fligner-Killeen foi considerado, em um estudo de simulação, como um dos testes de homogeneidade de variâncias mais robustos contra desvios da normalidade, ver Conover, Johnson &amp; Johnson (1981).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Teste de Bartlett: variancia homogenea pelo tratamento</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(y <span class="sc">~</span> solucao, <span class="at">data =</span> dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fligner-Killeen test of homogeneity of variances
+
+data:  y by solucao
+Fligner-Killeen:med chi-squared = 1.4915, df = 2, p-value = 0.4744</code></pre>
+</div>
+</div>
+<p>Considerando <span class="math inline">\alpha = 0.05</span>, como o valor-p do teste é muito superior ao nível de significância escolhido, os dados fornecem forte evidência para não rejeitarmos a hipótese nula de que os resíduos possuem variância constante (ou homogênea) entre as diferentes soluções (tratamentos) testadas.</p>
+</section>
+<section id="verificando-se-há-interação-entre-bloco-e-tratamento" class="level4">
+<h4 class="anchored" data-anchor-id="verificando-se-há-interação-entre-bloco-e-tratamento">5.3 Verificando se há interação entre bloco e tratamento</h4>
+<p>O modelo estatístico linear normal utilizado para um DBCA:</p>
+<p><span class="math display">
+y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij},
+</span></p>
+<p>é completamente <strong>aditivo</strong>, isto é, os efeitos devidos aos tratamentos e aos blocos são adicionados, e não multiplicados, por exemplo. Apesar deste modelo aditivo simples ser frequentemente útil, há situações nas quais ele é inadequado.</p>
+<p>Especificamente, o modelo aditivo é inadequado em situações nas quais há <strong>interação</strong> entre tratamentos e blocos. Interações podem ocorrer, por exemplo, quando a variável resposta (<span class="math inline">y_{ij}</span>) é medida na escala errada. Assim, se uma relação que é multiplicativa na escala original, digamos:</p>
+<p><span class="math display">
+E(y_{ij}) = \mu \tau_i \beta_j
+</span></p>
+<p>ela pode ser tornada aditiva (ou linear) utilizando uma escala logarítimica:</p>
+<p><span class="math display">
+\ln(E(y_{ij})) = \ln(\mu) + \ln(\tau_i) + \ln(\beta_j)
+</span></p>
+<p>Este tipo de interação pode ser eliminada pela transformação logaritmica, entretanto, nem todas as interações pode ser tratadas tão facilmente.</p>
+<p>Se interações estão presentes, elas podem afetar seriamente e até invalidar a Análise da Variância de um experimento. Em geral, a presença de interações, infla o quadrado médio do resíduo e podem afetar adversamente a comparação entre as médias dos tratamentos.</p>
+<p>Quando ambos os fatores sào de interesse (o que não é o caso em um DBCA), pode-se utilizar delineamentos fatoriais para incorporar o efeito de interações.</p>
+<p>Há métodos gráficos e o teste de hipóteses formal de aditividade de Tukey para verificar a presença de interação.</p>
+<p><strong>Método Gráfico</strong></p>
+<p>Um gráfico de interação exibe a média (ou outra estatística) da variável resposta contra combinações dos fatores (blocos e tratamentos), ilustrando assim possíveis interações. A função interna <code>interaction.plot()</code> da linguagem R pode ser utilizad para produzir este gráfico, a sintáxe da função para o exeperimento que estamos analisando é:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando Interação entre Blocos e níveis do Fator (solucao)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(dados<span class="sc">$</span>dia, dados<span class="sc">$</span>solucao, dados<span class="sc">$</span>y, <span class="at">fixed =</span> <span class="cn">TRUE</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig03" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-fig03-1.png" class="img-fluid figure-img" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<strong>Fig.</strong>&nbsp;3<strong>.</strong> Gráfico de interação entre a média da variável resposta e combinaçòes das soluções (tratamento) e dias (blocos).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Idealmente, as linhas de um gráfico de interação devem ser paralelas, ou seja, não devem se cruzar. Apesar da <a href="#fig-fig03" class="quarto-xref">Figura&nbsp;3</a> exibir um cruzamento, não parece haver uma interação relevante entre as solucões (tratamentos) e os dias (blocos). Uma limitaçào desse gráfico é que ele reflete possíveis imprecisões (alta variabilidade) nas estimativas das médias, o que parece ser o caso nesse experimento devido ao pequeno tamanho da amostra e à possível presença de outliers.</p>
+<p><strong>Teste de Aditividade de Tukey</strong></p>
+<p>O teste de aditividade de Tukey testa as seguintes hipóteses:</p>
+<p><span class="math display">
+\begin{cases}
+H_o:  &amp; \text{efeitos principais e blocos são aditivos,}  \\
+H_a:  &amp; \text{efeitos principais e blocos são não-aditivos}
+\end{cases}
+</span> Podemos utilizar a função <code>tukey.add.test(variável resposta, tratamentos, blocos)</code> do pacote <code>asbio</code> para executar esse teste. No caso do experimento em análise temos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testa H0: Não há efeito de interação</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>asbio<span class="sc">::</span><span class="fu">tukey.add.test</span>(dados<span class="sc">$</span>y, dados<span class="sc">$</span>solucao, dados<span class="sc">$</span>dia)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Tukey's one df test for additivity 
+F = 2.7732343   Denom df = 5    p-value = 0.1567331</code></pre>
+</div>
+</div>
+<p>Como o valor-p do teste (0.16) é maior que <span class="math inline">\alpha = 0.05</span>, não rejeitamos a hipótese nula de que os efeitos principais (<span class="math inline">\tau_i</span>) e os blocos (<span class="math inline">\beta_j</span>) são aditivos, isto é, o resultado do teste fornece evidência de que não há interação entre blocos e tratamento.</p>
+</section>
+</section>
+<section id="os-resultados-indicaram-diferenças-entre-os-crescimentos-médios-de-bactérias-produzidos-pelas-três-soluções" class="level3">
+<h3 class="anchored" data-anchor-id="os-resultados-indicaram-diferenças-entre-os-crescimentos-médios-de-bactérias-produzidos-pelas-três-soluções">6. Os resultados indicaram diferenças entre os crescimentos médios de bactérias produzidos pelas três soluções?</h3>
+<p>Uma Análise da Variância dos resultados do delineamento em blocos completos executado foi conduzida para comparar o efeito de três diferentes soluções de lavagem sobre o crescimento de bactérias em containers de leite. A ANOVA indicou que houve uma diferença entre pelo menos duas soluções [ <em>F</em>(2, 6) = 40.72, <em>p</em> &lt; .001, <span class="math inline">\eta^2_p</span> = .93]. A análise dos resíduos indicou a adequação do modelo utilizado.</p>
+</section>
+<section id="qual-solução-deveria-ser-recomendada-utilize-os-testes-de-fisher-e-tukey." class="level3">
+<h3 class="anchored" data-anchor-id="qual-solução-deveria-ser-recomendada-utilize-os-testes-de-fisher-e-tukey.">7. Qual solução deveria ser recomendada? Utilize os testes de Fisher e Tukey.**</h3>
+<p>Como a ANOVA indicou diferenças entre o crescimento (quantidade) média de bactérias entre as soluções testadas, dos laboratórios, surgem outras perguntas:</p>
+<ul>
+<li><p>Quais soluçóes apresentaram médias estatisticamente iguais e quais apresentaram médias estatisticamente iguais?</p></li>
+<li><p>Qual solução apresentou o melhor resultado? Ou seja, apresentou a maior redução no crescimento de bactérias nos containers de leite?</p></li>
+<li><p>Necessitamos de procedimentos de comparações múltiplas de médias para responder estas questões.</p></li>
+</ul>
+<p>Entre os dois mais utilizados, temos os testes de Fisher e de Tukey.</p>
+<p><strong>Teste de Fisher</strong></p>
+<p>Duas médias de tratamentos são estatisticamente diferentes segundo o teste da diferença mínima significativa (dms) de Fisher se:</p>
+<p><span class="math display">
+|\bar{y}_i - \bar{y}_j| \geq dms = t_{(\alpha, gl_{resíduos})} \sqrt{\frac{2QM_{resíduos}}{J}}
+</span></p>
+<p>sendo <span class="math inline">gl_{resíduos}</span> o grau de liberdade do resíduo:</p>
+<ul>
+<li><p>O teste de Fisher requer que o teste F da ANAVA tenha rejeitado a hipótese nula de igualdade entre as médias de tratamentos de forma a controlar o erro tipo I</p></li>
+<li><p>Este teste é liberal, no sentido de que possui grande poder e erro tipo I maior que um teste mais conservador.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Teste de Fisher</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>agricolae<span class="sc">::</span><span class="fu">LSD.test</span>(mod_dbca, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"solucao"</span>, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alpha =</span> <span class="fl">0.05</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">p.adj =</span> <span class="st">"fdr"</span>, </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: mod_dbca ~ "solucao"
+
+LSD t Test for y 
+P value adjustment method: fdr 
+
+Mean Square Error:  8.638889 
+
+solucao,  means and individual ( 95 %) CI
+
+       y       std r       se      LCL      UCL Min Max   Q25  Q50   Q75
+S1 23.00 11.284207 4 1.469599 19.40402 26.59598  13  39 16.75 20.0 26.25
+S2 25.25 12.996794 4 1.469599 21.65402 28.84598  16  44 16.75 20.5 29.00
+S3  8.00  9.486833 4 1.469599  4.40402 11.59598   1  22  3.25  4.5  9.25
+
+Alpha: 0.05 ; DF Error: 6
+Critical Value of t: 2.446912 
+
+Minimum Significant Difference: 5.085484 
+
+Treatments with the same letter are not significantly different.
+
+       y groups
+S2 25.25      a
+S1 23.00      a
+S3  8.00      b</code></pre>
+</div>
+</div>
+<p><strong>Teste de Tukey</strong></p>
+<p>Duas médias de tratamentos são estatisticamente diferentes segundo o teste de Tukey se:</p>
+<p><span class="math display">
+|\bar{y}_i - \bar{y}_j| \geq dhs = q_{(\alpha, I, gl_{resíduos})} \sqrt{\frac{QM_{resíduos}}{J}}
+</span></p>
+<p>Este teste é muito conservador, ou seja tem o menor poder em relação a testes liberais e o menor erro tipo I.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Teste de Tukey</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(mod_dbca, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"solucao"</span>, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = y ~ solucao + dia, data = dados)
+
+$solucao
+        diff        lwr        upr     p adj
+S2-S1   2.25  -4.126879   8.626879 0.5577862
+S3-S1 -15.00 -21.376879  -8.623121 0.0008758
+S3-S2 -17.25 -23.626879 -10.873121 0.0004067</code></pre>
+</div>
+</div>
+<p>No caso do experimento analisado, os dois testes produziram os mesmos resultados:</p>
+<ul>
+<li><p>o crescimento médio de bactérias devido às soluções 1 e 2 são estatisticamente iguais. Médias identificadas com a mesma letra representam esse fato, apresentam a letra <code>a</code> no caso.</p></li>
+<li><p>o crescimento médio de bactérias produzido pela solução 3 é estatisticamente diferente das médias produzidas pelas soluções 1 e 2, repare que apenas a média produzida pela solução 3 contém a letra <code>b</code>.</p></li>
+</ul>
+<p>Portanto, a solução recomendada, com fundamento nos resultados do experimento, seria a solução 3.</p>
+</section>
+<section id="comunicando-os-resultados-finais-da-análise." class="level3">
+<h3 class="anchored" data-anchor-id="comunicando-os-resultados-finais-da-análise.">8. Comunicando os resultados finais da análise.</h3>
+<p>A forma de reportar análises estatísticas depende da área do conhecimento e da revista científica específica. Entretanto, o padrão definido pelo <em>American Psychological Association</em> (<span class="citation" data-cites="cooper2018">Cooper (<a href="#ref-cooper2018" role="doc-biblioref">2018</a>)</span>) é bastante utilizado em ciëncias comportamentais. Seguindo o padrão APA, as conclusões da análise do experimento seriam aproximadamente como se segue:</p>
+<p>Uma Análise da Variância dos resultados do delineamento em blocos completos executado foi conduzida para comparar o efeito de três diferentes soluções de lavagem sobre o crescimento de bactérias em containers de leite. A ANOVA indicou que houve uma diferença entre pelo menos duas soluções [<em>F</em>(2, 6) = 40.72, <em>p</em> &lt; .001, <span class="math inline">\eta^2_p</span> = .93]. A análise dos resíduos indicou a adequação do modelo utilizado.</p>
+<p>Comparações <em>post hoc</em> usando o teste de Tukey indicaram que o crescimento médio de bactérias após a aplicação da solução 3 foi significativamente diferente dos resultados obtidos com a solução 1 [<em>p</em> &lt; 0.001, IC 95%. = [-21,38, -8,62] e com a solução 2 [<em>p</em> &lt; 0.001, IC 95%. = [-23,63, -10,87].</p>
+<p>Não houve diferença estatisticamente significativa entre o crescimento médio de bactérias produzidos pelas soluções 1 e 2 [<em>p</em> &lt; 0,5578, IC 95%. = [-4,13, -8,63].</p>
+</section>
+<section id="utilize-um-método-não-paramétrico" class="level3">
+<h3 class="anchored" data-anchor-id="utilize-um-método-não-paramétrico">9. Utilize um Método Não-Paramétrico</h3>
+<p><em>Em construção</em></p>
+</section>
+</section>
+<section id="referências" class="level2">
+<h2 class="anchored" data-anchor-id="referências">Referências</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-casella2008" class="csl-entry" role="listitem">
+CASELLA, G. <strong>Statistical Design</strong>. [s.l.] Springer, 2008.
+</div>
+<div id="ref-cohen1988" class="csl-entry" role="listitem">
+COHEN, J. <strong>Statistical power analysis for the behavioral sciences</strong>. 2. ed. [s.l.] Routledge, 1988.
+</div>
+<div id="ref-cooper2018" class="csl-entry" role="listitem">
+COOPER, H. <strong>Reporting quantitative research in psychology: How to meet APA style journal article reporting standards</strong>. [s.l.] American Psychological Association, 2018.
+</div>
+<div id="ref-ferguson2016" class="csl-entry" role="listitem">
+FERGUSON, C. J. <a href="https://doi.org/10.1037/14805-020">Methodological issues and strategies in clinical research</a>. <em>Em</em>: KAZDIN, A. E. (Ed.). [s.l.] American Psychological Association, [s.d.].
+</div>
+<div id="ref-fritz2012" class="csl-entry" role="listitem">
+FRITZ, C. O.; MORRIS, P. E.; RICHLER, J. J. <a href="https://doi.org/10.1037/a0024338">Effect size estimates: current use, calculations, and interpretation.</a> <strong>Journal of Experimental Psychology: General</strong>, v. 141, n. 1, p. 2, 2012.
+</div>
+<div id="ref-hummel2019" class="csl-entry" role="listitem">
+HUMMEL, D.; MAEDCHE, A. <a href="https://doi.org/10.1016/j.socec.2019.03.005">How effective is nudging? A quantitative review on the effect sizes and limits of empirical nudging studies</a>. <strong>Journal of Behavioral and Experimental Economics</strong>, v. 80, p. 47–58, 2019.
+</div>
+<div id="ref-meier2022" class="csl-entry" role="listitem">
+MEIER, L. <strong>ANOVA and Mixed Models: A Short Introduction Using R</strong>. [s.l.] CRC Press, 2022.
+</div>
+<div id="ref-montgomery2001" class="csl-entry" role="listitem">
+MONTGOMERY, D. C. <strong>Design and Analysis of Experiments</strong>. 5. ed. [s.l.] John Wiley &amp; sons, 2001.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/washingtonsilva\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2023, Washington Santos da Silva</p>
+</div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/washingtonsilva">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/washingtonssilva/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

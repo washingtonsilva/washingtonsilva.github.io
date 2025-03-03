@@ -1,0 +1,908 @@
+---
+title: "Delineamento em Blocos Completos Aleatorizados (DBCA)"
+description: | 
+  Um tutorial sobre o delineamento em Blocos Completos e sua análise utilizando 
+  a linguagem R.
+lang: "pt"
+date: "2023-01-23"
+author:
+  - name: Prof. Washington S. da Silva 
+    affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
+    affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
+bibliography: references.bib
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+crossref:
+  fig-title: '**Fig.**'
+  fig-labels: arabic
+  title-delim: "**.**"
+execute: 
+  warning: false
+  message: false
+categories: [Estatística Experimental, Delineamento em Blocos Aleatorizados]
+---
+
+
+
+## Conceitos Básicos
+
+Os conceitos a seguir foram baseados em @casella2008.
+
+::: {.callout-note icon=false}
+## Unidade Experimental
+
+A unidade experimental é a unidade (sujeito, planta, vaso, animal...)
+que é atribuído aleatoriamente a um tratamento.
+:::
+
+A unidade experimental, como o nome indica, é a unidade básica do experimento, 
+e *define a unidade a ser replicada para aumentar os graus de liberdade*. Na 
+definição de unidade experimental, a frase “atribuída aleatoriamente” é 
+de importância crucial.
+
+::: {.callout-note icon=false}
+## Unidade de Amostragem
+
+Uma unidade de amostragem é o objeto que é medido em um experimento. Pode ser 
+diferente da unidade experimental.
+:::
+
+::: {.callout-note icon=false}
+## Repetição
+
+O princípio da repetição consiste em aplicarm o mesmo tratamento a várias
+unidades experimentais em um mesmo experimento.
+:::
+
+O princípo da repetição permite obter a variação entre unidades experimentais, 
+ou seja, permite obter uma estimativa do erro experimental.
+
+::: {.callout-note icon=false}
+## Aleatorização
+
+Talvez o princípio mais fundamental da experimentação seja a aleatorização, ou 
+seja, obter as observações (ou, mais precisamente, as unidades experimentais) 
+em um forma aleatória que é tão livre de viés quanto possível.
+:::
+
+A ideia básica da aleatorização é que, dado um delineamento, a atribuição 
+das unidades experimentais aos tratamentos deve ser escolhida aleatoriamente, 
+com igual probabilidade, entre todas as atribuições possíveis. Essa estratégia 
+resulta em uma amostra aleatória simples. 
+
+A atribuição aleatória de unidades experimentais a tratamentos deve resultar 
+nos seguintes resultados desejáveis:
+
+**Eliminação de viés sistemático**. O viés vem em muitas formas, e algumas 
+delas são desconhecidas. Alguns exemplos são gradientes de luz ou temperatura, 
+tendência de entrevistador em pesquisas e outras ocorrências. A aleatorização 
+é uma maneira de quebrar um efeito sistemático.
+
+**Obtenção de uma amostra representativa**. O objetivo final em qualquer 
+experimento é fazer uma inferência válida para uma população, portanto, os 
+dados devem ser representativos dessa população. A aleatorização é necessária 
+para se obter uma amostra representativa.
+
+**Controla variáveis ou fatores de confundimento**
+
+Fatores de confundimento existem em todas os experimentos. Por exemplo, 
+considere um experimento com seres humanosp para testar o efeito de dietas 
+na pressão arterial, medida em 12 indivíduos. Embora possamos recrutar 
+sujeitos com um estado geral de saúde semelhante, fatores de confundimento 
+como estilo de vida, raça, disposição genética ou muitos outros fatores podem influenciar os resultados. 
+
+Apesar de ser possível controlar alguns fatores de confundmento, tal como raça, 
+outros fatores são incontroláveis, e até mesmo desconhecidos, como a disposição 
+genética. A aleatorização ajudará a distribuir essa variação desconhecida 
+ao longo do experimento, quebrando a influência do fator de confundimento.
+
+
+## Visão Geral
+
+Em muitas situações sabemos que as unidades experimentais 
+**não são homogêneas**, e fazer o uso explícito da estrutura especial das unidades experimentais geralmente ajuda a reduzir o erro experimental (@meier2022).
+
+Em um curso de estatística básica, aprendemos como aplicar o teste $t$ emparelhado. Esse teste é utilizado em situações em que dois tratamentos são aplicados no mesmo “objeto” ou “sujeito”. Pense, por exemplo, na aplicação de dois tratamentos, em paralelo, em seres humanos, como a aplicação de dois tipos de colírios diferentes, cada um aplicado em um dos dois olhos. 
+
+Sabemos que os indivíduos podem ser muito diferentes, mas devido ao fato de aplicarmos ambos os tratamentos no mesmo indivíduo, obtemos uma imagem clara do efeito do tratamento em cada indivíduo, tomando a diferença dos valores da 
+variável resposta correspondentes aos dois tratamentos. 
+
+Isso faz com que a variabilidade de sujeito para sujeito seja muito reduzida. Também dizemos que bloqueamos os sujeitos ou que um sujeito individual é um bloco.
+
+Sob uma abordagem mais geral, conforme @montgomery2001, podemos afirmar que em qualquer experimento, a variabilidade proveniente de um **fator de perturbação** pode afetar os resultados.
+
+Em geral, definimos um fator de perturbação como um fator do delineamento 
+que, provavelmente tem um efeito sobre a variável resposta 
+($y$), mas em cujo efeito o experimentador não está interessado. Assim, a variabilidade que ele pode transmitir para a variável resposta 
+deve ser minimizada.
+
+Em alguns experimentos, o fator de perturbação é desconhecido e incontrolável, isto é, não sabemos se o fator está afetando a variável resposta e se os seus níveis são os mesmos durante a realização do experimento. O princípio da experimentação que denominamos **aleatorização** é a técnica que permite ao experimentador proteger o experimento desse fator de perturbação à espreita.
+
+Em outros casos, o fator de perturbação é conhecido, mensurável, mas incontrolável. Se  o experimentador conseguir pelo menos observar os valores desse fator em cada execução do experimento, ele pode ser incorporado na 
+análise pela técnica denominada Análise de Covariância
+
+Quando o fator de perturbação da variabilidade é **conhecido e controlável**, 
+o experimentador utiliza a técnica denominada **blocagem** para minimizar 
+ou reduzir sistematicamente seu efeito sobre as comparações das médias dos tratamentos. A blocagem é uma técnica de experimentação extremamente 
+importante e usada extensivamente.
+
+Fatores de perturbação, conhecidos e controláveis, são chamados de 
+**blocos**. O objetivo da blocagem é tornar um ambiente heterogêneo em **subambientes homogêneos**.   
+
+Fatores de perturbação (blocos) típicos incluem localização, o tempo, se um 
+experimento é realizado em diferentes períodos de tempo (dia, semestre, ano etc.), pessoas, etc. 
+
+Em inglês, um delineamento em blocos completamente aleatorizados (DBCA) pode 
+ser traduzidp por *Randomized Complete Block Design (RCBD)*. O que significa 
+cada termo?
+
+- ***Randomized***: os tratamentos sáo atribuídos aleatoriamente dentro de cada bloco.
+
+- ***Complete***: Todos os tratamentos estão presentes em todos os bloco e cada tratamento é utilizado o mesmo número de vezes, geralmente uma vez, dentro de cada bloco.
+
+- ***Block***: as unidades experimentais são agrupadas de forma a criar 
+subgrupos homogênos.
+
+- ***Design***: É o seu experimento.
+
+
+::: {.callout-note icon=false}
+## Exemplo
+
+Um estudo no qual os participantes são, inicialmente, divididos em blocos (subconjuntos relativamente homogêneos) de acordo com alguma característica 
+(por exemplo, idade) que não é um foco de interesse e são então atribuídos, aleatoriamente, aos diferentes tratamentos de tal forma que cada tratamento aparece uma vez em cada bloco. 
+
+Assim, o número de participantes em cada bloco deve ser igual ao número de 
+níveis do tratamento. Por exemplo, o seguinte arranjo de um tratamento com 
+quatro níveis (A, B, C, D) e 16 indivíduos (de quatro grupos etários) é um delineamento em blocos completos:
+
+|              | Tratamentos             |
+|--------------|:-----------:|:-:|:-:|:-:|
+| **Bloco**    |             |   |   |   |
+| criancas     | A           | B | C | D |
+| adolescentes | B           | C | D | A |
+| adultos      | C           | D | A | B |
+| idosos       | D           | A | B | C |
+
+Ao garantir que o fator de perturbação (aqui, idade) seja igualmente 
+representado em todos as condições experimentais, um DBC reduz ou elimina sua contribuição para o erro experimental.
+:::
+
+
+    
+## DBCA: Modelo Linear Normal - Efeitos Fixos.
+
+O modelo estatístico linear associado a um DBCA pode ser representado por,
+
+$$
+y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij}, \, \text{sendo}\, \epsilon_{ij} \sim i.i.d \quad N(0,\sigma^2)
+	\begin{cases}
+	i = 1,\ldots,a \\
+	j =  1,\ldots,b
+	\end{cases}
+$$
+Sendo:
+
+$\mu$ = média global de $y$.
+
+$\tau_i$ = efeito em $y_{i.}$ devido ao tratamento $i$. Ou seja, o efeito do tratamento $i$. Sáo também denominados como **efeitos principais**.
+           
+$\beta_j$ =  efeito (sem interesse) do bloco $j$.
+
+$y_{ij}$ = resposta observada na unidade $j$ devida ao tratamento $i$. 
+
+$\epsilon_{ij}$ = erro não observado (ou erro experimental).
+
+O DBCA é um modelo linear, portanto, assume que \textbf{não há interação} entre 
+os blocos e os níveis dos fatores.
+
+    
+## DBCA: Tabela da Análise da Variância - Efeitos Fixos
+
+\begin{array}{l|l|l|l|l}
+		\hline
+\text{Fonte de Variação} & \text{gl}  & \text{SQ}        & \text{QM}                       & F_{calculado} \\
+		\hline
+		\text{tratamentos}  & a-1        & SQ_{tratamentos}  & \frac{SQ_{tratamentos}}{a-1}    & \frac{QM_{tratamentos}}{QM_{resíduos}}    \\
+		\text{blocos}       & b-1        & SQ_{blocos}       & \frac{SQ_{blocos}}{b-1}         &                 \\
+		\text{resíduo}      & (a-1)(b-1) & SQ_{resíduo}      & \frac{SQ_{resíduo}}{(a-1)(b-1)} &                 \\
+		\hline
+		\text{total}        & ab - 1    & SQ_{total}         &                                 &                 \\
+		\hline
+\end{array}
+	
+
+$F_{tabelado}=F_{\nu_1 = (a-1), \nu_2 = (a-1)(b-1)}$. 
+
+::: {.callout-important icon=false}
+## Estimador do Erro Experimental
+
+O quadrado médio do resíduo:
+
+$$
+QM_{resíduo} = \frac{SQ_{resíduo}}{(a-1)(b-1)}
+$$
+é o estimador do erro experimental no contexto deste modelo de um DBCA.
+:::
+
+Considerando que são $a$ níveis do fator de interesse e $b$ blocos. A hipótese 
+de interesse é:
+
+$$
+\begin{cases}
+H_o:  & \mu_1 = \mu_2 = \ldots = \mu_a \,\, \text{(as médias dos tratamentos são iguais)}  \\
+H_a:  & \text{Pelo menos duas médias são diferentes}
+\end{cases}
+$$
+
+**Regras de Decisão do teste F**:
+
+Se $F_{calculado} > F_{tabelado}$, rejeitamos a hipótese nula de que 
+as médias dos tratamentos são iguais, caso contrátio, náo rejeitamos 
+a hipótese nula, dado o nível de significância $\alpha$ escolhido. 
+
+Entretanto, a alternativa mais comum para interpretar o resultado do teste 
+F é utilizar o valor-p do teste. Por exemplo, caso adote-se $\alpha = 0.05$ = 
+5%, a regra de decisão é:
+
+- Se valor-p $<$ 0.05, o teste fornece evidência para rejeitar a hipótese nula de que as médias dos tratamentos são iguais.
+
+- Se valor-p $>$ 0.05, o teste fornece evidência para rejeitar a hipótese nula de que as médias dos tratamentos são iguais.
+
+
+## Sumário das Principais Características de um DBC
+
+**Uso:**
+
+- Apropriado quando se tem **um** fator de perturbação atuando 
+  sobre a variável resposta.
+  
+- O ideal é que cada tratamento ocorra em cada bloco o mesmo número de 
+  vezes, usualmente uma vez.
+	
+- Deve-se minimizar a variação dentro de cada bloco e maximizar a 
+	variação entre os blocos.
+ 
+**Vantagens:** 
+ 
+- Controla um fator de perturbação (conhecido e controlável) que pode atuar 
+  sobre a variável resposta (tempo, temperatura etc.), aumentando a precisão do    experimento, ou seja, reduzindo o erro experimental.
+	
+- Um DBCA pode acomodar qualquer número de tratamentos e qualquer 
+  número de blocos. Entretanto, o ideal é que cada tratamento seja 
+  replicado o mesmo número de vezes em cada bloco.
+
+- Utilizando blocos com diferentes condições, os resultados do experimento 
+  podem ter uma amplitude maior.
+	
+- A análise estatística é simples.
+
+**Desvantagens:**
+
+- Dados faltantes reduzem o poder dos testes e a cobertura dos intervalos 
+  de confiança.
+	
+- Se existir mais de uma fator de perturbação, conhecido e controlável, a 
+  utilização do DBCA é ineficiente.
+	
+- Se as condições experimentais forem de fato homogêneas, um delineamento 
+  inteiramente aleatorizado é mais eficiente que o DBCA.
+	
+- Na medida em que aumenta-se o número de tratamentos, mais itens 
+  heterogêneos podem ser utilizados e a blocagem correta torna-se cada 
+  vez mais complexa, neste caso outros delineamentos podem ser mais 
+  eficientes.
+
+
+## Etapas da Análise de um DBCA
+
+1. Estruturação e Importação do Arquivo de Dados.
+
+2. Análise Exploratória dos Dados
+
+3. Estimação do Modelo Linear Normal da ANOVA.
+
+4. Diagnóstico do Modelo (verificar as hipóteses do modelo linear normal).
+
+5. Comparações Múltiplas.
+
+As etapas típicas da análise dos dados produzidos por um DBCA serão ilustradas pela resolução das questões (1 a 9) associadas ao seguinte experimento: 
+   
+## Análise
+
+  Vamos ilustrar a análise de dados de um experimento que utilizou um DBCA utilizando o seguinte experimento:
+  
+::: {.callout-note icon=false}
+## Experimento
+
+Três soluções de lavagem estão sendo comparadas para avaliar a sua eficiência 
+em retardar o  crescimento de bactérias em containers de leite. A Análise é 
+feita em um laboratório, e apenas três ensaios podem ser executados em qualquer 
+dia. O experimentador decide usar um delineamento em blocos completos aleatorizados (DBCA). As observações são tomadas durante quatro dias, e os dados são apresentados na tabela abaixo. 
+:::
+
+    
+### 1. Identifique o bloco (fator de perturbação), o fator de interesse (tratamento) e seus níveis e a variável resposta deste experimento. Além disso, descreva o modelo linear do experimento.
+
+- Fator de Perturbação/Blocos: **dias**.
+	
+- Fator de Interesse/Tratamento: **soluções para lavagem de containers de leite.**
+	
+- Níveis do Fator de Interesse/Tratamento: **As três soluções de lavagem distintas**
+	
+- variável Resposta ($y$)]: **O crescimento, medido pela contagem, de bactérias**
+
+Sendo o crescimento (contagem) de bactérias a variável resposta e representada 
+por $y_{ij}$, as solucões testadas os tratamentos e representados por `sol`, os 
+quatro dias os blocos e representados por `dia`, podemos representar o modelo linear do experimento como:
+
+$$
+y_{ij} = \mu + 
+                      \tau_1 sol_{1} + 
+                      \tau_2 sol_{2} + 
+                      \tau_3 sol_{3} + 
+                      \beta_{1}dia_{1} +
+                      \beta_{2}dia_{2} +
+                      \beta_{3}dia_{3} + 
+                      \beta_{4}dia_{4} +
+                      \epsilon_{ij}
+$$
+
+### 2. Estruturação e Importação do Arquivo de Dados
+
+  A estrutura correta de um arquivo de dados para o caso de um experimento que utilizou um DBCA é ilustrada a seguir:
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+
+# Pacotes utilizados
+library(readr)
+library(knitr)
+library(kableExtra)
+
+# Importando os dados
+dados <- read_tsv("dados/solucao.txt", col_names = TRUE)
+
+# Verificando os dados
+dados %>% 
+      kbl() %>%
+      kable_styling("hover", full_width = F)
+```  
+
+  Considerando que o script `R` que contém seus código para analisa os dados  
+estão em uma pasta qualquer contendo uma subpasta denominada `dado` que 
+contem seu arquivo de dados, para importar, por exemplo, um arquivo texto 
+separado por tabulações denominado `solucao.txt`, pode-se utilizar o seguinte 
+código
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Pacotes utilizados
+library(readr)
+library(dplyr)
+
+# Importando os dados
+dados <- read_tsv("dados/solucao.txt", col_names = TRUE)
+
+# Verificando os dados
+glimpse(dados)
+```
+
+  Em experimentos, em geral, fatores (ou tratamentos) são variáveis 
+categóricas, como usamos a linguagem R, é melhor converter o 
+tratamento (`solucao`) e os blocos (`dia`) para a classe `factor` para
+efetuar a análise dos dados. Essa conversão pode ser obtida usando a 
+função `transmute` do pacote `dplyr`:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# pacote utlizado
+library(ggplot2)
+
+dados <- dados %>% transmute(solucao = as.factor(solucao),
+                             dia = as.factor(dia),
+                             y = as.numeric(y))
+
+glimpse(dados)
+```
+
+Com esses passsos, os dados foram importados e estruturados em um formato adequado para a análise.
+
+
+### 3. Faça uma Análise Exploratória dos Dados
+
+::: {.callout-tip}
+## Dica: Análise Exploratória dos Dados
+
+Uma Análise Exploratória dos Dados com gráficos e estatísticas, é uma parte importante de qualquer análise para:
+
+- entender as *propriedades* dos dados.
+- *estruturar os dados* no formato adequado para análise.
+- encontrar *padrões* nos dados.
+- *descrever* os dados/fenômeno.
+- identificar *erros* nos dados.
+- sugerir *estratégias de modelagem*.
+- *depurar* análises.
+- *comunicar* resultados.
+:::
+
+   Um boxplot comparativo das distribuições é o gráfico exploratório usual para 
+explorar dados envolvendo uma variável numérica e uma ou mais variáveis 
+categóricas. 
+
+  Entretanto, um boxplot requer uma amostra considerável (50 observações 
+por grupo pelo menos), e caso seja utilizado em amostras pequenas, tende 
+distorcer ou ocultar as propriedades da distribuição. 
+
+Para amostras menores, como a do experimento em questão um gráfico de violino (*violin plot*) é mais adequado e tende a retratar melhor as propriedades das distribuições por grupo (no caso, por tratamento).
+
+Para produzir um gráfico de violino usando o pacote `ggplot2`, podemos 
+utilizar a função `geom_violin()` e o seguinte código:
+
+```{r}
+#| echo: true
+#| eval: true
+#| label: fig-fig01
+#| fig-cap: Gráfico de violino comparativo entre a medida de crescimento de bactérias e as soluções testadas. O ponto vermelho representa a mediana dos dados e os pontos pretos os dados.
+#| fig-dpi: 300
+
+# Violin plot entre y e solucao
+
+ggplot(dados, aes(x = solucao, y = y)) + 
+   geom_violin() +  
+   stat_summary(fun.y = "median", geom = "point", size = 2, color = "red") + 
+   xlab("") + 
+   ylab("crescimento (quantidade) de bactérias") + 
+   geom_jitter(shape  = 16, position = position_jitter(0.2)) + 
+   scale_x_discrete(labels = c("S1" = "Solução 1", 
+                               "S2" = "Solução 2",
+                               "S3" = "Solução 3")) +
+   theme_minimal()
+```
+
+Observando a @fig-fig01, pode-se verificar que a solução 3, aparentemente, 
+foi a que apresentou a maior redução no crescimento de bactérias nos 
+containers de leite. Além disso, parece não haver diferença entre os 
+resultados produzidos pelas soluções 1 e 2. Por fim, a @fig-fig01 mostra que 
+as distribuições dos dados três soluções apresentam assimetria positiva 
+devido a possíveis outliers nas distribuições dos resultados das três soluções. 
+
+
+#### 4. Estimação do Modelo Linear Normal.
+
+  A estimação do modelo linear normal associado a um DBCA consiste, basicamente, 
+na obtenção da tabela da Análise da Variância apropriada. No caso do DBCA d
+experimento que estamos analisando, podemos obtê-la com o seguinte 
+código:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Estimação do Modelo com blocagem dos dias
+mod_dbca <- aov(y ~ solucao + dia, data = dados)
+summary(mod_dbca)
+```
+
+A tabela da ANOVA resultante lista inicialmente os fatores analisados que estão sendo testadas no modelo, neste caso, temos `solucao` (tratamento ou fator de interesse) e `dia` (bloco ou fator de perturbação) e os resíduos do modelo (`Residuals`). Toda a variação que não é explicada pelos tratamentos e pelos 
+blocos está incorporada na variância residual.
+
+A seguir descrevemos as colunas da tabela da ANOVA obtida:
+
+- **`Df`**: A coluna `Df` exibe os graus de liberdade para a variável independente (o número de níveis na variável menos 1) e os graus de liberdade para os resíduos (o número total de observações menos um e menos o número de níveis nas variáveis independentes).
+
+- **`Sum Sq`**: A coluna `Sum Sq` exibe a partição da soma de quadrados total 
+dos dados efetuada pela ANOVA.
+
+- **`Mean Sq`**: A coluna `Mean Sq` são os quadrados médios associados aos 
+fatores em análise e aos resíduos, calculados dividindo-se a soma dos quadrados pelos respectivos graus de liberdade associados a cada fator e aos resíduos 
+do modelo.
+
+- **`F value`**: A coluna `F value` é a estatística de teste do teste F, 
+obtida pela divisão do quadrado médio de cada fator pelo quadrado médio dos resíduos. Quanto maior o valor F, maior a probabilidade de que a variação 
+causada pelos tratamentos seja real e não devida ao acaso, ou à variabilidade 
+natural do fenômeno.
+
+- **`Pr(>F)`**: A coluna `Pr(>F)` é o valor-p do teste F, que estima a probabilidade de obtermos a estatística do teste F calculada a partir dos dados ter ocorrido, se a hipótese nula de nenhuma diferença entre os médias dos tratamentos fosse verdadeira. Portanto, quanto menor o valor-p, em relação 
+ao nível de significância adotado (em geral, $\alpha = 0.05$), maior a 
+chance de rejeitarmos a hipótese nula de que não há diferença entre as 
+médias dos tratamentos, e vice-versa. 
+
+Como o valor-p associado ao teste F entre as médias de contatem de bactérias das soluções testadas foi 0,0003, os dados fornecem forte evidência para 
+rejeitarmos a hipótese nula de que as médias dos tratamentos são iguais.
+
+**Tamanho do Efeito**
+
+Tornou-se um padrão reportar tamanhos de efeitos em artigos científicos de 
+diversas áreas, por diversas razões, para uma visão geral recomendo @cohen1988,
+@fritz2012 e @ferguson2016. Para analisar uma visão de sua importâcnia em 
+economica comportamental veja @hummel2019.
+
+Para ilustrar o conceito de tamanho do efeito para uma Análise da Variância, 
+no contexto do experimento analisado, podemos perguntar inicialmente qual é a porcentagem da variação total no crescimento de bactérias associada aos 
+tratamentos (soluções de lavagem). Esta medida é chamada de *Eta-quadrático* ($\eta^{2}$):
+
+$$
+\eta^2 = \frac{SQ_{tratamento}}{SQ_{total}} = \frac{703.5}{703.5 + 1106.9 + 51.8} =
+0.38 = 38\%
+$$
+Podemos utilizar a função `eta_squared()` do pacote `effectsize` para estimar 
+o $\eta^{2}$:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Estimação dos tamanhos de efeitos
+effectsize::eta_squared(mod_dbca, partial = FALSE)
+```
+
+Quando adicionamos mais termos ao modelo que estamos analisando (lembrando que 
+no experimento que estamos anlisando temos um fator de interesse (tratamento) 
+e um fator de perturbação (blocos)) podemos fazer uma pergunta diferente:
+qual a porcentagem da variação é explicada *ao controlar quaisquer outros fatores*.
+
+$$
+\eta^{2}_p = \frac{SQ_{tratamento}}{SQ_{tratamento} + SQ_{resíduo}} = \frac{703.5}{703.5 + 51.8} = 0.93 = 93\%
+$$
+
+Essa última pergunta é respondida pelo Eta-parcial quadrático $\eta^{2}_{p}$, 
+que é a porcentagem da variância *parcial* (após controlar outros fatores no 
+modelo) associada a um fator. 
+
+Em outras palavras, $\eta^{2}_{p}$ descreve a proporção de variação associada 
+a um fator quando a variação associada a todos os outros efeitos incluídos no 
+modeo foi removida.
+
+Novamente, podemos utiizar a função `eta_squared(..., partial = TRUE)` do pacote `effectsize` para estimar o $\eta^{2}_p$:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Estimação dos tamanhos de efeitos
+effectsize::eta_squared(mod_dbca, partial = TRUE)
+```
+
+Na falta de conhecimento mais profundo e de outras referências, a regra 
+de bolso (@cohen1988) para a interpretação da magnitude de $\eta^{2}_p$ é:
+
+- $\eta^{2}_p \approx 0.01$ indica um efeito fraco ou pequeno. 
+- $\eta^{2}_p \approx 0.06$ indica um efeito moderado.
+- $\eta^{2}_p \approx 0.16$ indica um efeito forte ou grande.
+
+
+### 5. Diagnóstico do modelo.
+
+Uma das partes mais importantes da análise dos dados de um DBCA (e dos 
+demais delineamentos), consiste em verificar se o modelo linear normal 
+utilizado é adequado. 
+
+Em geral, no caso de um DBCA, precisamos verificar:
+
+1. A validade da hipótese da normalidade aproximada dos resíduos do modelo, 
+
+2. A validade da hipótese da variância dos resíduos ser aproximadamente 
+constante (ou homogênea) em relação aos tratamentos.
+
+3. A validade da hipótese de aditividade do modelo linear normal, isto é, 
+de que não há interação entre blocos e tratamentos.
+
+
+#### 5.1 Verificação da normalidade dos resíduos
+
+  É sempre importante analisar gráficos dos resíduos de modelos estatísticos, 
+entretanto, infelizmente, não é usual reportar esses gráficos nos artigos 
+científicos, prática que depoe contra o artigo e as práticas da revista. 
+  
+  Além da relevância, em si, de se analisar gráficos dos resíduos, sua 
+importância deve-se também às conhecidas limitações dos testes de 
+hipóteses formais comumente utilizados e reportados nas revistas. 
+
+**Grágico Quantil-Quantil dos Resíduos**
+
+  Podemos utilizar a função `ggqqplot()` do pacote `ggpubr` para produzirmos 
+um gráfico quantil-quantil dos resíduos. Além dos resíduos, a função 
+produz intervalos de confiança, caso os resíduos estejam dentro da região 
+cinza, que representa os intervalos de confiança, temos evidência de que 
+os resíduos seguem uma distribuição aproximadamente normal. 
+
+   Para o experimento em questão tempos:
+
+```{r}
+#| echo: true
+#| eval: true
+#| label: fig-fig02
+#| fig-cap: Gráfico quantil-quantil para analisar a normalidade dos resíduos.
+#| fig-dpi: 300
+
+# pacote utilizado
+library(ggpubr)
+
+# Gráfico quantil-quantil dos resíduos
+ggqqplot(residuals(mod_dbca)) + 
+  xlab("quantis teóricos de uma distribuição normal padrão") + 
+  ylab("resíduos")
+```
+
+  Analisando a @fig-fig02, é fácil verificar que os resíduos estão situados dentro da região de confiança (95%), portanto podemos considerar a distribuição dos resíduos compatível com uma distribuição normal padrão aproximada.
+
+**Teste de Shapiro-Wilk de normalidade dos resíduos**
+
+Um dos testes mais comumente utlizados para testar formalmente se os 
+resíduos de um modelo linear experimental são aproximadamente normais é o 
+teste de [Shapiro-Wilk](https://en.wikipedia.org/wiki/Shapiro–Wilk_test). 
+
+De forma simplificada, podemos dizer que a hipótese nula do teste é que os resíduos são, aproximadamente, normalmente distribuídos. Assim, se o valor-p do teste for menor que o nível de significância escolhido ($\alpha$), então a hipótese nula é rejeitada e há evidências de que os resíduos testados não são normalmente distribuídos. 
+
+Por outro lado, se o valor-p for maior que o nível de significância escolhido, 
+a hipótese nula (de que os dados vieram de uma população normalmente 
+distribuída) não pode ser rejeitada. Por exemplo, para um nível $\alpha$ de 0,05, um valor p inferior a 0,05 implica na rejeição da hipótese nula de 
+que os dados são de uma população com distribuição (aproximadamente) 
+normalmente distribuída.
+
+Para o experimento que estamos analisando, podemos executar o teste de 
+Shapiro-Wilk utilizando a função interna `shapiro.test()`:
+
+```{r}
+#| echo: true
+#| eval: true
+
+#### Teste de Shapiro-Wilks
+shapiro.test(mod_dbca$residuals)
+```
+
+Considerando $\alpha = 0.05$, como o valor-p do teste é muito superior ao 
+nível de significância escolhido, os dados fornecem forte evidência para 
+não rejeitarmos a hipótese nula de que os resíduos seguem uma distribuição 
+aproximadamente normal.
+
+#### 5.2 Verificação da constância aproximada da variância dos resíduos
+
+Para testar a hipóteses de constância da variância dos resíduos entre os 
+níveis dos tratamentos, as três soluções no caso, recomendo utilizar
+a função interna `fligner.test()` que implementa o teste de constância 
+da variância de Fligner-Killeen.
+
+A recomendação deve-se ao fato de que o teste Fligner-Killeen foi considerado, 
+em um estudo de simulação, como um dos testes de homogeneidade de variâncias 
+mais robustos contra desvios da normalidade, ver Conover, Johnson & Johnson (1981).
+
+```{r}
+#| echo: true
+#| eval: true
+
+#### Teste de Bartlett: variancia homogenea pelo tratamento
+fligner.test(y ~ solucao, data = dados)
+```
+
+Considerando $\alpha = 0.05$, como o valor-p do teste é muito superior ao 
+nível de significância escolhido, os dados fornecem forte evidência para 
+não rejeitarmos a hipótese nula de que os resíduos possuem variância 
+constante (ou homogênea) entre as diferentes soluções (tratamentos) testadas.
+
+
+#### 5.3 Verificando se há interação entre bloco e tratamento
+
+O modelo estatístico linear normal utilizado para um DBCA:
+ 
+$$
+y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij},
+$$
+
+é completamente **aditivo**, isto é, os efeitos devidos aos tratamentos e aos 
+blocos são adicionados, e não multiplicados, por exemplo. Apesar deste 
+modelo aditivo simples ser frequentemente útil, há situações nas quais ele 
+é inadequado. 
+
+Especificamente, o modelo aditivo é inadequado em situações nas quais há **interação** entre tratamentos e blocos. Interações podem ocorrer, por 
+exemplo, quando a variável resposta ($y_{ij}$) é medida na escala errada. 
+Assim, se uma relação que é multiplicativa na escala original, digamos:
+
+$$
+E(y_{ij}) = \mu \tau_i \beta_j
+$$
+
+ela pode ser tornada aditiva (ou linear) utilizando uma escala logarítimica:
+
+$$
+\ln(E(y_{ij})) = \ln(\mu) + \ln(\tau_i) + \ln(\beta_j)
+$$
+
+Este tipo de interação pode ser eliminada pela transformação logaritmica, 
+entretanto, nem todas as interações pode ser tratadas tão facilmente.
+
+Se interações estão presentes, elas podem afetar seriamente e até invalidar 
+a Análise da Variância de um experimento. Em geral, a presença de interações, 
+infla o quadrado médio do resíduo e podem afetar adversamente a comparação 
+entre as médias dos tratamentos. 
+
+Quando ambos os fatores sào de interesse (o que não é o caso em um DBCA), 
+pode-se utilizar delineamentos fatoriais para incorporar o efeito de 
+interações.
+
+Há métodos gráficos e o teste de hipóteses formal de aditividade de Tukey para verificar a presença de interação. 
+
+**Método Gráfico**
+
+Um gráfico de interação exibe a média (ou outra estatística) da 
+variável resposta contra combinações dos fatores (blocos e tratamentos), ilustrando assim possíveis interações. A função interna `interaction.plot()` 
+da linguagem R pode ser utilizad para produzir este gráfico, a sintáxe da 
+função para o exeperimento que estamos analisando é:
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| label: fig-fig03
+#| fig-cap: Gráfico de interação entre a média da variável resposta e combinaçòes das soluções (tratamento) e dias (blocos).
+#| fig-dpi: 300
+
+# Verificando Interação entre Blocos e níveis do Fator (solucao)
+interaction.plot(dados$dia, dados$solucao, dados$y, fixed = TRUE)	
+```
+
+Idealmente, as linhas de um gráfico de interação devem ser paralelas, ou seja, 
+não devem se cruzar. Apesar da @fig-fig03 exibir um cruzamento, 
+não parece haver uma interação relevante entre as solucões (tratamentos) e 
+os dias (blocos). Uma limitaçào desse gráfico é que ele reflete possíveis 
+imprecisões (alta variabilidade) nas estimativas das médias, o que 
+parece ser o caso nesse experimento devido ao pequeno tamanho da amostra e 
+à possível presença de outliers.
+
+
+**Teste de Aditividade de Tukey**
+
+O teste de aditividade de Tukey testa as seguintes hipóteses:
+
+$$
+\begin{cases}
+H_o:  & \text{efeitos principais e blocos são aditivos,}  \\
+H_a:  & \text{efeitos principais e blocos são não-aditivos}
+\end{cases}
+$$
+Podemos utilizar a função `tukey.add.test(variável resposta, tratamentos, blocos)` do pacote `asbio` para executar esse teste. No caso do experimento 
+em análise temos:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Testa H0: Não há efeito de interação
+asbio::tukey.add.test(dados$y, dados$solucao, dados$dia)
+```
+
+Como o valor-p do teste (0.16) é maior que $\alpha = 0.05$, não rejeitamos 
+a hipótese nula de que os efeitos principais ($\tau_i$) e os blocos 
+($\beta_j$) são aditivos, isto é, o resultado do teste fornece evidência de 
+que não há interação entre blocos e tratamento.
+
+
+### 6. Os resultados indicaram diferenças entre os crescimentos médios de bactérias produzidos pelas três soluções?
+
+Uma Análise da Variância dos resultados do delineamento em blocos completos 
+executado foi conduzida para comparar o efeito de três diferentes soluções 
+de lavagem sobre o crescimento de bactérias em containers de leite. A 
+ANOVA indicou que houve uma diferença entre pelo menos duas soluções 
+[ *F*(2, 6) = 40.72, *p* < .001, $\eta^2_p$ = .93]. A análise dos resíduos 
+indicou a adequação do modelo utilizado.
+
+
+### 7. Qual solução deveria ser recomendada? Utilize os testes de Fisher e Tukey.**
+
+Como a ANOVA indicou diferenças entre o crescimento (quantidade) média de 
+bactérias entre as soluções testadas, dos laboratórios, surgem outras 
+perguntas:
+
+- Quais soluçóes apresentaram médias estatisticamente iguais e quais 
+apresentaram médias estatisticamente iguais?
+
+- Qual solução apresentou o melhor resultado? Ou seja, apresentou a 
+maior redução no crescimento de bactérias nos containers de leite?
+
+- Necessitamos de procedimentos de comparações múltiplas de médias para responder estas questões. 
+
+Entre os dois mais utilizados, temos os testes de Fisher e de Tukey.
+
+**Teste de Fisher** 
+
+Duas médias de tratamentos são estatisticamente diferentes segundo o 
+teste da diferença mínima significativa (dms) de Fisher se:
+
+$$
+|\bar{y}_i - \bar{y}_j| \geq dms = t_{(\alpha, gl_{resíduos})} \sqrt{\frac{2QM_{resíduos}}{J}}
+$$
+
+sendo $gl_{resíduos}$ o grau de liberdade do resíduo: 
+
+- O teste de Fisher requer que o teste F da ANAVA tenha rejeitado a hipótese 
+nula de igualdade entre as médias de tratamentos de forma a controlar 
+o erro tipo I
+
+- Este teste é liberal, no sentido  de que possui grande poder e erro 
+tipo I maior que um teste mais conservador.
+
+```{r}
+#| echo: true
+#| eval: true
+
+### Teste de Fisher
+agricolae::LSD.test(mod_dbca, 
+                    "solucao", 
+                    alpha = 0.05, 
+                    p.adj = "fdr", 
+                    console = TRUE)
+```
+
+
+**Teste de Tukey** 
+
+Duas médias de tratamentos são estatisticamente diferentes segundo o
+teste de Tukey se:
+
+$$
+|\bar{y}_i - \bar{y}_j| \geq dhs = q_{(\alpha, I, gl_{resíduos})} \sqrt{\frac{QM_{resíduos}}{J}}
+$$
+
+Este teste é muito conservador, ou seja tem o menor poder em relação 
+a testes liberais e o menor erro tipo I.
+
+```{r}
+#| echo: true
+#| eval: true
+
+### Teste de Tukey
+TukeyHSD(mod_dbca, 
+         "solucao", 
+         conf.level = 0.95)
+```
+
+No caso do experimento analisado, os dois testes produziram os mesmos 
+resultados: 
+
+-  o crescimento médio de bactérias devido às soluções 1 e 2 são 
+estatisticamente iguais. Médias identificadas com a mesma letra representam 
+esse fato, apresentam a letra `a` no caso. 
+
+- o crescimento médio de bactérias produzido pela solução 3 é estatisticamente diferente das médias produzidas pelas soluções 1 e 2, repare que apenas a média produzida pela solução 3 contém a letra `b`.
+
+Portanto, a solução recomendada, com fundamento nos resultados do experimento, seria a solução 3.
+
+
+### 8. Comunicando os resultados finais da análise. 
+
+  A forma de reportar análises estatísticas depende da área do conhecimento e 
+da revista científica específica. Entretanto, o padrão definido pelo *American Psychological Association* (@cooper2018) é bastante utilizado em ciëncias comportamentais. Seguindo o padrão APA, as conclusões da análise do experimento seriam aproximadamente como se segue:
+
+Uma Análise da Variância dos resultados do delineamento em blocos completos 
+executado foi conduzida para comparar o efeito de três diferentes soluções 
+de lavagem sobre o crescimento de bactérias em containers de leite. A 
+ANOVA indicou que houve uma diferença entre pelo menos duas soluções 
+[*F*(2, 6) = 40.72, *p* < .001, $\eta^2_p$ = .93]. A análise dos resíduos 
+indicou a adequação do modelo utilizado.
+
+Comparações *post hoc* usando o teste de Tukey indicaram que o crescimento 
+médio de bactérias após a aplicação da solução 3 foi significativamente 
+diferente dos resultados obtidos com a solução 1 
+[*p* < 0.001, IC 95%. = [-21,38, -8,62] e com a solução 2 
+[*p* < 0.001, IC 95%. = [-23,63, -10,87]. 
+
+Não houve diferença estatisticamente significativa entre o crescimento 
+médio de bactérias produzidos pelas soluções 1 e 2 [*p* < 0,5578, IC 95%. = 
+[-4,13, -8,63].
+
+
+### 9. Utilize um Método Não-Paramétrico
+
+*Em construção*
+
+## Referências
+
+::: {#refs}
+:::
+		

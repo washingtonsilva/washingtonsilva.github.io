@@ -1,0 +1,23 @@
+
+# **Graduate Courses**
+
+## Introdução à Ciência dos Dados 
+
+## Econometria Aplicada à Finanças 
+
+
+
+
+* * *
+
+# **Undergraduate Courses**
+
+## Introdução à Ciência dos Dados
+
+## Métodos Quantitativos Aplicados à Administração
+
+## Visualização de Dados
+
+## Análise Multivariada
+
+## Previsão de Séries Temporais

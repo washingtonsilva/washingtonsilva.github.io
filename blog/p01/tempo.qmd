@@ -1,0 +1,28 @@
+---
+lang: pt
+date: "2025-02-28"
+title: "Tempo"
+categories:
+  - change
+image: paineira.jpg
+---
+
+<blockquote>
+  "O Problema é que você acha que tem tempo."
+  <br><br>
+  <footer>— Jack Kornfield</footer>
+</blockquote>
+
+
+```{r}
+#| echo: false
+
+library(flipdownr)
+library(flexdashboard)
+
+flipdown(downto = "2033-02-28", 
+         id = " ", 
+         theme = "dark",
+         headings = c("Dias", "Horas", "Minutos", "Segundos"))
+```
+

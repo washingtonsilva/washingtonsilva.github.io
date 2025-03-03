@@ -1,0 +1,24 @@
+---
+title: "Tutoriais"
+page-layout: full
+listing:
+    contents: 
+      - dbca
+    sort: "date desc"
+    type: default
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    page-size: 10
+    fields: [title, description, date, categories]
+---
+
+Esta página reúne tutoriais e materiais didáticos sobre Estatística, 
+Econometria, Ciência de Dados, R, Git, Python e outros recursos.
+
+:::{#tutorials}
+:::
+
+
+
+

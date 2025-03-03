@@ -1,0 +1,34 @@
+[
+  {
+    "listing": "/publications/index.html",
+    "items": [
+      "/publications/efeito_cotas.html",
+      "/publications/flexibilidade.html",
+      "/publications/natan01.html",
+      "/publications/overconfidence.html",
+      "/publications/premio_voto.html",
+      "/publications/heavy_metals.html",
+      "/publications/toxic_metals.html",
+      "/publications/anchoring_effect.html",
+      "/publications/vies_confirmacao.html",
+      "/publications/system_dynamics.html",
+      "/publications/estrutura_capital.html",
+      "/publications/biospecke.html",
+      "/publications/time_speckle.html",
+      "/publications/hedge.html",
+      "/publications/arch.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/p01/tempo.html"
+    ]
+  },
+  {
+    "listing": "/tutorials/index.html",
+    "items": [
+      "/tutorials/dbca/index.html"
+    ]
+  }
+]

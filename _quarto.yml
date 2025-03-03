@@ -1,21 +1,48 @@
 project:
+  output-dir: docs
   type: website
-
+  render:
+    - "*.qmd"
+    - "*.md"
 website:
-  title: "washingtonsilva.github.io"
+  cookie-consent:
+    type: express
+    style: headline
+    palette: dark
+  google-analytics:
+    tracking-id: "G-X7TV071MD7"
+    anonymize-ip: true
+  title: "Washington S. da Silva"
+  site-url: "https://washingtonsilva.github.io"
   navbar:
+    background: "#000000"
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-
+      - href: publications/index.qmd
+        text: Publications
+      - href: blog/index.qmd
+        text: Blog
+      - href: tutorials/index.qmd
+        text: Tutorials
+      - href: teaching/index.qmd
+        text: Teaching
+  page-footer:
+    left: "Copyright 2023, Washington Santos da Silva"
+    right:
+      - icon: github
+        href: https://github.com/washingtonsilva
+      - icon: linkedin
+        href: https://www.linkedin.com/in/washingtonssilva/
+    background: "#000000"
+date-format: "D MMMM YYYY"
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: tango
     css: styles.css
     toc: true
-
+    html-math-method: katex
+    include-in-header:
+      - file: header.html
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 

@@ -1,7 +1,27 @@
 ---
-title: "washingtonsilva.github.io"
+page-layout: full
 ---
+::: {.grid}
+::: {.g-col-12 .g-col-md-4 .text-center}
+![](wss.jpg){width="80%" style="border: 1px solid #ddd; padding: 3px;"}
 
-This is a Quarto website.
+::: {.mt-4}
+[<i class="fas fa-graduation-cap"></i> Curriculum Lattes](http://lattes.cnpq.br/7319553236390710 ){.btn .btn-outline-dark .btn-sm .me-2 .mb-2 style="display: inline-block;"}
+[<i class="fab fa-orcid"></i> ORCID](https://orcid.org/0000-0003-2396-3507){.btn .btn-outline-dark .btn-sm .me-2 .mb-2 style="display: inline-block;"}
+[<i class="fab fa-google"></i> Google Scholar](https://scholar.google.com.br/citations?user=hRQ0bCIAAAAJ&hl=pt-BR){.btn .btn-outline-dark .btn-sm .mb-2 style="display: inline-block;"}
+:::
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+::: {.g-col-12 .g-col-md-8}
+
+I am a Full Professor in the field of Data Science, Econometrics, and Statistics Applied to Finance at [IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado){target="_blan"}.
+
+### Areas of Interest
+- Reproducible Research
+- Applied Statistics and Econometrics
+- Data Science
+- Time Series Analysis
+- Statistical and Machine Learning Applied to Finance
+- Bayesian Econometrics
+:::
+:::

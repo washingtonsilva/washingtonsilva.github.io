@@ -1,0 +1,13 @@
+solucao	dia	y
+S1	D1	13
+S1	D2	22
+S1	D3	18
+S1	D4	39
+S2	D1	16
+S2	D2	24
+S2	D3	17
+S2	D4	44
+S3	D1	5
+S3	D2	4
+S3	D3	1
+S3	D4	22
