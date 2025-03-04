@@ -1,9 +1,10 @@
 ---
 title: "Tutoriais"
+lang: pt
 page-layout: full
 listing:
     contents: 
-      - dbca
+      - git
     sort: "date desc"
     type: default
     categories: true

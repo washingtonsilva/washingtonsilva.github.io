@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/tutorials/index.html",
+    "items": [
+      "/tutorials/git/index.html"
+    ]
+  },
+  {
     "listing": "/publications/index.html",
     "items": [
       "/publications/efeito_cotas.html",
@@ -23,12 +29,6 @@
     "listing": "/blog/index.html",
     "items": [
       "/blog/p01/tempo.html"
-    ]
-  },
-  {
-    "listing": "/tutorials/index.html",
-    "items": [
-      "/tutorials/dbca/index.html"
     ]
   }
 ]

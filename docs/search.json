@@ -21,11 +21,18 @@
     "text": "Abstract\nThis study aims identify the determinants of premium for voting rights in the Brazilian market. To this end, we developed a dataset consisted of 383 companies listed on the Brasil, Bolsa, Balcão (B3) from 2000 to 2015, to use the fixed effects regressions with panel data models. We identified that the average of the premium found for the period is 18.07%, however, this value is close to 40.00% in years considered of systemic crisis, as occurred in 2008 and 2015. In addition to the positive influence of the years of decline in the stock market in the value of the premium, the results showed that i) the increase in liquidity of shares with voting rights negatively affect the value of the premium for control; and ii) the level of liabilities payable in relation to assets has an inverted U-shape in relation to the voting premium. The study contributes to the literature by verifying that a structure of two classes of shares allows the accentuation of the premium for voting rights in periods of systematic crisis."
   },
   {
-    "objectID": "publications/hedge.html",
-    "href": "publications/hedge.html",
-    "title": "Hedge dinâmicos: Uma evidência para os contratos futuros brasileiros",
+    "objectID": "publications/natan01.html",
+    "href": "publications/natan01.html",
+    "title": "Portfolio optimization based on the pre-selection of stocks by the Support Vector Machine model",
     "section": "",
-    "text": "Abstract\nThe farming sector is changing, growing and occupying a position of prominence in the economy. These transformations start to demand a bigger concern with the management of risks of the activity. In this direction, the contracts traded at BM&F had become efficient instruments in the reduction of the market risk, through an operation called hedge. However, there is still the necessity of improving of the econometrical techniques for the estimation of the optimal hedge ratio, therefore, it is observed in the brazilian literature that the majority of the works doesn’t consider some aspects of the behavior of the series of returns. Thus, the present work seeks to analyze two methods for the calculation of these hedge optimal ratio, the conventional model of regression and the bivariate GARCH BEKK model that considers the conditional correlations of the series. The preliminary analysis of the results indicates that the hedge optimal ratio is not constant through time, suggesting that the use of models that consider the time dependence of the series is more realistic. The methodology is applied to the prices of the beef cattle commodity."
+    "text": "Abstract\nThis study aims to analyze the performance of an investment portfolio using the Markowitz model, which maximizes the Sharpe ratio from a set of assets preselected through the Support Vector Machine (SVM) model using fundamental indicators in the Brazilian stock market. With an accuracy of 61% for the SVM model, the results indicate that preselecting assets based on fundamental indicators and subsequently optimizing them by maximizing the Sharpe ratio showed a superior return and faster recovery after drawdown periods compared to the benchmark or SVM (1/n) strategy. These results suggest the relevance of including the SVM in the optimization portfolio process."
+  },
+  {
+    "objectID": "publications/heavy_metals.html",
+    "href": "publications/heavy_metals.html",
+    "title": "Can moderate heavy metal soil contaminations due to cement production influence the surrounding soil bacterial communities?",
+    "section": "",
+    "text": "Abstract\nEvents of soil contamination by heavy metals are mostly related to human activities that release these metals into the environment as emissions or effluents. Among the industrial activities related to heavy metal pollution, cement production plants are considered one of the most common sources. In this work we applied the High-throughput sequencing approach called 16 S rDNA metabarcoding to perform the taxonomic characterization of the prokaryotic communities of the soil surrounding three cement plants as well as two areas outside the influence of the cement plants that represented agricultural production environments free of heavy metal contamination (control areas). We applied the environmental genomics approaches known as “structural community metrics” (α- and β-diversity metrics) and “functional community metrics” (PICRUSt2 approach) to verify whether or not the effects of heavy metal contamination in the study area generated impacts on soil bacterial communities. We found that the impact related to the elevation of heavy metal concentration due to the operation of cement plants in the surrounding soil can be considered smooth according to globally recognized indices such as Igeo. However, we identified that both the taxonomic and functional structures of the communities surrounding cement plants were different from those found in the control areas. We consider that our findings contribute significantly to the general understanding of the effects of heavy metals on the soil ecosystem by showing that light contamination can disturb the dynamics of ecosystem services provided by soil, specifically those associated with microbial metabolism."
   },
   {
     "objectID": "publications/estrutura_capital.html",
@@ -35,18 +42,25 @@
     "text": "Abstract\nGiven the various theories of capital structure and the Pecking Order theory, the present study related the information asymmetry and the capital structure of companies aiming to verify if information asymmetry affects the definition of the capital structure of Brazilian companies held in the electric power industry and textile. The research involved a sample of 53 companies, 31 of the electricity and 22 textiles sector during the years 2008 to 2012. The methodology used was regression with panel data, it allows the same unit cross-sectional monitored over time. The results showed that information asymmetry is an important determinant of capital structure, but that the sectors diverge with respect to the Pecking Order Theory. In the case of the energy sector to reduce information asymmetry led to a propensity for debt, while the textile sector, the opposite occurred, as companies less susceptible to information asymmetry are averse to debt."
   },
   {
-    "objectID": "publications/arch.html",
-    "href": "publications/arch.html",
-    "title": "Uma análise empírica da volatilidade do retorno de commodities agrícolas utilizando modelos ARCH: os casos do café e da soja",
+    "objectID": "publications/biospecke.html",
+    "href": "publications/biospecke.html",
+    "title": "Biospeckle laser spectral analysis under Inertia Moment, Entropy and Cross-Spectrum methods",
     "section": "",
-    "text": "Abstract\nWe examined the volatility process of the returns of two important Brazilian agricultural commodities, coffee and soy, using ARCH class models. Empirical results suggest strong signs of persistence and asymmetry in the volatility of both series. Furthermore, the results suggest that the design of policies that create, facilitate the access and stimulate the use of market-based hedging devices can be proper strategies for such sectors in view of the persistence of shocks and the pronounced volatility found for the returns of these commodities."
+    "text": "Abstract\nBiospeckle or dynamic speckle can be used as a method for analysing activity, biologic or not, from materials illuminated with laser beam. The Spatial Temporal Speckle (STS) contains data of time information of dynamic speckle and it is used as input for many techniques allowing the analysis of the activity which is being monitored. One question that rises from the manipulation of the STS is related with the information inside it, in particular, whether it is possible to access different frequency behaviors in the time series presented in the STS pattern. This study presents the Inertia Moment, the Wavelets based Entropy and the Cross-Spectrum analysis as approaches that can be used for evaluating the STS spectral content. In a simulation, STS lines have been created based on many frequencies of the fundamental harmonic. This was done for verifying as each method acts when analysing different frequencies, varying harmonics offset and amplitude. These techniques were applied to real database, to validate their action mechanism in real samples. The results present that all techniques were able to verify the spectral content of different harmonics. Inertia Moment was more efficient on analysing high frequencies, because it is a second order moment, being able to obtain more information from high variations on activity. Entropy and Cross-Spectrum, in turn, were better on differing lower frequencies. This was attributed to the convolution proccess, which is present in both methods, filtering high frequencies. Although, any of them returned informations on both high and low frequencies at the same time, they can be used simultaneously, since Entropy and Cross-Spectrum were complementary to Inertia Moment."
   },
   {
-    "objectID": "Readme.html",
-    "href": "Readme.html",
-    "title": "Washington S. da Silva",
+    "objectID": "publications/anchoring_effect.html",
+    "href": "publications/anchoring_effect.html",
+    "title": "Anchoring effect in managerial decision-making in accountants and managers: an experimental study",
     "section": "",
-    "text": "My personal home page.\nThe page uses the template provided by Prof. Rob Hyndman."
+    "text": "Abstract\nThe objective of this work was to analyze, by means of an experiment, if the type (positive or negative) and the level (simple or complex) of economic-financial information influence the anchoring effect of accountants and managers in a process of managerial decision-making. To do so, an experimental methodology targeting a sample of 86 Accountants, 68 Managers and 118 people with different professional activities (control group) was used. The results showed, in the first test without differentiation of factors (type and level), that about 96% of the participants have the anchoring effect, leaning towards minimum and maximum estimates of sales revenue, operating expenditure and result. In addition, the ANOVA and the Approximate Permutation Test brought significant evidence that the anchoring effect in minimum projections can be influenced by the type of information, not being significant for anchoring in maximum projections and for the level of information on both estimates (minimum and maximum). Finally, the conclusion is that positive information increases the anchoring effect and negative information decreases the anchoring effect in minimum estimates in relation to the low anchor."
+  },
+  {
+    "objectID": "tutorials/index.html",
+    "href": "tutorials/index.html",
+    "title": "Tutoriais",
+    "section": "",
+    "text": "Esta página reúne tutoriais e materiais didáticos sobre Estatística, Econometria, Ciência de Dados, R, Git, Python e outros recursos.\n\n\n\n\n\n\n\n\n\n\n\n\nControle de Versão com Git e GitHub\n\n\n\n\n\n\ncontrole de versão\n\n\ngit\n\n\ngitHub\n\n\n\nUm tutorial básico sobre o uso do sistema de controle de versão Git e sobre o GitHub \n\n\n\n\n\n7 outubro 2024\n\n\n\n\n\n\nNenhum item correspondente"
   },
   {
     "objectID": "tutorials/dbca/index.html",
@@ -119,11 +133,11 @@
     "text": "Published Papers\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n    Washington Santos da Silva, Bruno César de Melo Moreira, Raquel Aparecida Soares Franco. (2024) Efeito de cotas para ingresso e de fatores socioeconômicos sobre o desempenho acadêmico de estudantes em um curso técnico integrado: um estudo de caso. Revista Eletrônica de Educação, 18(1).\n  \n\n  \n    Lélis Pedro de Andrade, Washington Santos da Silva, Daniel Fonseca Costa, Bruno César de Melo Moreira, Adriano Olímpio Tonelli. (2024) Financial Flexibility and Stock Return of Brazilian Companies: Evidence During the COVID-19 Crisis. Revista Evidenciação Contábil & Finanças, 11(2).\n  \n\n  \n    Natan Felipe Silva, Lélis Pedro de Andrade, Washington Santos da Silva, Maísa Kely de Melo, Adriano Olímpio Tonelli. (2024) Portfolio optimization based on the pre-selection of stocks by the Support Vector Machine model. Finance Research Letters, 61,  105014.\n  \n\n  \n    Daniel Fonseca Costa, Bruno César de Melo Moreira, Washington Santos da Silva, Lélis Pedro de Andrade. (2023) Overconfidence in Managerial Decision-Making among Brazilian Accountants and Managers: An Experimental Study.  Business Management and Strategy, 14:2, 39-70.\n  \n\n  \n    Taynara Cardoso Ribeiro, Lélis Pedro Andrade, Washington Santos da Silva, Bruno César de Melo Moreira, Daniel Fonseca Costa. (2021) Determinantes pelo Prêmio pelo Direito de Voto no Mercado de Ações Brasileiro. Revista de Gestão, Finanças e Contabilidade, 11:2, 4-21.\n  \n\n  \n    Thiago Augusto da Costa Silva, Marcos de Paula Jr., Washington Santos da Silva, Gustavo Augusto Lacorte. (2021) Can moderate heavy metal soil contaminations due to cement production influence the surrounding soil bacterial communities?. Ecotoxicology, 31, 134-148.\n  \n\n  \n    Thiago Augusto da Costa Silva, Marcos de Paula Jr., Washington Santos da Silva, Gustavo Augusto Lacorte. (2021) Deposition of Potentially Toxic Metals in the Soil from Surrounding Cement Plants in a Karst Area of Southeastern Brazil. Conservation, 1(3), 137-150.\n  \n\n  \n    Daniel Fonseca Costa, Bruno César de Melo Moreira, Francisval de Melo Carvalho, Washington Santos da Silva. (2020) Anchoring effect in managerial decision-making in accountants and managers: an experimental study. Revista Brasileira de Estratégia, 11:3, 425-445.\n  \n\n  \n    Daniel Fonseca Costa, Francisval de Melo Carvalho, Bruno César de Melo Moreira, Washington Santos da Silva. (2020) Viés de confirmação na tomada de decisão gerencial: um estudo experimental com gestores e contadores. Revista de Contabilidade e Organizações, 11:2, 4-21.\n  \n\n  \n    Nayara Teixeira Santos, Gisele Tessari Santos, Washington Santos da Silva, Wanyr Romero Ferreira (2020) A System Dynamics Model for Sales and Operations Planning: An Integrated Analysis for the Lime Industry. International Journal of System Dynamics Applications, 9:1, 1-17.\n  \n\n  \n    Natália Duarte de Medeiros, Francisval de Melo Carvalho, Caio Peixoto Chain, Gideon Carvalho de Benedicto, Washington Santos da Silva (2018) Capital Structure and Information Asymmetry: A Study of Brazilian Publicly Traded Companies of Testile and Electricity Industries. Revista de Administração da Universidade Federal de Santa Maria, 11:2, 268-289.\n  \n\n  \n    Cassia M. B. Nobre, Roberto A. Braga. Jr, Antônio G. Costa, R. R. Cardoso, Washington Santos da Silva, Thelma Sáfadi. (2009) Biospeckle laser spectral analysis under Inertia Moment, Entropy and Cross-Spectrum methods. Optics Communications, 282:11, 2236-2242.\n  \n\n  \n    Roberto A. Braga. Jr, Washington Santos da Silva, Thelma Sáfadi, Cassia M. B. Nobre (2008) Time history speckle pattern under statistical view. Optics Communications, 281:9, 2443-2448.\n  \n\n  \n    Wanderci Alves Bitencourt, Washington Santos Silva, Thelma Sáfadi. (2006) Hedge dinâmicos: Uma evidência para os contratos futuros brasileiros. Organizações Rurais & Agroindustriais, 8:1, 71-78.\n  \n\n  \n    Washington Santos da Silva, Thelma Sáfadi, Luiz Gonzaga de Castro Júnior. (2005) Uma análise empírica da volatilidade do retorno de commodities agrícolas utilizando modelos ARCH: os casos do café e da soja. Revista de Economia e Sociologia Rural, 43:1, 119-134.\n  \n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "blog/p01/change.html",
-    "href": "blog/p01/change.html",
-    "title": "Primeiro Post",
+    "objectID": "blog/p01/tempo.html",
+    "href": "blog/p01/tempo.html",
+    "title": "Tempo",
     "section": "",
-    "text": "I’ve been around…"
+    "text": "“O problema é que você acha que tem tempo”\n— Jack Kornfield"
   },
   {
     "objectID": "about.html",
@@ -145,139 +159,6 @@
     "title": "Washington S. da Silva",
     "section": "",
     "text": "Curriculum Lattes  ORCID  Google Scholar\n\n\n\nI am a Full Professor in the field of Data Science, Econometrics, and Statistics Applied to Finance at IFMG - Campus Formiga.\n\nAreas of Interest\n\nReproducible Research\nApplied Statistics and Econometrics\nData Science\nTime Series Analysis\nStatistical and Machine Learning Applied to Finance\nBayesian Econometrics"
-  },
-  {
-    "objectID": "index.html#professor-pesquisador",
-    "href": "index.html#professor-pesquisador",
-    "title": "Washington S. da Silva",
-    "section": "",
-    "text": "Sou Professor Associado na área de Econometria Aplicada, Estatística, Ciência de Dados e Finanças. Minha pesquisa concentra-se em métodos quantitativos aplicados a mercados financeiros e análise econômica.\n\n\n\nEconometria Aplicada\nMétodos Estatísticos em Finanças\nCiência de Dados\nModelagem de Séries Temporais\nProgramação em R e Python"
-  },
-  {
-    "objectID": "teaching/index.html#análise-multivariada-portuguese-1",
-    "href": "teaching/index.html#análise-multivariada-portuguese-1",
-    "title": "Graduate Courses",
-    "section": "Análise Multivariada (portuguese)",
-    "text": "Análise Multivariada (portuguese)"
-  },
-  {
-    "objectID": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese-1",
-    "href": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese-1",
-    "title": "Graduate Courses",
-    "section": "Introdução à Ciência dos Dados (portuguese)",
-    "text": "Introdução à Ciência dos Dados (portuguese)"
-  },
-  {
-    "objectID": "teaching/index.html#métodos-quantitativos-aplicados-à-administração-portuguese",
-    "href": "teaching/index.html#métodos-quantitativos-aplicados-à-administração-portuguese",
-    "title": "Graduate Courses",
-    "section": "Métodos Quantitativos Aplicados à Administração (portuguese)",
-    "text": "Métodos Quantitativos Aplicados à Administração (portuguese)"
-  },
-  {
-    "objectID": "teaching/index.html#métodos-computacionais-aplicados-à-administração-portuguese",
-    "href": "teaching/index.html#métodos-computacionais-aplicados-à-administração-portuguese",
-    "title": "Graduate Courses",
-    "section": "Métodos Computacionais Aplicados à Administração (portuguese)",
-    "text": "Métodos Computacionais Aplicados à Administração (portuguese)"
-  },
-  {
-    "objectID": "teaching/index.html#estatística-portuguese",
-    "href": "teaching/index.html#estatística-portuguese",
-    "title": "Graduate Courses",
-    "section": "Estatística (portuguese)",
-    "text": "Estatística (portuguese)"
-  },
-  {
-    "objectID": "tutorials/index.html",
-    "href": "tutorials/index.html",
-    "title": "Tutoriais",
-    "section": "",
-    "text": "Esta página reúne tutoriais e materiais didáticos sobre Estatística, Econometria, Ciência de Dados, R, Git, Python e outros recursos.\n\n\n\n\n\n\n\n\n\n\n\n\nDelineamento em Blocos Completos Aleatorizados (DBCA)\n\n\n\n\n\n\nEstatística Experimental\n\n\nDelineamento em Blocos Aleatorizados\n\n\n\nUm tutorial sobre o delineamento em Blocos Completos e sua análise utilizando a linguagem R. \n\n\n\n\n\n23 January 2023\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "publications/anchoring_effect.html",
-    "href": "publications/anchoring_effect.html",
-    "title": "Anchoring effect in managerial decision-making in accountants and managers: an experimental study",
-    "section": "",
-    "text": "Abstract\nThe objective of this work was to analyze, by means of an experiment, if the type (positive or negative) and the level (simple or complex) of economic-financial information influence the anchoring effect of accountants and managers in a process of managerial decision-making. To do so, an experimental methodology targeting a sample of 86 Accountants, 68 Managers and 118 people with different professional activities (control group) was used. The results showed, in the first test without differentiation of factors (type and level), that about 96% of the participants have the anchoring effect, leaning towards minimum and maximum estimates of sales revenue, operating expenditure and result. In addition, the ANOVA and the Approximate Permutation Test brought significant evidence that the anchoring effect in minimum projections can be influenced by the type of information, not being significant for anchoring in maximum projections and for the level of information on both estimates (minimum and maximum). Finally, the conclusion is that positive information increases the anchoring effect and negative information decreases the anchoring effect in minimum estimates in relation to the low anchor."
-  },
-  {
-    "objectID": "publications/biospecke.html",
-    "href": "publications/biospecke.html",
-    "title": "Biospeckle laser spectral analysis under Inertia Moment, Entropy and Cross-Spectrum methods",
-    "section": "",
-    "text": "Abstract\nBiospeckle or dynamic speckle can be used as a method for analysing activity, biologic or not, from materials illuminated with laser beam. The Spatial Temporal Speckle (STS) contains data of time information of dynamic speckle and it is used as input for many techniques allowing the analysis of the activity which is being monitored. One question that rises from the manipulation of the STS is related with the information inside it, in particular, whether it is possible to access different frequency behaviors in the time series presented in the STS pattern. This study presents the Inertia Moment, the Wavelets based Entropy and the Cross-Spectrum analysis as approaches that can be used for evaluating the STS spectral content. In a simulation, STS lines have been created based on many frequencies of the fundamental harmonic. This was done for verifying as each method acts when analysing different frequencies, varying harmonics offset and amplitude. These techniques were applied to real database, to validate their action mechanism in real samples. The results present that all techniques were able to verify the spectral content of different harmonics. Inertia Moment was more efficient on analysing high frequencies, because it is a second order moment, being able to obtain more information from high variations on activity. Entropy and Cross-Spectrum, in turn, were better on differing lower frequencies. This was attributed to the convolution proccess, which is present in both methods, filtering high frequencies. Although, any of them returned informations on both high and low frequencies at the same time, they can be used simultaneously, since Entropy and Cross-Spectrum were complementary to Inertia Moment."
-  },
-  {
-    "objectID": "publications/heavy_metals.html",
-    "href": "publications/heavy_metals.html",
-    "title": "Can moderate heavy metal soil contaminations due to cement production influence the surrounding soil bacterial communities?",
-    "section": "",
-    "text": "Abstract\nEvents of soil contamination by heavy metals are mostly related to human activities that release these metals into the environment as emissions or effluents. Among the industrial activities related to heavy metal pollution, cement production plants are considered one of the most common sources. In this work we applied the High-throughput sequencing approach called 16 S rDNA metabarcoding to perform the taxonomic characterization of the prokaryotic communities of the soil surrounding three cement plants as well as two areas outside the influence of the cement plants that represented agricultural production environments free of heavy metal contamination (control areas). We applied the environmental genomics approaches known as “structural community metrics” (α- and β-diversity metrics) and “functional community metrics” (PICRUSt2 approach) to verify whether or not the effects of heavy metal contamination in the study area generated impacts on soil bacterial communities. We found that the impact related to the elevation of heavy metal concentration due to the operation of cement plants in the surrounding soil can be considered smooth according to globally recognized indices such as Igeo. However, we identified that both the taxonomic and functional structures of the communities surrounding cement plants were different from those found in the control areas. We consider that our findings contribute significantly to the general understanding of the effects of heavy metals on the soil ecosystem by showing that light contamination can disturb the dynamics of ecosystem services provided by soil, specifically those associated with microbial metabolism."
-  },
-  {
-    "objectID": "publications/overconfidence.html",
-    "href": "publications/overconfidence.html",
-    "title": "Overconfidence in Managerial Decision-Making among Brazilian Accountants and Managers: An Experimental Study",
-    "section": "",
-    "text": "Abstract\nThe aim of this work is to analyze, by means of an experiment, if the type (positive or negative) and the level (simple or complex) of financial information influence of overconfidence of entrepreneurs and accountants in a managerial decision-making process. The design consists of a 2 x 2 factorial experiment, with four treatments, with the type and level of accounting information as experimental factors. The research was applied to a sample of 68 managers, 86 accountants, and 118 people with different activities (control group). The results showed that the majority of participants present the Overconfidence bias, in the first test, without differentiation of information. They also presented significant evidence that overconfidence can be influenced by the type of information, but not by its level. Moreover, the analysis suggested that the profile of the participants influences the confidence in the projections conducted. The research has shown that the type of financial information influences the overconfidence of entrepreneurs and accountants."
-  },
-  {
-    "objectID": "publications/system_dynamics.html",
-    "href": "publications/system_dynamics.html",
-    "title": "A System Dynamics Model for Sales and Operations Planning: An Integrated Analysis for the Lime Industry",
-    "section": "",
-    "text": "Abstract\nThe use of system dynamics techniques to model the sales and operations planning (S&OP), associated with the economic and financial processes, is an innovative proposal. The objectives of this article are to model and simulate the S&OP process integrated with the financial management in a Brazilian lime processing industry, based on the system dynamics approach. Initially, the model was validated. Then, over twenty scenarios were simulated to assess the behavior of the system with its key factors variation. In the microenvironment scenarios, the company’s internal perspective was the only element taken into account. In turn, regarding the macro environment scenarios, the basis was the projection of lime consumption related to the country’s GDP. The results have genuinely contributed to the industry researched, since the lime processing industry is struggling with obtaining enough supply due to lime acquisition price fluctuations and, consequently, the oscillation of its production costs."
-  },
-  {
-    "objectID": "publications/toxic_metals.html",
-    "href": "publications/toxic_metals.html",
-    "title": "Deposition of Potentially Toxic Metals in the Soil from Surrounding Cement Plants in a Karst Area of Southeastern Brazil",
-    "section": "",
-    "text": "Abstract\nCement factories are the main sources of environmental pollutants among the different industrial activities, including soil contamination by potentially toxic metals. The karst region of Southeastern Brazil is known for the implementation of large cement producing facilities. This study aims to evaluate whether there is an increase in the concentration of PTM in the soil surrounding the cement plants and to estimate their harmfulness to both local human population and environment. In total, 18 soil samples were collected from the surroundings of three cement plants as well as four soil samples from areas outside the influence of cement plants and concentration of the following potentially toxic metals (PTM) were estimated: Cd, Pb, Co, Cu, Cr, Mn, Ni, and Zn. The results revealed that all PTM concentrations from cement plant surroundings were significantly higher than PTM concentrations from control areas and no PTM concentrations from CPS or CA soil samples exceeded national and global contamination thresholds. However, Igeo Index indicated low level soil contamination by Pb, Cu, and Cr, as well as high levels for Co. We could not verify significant non-carcinogenic risk to health for any soil sample, but carcinogenic risk analysis revealed different levels of carcinogenic risk among the sampled locations, for both adults and children. Our results indicate that exclusively evaluating the concentration of potentially toxic metals is not enough to verify the potential harmful effects of cement production for the surrounding population. Here we evidence that additional indices, based on both contamination indices and health risk assessments, should be considered for better evaluation of the impacts of cement production activity."
-  },
-  {
-    "objectID": "index.html#washington-santos-da-silva",
-    "href": "index.html#washington-santos-da-silva",
-    "title": "Washington S. da Silva",
-    "section": "",
-    "text": "Sou Professor Associado na área de Econometria Aplicada, Estatística, Ciência de Dados e Finanças. Minha pesquisa concentra-se em métodos quantitativos aplicados a mercados financeiros e análise econômica.\n\n\n\nEconometria Aplicada\nMétodos Estatísticos em Finanças\nCiência de Dados\nModelagem de Séries Temporais\nProgramação em R e Python\n\n\n\n\nEste site reúne materiais didáticos, publicações acadêmicas, relatórios técnicos e tutoriais desenvolvidos para apoiar estudantes e pesquisadores. Você encontrará recursos sobre análise de dados, econometria, programação em R e Python, além de ferramentas como Git e sistemas de publicação acadêmica.\nVer Tutoriais Publicações"
-  },
-  {
-    "objectID": "blog/p01/tempo.html",
-    "href": "blog/p01/tempo.html",
-    "title": "Tempo",
-    "section": "",
-    "text": "“O Problema é que você acha que tem tempo.” \n\n— Jack Kornfield"
-  },
-  {
-    "objectID": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese",
-    "href": "teaching/index.html#introdução-à-ciência-dos-dados-portuguese",
-    "title": "Graduate Courses",
-    "section": "Introdução à Ciência dos Dados (portuguese)",
-    "text": "Introdução à Ciência dos Dados (portuguese)"
-  },
-  {
-    "objectID": "teaching/index.html#visualização-de-dados-portuguese",
-    "href": "teaching/index.html#visualização-de-dados-portuguese",
-    "title": "Graduate Courses",
-    "section": "Visualização de Dados (portuguese)",
-    "text": "Visualização de Dados (portuguese)"
-  },
-  {
-    "objectID": "teaching/index.html#análise-multivariada-portuguese",
-    "href": "teaching/index.html#análise-multivariada-portuguese",
-    "title": "Graduate Courses",
-    "section": "Análise Multivariada (portuguese)",
-    "text": "Análise Multivariada (portuguese)"
-  },
-  {
-    "objectID": "teaching/index.html#previsão-de-séries-temporais-portuguese",
-    "href": "teaching/index.html#previsão-de-séries-temporais-portuguese",
-    "title": "Graduate Courses",
-    "section": "Previsão de Séries Temporais (portuguese)",
-    "text": "Previsão de Séries Temporais (portuguese)"
   },
   {
     "objectID": "teaching/index.html#introdução-à-ciência-dos-dados-1",
@@ -315,11 +196,74 @@
     "text": "Previsão de Séries Temporais"
   },
   {
-    "objectID": "publications/natan01.html",
-    "href": "publications/natan01.html",
-    "title": "Portfolio optimization based on the pre-selection of stocks by the Support Vector Machine model",
+    "objectID": "tutorials/git/index.html",
+    "href": "tutorials/git/index.html",
+    "title": "Controle de Versão com Git e GitHub",
     "section": "",
-    "text": "Abstract\nThis study aims to analyze the performance of an investment portfolio using the Markowitz model, which maximizes the Sharpe ratio from a set of assets preselected through the Support Vector Machine (SVM) model using fundamental indicators in the Brazilian stock market. With an accuracy of 61% for the SVM model, the results indicate that preselecting assets based on fundamental indicators and subsequently optimizing them by maximizing the Sharpe ratio showed a superior return and faster recovery after drawdown periods compared to the benchmark or SVM (1/n) strategy. These results suggest the relevance of including the SVM in the optimization portfolio process."
+    "text": "Objetivos\n\n\n\n\nEste tutorial é destinado aos estudantes do bacharelado em Administração e aos mestrandos do Mestrado Profissional em Administração do IFMG - Campus Formiga.\nTambém é útil para administradores, economistas, contabilistas, auditores e outros profissionais que desejam utilizar ferramentas modernas para criar relatórios e outros produtos de forma reproduzível e auditável.\nVocê não precisa ser programador para aproveitar este material. O tutorial foi elaborado pensando em profissionais de negócios que desejam melhorar seu fluxo de trabalho com documentos, análises e projetos.\n\n\n\n\n\n\n\n\n\nO que é Git?\n\n\n\n\nImagine o Git como um “sistema de salvamento inteligente” que registra cada versão dos seus documentos e projetos.\nAo contrário do método tradicional de salvar vários arquivos como “Relatório_v1.docx”, “Relatório_v2.docx”, o Git guarda apenas as mudanças, economizando espaço.\nÉ como uma “máquina do tempo” para seu trabalho: você pode visualizar ou restaurar qualquer versão anterior quando precisar, sem perder as versões mais recentes.\nFacilita o trabalho em equipe, permitindo que várias pessoas alterem os mesmos arquivos sem conflitos graves.\n\n\n\n\n\n\n\n\n\nPor que usar Git?\n\n\n\n\nEvita a confusão de múltiplas versões: Adeus a arquivos como\n“Relatorio_Final_v2_Revisado_Corrigido.docx”.\nRecuperação de trabalho: Se algo der errado, você pode voltar facilmente a uma versão anterior que funcionava.\nExperimente sem medo: Tente novas abordagens sabendo que pode reverter se não gostar do resultado.\nTrabalho colaborativo organizado: Múltiplas pessoas podem trabalhar no mesmo projeto sem sobrescrever o trabalho umas das outras.\nDocumentação automática: O histórico de alterações serve como documentação da evolução do seu trabalho.\n\n\n\n\n\n\n\n\n\nO que é GitHub?\n\n\n\n\nUm serviço online que funciona como uma “nuvem para projetos Git”.\nPense no GitHub como um Google Drive ou Dropbox especializado para projetos que usam Git.\nAlém de armazenar seus arquivos, oferece ferramentas para colaboração, revisão e discussão do trabalho.\nÉ amplamente usado tanto por desenvolvedores quanto por pesquisadores, analistas e educadores para compartilhar trabalhos.\n\n\n\n\n\n\n\n\n\nPor que usar GitHub?\n\n\n\n\nBackup seguro: Seus projetos ficam armazenados na nuvem, protegidos contra perda de dados se seu computador falhar ou for perdido.\nPortfólio profissional: Muitos profissionais usam o GitHub como vitrine de seus trabalhos e habilidades.\nColaboração simplificada: Facilita o trabalho em equipe mesmo com pessoas em locais diferentes.\nCompartilhamento eficiente: Compartilhe seu trabalho com colegas de curso, de trabalho ou com o mundo.\nAprendizado constante: Acesse e estude projetos semelhantes ao seu para aprender novas técnicas e abordagens."
+  },
+  {
+    "objectID": "tutorials/git/index.html#configuração-inicial",
+    "href": "tutorials/git/index.html#configuração-inicial",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "5.1 Configuração Inicial",
+    "text": "5.1 Configuração Inicial\n\n\n\n\n\n\nConfiguração Inicial - Orientando\n\n\n\nEsta etapa será realizada apenas uma vez, no início do trabalho com seu orientador:\n\nCrie o repositório do projeto:\n\n\nCrie o repositório no GitHub como visto anteriormente.\nAdicione seu orientador como colaborador.\n\n\nClone o repositório para seu computador:\n\ngit clone https://github.com/nome-usuario/nome-repositorio.git\nEste comando cria uma cópia local do repositório em seu computador.\n\nConfirme que está tudo funcionando:\n\n\nEntre na pasta criada: cd nome-repositorio.\nVerifique a conexão: git remote -v (deve mostrar a URL do GitHub).\nFaça um teste simples:\n\n# Crie um arquivo de teste\necho \"# Teste de colaboração\" &gt; teste.md\n\n# Adicione e faça commit\ngit add teste.md\ngit commit -m \"Teste inicial de colaboração\"\n\n# Envie para o GitHub\ngit push origin main\n\nVerifique no GitHub se o arquivo apareceu"
+  },
+  {
+    "objectID": "tutorials/git/index.html#ciclo-de-desenvolvimento",
+    "href": "tutorials/git/index.html#ciclo-de-desenvolvimento",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "5.2 Ciclo de Desenvolvimento",
+    "text": "5.2 Ciclo de Desenvolvimento\n\n\n\n\n\n\nCiclo Diário/Semanal de Trabalho - Orientando\n\n\n\nEste é o ciclo que você repetirá regularmente enquanto trabalha em seu projeto:\n\nComece o dia de trabalho atualizando seu repositório local:\n\n# Certifique-se de estar na pasta do projeto\ngit pull origin main\nEste comando baixa qualquer mudança que seu orientador possa ter feito.\n\nTrabalhe em seus arquivos normalmente:\n\n\nEscreva seu capítulo da dissertação\nRealize análises de dados\nCrie visualizações ou tabelas\nRedija seções do artigo\n\nTrabalhe como você normalmente faria em seu computador.\n\nSalve seu progresso :\n\nA cada conquista significativa ou no final do dia:\n# Verifique o que mudou\ngit status\n\n# Veja as alterações específicas (opcional)\ngit diff\n\n# Adicione os arquivos modificados\ngit add .\n\n# Salve as mudanças localmente com uma mensagem descritiva\ngit commit -m \"Adiciona análise descritiva no capítulo 3\"\n\n# Envie para o GitHub\ngit push origin main\nBoas práticas para as mensagens de commit:\n\nSeja específico: “Reescreve o texto da seção Introdução”.\nUse verbos no presente: “Adiciona”, “Corrige”, “Atualiza”.\nIndique onde a mudança foi feita: “Revisão da Literatura”, “Metodologia”, “Resultados e Discussão”, “Introdução” etc."
+  },
+  {
+    "objectID": "tutorials/git/index.html#incorporação-de-feedback",
+    "href": "tutorials/git/index.html#incorporação-de-feedback",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "5.3 Incorporação de Feedback",
+    "text": "5.3 Incorporação de Feedback\n\n\n\n\n\n\nQuando seu Orientador Fornecer Feedback - Orientando\n\n\n\nEste processo ocorre depois que seu orientador revisar seu trabalho e fizer alterações:\n\nObtenha as mudanças feitas pelo orientador:\n\ngit pull origin main\nIsso baixa as alterações, comentários ou correções feitas pelo orientador.\n\nRevise as mudanças:\n\n# Para ver quais arquivos foram modificados pelo orientador\ngit log\n\n# Para ver as mudanças específicas em um arquivo\ngit diff HEAD~1 HEAD -- caminho/do/arquivo\nEste comando mostra o que mudou entre a versão atual e a anterior.\n\nTrabalhe com as sugestões:\n\n\nImplemente as correções sugeridas.\nResponda a questionamentos (pode ser no próprio documento ou em um comentário no GitHub).\nComplemente seções conforme solicitado.\n\n\nContinue o ciclo normal:\n\nVolte ao passo 2 (Ciclo de Desenvolvimento) e continue seu trabalho."
+  },
+  {
+    "objectID": "tutorials/git/index.html#lidando-com-conflitos",
+    "href": "tutorials/git/index.html#lidando-com-conflitos",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "5.4 Lidando com Conflitos",
+    "text": "5.4 Lidando com Conflitos\n\n\n\n\n\n\nE se ocorrerem conflitos?\n\n\n\nUm conflito acontece quando você e seu orientador editam a mesma parte de um arquivo. Não se assuste, isso é normal e pode ser resolvido:\n\nQuando ocorre um conflito:\n\nAo executar git pull, você verá uma mensagem como:\nCONFLICT (content): Merge conflict in nome-do-arquivo.extensao\n\nAbra o arquivo com conflito:\n\nVocê verá marcações como estas:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nSeu texto (versão local)\n=======\nTexto do orientador (versão do GitHub)\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; abcd1234\n\nResolva o conflito manualmente:\n\n\nEdite o arquivo para conter o conteúdo final desejado\nRemova as marcações (&lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt;)\nSalve o arquivo\n\n\nConclua a resolução:\n\n# Adicione o arquivo resolvido\ngit add nome-do-arquivo\n\n# Faça um commit da resolução\ngit commit -m \"Resolve conflito no arquivo X\"\n\n# Envie para o GitHub\ngit push origin main\nDica: Comunique-se com seu orientador quando encontrar conflitos. Às vezes, uma conversa rápida pode esclarecer qual versão deve ser mantida."
+  },
+  {
+    "objectID": "tutorials/git/index.html#trabalhando-com-issues-do-github",
+    "href": "tutorials/git/index.html#trabalhando-com-issues-do-github",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "5.5 Trabalhando com Issues do GitHub",
+    "text": "5.5 Trabalhando com Issues do GitHub\n\n\n\n\n\n\nUsando Issues para Organizar Tarefas\n\n\n\nO GitHub possui uma ferramenta chamada “Issues” que é excelente para:\n\nListar tarefas pendentes\nRegistrar problemas a serem resolvidos\nDocumentar discussões entre orientando e orientador\n\nComo usar:\n\nCrie uma issue:\n\n\nNo GitHub, acesse a aba “Issues” do repositório.\nClique em “New issue”.\nDê um título descritivo e explique a tarefa/problema.\nUse marcadores como listas, negrito e itálico para organizar.\nAdicione etiquetas (labels) como “revisão”, “urgent”, “discussão”.\n\n\nAcompanhe o progresso:\n\n\nComente nas issues para atualizar o progresso.\nReferencie commits relacionados usando “#” (exemplo: “Resolve #4”).\nFeche a issue quando a tarefa estiver concluída.\n\n\nReferencie issues nos commits:\n\ngit commit -m \"Adiciona análise de correlação solicitada na issue #5\"\nIsso cria uma referência cruzada que facilita acompanhar o histórico de mudanças e discussões."
+  },
+  {
+    "objectID": "tutorials/git/index.html#aplicando-este-workflow-a-outros-cenários",
+    "href": "tutorials/git/index.html#aplicando-este-workflow-a-outros-cenários",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "5.6 Aplicando este Workflow a Outros Cenários",
+    "text": "5.6 Aplicando este Workflow a Outros Cenários\n\n\n\n\n\n\nAdaptando para Outras Colaborações\n\n\n\nEste mesmo fluxo de trabalho pode ser facilmente adaptado para colaborar com:\n\nColegas de classe em projetos em grupo.\nOutros pesquisadores em artigos científicos.\nEquipes de trabalho em relatórios ou análises.\nProjetos de extensão ou iniciação científica.\n\nA mesma lógica se aplica:\n\nConfiguração inicial (uma vez).\nCiclo frequente de atualizações.\nIncorporação de feedback dos colaboradores.\n\nA diferença principal em outros cenários pode ser a necessidade de usar “branches” (ramificações) para trabalhos mais complexos com múltiplos colaboradores, um tópico que pode ser explorado quando você já estiver confortável com este fluxo básico."
+  },
+  {
+    "objectID": "tutorials/git/index.html#resumo-do-workflow",
+    "href": "tutorials/git/index.html#resumo-do-workflow",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "5.7 Resumo do Workflow",
+    "text": "5.7 Resumo do Workflow\n\n\n\n\n\n\nResumindo\n\n\n\nO ciclo de trabalho com seu orientador segue este padrão:\n\nComece o dia puxando alterações: git pull origin main\nTrabalhe nos arquivos normalmente\nVerifique mudanças: git status e git diff\nSalve seu progresso:\ngit add .\ngit commit -m \"Mensagem descritiva\"\ngit push origin main\nRepita diariamente ou quando concluir uma parte significativa\n\nLembre-se: a comunicação clara com seu orientador sobre qual parte cada um está trabalhando pode evitar conflitos e retrabalho."
+  },
+  {
+    "objectID": "Readme.html",
+    "href": "Readme.html",
+    "title": "Washington S. da Silva",
+    "section": "",
+    "text": "My personal home page.\nThe page uses the template provided by Prof. Rob Hyndman."
+  },
+  {
+    "objectID": "publications/arch.html",
+    "href": "publications/arch.html",
+    "title": "Uma análise empírica da volatilidade do retorno de commodities agrícolas utilizando modelos ARCH: os casos do café e da soja",
+    "section": "",
+    "text": "Abstract\nWe examined the volatility process of the returns of two important Brazilian agricultural commodities, coffee and soy, using ARCH class models. Empirical results suggest strong signs of persistence and asymmetry in the volatility of both series. Furthermore, the results suggest that the design of policies that create, facilitate the access and stimulate the use of market-based hedging devices can be proper strategies for such sectors in view of the persistence of shocks and the pronounced volatility found for the returns of these commodities."
   },
   {
     "objectID": "publications/efeito_cotas.html",
@@ -334,5 +278,33 @@
     "title": "Financial Flexibility and Stock Return of Brazilian Companies: Evidence During the COVID-19 Crisis",
     "section": "",
     "text": "Abstract\nObjective: The objective was to verify the effect of financial flexibility on the value of shares of Brazilian companies during the pandemic period caused by COVID-19.\nBackground: Financial flexibility is associated with the ability of a company to face financial diffi-culties, but there are still no studies in Brazil that show its relationship with the value of shares in periods with a shock to companies’ revenues.\nMethod: Regression analysis was applied to a cross-section of data with 102 companies listed on the Brazil Broad Index (IBRA). Two economic periods of the pandemic were considered, the col-lapse, between 2/2/2020 and 3/23/2020, and the stimulus to the economy, on 3/24/2020.\nResults: The evidence show that in the period of economic collapse, the financial flexibility due to debt capacity proved to be valuable for companies, especially for those most affected by COVID-19, which had more pronounced reductions in revenues in the first half of 2020. We have also ob-served that the level of cash retention had no impact on stock returns during the collapse period. On the date of economic stimulus, the companies’ cash level showed a positive relationship with the value of shares, but there were no evidence that this appreciation occurred for companies with more affected revenues.\nContributions: This study contributes to the literature by verifying the impact of financial flexibil-ity on the value of shares of Brazilian companies during two different economic moments of the pandemic, namely: the collapse and the stimulus to the economy."
+  },
+  {
+    "objectID": "publications/hedge.html",
+    "href": "publications/hedge.html",
+    "title": "Hedge dinâmicos: Uma evidência para os contratos futuros brasileiros",
+    "section": "",
+    "text": "Abstract\nThe farming sector is changing, growing and occupying a position of prominence in the economy. These transformations start to demand a bigger concern with the management of risks of the activity. In this direction, the contracts traded at BM&F had become efficient instruments in the reduction of the market risk, through an operation called hedge. However, there is still the necessity of improving of the econometrical techniques for the estimation of the optimal hedge ratio, therefore, it is observed in the brazilian literature that the majority of the works doesn’t consider some aspects of the behavior of the series of returns. Thus, the present work seeks to analyze two methods for the calculation of these hedge optimal ratio, the conventional model of regression and the bivariate GARCH BEKK model that considers the conditional correlations of the series. The preliminary analysis of the results indicates that the hedge optimal ratio is not constant through time, suggesting that the use of models that consider the time dependence of the series is more realistic. The methodology is applied to the prices of the beef cattle commodity."
+  },
+  {
+    "objectID": "publications/overconfidence.html",
+    "href": "publications/overconfidence.html",
+    "title": "Overconfidence in Managerial Decision-Making among Brazilian Accountants and Managers: An Experimental Study",
+    "section": "",
+    "text": "Abstract\nThe aim of this work is to analyze, by means of an experiment, if the type (positive or negative) and the level (simple or complex) of financial information influence of overconfidence of entrepreneurs and accountants in a managerial decision-making process. The design consists of a 2 x 2 factorial experiment, with four treatments, with the type and level of accounting information as experimental factors. The research was applied to a sample of 68 managers, 86 accountants, and 118 people with different activities (control group). The results showed that the majority of participants present the Overconfidence bias, in the first test, without differentiation of information. They also presented significant evidence that overconfidence can be influenced by the type of information, but not by its level. Moreover, the analysis suggested that the profile of the participants influences the confidence in the projections conducted. The research has shown that the type of financial information influences the overconfidence of entrepreneurs and accountants."
+  },
+  {
+    "objectID": "publications/system_dynamics.html",
+    "href": "publications/system_dynamics.html",
+    "title": "A System Dynamics Model for Sales and Operations Planning: An Integrated Analysis for the Lime Industry",
+    "section": "",
+    "text": "Abstract\nThe use of system dynamics techniques to model the sales and operations planning (S&OP), associated with the economic and financial processes, is an innovative proposal. The objectives of this article are to model and simulate the S&OP process integrated with the financial management in a Brazilian lime processing industry, based on the system dynamics approach. Initially, the model was validated. Then, over twenty scenarios were simulated to assess the behavior of the system with its key factors variation. In the microenvironment scenarios, the company’s internal perspective was the only element taken into account. In turn, regarding the macro environment scenarios, the basis was the projection of lime consumption related to the country’s GDP. The results have genuinely contributed to the industry researched, since the lime processing industry is struggling with obtaining enough supply due to lime acquisition price fluctuations and, consequently, the oscillation of its production costs."
+  },
+  {
+    "objectID": "publications/toxic_metals.html",
+    "href": "publications/toxic_metals.html",
+    "title": "Deposition of Potentially Toxic Metals in the Soil from Surrounding Cement Plants in a Karst Area of Southeastern Brazil",
+    "section": "",
+    "text": "Abstract\nCement factories are the main sources of environmental pollutants among the different industrial activities, including soil contamination by potentially toxic metals. The karst region of Southeastern Brazil is known for the implementation of large cement producing facilities. This study aims to evaluate whether there is an increase in the concentration of PTM in the soil surrounding the cement plants and to estimate their harmfulness to both local human population and environment. In total, 18 soil samples were collected from the surroundings of three cement plants as well as four soil samples from areas outside the influence of cement plants and concentration of the following potentially toxic metals (PTM) were estimated: Cd, Pb, Co, Cu, Cr, Mn, Ni, and Zn. The results revealed that all PTM concentrations from cement plant surroundings were significantly higher than PTM concentrations from control areas and no PTM concentrations from CPS or CA soil samples exceeded national and global contamination thresholds. However, Igeo Index indicated low level soil contamination by Pb, Cu, and Cr, as well as high levels for Co. We could not verify significant non-carcinogenic risk to health for any soil sample, but carcinogenic risk analysis revealed different levels of carcinogenic risk among the sampled locations, for both adults and children. Our results indicate that exclusively evaluating the concentration of potentially toxic metals is not enough to verify the potential harmful effects of cement production for the surrounding population. Here we evidence that additional indices, based on both contamination indices and health risk assessments, should be considered for better evaluation of the impacts of cement production activity."
   }
 ]

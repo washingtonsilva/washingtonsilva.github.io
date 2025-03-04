@@ -7,11 +7,8 @@ categories:
 image: paineira.jpg
 ---
 
-<blockquote>
-  "O Problema é que você acha que tem tempo."
-  <br><br>
-  <footer>— Jack Kornfield</footer>
-</blockquote>
+> "O problema é que você acha que tem tempo"  
+> — Jack Kornfield
 
 
 ```{r}

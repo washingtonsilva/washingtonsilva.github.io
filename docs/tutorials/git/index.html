@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Dr.&nbsp;Washington S. da Silva">
+<meta name="description" content="Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o GitHub">
+
+<title>Controle de Versão com Git e GitHub – Washington S. da Silva</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d733bae8d25ee96a5ec25d3f450c87d8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X7TV071MD7"></script>
+
+<script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X7TV071MD7', { 'anonymize_ip': true});
+</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"headline",
+  "consent_type":"express",
+  "palette":"dark",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"pt"
+  });
+});
+</script> 
+  
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Washington S. da Silva</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications/index.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorials/index.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
+  <li><a href="#instalação-e-configuração-básica" id="toc-instalação-e-configuração-básica" class="nav-link" data-scroll-target="#instalação-e-configuração-básica"><span class="header-section-number">2</span> Instalação e Configuração Básica</a></li>
+  <li><a href="#sec-essenciais" id="toc-sec-essenciais" class="nav-link" data-scroll-target="#sec-essenciais"><span class="header-section-number">3</span> Comandos Essenciais para Começar</a></li>
+  <li><a href="#comandos-úteis-para-o-dia-a-dia-opcional" id="toc-comandos-úteis-para-o-dia-a-dia-opcional" class="nav-link" data-scroll-target="#comandos-úteis-para-o-dia-a-dia-opcional"><span class="header-section-number">4</span> Comandos Úteis para o Dia a Dia (Opcional)</a></li>
+  <li><a href="#workflow-para-trabalhar-colaborativamente" id="toc-workflow-para-trabalhar-colaborativamente" class="nav-link" data-scroll-target="#workflow-para-trabalhar-colaborativamente"><span class="header-section-number">5</span> Workflow para Trabalhar Colaborativamente</a>
+  <ul class="collapse">
+  <li><a href="#configuração-inicial" id="toc-configuração-inicial" class="nav-link" data-scroll-target="#configuração-inicial"><span class="header-section-number">5.1</span> Configuração Inicial</a></li>
+  <li><a href="#ciclo-de-desenvolvimento" id="toc-ciclo-de-desenvolvimento" class="nav-link" data-scroll-target="#ciclo-de-desenvolvimento"><span class="header-section-number">5.2</span> Ciclo de Desenvolvimento</a></li>
+  <li><a href="#incorporação-de-feedback" id="toc-incorporação-de-feedback" class="nav-link" data-scroll-target="#incorporação-de-feedback"><span class="header-section-number">5.3</span> Incorporação de Feedback</a></li>
+  <li><a href="#lidando-com-conflitos" id="toc-lidando-com-conflitos" class="nav-link" data-scroll-target="#lidando-com-conflitos"><span class="header-section-number">5.4</span> Lidando com Conflitos</a></li>
+  <li><a href="#trabalhando-com-issues-do-github" id="toc-trabalhando-com-issues-do-github" class="nav-link" data-scroll-target="#trabalhando-com-issues-do-github"><span class="header-section-number">5.5</span> Trabalhando com Issues do GitHub</a></li>
+  <li><a href="#aplicando-este-workflow-a-outros-cenários" id="toc-aplicando-este-workflow-a-outros-cenários" class="nav-link" data-scroll-target="#aplicando-este-workflow-a-outros-cenários"><span class="header-section-number">5.6</span> Aplicando este Workflow a Outros Cenários</a></li>
+  <li><a href="#resumo-do-workflow" id="toc-resumo-do-workflow" class="nav-link" data-scroll-target="#resumo-do-workflow"><span class="header-section-number">5.7</span> Resumo do Workflow</a></li>
+  </ul></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">6</span> Referências</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Controle de Versão com Git e GitHub</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">controle de versão</div>
+    <div class="quarto-category">git</div>
+    <div class="quarto-category">gitHub</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o GitHub</p>
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autor</div>
+  <div class="quarto-title-meta-heading">Afiliação</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof.&nbsp;Dr.&nbsp;Washington S. da Silva </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.formiga.ifmg.edu.br/mestrado">
+            IFMG - Campus Formiga - Mestrado Profissional em Administração.
+            </a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">7 outubro 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdução" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Objetivos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Este tutorial é destinado aos estudantes do bacharelado em Administração e aos mestrandos do Mestrado Profissional em Administração do IFMG - Campus Formiga.</p></li>
+<li><p>Também é útil para administradores, economistas, contabilistas, auditores e outros profissionais que desejam utilizar ferramentas modernas para criar relatórios e outros produtos de forma reproduzível e auditável.</p></li>
+<li><p>Você não precisa ser programador para aproveitar este material. O tutorial foi elaborado pensando em profissionais de negócios que desejam melhorar seu fluxo de trabalho com documentos, análises e projetos.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é Git?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Imagine o Git como um “sistema de salvamento inteligente” que registra cada versão dos seus documentos e projetos.</p></li>
+<li><p>Ao contrário do método tradicional de salvar vários arquivos como “<strong>Relatório_v1.docx</strong>”, “<strong>Relatório_v2.docx</strong>”, o Git guarda apenas as mudanças, economizando espaço.</p></li>
+<li><p>É como uma “máquina do tempo” para seu trabalho: você pode visualizar ou restaurar qualquer versão anterior quando precisar, sem perder as versões mais recentes.</p></li>
+<li><p>Facilita o trabalho em equipe, permitindo que várias pessoas alterem os mesmos arquivos sem conflitos graves.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Por que usar Git?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Evita a confusão de múltiplas versões</strong>: Adeus a arquivos como<br>
+“Relatorio_Final_v2_Revisado_Corrigido.docx”.</p></li>
+<li><p><strong>Recuperação de trabalho</strong>: Se algo der errado, você pode voltar facilmente a uma versão anterior que funcionava.</p></li>
+<li><p><strong>Experimente sem medo</strong>: Tente novas abordagens sabendo que pode reverter se não gostar do resultado.</p></li>
+<li><p><strong>Trabalho colaborativo organizado</strong>: Múltiplas pessoas podem trabalhar no mesmo projeto sem sobrescrever o trabalho umas das outras.</p></li>
+<li><p><strong>Documentação automática</strong>: O histórico de alterações serve como documentação da evolução do seu trabalho.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é GitHub?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Um serviço online que funciona como uma “nuvem para projetos Git”.</p></li>
+<li><p>Pense no GitHub como um Google Drive ou Dropbox especializado para projetos que usam Git.</p></li>
+<li><p>Além de armazenar seus arquivos, oferece ferramentas para colaboração, revisão e discussão do trabalho.</p></li>
+<li><p>É amplamente usado tanto por desenvolvedores quanto por pesquisadores, analistas e educadores para compartilhar trabalhos.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Por que usar GitHub?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Backup seguro</strong>: Seus projetos ficam armazenados na nuvem, protegidos contra perda de dados se seu computador falhar ou for perdido.</p></li>
+<li><p><strong>Portfólio profissional</strong>: Muitos profissionais usam o GitHub como vitrine de seus trabalhos e habilidades.</p></li>
+<li><p><strong>Colaboração simplificada</strong>: Facilita o trabalho em equipe mesmo com pessoas em locais diferentes.</p></li>
+<li><p><strong>Compartilhamento eficiente</strong>: Compartilhe seu trabalho com colegas de curso, de trabalho ou com o mundo.</p></li>
+<li><p><strong>Aprendizado constante</strong>: Acesse e estude projetos semelhantes ao seu para aprender novas técnicas e abordagens.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="instalação-e-configuração-básica" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Instalação e Configuração Básica</h1>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instalando o sistema Git no Windows
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Baixe o instalador</strong>:</li>
+</ol>
+<ul>
+<li><p>Acesse o site oficial: <a href="https://git-scm.com/download/win" target="_blank">https://git-scm.com/download/win</a></p></li>
+<li><p>O site deve te indicar automaticamente qual a versão adequada para seu sistema operacional.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Execute o instalador</strong>:</li>
+</ol>
+<ul>
+<li>Clique duplo no arquivo baixado (algo como “Git-2.xx.x-64-bit.exe`”).</li>
+<li>Aceite as permissões de administrador se solicitado.</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Configure o instalador</strong>:</li>
+</ol>
+<ul>
+<li><p>Mantenha as opções padrão na maioria das telas;</p></li>
+<li><p>Na tela “<em>Adjusting your PATH environment</em>”, escolha a opção recomendada: “<em>Git from the command line and also from 3rd-party software</em>”</p></li>
+<li><p>Para as demais opções, as configurações padrão funcionam bem para iniciantes</p></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Conclua a instalação</strong>:</li>
+</ol>
+<ul>
+<li><p>Clique em “<em>Install</em>” e aguarde a conclusão</p></li>
+<li><p>Ao finalizar, marque a opção “<em>Launch Git Bash</em>” e clique em “<em>Finish</em>” para abrir o Git Bash imediatamente</p></li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Verifique a instalação</strong>:</li>
+</ol>
+<ul>
+<li><p>No Git Bash que abriu, digite: <code>git --version</code></p></li>
+<li><p>Se aparecer algo como <code>git version 2.xx.x</code>, a instalação foi bem-sucedida!</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é o Git Bash?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>O Git Bash é um terminal especial (uma janela de linha de comando) instalado junto com o Git no Windows.</p></li>
+<li><p>Pense nele como uma “janela de comando” onde você digita instruções para o Git.</p></li>
+<li><p><strong>Por que usar o Git Bash em vez do Prompt de Comando do Windows?</strong></p>
+<ul>
+<li>Oferece comandos adicionais úteis que não existem no prompt padrão do Windows.</li>
+<li>Funciona de forma mais semelhante ao Git em outros sistemas (Mac, Linux).</li>
+<li>Possui recursos de autocompletar e visualização colorida que facilitam o us.o</li>
+</ul></li>
+<li><p><strong>Como abrir o Git Bash</strong>:</p>
+<ul>
+<li>Método 1: Pesquise “Git Bash” no menu Iniciar.</li>
+<li>Método 2: Clique com o botão direito em qualquer pasta e selecione “Git Bash Here” para abrir o terminal já naquela pasta.</li>
+</ul></li>
+<li><p><strong>Não se assuste com a interface de texto!</strong></p>
+<ul>
+<li>Apesar de parecer complicado no início, você precisará aprender apenas alguns comandos básicos para começar.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Configurando o Git Localmente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de começar a usar o Git, é necessário fazer uma configuração inicial básica. Essa configuração identifica quem está fazendo as alterações e só precisa ser feita uma vez em cada computador.</p>
+<ol type="1">
+<li><strong>Configure seu nome de usuário</strong>:</li>
+</ol>
+<ul>
+<li><p>Abra o Git Bash</p></li>
+<li><p>Digite o comando:</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"nome_sobrenome"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Exemplo:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"maria_silva"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Configure seu email</strong>:</li>
+</ol>
+<ul>
+<li>Use o mesmo email que você usará (ou já usa) para sua conta no GitHub:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"seu.email@exemplo.com"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Exemplo:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"maria.silva@gmail.com</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><strong>Verifique suas configurações</strong>:</li>
+</ol>
+<ul>
+<li>Para conferir se tudo está correto:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Isso mostrará todas as suas configurações globais</li>
+</ul>
+<p>Estas informações serão usadas para identificar suas contribuições em projetos, então use dados reais, especialmente se for trabalhar em projetos compartilhados.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Criando uma conta no GitHub
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O GitHub é onde você vai armazenar seus projetos Git na nuvem. Criar uma conta é gratuito e simples:</p>
+<ol type="1">
+<li><strong>Acesse o site do GitHub</strong>:</li>
+</ol>
+<ul>
+<li><p>Acesse <a href="https://github.com" target="_blank">https://github.com</a></p></li>
+<li><p>Clique no botão “Sign up” (Cadastrar-se)</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Preencha o formulário de cadastro</strong>:</li>
+</ol>
+<ul>
+<li><p>Digite seu email (use o mesmo que configurou no Git local).</p></li>
+<li><p>Crie uma senha segura.</p></li>
+<li><p>Escolha um nome de usuário único:</p>
+<ul>
+<li>Este será parte do endereço dos seus projetos (github.com/seu-usuario).</li>
+<li>Recomendação: use algo profissional que você não se importaria de mostrar no currículo.</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Verifique seu email</strong>:</li>
+</ol>
+<ul>
+<li><p>O GitHub enviará um código de verificação para seu email.</p></li>
+<li><p>Insira este código para confirmar sua conta.</p></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Personalize sua experiência</strong> (opcional):</li>
+</ol>
+<ul>
+<li><p>O GitHub perguntará sobre seu nível de experiência e interesses.</p></li>
+<li><p>Você pode preencher ou pular esta etapa.</p></li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Configure a autenticação em dois fatores</strong> (recomendado):</li>
+</ol>
+<ul>
+<li><p>Para maior segurança, ative a autenticação em dois fatores nas configurações.</p></li>
+<li><p>Isso protege sua conta mesmo se alguém descobrir sua senha.</p></li>
+</ul>
+<ol start="6" type="1">
+<li><strong>Crie seu primeiro repositório</strong>:</li>
+</ol>
+<ul>
+<li><p>Após entrar, clique no botão “+” no canto superior direito.</p></li>
+<li><p>Selecione “<em>New repository</em>” (Novo repositório).</p></li>
+<li><p>Dê um nome ao repositório (por exemplo, “meu-primeiro-projeto”).</p></li>
+<li><p>Adicione uma descrição opcional que explique brevemente o propósito do projeto.</p></li>
+<li><p>Marque a opção “<em>Add a README file</em>” para inicializar o repositório com um arquivo de apresentação.</p></li>
+<li><p>Clique em “<em>Create repository</em>” (Criar repositório).</p></li>
+</ul>
+<p>Pronto! Sua conta está criada e você já tem seu primeiro repositório no GitHub.</p>
+</div>
+</div>
+</section>
+<section id="sec-essenciais" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Comandos Essenciais para Começar</h1>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comandos Essenciais
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Os quatro comandos básicos que você usará com mais frequência (seu fluxo de trabalho padrão) são:</p>
+<ul>
+<li><code>git status</code>: consulta o estado atual dos seus arquivos</li>
+<li><code>git add</code>: prepara as mudanças para serem salvas</li>
+<li><code>git commit -m "mensagem"</code>: salva as mudanças no repositório local</li>
+<li><code>git push origin main</code>: envia as mudanças para o GitHub</li>
+</ul>
+<p>Pense nestes comandos como um processo de 4 passos:</p>
+<ol type="1">
+<li>Verificar o que mudou (<code>status</code>)</li>
+<li>Adicionar/Selecionar o que você quer salvar (<code>add</code>)</li>
+<li>Salvar as mudanças localmente com uma descrição (<code>commit</code>)</li>
+<li>Enviar para a nuvem/GitHub (<code>push</code>)</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é <code>git status</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>O comando <code>git status</code> é como tirar uma “foto” do estado atual do seu projeto.</p></li>
+<li><p><strong>O que ele mostra?</strong>:</p>
+<ul>
+<li>Quais arquivos você modificou desde o último salvamento</li>
+<li>Quais arquivos são novos e ainda não estão sendo rastreados</li>
+<li>Quais mudanças já estão prontas para serem salvas (commit)</li>
+</ul></li>
+<li><p><strong>Quando usar?</strong>:</p>
+<ul>
+<li>Sempre que quiser verificar o que mudou no seu projeto</li>
+<li>Antes de fazer um commit para confirmar que está incluindo as mudanças certas</li>
+<li>Quando não se lembrar se salvou suas últimas alterações</li>
+</ul></li>
+<li><p><strong>Exemplo prático</strong>: Imagine que você está trabalhando em uma análise de dados e:</p>
+<ul>
+<li>Modificou seu script principal (<code>analise.R</code>)</li>
+<li>Adicionou um novo arquivo de dados (<code>dados_2024.csv</code>)</li>
+<li>Modificou seu relatório (<code>relatorio.qmd</code>)</li>
+</ul></li>
+<li><p>Ao digitar <code>git status</code>, você verá todos esses arquivos listados indicando quais estão prontos para commit (<span style="color: green;">em verde</span>) e quais ainda precisam ser adicionados (<span style="color: red;">em vermelho</span>).</p></li>
+<li><p><strong>É como fazer a pergunta</strong>: “O que mudou no meu projeto e o que preciso salvar?”</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é <code>git add</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>O comando <code>git add</code> é como adicionar ou selecionar quais mudanças você quer incluir na próxima “foto” (commit) do seu projeto.</p></li>
+<li><p>Pense nele como a etapa de “seleção” antes de salvar suas mudanças definitivamente.</p></li>
+<li><p><strong>Como funciona na prática?</strong></p></li>
+<li><p>Imagine que você está organizando fotos para um álbum:</p>
+<ul>
+<li>Você tira várias fotos (faz várias mudanças nos arquivos)</li>
+<li>Antes de imprimir o álbum, seleciona quais fotos quer incluir (<code>git add</code>)</li>
+<li>Só depois de selecionar, você finaliza uma página do álbum (<code>git commit</code>)</li>
+</ul></li>
+<li><p><strong>Quando usar?</strong> Use <code>git add</code> quando:</p>
+<ul>
+<li>Terminar de fazer uma alteração que faz sentido ser salva</li>
+<li>Quiser incluir um novo arquivo ao projeto</li>
+<li>Antes de fazer um commit</li>
+</ul></li>
+</ul>
+<p><strong>Exemplos de Uso:</strong></p>
+<ol type="1">
+<li>Para adicionar <strong>apenas um arquivo</strong> específico:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/analise.R</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Esse comando adiciona apenas o arquivo <code>analise.R</code> que está na pasta “scripts”.</p>
+<p>Se você estiver trabalhando com análises estatísticas ou financeiras, poderia ser:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add analise_rentabilidade.R</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Para selecionar <strong>todos os arquivos de uma pasta</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Esse comando adiciona todos os arquivos modificados dentro da pasta “scripts”</p>
+<ol start="3" type="1">
+<li>Para selecionar <strong>todos os arquivos modificados</strong> do projeto:</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O ponto “.” significa “todos os arquivos” - <strong>use com cuidado!</strong></p>
+<p><strong>Dica para iniciantes:</strong></p>
+<ul>
+<li><p>Comece usando o comando completo para cada arquivo até se familiarizar com o processo.</p></li>
+<li><p>Depois, quando estiver mais confiante, você pode usar o <code>git add .</code> para adicionar vários arquivos de uma vez.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é <code>git commit</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>O <code>git commit</code> é o momento de “salvar oficialmente” as mudanças que você selecionou com o <code>git add</code>.</p></li>
+<li><p>É como tirar uma foto do estado atual do seu projeto e adicionar uma legenda descrevendo o que mudou.</p></li>
+<li><p>Cada commit cria um ponto na linha do tempo do seu projeto ao qual você pode voltar se precisar.</p></li>
+</ul>
+<p><strong>Como usar:</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"mensagem descrevendo o que você fez"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A parte <code>-m "mensagem"</code> é onde você explica brevemente o que mudou.</p>
+<p><strong>Exemplos de boas mensagens de commit:</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"adiciona análise inicial dos dados de vendas"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"corrige fórmulas na seção de métodos"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"finaliza capítulo 3 da dissertação"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Quando fazer um commit?</strong></p>
+<p>Pense em cada commit como um “marco” no seu trabalho:</p>
+<ul>
+<li><p><strong>Após completar uma tarefa específica</strong>: “Terminei de analisar os dados de janeiro” → commit</p></li>
+<li><p><strong>Após resolver um problema</strong>: “Corrigi o erro nas referências” → commit</p></li>
+<li><p><strong>Antes de fazer uma mudança grande ou arriscada</strong>: “Vou reorganizar toda a estrutura do documento” → commit primeiro!</p></li>
+</ul>
+<p><strong>Analogia:</strong> Se seu trabalho fosse uma viagem, cada commit seria como fincar uma bandeira no caminho dizendo “cheguei até aqui com segurança”. Se você se perder depois, pode sempre voltar a este ponto.</p>
+<p><strong>Recomendação para iniciantes:</strong> Faça commits frequentes! É melhor ter muitos pequenos commits do que poucos commits gigantes.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é <code>git push</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>O comando <code>git push</code> envia as mudanças que você salvou localmente (com <code>commit</code>) para o GitHub.</p></li>
+<li><p>É como sincronizar seu trabalho local com a “nuvem”, tornando-o disponível para outras pessoas ou em outros computadores.</p></li>
+</ul>
+<p><strong>Como funciona na prática:</strong></p>
+<p>Imagine que você:</p>
+<ol type="1">
+<li>Fez várias alterações no seu computador</li>
+<li>Adicionou essas alterações (<code>git add</code>)</li>
+<li>Salvou-as localmente (<code>git commit</code>)</li>
+</ol>
+<p>Neste ponto, as mudanças estão apenas no seu computador! Para enviar ao GitHub:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>O que significa “origin main”?</strong></p>
+<ul>
+<li><p><code>origin</code> é o nome padrão que o Git dá ao seu repositório remoto no GitHub (como um “apelido” para o endereço completo)</p></li>
+<li><p><code>main</code> é o nome do ramo principal do seu projeto (anteriormente chamado de “master” em projetos mais antigos)</p></li>
+</ul>
+<p><strong>Quando fazer um push?</strong></p>
+<ul>
+<li>Ao terminar uma sessão de trabalho</li>
+<li>Quando quiser compartilhar seu progresso com colegas</li>
+<li>Como backup de segurança do seu trabalho</li>
+<li>Antes de mudar para outro computador</li>
+</ul>
+<p><strong>Analogia:</strong> Se os commits são como salvar seu jogo em um cartão de memória, o push é como fazer um backup desse cartão na nuvem. Se seu computador quebrar, você não perde o progresso.</p>
+<p><strong>Dica:</strong> Para ver se seu push funcionou, acesse seu repositório no GitHub pelo navegador - você deverá ver todas as mudanças que acabou de enviar.</p>
+</div>
+</div>
+</section>
+<section id="comandos-úteis-para-o-dia-a-dia-opcional" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Comandos Úteis para o Dia a Dia (Opcional)</h1>
+<ul>
+<li>Após se sentir familiarizado e confortável com os 4 comandos essenciais explicandos na <a href="#sec-essenciais" class="quarto-xref">Seção&nbsp;3</a>, vale a pena conhecer e testar outros comandos úteis para o dia a dia, como o comando <code>git diff</code>.</li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que é <code>git diff</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>O comando <code>git diff</code> mostra as alterações específicas que foram feitas nos arquivos, mas que ainda não foram preparadas para commit (não passaram pelo <code>git add</code>).</p></li>
+<li><p>É como um “modo de revisão” que destaca exatamente o que foi adicionado (<span style="color: green;">em verde</span>) e o que foi removido (<span style="color: red;">em vermelho</span>).</p></li>
+<li><p><strong>Quando usar?</strong>:</p>
+<ul>
+<li>Antes de adicionar arquivos com <code>git add</code>, para revisar exatamente o que foi alterado</li>
+<li>Para verificar detalhes das modificações que o <code>git status</code> apenas lista</li>
+<li>Quando você não se lembra exatamente o que mudou em um arquivo específico</li>
+</ul></li>
+<li><p><strong>Exemplos de Uso:</strong></p></li>
+</ul>
+<ol type="1">
+<li>Para ver todas as mudanças não preparadas:</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Para ver as mudanças em um arquivo específico:</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff relatorio.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Para ver as mudanças que já foram preparadas com <code>git add</code> (e irão para o próximo commit):</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--staged</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p><strong>Analogia:</strong> Se o <code>git status</code> é como uma lista de compras que mostra quais itens você precisa, o <code>git diff</code> é como abrir cada item para inspecionar seu conteúdo antes de colocá-lo no carrinho.</p></li>
+<li><p><strong>Como interpretar o resultado:</strong></p>
+<ul>
+<li>Linhas que começam com <code>+</code> mostram conteúdo adicionado</li>
+<li>Linhas que começam com <code>-</code> mostram conteúdo removido</li>
+<li>O contexto (linhas não alteradas) aparece sem símbolos especiais</li>
+</ul></li>
+<li><p><strong>Dica para iniciantes:</strong></p></li>
+</ul>
+<p>Use o <code>git diff</code> antes de cada <code>git add</code> para ter certeza de que está adicionando apenas as alterações desejadas, especialmente quando trabalha com documentos importantes como relatórios financeiros, análises de dados ou capítulos de dissertação.</p>
+</div>
+</div>
+</section>
+<section id="workflow-para-trabalhar-colaborativamente" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Workflow para Trabalhar Colaborativamente</h1>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Objetivo desta seção
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Apresentar um passo a passo prático para orientandos de mestrado colaborarem com seus orientadores usando Git e GitHub.</p></li>
+<li><p>Estabelecer um fluxo de trabalho claro que minimize conflitos e maximize a produtividade.</p></li>
+<li><p>Servir como guia inicial que pode ser adaptado para outros tipos de colaboração acadêmica.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Visão Geral do Workflow Colaborativo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O fluxo de trabalho a seguir foi desenhado especificamente para a dinâmica entre orientando e orientador, onde ambos contribuem para documentos como dissertações, artigos e análises de dados.</p>
+<ol type="1">
+<li><p><strong>Configuração inicial</strong> (feita apenas uma vez).</p></li>
+<li><p><strong>Ciclo de desenvolvimento</strong> (repetido diariamente/semanalmente).</p></li>
+<li><p><strong>Incorporação de feedback</strong> (quando o orientador fizer sugestões).</p></li>
+</ol>
+<p><strong>Fluxo básico:</strong></p>
+<ol type="1">
+<li>Orientando baixa/puxa mudanças do repositório no GitHub (pull)</li>
+<li>Orientando trabalha nos arquivos</li>
+<li>Orientando envia mudanças (commit + push)</li>
+<li>Orientador baixa/puxa mudanças (pull)</li>
+<li>Orientador revisa e faz sugestões</li>
+<li>Orientador envia feedback (commit + push)</li>
+<li>Orientando baixa/puxa o feedback (voltando ao passo 1)</li>
+</ol>
+</div>
+</div>
+<section id="configuração-inicial" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="configuração-inicial"><span class="header-section-number">5.1</span> Configuração Inicial</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Configuração Inicial - Orientando
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esta etapa será realizada apenas uma vez, no início do trabalho com seu orientador:</p>
+<ol type="1">
+<li><strong>Crie o repositório do projeto</strong>:</li>
+</ol>
+<ul>
+<li><p>Crie o repositório no GitHub como visto anteriormente.</p></li>
+<li><p>Adicione seu orientador como colaborador.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Clone o repositório para seu computador</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/nome-usuario/nome-repositorio.git</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Este comando cria uma cópia local do repositório em seu computador.</p>
+<ol start="3" type="1">
+<li><strong>Confirme que está tudo funcionando</strong>:</li>
+</ol>
+<ul>
+<li><p>Entre na pasta criada: <code>cd nome-repositorio</code>.</p></li>
+<li><p>Verifique a conexão: <code>git remote -v</code> (deve mostrar a URL do GitHub).</p></li>
+<li><p>Faça um teste simples:</p></li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um arquivo de teste</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"# Teste de colaboração"</span> <span class="op">&gt;</span> teste.md</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicione e faça commit</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add teste.md</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Teste inicial de colaboração"</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Envie para o GitHub</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Verifique no GitHub se o arquivo apareceu</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ciclo-de-desenvolvimento" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="ciclo-de-desenvolvimento"><span class="header-section-number">5.2</span> Ciclo de Desenvolvimento</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ciclo Diário/Semanal de Trabalho - Orientando
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este é o ciclo que você repetirá regularmente enquanto trabalha em seu projeto:</p>
+<ol type="1">
+<li><strong>Comece o dia de trabalho atualizando seu repositório local</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Certifique-se de estar na pasta do projeto</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Este comando baixa qualquer mudança que seu orientador possa ter feito.</p>
+<ol start="2" type="1">
+<li><strong>Trabalhe em seus arquivos normalmente</strong>:</li>
+</ol>
+<ul>
+<li>Escreva seu capítulo da dissertação</li>
+<li>Realize análises de dados</li>
+<li>Crie visualizações ou tabelas</li>
+<li>Redija seções do artigo</li>
+</ul>
+<p>Trabalhe como você normalmente faria em seu computador.</p>
+<ol start="3" type="1">
+<li><strong>Salve seu progresso </strong>:</li>
+</ol>
+<p>A cada conquista significativa ou no final do dia:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verifique o que mudou</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Veja as alterações específicas (opcional)</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicione os arquivos modificados</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Salve as mudanças localmente com uma mensagem descritiva</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise descritiva no capítulo 3"</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Envie para o GitHub</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Boas práticas para as mensagens de commit</strong>:</p>
+<ul>
+<li><p>Seja específico: “Reescreve o texto da seção Introdução”.</p></li>
+<li><p>Use verbos no presente: “Adiciona”, “Corrige”, “Atualiza”.</p></li>
+<li><p>Indique onde a mudança foi feita: “Revisão da Literatura”, “Metodologia”, “Resultados e Discussão”, “Introdução” etc.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="incorporação-de-feedback" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="incorporação-de-feedback"><span class="header-section-number">5.3</span> Incorporação de Feedback</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quando seu Orientador Fornecer Feedback - Orientando
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este processo ocorre depois que seu orientador revisar seu trabalho e fizer alterações:</p>
+<ol type="1">
+<li><strong>Obtenha as mudanças feitas pelo orientador</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Isso baixa as alterações, comentários ou correções feitas pelo orientador.</p>
+<ol start="2" type="1">
+<li><strong>Revise as mudanças</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver quais arquivos foram modificados pelo orientador</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver as mudanças específicas em um arquivo</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD~1 HEAD <span class="at">--</span> caminho/do/arquivo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Este comando mostra o que mudou entre a versão atual e a anterior.</p>
+<ol start="3" type="1">
+<li><strong>Trabalhe com as sugestões</strong>:</li>
+</ol>
+<ul>
+<li><p>Implemente as correções sugeridas.</p></li>
+<li><p>Responda a questionamentos (pode ser no próprio documento ou em um comentário no GitHub).</p></li>
+<li><p>Complemente seções conforme solicitado.</p></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Continue o ciclo normal</strong>:</li>
+</ol>
+<p>Volte ao passo 2 (Ciclo de Desenvolvimento) e continue seu trabalho.</p>
+</div>
+</div>
+</section>
+<section id="lidando-com-conflitos" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="lidando-com-conflitos"><span class="header-section-number">5.4</span> Lidando com Conflitos</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+E se ocorrerem conflitos?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um conflito acontece quando você e seu orientador editam a mesma parte de um arquivo. Não se assuste, isso é normal e pode ser resolvido:</p>
+<ol type="1">
+<li><strong>Quando ocorre um conflito</strong>:</li>
+</ol>
+<p>Ao executar <code>git pull</code>, você verá uma mensagem como:</p>
+<pre><code>CONFLICT (content): Merge conflict in nome-do-arquivo.extensao</code></pre>
+<ol start="2" type="1">
+<li><strong>Abra o arquivo com conflito</strong>:</li>
+</ol>
+<p>Você verá marcações como estas:</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Seu texto (versão local)
+=======
+Texto do orientador (versão do GitHub)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; abcd1234</code></pre>
+<ol start="3" type="1">
+<li><strong>Resolva o conflito manualmente</strong>:</li>
+</ol>
+<ul>
+<li>Edite o arquivo para conter o conteúdo final desejado</li>
+<li>Remova as marcações (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>)</li>
+<li>Salve o arquivo</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Conclua a resolução</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicione o arquivo resolvido</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add nome-do-arquivo</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Faça um commit da resolução</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Resolve conflito no arquivo X"</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Envie para o GitHub</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Dica</strong>: Comunique-se com seu orientador quando encontrar conflitos. Às vezes, uma conversa rápida pode esclarecer qual versão deve ser mantida.</p>
+</div>
+</div>
+</section>
+<section id="trabalhando-com-issues-do-github" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="trabalhando-com-issues-do-github"><span class="header-section-number">5.5</span> Trabalhando com Issues do GitHub</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Usando Issues para Organizar Tarefas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O GitHub possui uma ferramenta chamada “Issues” que é excelente para:</p>
+<ul>
+<li>Listar tarefas pendentes</li>
+<li>Registrar problemas a serem resolvidos</li>
+<li>Documentar discussões entre orientando e orientador</li>
+</ul>
+<p><strong>Como usar</strong>:</p>
+<ol type="1">
+<li><strong>Crie uma issue</strong>:</li>
+</ol>
+<ul>
+<li>No GitHub, acesse a aba “Issues” do repositório.</li>
+<li>Clique em “New issue”.</li>
+<li>Dê um título descritivo e explique a tarefa/problema.</li>
+<li>Use marcadores como listas, negrito e itálico para organizar.</li>
+<li>Adicione etiquetas (labels) como “revisão”, “urgent”, “discussão”.</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Acompanhe o progresso</strong>:</li>
+</ol>
+<ul>
+<li>Comente nas issues para atualizar o progresso.</li>
+<li>Referencie commits relacionados usando “#” (exemplo: “Resolve #4”).</li>
+<li>Feche a issue quando a tarefa estiver concluída.</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Referencie issues nos commits</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise de correlação solicitada na issue #5"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Isso cria uma referência cruzada que facilita acompanhar o histórico de mudanças e discussões.</p>
+</div>
+</div>
+</section>
+<section id="aplicando-este-workflow-a-outros-cenários" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="aplicando-este-workflow-a-outros-cenários"><span class="header-section-number">5.6</span> Aplicando este Workflow a Outros Cenários</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adaptando para Outras Colaborações
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este mesmo fluxo de trabalho pode ser facilmente adaptado para colaborar com:</p>
+<ul>
+<li>Colegas de classe em projetos em grupo.</li>
+<li>Outros pesquisadores em artigos científicos.</li>
+<li>Equipes de trabalho em relatórios ou análises.</li>
+<li>Projetos de extensão ou iniciação científica.</li>
+</ul>
+<p>A mesma lógica se aplica:</p>
+<ol type="1">
+<li>Configuração inicial (uma vez).</li>
+<li>Ciclo frequente de atualizações.</li>
+<li>Incorporação de feedback dos colaboradores.</li>
+</ol>
+<p>A diferença principal em outros cenários pode ser a necessidade de usar “branches” (ramificações) para trabalhos mais complexos com múltiplos colaboradores, um tópico que pode ser explorado quando você já estiver confortável com este fluxo básico.</p>
+</div>
+</div>
+</section>
+<section id="resumo-do-workflow" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="resumo-do-workflow"><span class="header-section-number">5.7</span> Resumo do Workflow</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Resumindo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O ciclo de trabalho com seu orientador segue este padrão:</p>
+<ol type="1">
+<li><p><strong>Comece o dia puxando alterações</strong>: <code>git pull origin main</code></p></li>
+<li><p><strong>Trabalhe nos arquivos</strong> normalmente</p></li>
+<li><p><strong>Verifique mudanças</strong>: <code>git status</code> e <code>git diff</code></p></li>
+<li><p><strong>Salve seu progresso</strong>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Mensagem descritiva"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Repita</strong> diariamente ou quando concluir uma parte significativa</p></li>
+</ol>
+<p><strong>Lembre-se</strong>: a comunicação clara com seu orientador sobre qual parte cada um está trabalhando pode evitar conflitos e retrabalho.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="referências" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Referências</h1>
+<div id="refs" role="list">
+
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/washingtonsilva\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2023, Washington Santos da Silva</p>
+</div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/washingtonsilva">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/washingtonssilva/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
