@@ -71,7 +71,7 @@ fluxo de trabalho com documentos, análises e projetos.
 ## Por que usar Git?
 
 - **Evita a confusão de múltiplas versões**: Adeus a arquivos como   
-  "Relatorio_Final_v2_Revisado_Corrigido.docx".
+  "**Relatorio_Final_v2_Revisado_Corrigido.docx**".
 
 - **Recuperação de trabalho**: Se algo der errado, você pode voltar 
    facilmente a uma versão anterior que funcionava.
@@ -315,7 +315,8 @@ Criar uma conta é gratuito e simples:
   
 - Clique em "*Create repository*" (Criar repositório).
 
-Pronto! Sua conta está criada e você já tem seu primeiro repositório no GitHub.
+Pronto! Sua conta está criada e você já tem seu primeiro repositório 
+no GitHub.
 :::
 
 
@@ -333,15 +334,15 @@ Os quatro comandos básicos que você usará com mais frequência
 
 - `git status`: consulta o estado atual dos seus arquivos
 - `git add`: prepara as mudanças para serem salvas
-- `git commit -m "mensagem"`: salva as mudanças no repositório local
+- `git commit`: salva as mudanças no repositório local
 - `git push origin main`: envia as mudanças para o GitHub
 
 Pense nestes comandos como um processo de 4 passos:
 
-1. Verificar o que mudou (`status`)
-2. Adicionar/Selecionar o que você quer salvar (`add`)
-3. Salvar as mudanças localmente com uma descrição (`commit`)
-4. Enviar para a nuvem/GitHub (`push`)
+1. Verificar o que mudou (`status`).
+2. Adicionar/Selecionar o que você quer salvar (`add`).
+3. Salvar as mudanças localmente com uma descrição (`commit`).
+4. Enviar para a nuvem/GitHub (`push`).
 :::
 
 
@@ -354,22 +355,23 @@ do seu projeto.
 
 - **O que ele mostra?**: 
 
-    - Quais arquivos você modificou desde o último salvamento
-    - Quais arquivos são novos e ainda não estão sendo rastreados
-    - Quais mudanças já estão prontas para serem salvas (commit)
+    - Quais arquivos você modificou desde o último salvamento.
+    - Quais arquivos são novos e ainda não estão sendo rastreados.
+    - Quais mudanças já estão prontas para serem salvas (commit).
 
 - **Quando usar?**:
 
-    - Sempre que quiser verificar o que mudou no seu projeto
-    - Antes de fazer um commit para confirmar que está incluindo as mudanças certas
-    - Quando não se lembrar se salvou suas últimas alterações
+    - Sempre que quiser verificar o que mudou no seu projeto.
+    - Antes de fazer um commit para confirmar que está incluindo as 
+      mudanças certas.
+    - Quando não se lembrar se salvou suas últimas alterações.
 
 - **Exemplo prático**: Imagine que você está trabalhando em uma análise de 
   dados e:
 
-    - Modificou seu script principal (`analise.R`)
-    - Adicionou um novo arquivo de dados (`dados_2024.csv`)
-    - Modificou seu relatório (`relatorio.qmd`)
+    - Modificou seu script principal (`analise.R`).
+    - Adicionou um novo arquivo de dados (`dados_2024.csv`).
+    - Modificou seu relatório (`relatorio.qmd`).
     
 - Ao digitar `git status`, você verá todos esses arquivos listados indicando 
 quais estão prontos para commit (<span style="color: green;">em verde</span>) e 
@@ -556,8 +558,7 @@ de enviar.
 
 # Comandos Úteis para o Dia a Dia (Opcional)
 
-
-- Após se sentir familiarizado e confortável com os 4 comandos 
+Após se sentir familiarizado e confortável com os 4 comandos 
 essenciais explicandos na @sec-essenciais, vale a pena conhecer e 
 testar outros comandos úteis para o dia a dia, como o 
 comando `git diff`.
@@ -576,9 +577,10 @@ comando `git diff`.
 
 - **Quando usar?**:
 
-    - Antes de adicionar arquivos com `git add`, para revisar exatamente o que foi  alterado
-    - Para verificar detalhes das modificações que o `git status` apenas lista
-    - Quando você não se lembra exatamente o que mudou em um arquivo específico
+    - Antes de adicionar arquivos com `git add`, para revisar exatamente 
+      o que foi  alterado.
+    - Para verificar detalhes das modificações que o `git status` apenas lista.
+    - Quando você não se lembra exatamente o que mudou em um arquivo específico.
 
 - **Exemplos de Uso:**
 
