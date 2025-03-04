@@ -14,16 +14,10 @@ page-layout: full
 
 ::: {.g-col-12 .g-col-md-8}
 
-I am a Full Professor in the fields of Data Science, Applied Econometrics and 
-Statistics at [IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado){target="_blan"}.
-
-### Areas of Interest
-
-- Applied Statistics and Econometrics
-- Data Science
-- Reproducible Research
-- Time Series Analysis
-- Statistical and Machine Learning Applied to Finance
-- Bayesian Econometrics
+I am a Full Professor at [IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado){target="_blan"}. 
+My research interests include Applied Statistics and Econometrics, 
+Data Science, Reproducible Research, Time Series Analysis, 
+Statistical and Machine Learning Applied to Finance, 
+and Bayesian Econometrics.
 :::
 :::
