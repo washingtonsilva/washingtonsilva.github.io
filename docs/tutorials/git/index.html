@@ -209,9 +209,25 @@ cookieconsent.run({
    
   <ul class="collapse">
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
-  <li><a href="#instalação-e-configuração-básica" id="toc-instalação-e-configuração-básica" class="nav-link" data-scroll-target="#instalação-e-configuração-básica"><span class="header-section-number">2</span> Instalação e Configuração Básica</a></li>
-  <li><a href="#sec-essenciais" id="toc-sec-essenciais" class="nav-link" data-scroll-target="#sec-essenciais"><span class="header-section-number">3</span> Comandos Essenciais para Começar</a></li>
-  <li><a href="#comandos-úteis-para-o-dia-a-dia-opcional" id="toc-comandos-úteis-para-o-dia-a-dia-opcional" class="nav-link" data-scroll-target="#comandos-úteis-para-o-dia-a-dia-opcional"><span class="header-section-number">4</span> Comandos Úteis para o Dia a Dia (Opcional)</a></li>
+  <li><a href="#instalação-e-configuração-básica" id="toc-instalação-e-configuração-básica" class="nav-link" data-scroll-target="#instalação-e-configuração-básica"><span class="header-section-number">2</span> Instalação e Configuração Básica</a>
+  <ul class="collapse">
+  <li><a href="#instando-git-no-windows" id="toc-instando-git-no-windows" class="nav-link" data-scroll-target="#instando-git-no-windows"><span class="header-section-number">2.1</span> Instando Git no Windows</a></li>
+  <li><a href="#configuração-do-git-no-seu-computador" id="toc-configuração-do-git-no-seu-computador" class="nav-link" data-scroll-target="#configuração-do-git-no-seu-computador"><span class="header-section-number">2.2</span> Configuração do Git no seu Computador</a></li>
+  <li><a href="#criando-conta-no-github" id="toc-criando-conta-no-github" class="nav-link" data-scroll-target="#criando-conta-no-github"><span class="header-section-number">2.3</span> Criando Conta no GitHub</a></li>
+  <li><a href="#configurando-o-rstudio-para-usar-o-git-bash-como-terminal" id="toc-configurando-o-rstudio-para-usar-o-git-bash-como-terminal" class="nav-link" data-scroll-target="#configurando-o-rstudio-para-usar-o-git-bash-como-terminal"><span class="header-section-number">2.4</span> Configurando o RStudio para usar o Git Bash como Terminal</a></li>
+  </ul></li>
+  <li><a href="#sec-essenciais" id="toc-sec-essenciais" class="nav-link" data-scroll-target="#sec-essenciais"><span class="header-section-number">3</span> Comandos Essenciais para Começar</a>
+  <ul class="collapse">
+  <li><a href="#git-status" id="toc-git-status" class="nav-link" data-scroll-target="#git-status"><span class="header-section-number">3.1</span> git status</a></li>
+  <li><a href="#git-add" id="toc-git-add" class="nav-link" data-scroll-target="#git-add"><span class="header-section-number">3.2</span> git add</a></li>
+  <li><a href="#git-commit" id="toc-git-commit" class="nav-link" data-scroll-target="#git-commit"><span class="header-section-number">3.3</span> git commit</a></li>
+  <li><a href="#git-push" id="toc-git-push" class="nav-link" data-scroll-target="#git-push"><span class="header-section-number">3.4</span> git push</a></li>
+  <li><a href="#uso-do-git-via-terminal-no-rstudio" id="toc-uso-do-git-via-terminal-no-rstudio" class="nav-link" data-scroll-target="#uso-do-git-via-terminal-no-rstudio"><span class="header-section-number">3.5</span> Uso do Git via Terminal no RStudio</a></li>
+  </ul></li>
+  <li><a href="#comandos-úteis-para-o-dia-a-dia-opcional" id="toc-comandos-úteis-para-o-dia-a-dia-opcional" class="nav-link" data-scroll-target="#comandos-úteis-para-o-dia-a-dia-opcional"><span class="header-section-number">4</span> Comandos Úteis para o Dia a Dia (Opcional)</a>
+  <ul class="collapse">
+  <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff"><span class="header-section-number">4.1</span> git diff</a></li>
+  </ul></li>
   <li><a href="#workflow-para-trabalhar-colaborativamente" id="toc-workflow-para-trabalhar-colaborativamente" class="nav-link" data-scroll-target="#workflow-para-trabalhar-colaborativamente"><span class="header-section-number">5</span> Workflow para Trabalhar Colaborativamente</a>
   <ul class="collapse">
   <li><a href="#configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" id="toc-configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" class="nav-link" data-scroll-target="#configuração-inicial-para-o-exame-de-qualificacão-do-mestrado"><span class="header-section-number">5.1</span> Configuração Inicial para o Exame de Qualificacão do Mestrado</a></li>
@@ -383,6 +399,8 @@ Por que usar GitHub?
 </section>
 <section id="instalação-e-configuração-básica" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Instalação e Configuração Básica</h1>
+<section id="instando-git-no-windows" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="instando-git-no-windows"><span class="header-section-number">2.1</span> Instando Git no Windows</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -462,6 +480,9 @@ O que é o Git Bash?
 </ul>
 </div>
 </div>
+</section>
+<section id="configuração-do-git-no-seu-computador" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="configuração-do-git-no-seu-computador"><span class="header-section-number">2.2</span> Configuração do Git no seu Computador</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -509,6 +530,9 @@ Configurando o Git Localmente
 <p>Estas informações serão usadas para identificar suas contribuições em projetos, então use dados reais, especialmente se for trabalhar em projetos compartilhados.</p>
 </div>
 </div>
+</section>
+<section id="criando-conta-no-github" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="criando-conta-no-github"><span class="header-section-number">2.3</span> Criando Conta no GitHub</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -567,20 +591,21 @@ Criando uma conta no GitHub
 <li><p>Após entrar, clique no botão “+” no canto superior direito.</p></li>
 <li><p>Selecione “<em>New repository</em>” (Novo repositório).</p></li>
 <li><p>Dê um nome ao repositório (por exemplo, “meu-primeiro-projeto”).</p></li>
-<li><p>Adicione uma descrição opcional que explique brevemente o propósito do projeto.</p></li>
-<li><p>Marque a opção “<em>Add a README file</em>” para inicializar o repositório com um arquivo de apresentação.</p></li>
 <li><p>Clique em “<em>Create repository</em>” (Criar repositório).</p></li>
 </ul>
 <p>Pronto! Sua conta está criada e você já tem seu primeiro repositório no GitHub.</p>
 </div>
 </div>
+</section>
+<section id="configurando-o-rstudio-para-usar-o-git-bash-como-terminal" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="configurando-o-rstudio-para-usar-o-git-bash-como-terminal"><span class="header-section-number">2.4</span> Configurando o RStudio para usar o Git Bash como Terminal</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Usando o Terminal do RStudio para Git
+Configurando o Terminal do RStudio para Git
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -622,6 +647,7 @@ Usando o Terminal do RStudio para Git
 </div>
 </div>
 </section>
+</section>
 <section id="sec-essenciais" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Comandos Essenciais para Começar</h1>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -650,6 +676,8 @@ Comandos Essenciais
 </ol>
 </div>
 </div>
+<section id="git-status" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="git-status"><span class="header-section-number">3.1</span> git status</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -685,6 +713,9 @@ O que é <code>git status</code>?
 </ul>
 </div>
 </div>
+</section>
+<section id="git-add" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="git-add"><span class="header-section-number">3.2</span> git add</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -737,6 +768,9 @@ O que é <code>git add</code>?
 </ul>
 </div>
 </div>
+</section>
+<section id="git-commit" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="git-commit"><span class="header-section-number">3.3</span> git commit</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -770,6 +804,9 @@ O que é <code>git commit</code>?
 <p><strong>Recomendação para iniciantes:</strong> Faça commits frequentes! É melhor ter muitos pequenos commits do que poucos commits gigantes.</p>
 </div>
 </div>
+</section>
+<section id="git-push" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="git-push"><span class="header-section-number">3.4</span> git push</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -809,6 +846,9 @@ O que é <code>git push</code>?
 <p><strong>Dica:</strong> Para ver se seu push funcionou, acesse seu repositório no GitHub pelo navegador - você deverá ver todas as mudanças que acabou de enviar.</p>
 </div>
 </div>
+</section>
+<section id="uso-do-git-via-terminal-no-rstudio" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="uso-do-git-via-terminal-no-rstudio"><span class="header-section-number">3.5</span> Uso do Git via Terminal no RStudio</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -861,9 +901,12 @@ Usando Git via Terminal no RStudio
 </div>
 </div>
 </section>
+</section>
 <section id="comandos-úteis-para-o-dia-a-dia-opcional" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Comandos Úteis para o Dia a Dia (Opcional)</h1>
 <p>Após se sentir familiarizado e confortável com os 4 comandos essenciais explicandos na <a href="#sec-essenciais" class="quarto-xref">Seção&nbsp;3</a>, vale a pena conhecer e testar outros comandos úteis para o dia a dia, como o comando <code>git diff</code>.</p>
+<section id="git-diff" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="git-diff"><span class="header-section-number">4.1</span> git diff</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -910,6 +953,7 @@ O que é <code>git diff</code>?
 <p>Use o <code>git diff</code> antes de cada <code>git add</code> para ter certeza de que está adicionando apenas as alterações desejadas, especialmente quando trabalha com documentos importantes como relatórios financeiros, análises de dados ou capítulos de dissertação.</p>
 </div>
 </div>
+</section>
 </section>
 <section id="workflow-para-trabalhar-colaborativamente" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Workflow para Trabalhar Colaborativamente</h1>

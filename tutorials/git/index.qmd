@@ -138,6 +138,8 @@ fluxo de trabalho com documentos, análises e projetos.
 # Instalação e Configuração Básica
 
 
+## Instando Git no Windows
+
 ::: {.callout-note icon="false"}
 ## Instalando o sistema Git no Windows
 
@@ -213,6 +215,7 @@ iniciantes
 :::
 
 
+## Configuração do Git no seu Computador
 
 ::: {.callout-note icon="false"}
 ## Configurando o Git Localmente
@@ -268,6 +271,8 @@ projetos compartilhados.
 
 
 
+## Criando Conta no GitHub
+
 ::: {.callout-note icon="false"}
 ## Criando uma conta no GitHub
 
@@ -318,12 +323,6 @@ Criar uma conta é gratuito e simples:
 
 - Dê um nome ao repositório (por exemplo, "meu-primeiro-projeto").
 
-- Adicione uma descrição opcional que explique brevemente o propósito do 
-  projeto.
-  
-- Marque a opção "*Add a README file*" para inicializar o repositório com 
-  um arquivo de apresentação.
-  
 - Clique em "*Create repository*" (Criar repositório).
 
 Pronto! Sua conta está criada e você já tem seu primeiro repositório 
@@ -332,8 +331,12 @@ no GitHub.
 
 
 
+
+## Configurando o RStudio para usar o Git Bash como Terminal
+
+
 ::: {.callout-note icon="false"}
-## Usando o Terminal do RStudio para Git
+## Configurando o Terminal do RStudio para Git
 
 Como trabalharemos com o sistema Quarto e RStudio, é importante 
 saber como acessar e usar o terminal Git Bash diretamente dentro 
@@ -408,6 +411,9 @@ Pense nestes comandos como um processo de 4 passos:
 
 
 
+
+## git status
+
 ::: {.callout-note icon="false"}
 ## O que é `git status`?
 
@@ -443,6 +449,8 @@ quais ainda precisam ser adicionados (<span style="color: red;">em vermelho</spa
 :::
 
 
+
+## git add
 
 ::: {.callout-note icon="false"}
 ## O que é `git add`?
@@ -511,6 +519,8 @@ O ponto "." significa "todos os arquivos" - **use com cuidado!**
 
 
 
+## git commit
+
 ::: {.callout-note icon="false"}
 ## O que é `git commit`?
 
@@ -568,6 +578,8 @@ ter muitos pequenos commits do que poucos commits gigantes.
 
 
 
+## git push
+
 ::: {.callout-note icon="false"}
 ## O que é `git push`?
 
@@ -616,6 +628,8 @@ de enviar.
 :::
 
 
+
+## Uso do Git via Terminal no RStudio
 
 ::: {.callout-note icon="false"}
 ## Usando Git via Terminal no RStudio
@@ -683,6 +697,9 @@ essenciais explicandos na @sec-essenciais, vale a pena conhecer e
 testar outros comandos úteis para o dia a dia, como o 
 comando `git diff`.
 
+
+
+## git diff
 
 ::: {.callout-note icon="false"}
 ## O que é `git diff`?
