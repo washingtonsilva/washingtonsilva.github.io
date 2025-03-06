@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Dr.&nbsp;Washington S. da Silva">
-<meta name="description" content="Uma introducão à linguagem de marcação de texto markdown, que é um componente importante do sistema de publicação Quarto.">
+<meta name="description" content="Um guia simples da linguagem de marcação Markdown para elaboração de documentos no sistema Quarto.">
 
-<title>Markdown – Washington S. da Silva</title>
+<title>Markdown: Elementos Essenciais para Documentos do Sistema Quarto – Washington S. da Silva</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -230,20 +230,37 @@ window.Quarto = {
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Nesta página</h2>
    
-  <ul class="collapse">
+  <ul>
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"><span class="header-section-number">2</span> Markdown</a></li>
-  <li><a href="#escrevendo-texto" id="toc-escrevendo-texto" class="nav-link" data-scroll-target="#escrevendo-texto"><span class="header-section-number">3</span> Escrevendo Texto</a>
+  <li><a href="#o-que-é-markdown" id="toc-o-que-é-markdown" class="nav-link" data-scroll-target="#o-que-é-markdown"><span class="header-section-number">2</span> O que é Markdown?</a></li>
+  <li><a href="#elementos-básicos-do-markdown" id="toc-elementos-básicos-do-markdown" class="nav-link" data-scroll-target="#elementos-básicos-do-markdown"><span class="header-section-number">3</span> Elementos Básicos do Markdown</a>
   <ul class="collapse">
   <li><a href="#cabeçalhos" id="toc-cabeçalhos" class="nav-link" data-scroll-target="#cabeçalhos"><span class="header-section-number">3.1</span> Cabeçalhos</a></li>
-  <li><a href="#ênfase" id="toc-ênfase" class="nav-link" data-scroll-target="#ênfase"><span class="header-section-number">3.2</span> Ênfase</a></li>
-  <li><a href="#listas" id="toc-listas" class="nav-link" data-scroll-target="#listas"><span class="header-section-number">3.3</span> Listas</a></li>
-  <li><a href="#escrevendo-matemática-com-latex" id="toc-escrevendo-matemática-com-latex" class="nav-link" data-scroll-target="#escrevendo-matemática-com-latex"><span class="header-section-number">3.4</span> Escrevendo Matemática com LaTeX</a></li>
-  <li><a href="#inserindo-links-e-imagens-em-markdown" id="toc-inserindo-links-e-imagens-em-markdown" class="nav-link" data-scroll-target="#inserindo-links-e-imagens-em-markdown"><span class="header-section-number">3.5</span> Inserindo Links e Imagens em Markdown</a></li>
-  <li><a href="#escrevendo-código" id="toc-escrevendo-código" class="nav-link" data-scroll-target="#escrevendo-código"><span class="header-section-number">3.6</span> Escrevendo código</a></li>
-  <li><a href="#citações" id="toc-citações" class="nav-link" data-scroll-target="#citações"><span class="header-section-number">3.7</span> Citações</a></li>
-  <li><a href="#tabelas-em-markdown" id="toc-tabelas-em-markdown" class="nav-link" data-scroll-target="#tabelas-em-markdown"><span class="header-section-number">3.8</span> Tabelas em Markdown</a></li>
+  <li><a href="#parágrafos-e-formatação-de-texto" id="toc-parágrafos-e-formatação-de-texto" class="nav-link" data-scroll-target="#parágrafos-e-formatação-de-texto"><span class="header-section-number">3.2</span> Parágrafos e Formatação de Texto</a></li>
+  <li><a href="#formatação-de-texto" id="toc-formatação-de-texto" class="nav-link" data-scroll-target="#formatação-de-texto"><span class="header-section-number">3.3</span> Formatação de Texto</a></li>
+  <li><a href="#listas" id="toc-listas" class="nav-link" data-scroll-target="#listas"><span class="header-section-number">3.4</span> Listas</a>
+  <ul class="collapse">
+  <li><a href="#listas-não-ordenadas" id="toc-listas-não-ordenadas" class="nav-link" data-scroll-target="#listas-não-ordenadas"><span class="header-section-number">3.4.1</span> Listas Não-Ordenadas</a></li>
+  <li><a href="#listas-ordenadas" id="toc-listas-ordenadas" class="nav-link" data-scroll-target="#listas-ordenadas"><span class="header-section-number">3.4.2</span> Listas Ordenadas</a></li>
+  <li><a href="#listas-de-tarefas" id="toc-listas-de-tarefas" class="nav-link" data-scroll-target="#listas-de-tarefas"><span class="header-section-number">3.4.3</span> Listas de Tarefas</a></li>
   </ul></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links"><span class="header-section-number">3.5</span> Links</a></li>
+  <li><a href="#imagens" id="toc-imagens" class="nav-link" data-scroll-target="#imagens"><span class="header-section-number">3.6</span> Imagens</a></li>
+  </ul></li>
+  <li><a href="#escrevendo-matemática-com-latex" id="toc-escrevendo-matemática-com-latex" class="nav-link" data-scroll-target="#escrevendo-matemática-com-latex"><span class="header-section-number">4</span> Escrevendo matemática com LaTeX</a>
+  <ul class="collapse">
+  <li><a href="#expressões-matemáticas-inline" id="toc-expressões-matemáticas-inline" class="nav-link" data-scroll-target="#expressões-matemáticas-inline"><span class="header-section-number">4.1</span> Expressões Matemáticas Inline</a></li>
+  <li><a href="#blocos-de-equações" id="toc-blocos-de-equações" class="nav-link" data-scroll-target="#blocos-de-equações"><span class="header-section-number">4.2</span> Blocos de Equações</a></li>
+  <li><a href="#exemplos-de-expressões-matemáticas-úteis" id="toc-exemplos-de-expressões-matemáticas-úteis" class="nav-link" data-scroll-target="#exemplos-de-expressões-matemáticas-úteis"><span class="header-section-number">4.3</span> Exemplos de Expressões Matemáticas Úteis</a></li>
+  <li><a href="#tabelas" id="toc-tabelas" class="nav-link" data-scroll-target="#tabelas"><span class="header-section-number">4.4</span> Tabelas</a></li>
+  <li><a href="#citações-em-bloco" id="toc-citações-em-bloco" class="nav-link" data-scroll-target="#citações-em-bloco"><span class="header-section-number">4.5</span> Citações em Bloco</a></li>
+  </ul></li>
+  <li><a href="#elementos-especiais-do-sistema-quarto" id="toc-elementos-especiais-do-sistema-quarto" class="nav-link" data-scroll-target="#elementos-especiais-do-sistema-quarto"><span class="header-section-number">5</span> Elementos Especiais do Sistema Quarto</a>
+  <ul class="collapse">
+  <li><a href="#callouts-caixas-de-destaque" id="toc-callouts-caixas-de-destaque" class="nav-link" data-scroll-target="#callouts-caixas-de-destaque"><span class="header-section-number">5.1</span> Callouts (Caixas de Destaque)</a></li>
+  </ul></li>
+  <li><a href="#dicas-práticas" id="toc-dicas-práticas" class="nav-link" data-scroll-target="#dicas-práticas"><span class="header-section-number">6</span> Dicas Práticas</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">7</span> Conclusão</a></li>
   </ul>
 </nav>
 </nav>
@@ -256,17 +273,12 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Markdown</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">controle de versão</div>
-    <div class="quarto-category">git</div>
-    <div class="quarto-category">gitHub</div>
-  </div>
-  </div>
+<h1 class="title">Markdown: Elementos Essenciais para Documentos do Sistema Quarto</h1>
+</div>
 
 <div>
   <div class="description">
-    <p>Uma introducão à linguagem de marcação de texto markdown, que é um componente importante do sistema de publicação Quarto.</p>
+    <p>Um guia simples da linguagem de marcação Markdown para elaboração de documentos no sistema Quarto.</p>
   </div>
 </div>
 
@@ -292,7 +304,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">7 fevereiro 2024</p>
+      <p class="date">5 março 2024</p>
     </div>
   </div>
   
@@ -304,7 +316,11 @@ window.Quarto = {
 </header>
 
 
-<p><img src="img/markdown.png" class="img-fluid" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/markdown.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 <section id="introdução" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -313,214 +329,364 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Objetivos
+Objetivos deste Tutorial
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
-</div>
-</div>
-</section>
-<section id="markdown" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Markdown</h1>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-O que é Markdown?
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>Este tutorial apresenta os elementos essenciais do Markdown para a criação de documentos no sistema Quarto. Ao final, você será capaz de:</p>
 <ul>
-<li><p><strong>Linguagem de Markup Simples:</strong> Markdown é uma linguagem de marcação leve e fácil de aprender, usada para formatar texto. Ela converte texto simples em HTML, permitindo criar documentos formatados sem a complexidade do HTML.</p></li>
-<li><p><strong>Amplamente Utilizado:</strong> Markdown é utilizado em diversas plataformas, como Quarto, GitHub, Jupyter Notebooks, e em sites e blogs, para criar textos formatados de forma rápida e eficiente.</p></li>
-<li><p><strong>Compatibilidade:</strong> Os arquivos Markdown geralmente têm a extensão <code>.md</code> ou <code>.markdown</code> e podem ser visualizados em qualquer editor de texto ou convertidos em HTML e outros formatos.</p></li>
+<li>Criar documentos bem estruturados com Markdown</li>
+<li>Formatar textos com ênfases diferentes</li>
+<li>Inserir listas, links e imagens</li>
+<li>Incluir equações matemáticas simples</li>
+<li>Criar tabelas básicas</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="escrevendo-texto" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Escrevendo Texto</h1>
+<section id="o-que-é-markdown" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> O que é Markdown?</h1>
+<p>Markdown é uma linguagem de marcação leve, criada para converter texto simples em documentos formatados. Principais vantagens:</p>
+<ul>
+<li><strong>Simplicidade</strong>: Fácil de aprender e usar.</li>
+<li><strong>Foco no conteúdo</strong>: Concentre-se no que escreve, não em como formatar.</li>
+<li><strong>Flexibilidade</strong>: Funciona em diferentes plataformas.</li>
+<li><strong>Conversão</strong>: Gera documentos em diversos formatos (HTML, PDF, DOCX).</li>
+</ul>
+</section>
+<section id="elementos-básicos-do-markdown" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Elementos Básicos do Markdown</h1>
 <section id="cabeçalhos" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="cabeçalhos"><span class="header-section-number">3.1</span> Cabeçalhos</h2>
-<ul>
-<li><p>Use <code>#</code> para criar cabeçalhos. Adicione mais <code>#</code> para subníveis.</p></li>
-<li><p>Exemplo:</p></li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Título Principal</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Subtítulo</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sub-subtítulo</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Os cabeçalhos são criados usando o símbolo <code>#</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Título Principal (H1)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Subtítulo (H2)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Seção (H3)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Subseção (H4)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Tópico (H5)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">###### Subtópico (H6)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="ênfase" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="ênfase"><span class="header-section-number">3.2</span> Ênfase</h2>
-<ul>
-<li><p>Use <code>*</code> ou <code>_</code> para itálico e <code>**</code> ou <code>__</code> para negrito.</p></li>
-<li><p>Exemplo:</p></li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>*itálico* ou _itálico_</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**negrito** ou __negrito__</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><em>itálico</em> ou <em>itálico</em></li>
-<li><strong>negrito</strong> ou <strong>negrito</strong></li>
-</ul>
+<section id="parágrafos-e-formatação-de-texto" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="parágrafos-e-formatação-de-texto"><span class="header-section-number">3.2</span> Parágrafos e Formatação de Texto</h2>
+<p>Em Markdown, os parágrafos são criados através de linhas em branco. Para iniciar um novo parágrafo, basta deixar uma linha vazia entre<br>
+os blocos de texto.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Este é o primeiro parágrafo.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Este é o segundo parágrafo. Note a linha em branco entre eles.</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Resultado:</strong></p>
+<p>Este é o primeiro parágrafo.</p>
+<p>Este é o segundo parágrafo. Note a linha em branco entre eles.</p>
+<p>Para criar uma quebra de linha sem iniciar um novo parágrafo (quebra de linha simples), adicione dois espaços no final da linha ou use a tag HTML <code>&lt;br&gt;</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Esta linha termina com dois espaços  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>e continua aqui na próxima linha.</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Esta linha usa a tag HTML.&lt;br&gt;E continua aqui.</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Resultado:</strong></p>
+<p>Esta linha termina com dois espaços<br>
+e continua aqui na próxima linha.</p>
+<p>Esta linha usa a tag HTML.<br>E continua aqui.</p>
 </section>
-<section id="listas" class="level2 smaller" data-number="3.3">
-<h2 class="smaller anchored" data-number="3.3" data-anchor-id="listas"><span class="header-section-number">3.3</span> Listas</h2>
+<section id="formatação-de-texto" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="formatação-de-texto"><span class="header-section-number">3.3</span> Formatação de Texto</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>*Este texto será em itálico* e _este também_</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>**Este texto será em negrito** e __este também__</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>***Este texto será em negrito e itálico***</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>~~Este texto aparecerá riscado~~</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="in">`código inline`</span> (útil para comandos, variáveis ou termos técnicos)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Resultado:</strong></p>
+<p><em>Este texto será em itálico</em> e <em>este também</em></p>
+<p><strong>Este texto será em negrito</strong> e <strong>este também</strong></p>
+<p><strong><em>Este texto será em negrito e itálico</em></strong></p>
+<p><del>Este texto aparecerá tachado</del></p>
+<p><code>código inline</code> (útil para comandos, variáveis ou termos técnicos)</p>
+</section>
+<section id="listas" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="listas"><span class="header-section-number">3.4</span> Listas</h2>
+<section id="listas-não-ordenadas" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="listas-não-ordenadas"><span class="header-section-number">3.4.1</span> Listas Não-Ordenadas</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Primeiro item</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo item</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Subitem 2.1</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Subitem 2.2</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Terceiro item</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
 <ul>
-<li><strong>Listas Ordenadas:</strong> Use números seguidos de um ponto.</li>
-</ul>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Primeiro item</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Segundo item</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol type="1">
 <li>Primeiro item</li>
-<li>Segundo item</li>
-</ol>
+<li>Segundo item
 <ul>
-<li><strong>Listas Não Ordenadas:</strong> Use <code>-</code>, <code>*</code> ou <code>+</code>.</li>
+<li>Subitem 2.1</li>
+<li>Subitem 2.2</li>
+</ul></li>
+<li>Terceiro item</li>
 </ul>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Item não ordenado</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Outro item não ordenado</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Item não ordenado</li>
-<li>Outro item não ordenado</li>
+<p>Alternativas: asteriscos (*) e (+) também podem ser usados para criar listas não ordenadas.</p>
+</section>
+<section id="listas-ordenadas" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="listas-ordenadas"><span class="header-section-number">3.4.2</span> Listas Ordenadas</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Primeiro passo</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Segundo passo</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">   1. </span>Subtarefa 2.1</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">   2. </span>Subtarefa 2.2</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Terceiro passo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
+<ol type="1">
+<li>Primeiro passo</li>
+<li>Segundo passo
+<ol type="1">
+<li>Subtarefa 2.1</li>
+<li>Subtarefa 2.2</li>
+</ol></li>
+<li>Terceiro passo</li>
+</ol>
+</section>
+<section id="listas-de-tarefas" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="listas-de-tarefas"><span class="header-section-number">3.4.3</span> Listas de Tarefas</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Tarefa concluída</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Tarefa pendente</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Tarefa a fazer</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Tarefa concluída</label></li>
+<li><label><input type="checkbox">Tarefa pendente</label></li>
+<li><label><input type="checkbox">Tarefa a fazer</label></li>
 </ul>
 </section>
-<section id="escrevendo-matemática-com-latex" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="escrevendo-matemática-com-latex"><span class="header-section-number">3.4</span> Escrevendo Matemática com LaTeX</h2>
-<ul>
-<li><strong>Expressões Inline</strong></li>
-</ul>
-<p>Para expressões matemáticas inline, use delimitadores $ … $.</p>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Se o fluxo de caixa no primeiro ano for $FC_1 = 1000$, a taxa de desconto </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>for $r = 10\%$, e o investimento inicial for $I_0 = 5000$, o VPL pode ser </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>calculado como $VPL = \frac{1000}{(1 + 0.1)^1} - 5000$.</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Que produz:</p>
-<ul>
-<li><p>Se o fluxo de caixa no primeiro ano for <span class="math inline">FC_1 = 1000</span>, a taxa de desconto for <span class="math inline">r = 10\%</span>, e o investimento inicial for <span class="math inline">I_0 = 5000</span>, o VPL pode ser calculado como <span class="math inline">VPL = \frac{1000}{(1 + 0.1)^1} - 5000</span>.</p></li>
-<li><p><strong>Blocos de código LaTeX:</strong></p></li>
-</ul>
-<p>Para escrever uma ou mais equações e outros objetos matemáticas isoladamente, use delimitadores <code>$$ ... $$</code> para expressões matemáticas em bloco.</p>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>VPL = \sum_{t=0}^{n} \frac{FC_t}{(1 + r)^t} - I_0</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Que produz:</p>
+</section>
+<section id="links" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="links"><span class="header-section-number">3.5</span> Links</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Texto do link</span><span class="co">](https://www.exemplo.com)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Exemplo:</strong></p>
+<p><a href="https://www.formiga.ifmg.edu.br">IFMG - Campus Formiga</a></p>
+</section>
+<section id="imagens" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="imagens"><span class="header-section-number">3.6</span> Imagens</h2>
+<p>Para incluir imagens externas em seus documentos:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Texto alternativo](img/imagem.jpg)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>No Quarto, você pode adicionar atributos como largura e alinhamento:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](imagens/foto.jpg)</span>{width=60% fig-align="center"}</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="escrevendo-matemática-com-latex" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Escrevendo matemática com LaTeX</h1>
+<section id="expressões-matemáticas-inline" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="expressões-matemáticas-inline"><span class="header-section-number">4.1</span> Expressões Matemáticas Inline</h2>
+<p>Use <code>$...$</code> para inserir expressões matemáticas LaTeX em linha com o texto:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A fórmula da área do círculo é $A = \pi r^2$, onde $r$ é o raio.</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
+<p>A fórmula da área do círculo é <span class="math inline">A = \pi r^2</span>, onde <span class="math inline">r</span> é o raio.</p>
+</section>
+<section id="blocos-de-equações" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="blocos-de-equações"><span class="header-section-number">4.2</span> Blocos de Equações</h2>
+<p>Use <code>$$...$$</code> para equações em destaque:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="an">A equação quadrática e sua solução:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ax^2 + bx + c = 0</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
+<p>A equação quadrática e sua solução:</p>
 <p><span class="math display">
-VPL = \sum_{t=0}^{n} \frac{FC_t}{(1 + r)^t} - I_0
+ax^2 + bx + c = 0
+</span></p>
+<p><span class="math display">
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 </span></p>
 </section>
-<section id="inserindo-links-e-imagens-em-markdown" class="level2 smaller" data-number="3.5">
-<h2 class="smaller anchored" data-number="3.5" data-anchor-id="inserindo-links-e-imagens-em-markdown"><span class="header-section-number">3.5</span> Inserindo Links e Imagens em Markdown</h2>
-<ul>
-<li><strong>Links:</strong></li>
-</ul>
-<p>Use <code>[texto do link](URL)</code> para criar links.</p>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Visite o Google</span><span class="co">](https://www.google.com)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><strong>Imagens:</strong></li>
-</ul>
-<p>Use <code>![Texto da Imagem](caminho ou URL da imagem)</code> para inserir imagens.</p>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Texto da Imagem](imagens/teste.png)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exemplos-de-expressões-matemáticas-úteis" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="exemplos-de-expressões-matemáticas-úteis"><span class="header-section-number">4.3</span> Exemplos de Expressões Matemáticas Úteis</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="an">Frações:</span><span class="co"> </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>\frac{numerador}{denominador}$</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>Somatório: </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>\sum_{i=1}^{n} x_i</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>Produtório: </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>\prod_{i=1}^{n} x_i</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>Integral: </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>\int_{a}^{b} f(x) dx</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>Limite: </span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>\lim_{x \to \infty} f(x)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Resultado:</strong></p>
+<p>Frações:</p>
+<p><span class="math display">
+\frac{numerador}{denominador}
+</span></p>
+<p>Somatório:</p>
+<p><span class="math display">
+\sum_{i=1}^{n} x_i
+</span></p>
+<p>Produtório:</p>
+<p><span class="math display">
+\prod_{i=1}^{n} x_i
+</span></p>
+<p>Integral:</p>
+<p><span class="math display">
+\int_{a}^{b} f(x) dx
+</span></p>
+<p>Limite:</p>
+<p><span class="math display">
+\lim_{x \to \infty} f(x)
+</span></p>
 </section>
-<section id="escrevendo-código" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="escrevendo-código"><span class="header-section-number">3.6</span> Escrevendo código</h2>
-<ul>
-<li><p><strong>Blocos de Código:</strong></p></li>
-<li><p>Use crases triplas para criar blocos de código.</p></li>
-<li><p>Especifique a linguagem de programação para destaque de sintaxe.</p></li>
-<li><p>Exemplo:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in"># Um exemplo simples de código R</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(1, 2, 3, 4, 5)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">y &lt;- 2 * x + rnorm(5, 0, 0.5)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">plot(x, y, </span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">     main = "Gráfico de Dispersão Simples", </span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">     xlab = "Valores de X", </span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="in">     ylab = "Valores de Y"</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="in">     )</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="citações" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="citações"><span class="header-section-number">3.7</span> Citações</h2>
-<p>Use <code>&gt;</code> para criar citações.</p>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Esta é uma citação em Markdown.</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>Esta é uma citação em Markdown.</p>
-</blockquote>
-</section>
-<section id="tabelas-em-markdown" class="level2 smaller" data-number="3.8">
-<h2 class="smaller anchored" data-number="3.8" data-anchor-id="tabelas-em-markdown"><span class="header-section-number">3.8</span> Tabelas em Markdown</h2>
-<p>Raramente crio tabelas manualmente com <code>-</code> e <code>|</code>. Você pode criar tabelas muito bem formatadas a partir de arquivos de dados usando as linguagens R ou Python.</p>
-<p>Entretanto, eventualmente, é necessário e eficiente criar uma tabela markdown manualmente ou utilizando um dos vários serviços online gratuitos que auxiliam a criacão de tabelas markdown.</p>
-<ul>
-<li><strong>Criando Tabelas:</strong></li>
-</ul>
-<p>Use <code>|</code> para separar colunas e <code>-</code> para criar a linha de cabeçalho.</p>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>| Coluna 1 | Coluna 2 | Coluna 3 |</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>|----------|----------|----------|</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>| Linha 1  | Valor 1  | Valor 2  |</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>| Linha 2  | Valor 3  | Valor 4  |</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="tabelas" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="tabelas"><span class="header-section-number">4.4</span> Tabelas</h2>
+<p>Tabelas em Markdown são criadas usando barras verticais e hífens:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>| Produto   | Preço (R$) | Estoque |</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>|-----------|------------|---------|</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>| Produto A | 25,90      | 42      |</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>| Produto B | 15,50      | 38      |</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>| Produto C | 32,80      | 12      |</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Coluna 1</th>
-<th>Coluna 2</th>
-<th>Coluna 3</th>
+<th>Produto</th>
+<th>Preço (R$)</th>
+<th>Estoque</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Linha 1</td>
-<td>Valor 1</td>
-<td>Valor 2</td>
+<td>Produto A</td>
+<td>25,90</td>
+<td>42</td>
 </tr>
 <tr class="even">
-<td>Linha 2</td>
-<td>Valor 3</td>
-<td>Valor 4</td>
+<td>Produto B</td>
+<td>15,50</td>
+<td>38</td>
 </tr>
-</tbody>
-</table>
-<ul>
-<li><strong>Alinhamento de Texto:</strong></li>
-</ul>
-<p>Use <code>:</code> para alinhar texto à esquerda, centro ou direita.</p>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>| Esquerda | Centro  | Direita |</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>|:--------|:-------:|--------:|</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>| Texto   | Texto   | Texto   |</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Esquerda</th>
-<th style="text-align: center;">Centro</th>
-<th style="text-align: right;">Direita</th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td style="text-align: left;">Texto</td>
-<td style="text-align: center;">Texto</td>
-<td style="text-align: right;">Texto</td>
+<td>Produto C</td>
+<td>32,80</td>
+<td>12</td>
 </tr>
 </tbody>
 </table>
-
-
+<p>Alinhamento nas colunas:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>| Produto   | Preço (R$) | Estoque |</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>|:----------|:----------:|---------:|</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>| Esquerda  | Centro     | Direita  |</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="citações-em-bloco" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="citações-em-bloco"><span class="header-section-number">4.5</span> Citações em Bloco</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Esta é uma citação em bloco.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Continua na próxima linha.</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Este é um novo parágrafo na mesma citação.</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
+<blockquote class="blockquote">
+<p>Esta é uma citação em bloco. Continua na próxima linha.</p>
+<p>Este é um novo parágrafo na mesma citação.</p>
+</blockquote>
+</section>
+</section>
+<section id="elementos-especiais-do-sistema-quarto" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Elementos Especiais do Sistema Quarto</h1>
+<section id="callouts-caixas-de-destaque" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="callouts-caixas-de-destaque"><span class="header-section-number">5.1</span> Callouts (Caixas de Destaque)</h2>
+<p>O Quarto oferece caixas para destacar informações.</p>
+<p>Esses recursos funcionam perfeitamente para arquivos html e funcionam, mas não tão perfeitamente, em arquivos pdf produzidos pelo Typst.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nota</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Uma informação importante a considerar.</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dica</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>Uma sugestão para melhorar seu documento.</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Atenção</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>Um aviso para tomar cuidado.</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Resultado:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma informação importante a considerar.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma sugestão para melhorar seu documento.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Atenção
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um aviso para tomar cuidado.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="dicas-práticas" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Dicas Práticas</h1>
+<ol type="1">
+<li><strong>Seja consistente</strong> na estrutura e formatação.</li>
+<li><strong>Divida o conteúdo</strong> em seções lógicas.</li>
+<li><strong>Use cabeçalhos</strong> para criar uma hierarquia clara.</li>
+<li><strong>Revise</strong> a visualização do documento regularmente.</li>
+<li><strong>Mantenha imagens</strong> em uma pasta separada (img) e organizada.</li>
+<li><strong>Aprenda gradualmente</strong> - comece com os elementos básicos.</li>
+</ol>
+</section>
+<section id="conclusão" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Conclusão</h1>
+<p>Markdown é uma linguagem simples e poderosa para criar documentos no sistema Quarto. Com este tutorial básico, você já pode começar a escrever documentos bem formatados, adicionando posteriormente elementos mais avançados conforme sua necessidade e familiaridade com a linguagem e com o sistema Quarto.</p>
+
+
 </section>
 
 </main> <!-- /main -->

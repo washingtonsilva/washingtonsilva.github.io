@@ -1,286 +1,458 @@
 ---
-title: "Markdown"
+title: "Markdown: Elementos Essenciais para Documentos do Sistema Quarto"
 description: | 
-  Uma introducão à linguagem de marcação de texto markdown, que é um componente importante do sistema de publicação Quarto.
+  Um guia simples da linguagem de marcação Markdown para elaboração de documentos no sistema Quarto.
 lang: "pt"
-date: "2024-02-07"
+date: "2024-03-05"
 toc: true
 number-sections: true
-toc-depth: 2
+toc-depth: 3
 toc-location: left
 author:
   - name: Prof. Dr. Washington S. da Silva 
     affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
     affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
-crossref:
-  fig-title: '**Fig.**'
-  fig-labels: arabic
-execute: 
-  warning: false
-  message: false
-bibliography: referencias.bibtex
-csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
-categories: [controle de versão, git, gitHub]
 ---
 
-
-![](img/markdown.png){width=80%}
+![](img/markdown.png){width=80% fig-align="center"}
 
 
 
 # Introdução
 
-
 ::: {.callout-note icon="false"}
-## Objetivos
+## Objetivos deste Tutorial
 
+Este tutorial apresenta os elementos essenciais do Markdown para a 
+criação de documentos no sistema Quarto. Ao final, você será capaz de:
 
+- Criar documentos bem estruturados com Markdown
+- Formatar textos com ênfases diferentes
+- Inserir listas, links e imagens
+- Incluir equações matemáticas simples
+- Criar tabelas básicas
 :::
 
 
 
 
-# Markdown
 
+# O que é Markdown?
 
-::: {.callout-note icon="false"}
-## O que é Markdown?
+Markdown é uma linguagem de marcação leve, criada para converter texto 
+simples em documentos formatados. Principais vantagens:
 
-- **Linguagem de Markup Simples:** Markdown é uma linguagem de marcação 
-leve e fácil de aprender, usada para formatar texto. Ela converte texto 
-simples em HTML, permitindo criar documentos formatados sem a complexidade 
-do HTML.
-
-- **Amplamente Utilizado:** Markdown é utilizado em diversas plataformas, 
-como Quarto, GitHub, Jupyter Notebooks, e em sites e blogs, para criar textos 
-formatados de forma rápida e eficiente.
-
-- **Compatibilidade:** Os arquivos Markdown geralmente têm a extensão 
-`.md` ou `.markdown` e podem ser visualizados em qualquer editor de texto 
-ou convertidos em HTML e outros formatos.
-:::
+- **Simplicidade**: Fácil de aprender e usar.
+- **Foco no conteúdo**: Concentre-se no que escreve, não em como formatar.
+- **Flexibilidade**: Funciona em diferentes plataformas.
+- **Conversão**: Gera documentos em diversos formatos (HTML, PDF, DOCX).
 
 
 
 
-# Escrevendo Texto
+
+# Elementos Básicos do Markdown
+
 
 ## Cabeçalhos
 
-- Use `#` para criar cabeçalhos. Adicione mais `#` para subníveis.
-
-- Exemplo:
+Os cabeçalhos são criados usando o símbolo `#`:
 
 ```markdown
-# Título Principal
-## Subtítulo
-### Sub-subtítulo
+# Título Principal (H1)
+## Subtítulo (H2)
+### Seção (H3)
+#### Subseção (H4)
+##### Tópico (H5)
+###### Subtópico (H6)
 ```
 
 
 
-## Ênfase
+## Parágrafos e Formatação de Texto
 
-- Use `*` ou `_` para itálico e `**` ou `__` para negrito.
-
-- Exemplo:
+Em Markdown, os parágrafos são criados através de linhas em branco. 
+Para iniciar um novo parágrafo, basta deixar uma linha vazia entre \
+os blocos de texto.
 
 ```markdown
-- *itálico* ou _itálico_
-- **negrito** ou __negrito__
+Este é o primeiro parágrafo.
+
+Este é o segundo parágrafo. Note a linha em branco entre eles.
 ```
 
-- *itálico* ou _itálico_
-- **negrito** ou __negrito__
+**Resultado:** 
+
+Este é o primeiro parágrafo.
+
+Este é o segundo parágrafo. Note a linha em branco entre eles.
 
 
-
-## Listas {.smaller}
-
-- **Listas Ordenadas:** Use números seguidos de um ponto.
-
-Exemplo:
+Para criar uma quebra de linha sem iniciar um novo parágrafo 
+(quebra de linha simples), adicione dois espaços no final da 
+linha ou use a tag HTML `<br>`.
 
 ```markdown
-1. Primeiro item
-2. Segundo item
+Esta linha termina com dois espaços  
+e continua aqui na próxima linha.
+
+Esta linha usa a tag HTML.<br>E continua aqui.
 ```
 
-1. Primeiro item
-2. Segundo item
-  
-- **Listas Não Ordenadas:** Use `-`, `*` ou `+`.
+**Resultado:**
 
-Exemplo:
+Esta linha termina com dois espaços  
+e continua aqui na próxima linha.
+
+Esta linha usa a tag HTML.<br>E continua aqui.
+
+
+
+## Formatação de Texto
 
 ```markdown
-- Item não ordenado
-* Outro item não ordenado
+*Este texto será em itálico* e _este também_
+
+**Este texto será em negrito** e __este também__
+
+***Este texto será em negrito e itálico***
+
+~~Este texto aparecerá riscado~~
+
+`código inline` (útil para comandos, variáveis ou termos técnicos)
 ```
 
-- Item não ordenado
-* Outro item não ordenado
+**Resultado:**
+
+*Este texto será em itálico* e _este também_
+
+**Este texto será em negrito** e __este também__
+
+***Este texto será em negrito e itálico***
+
+~~Este texto aparecerá tachado~~
+
+`código inline` (útil para comandos, variáveis ou termos técnicos)
 
 
 
-## Escrevendo Matemática com LaTeX 
+## Listas
 
-- **Expressões Inline**
-
-Para expressões matemáticas inline, use delimitadores $ ... $.
-
-Exemplo:
+### Listas Não-Ordenadas
 
 ```markdown
-Se o fluxo de caixa no primeiro ano for $FC_1 = 1000$, a taxa de desconto 
-for $r = 10\%$, e o investimento inicial for $I_0 = 5000$, o VPL pode ser 
-calculado como $VPL = \frac{1000}{(1 + 0.1)^1} - 5000$.
+- Primeiro item
+- Segundo item
+  - Subitem 2.1
+  - Subitem 2.2
+- Terceiro item
 ```
 
-Que produz:
+Resultado:
 
-- Se o fluxo de caixa no primeiro ano for $FC_1 = 1000$, a taxa de desconto 
-for $r = 10\%$, e o investimento inicial for $I_0 = 5000$, o VPL pode ser 
-calculado como $VPL = \frac{1000}{(1 + 0.1)^1} - 5000$.
+- Primeiro item
+- Segundo item
+  - Subitem 2.1
+  - Subitem 2.2
+- Terceiro item
+
+Alternativas: asteriscos (*) e (+) também podem ser usados 
+para criar listas não ordenadas.
 
 
-- **Blocos de código LaTeX:** 
 
-Para escrever uma ou mais equações e outros objetos matemáticas 
-isoladamente, use delimitadores `$$ ... $$` para expressões matemáticas 
-em bloco.
-
-Exemplo: 
+### Listas Ordenadas
 
 ```markdown
+1. Primeiro passo
+2. Segundo passo
+   1. Subtarefa 2.1
+   2. Subtarefa 2.2
+3. Terceiro passo
+```
+
+Resultado:
+
+1. Primeiro passo
+2. Segundo passo
+   1. Subtarefa 2.1
+   2. Subtarefa 2.2
+3. Terceiro passo
+
+### Listas de Tarefas
+
+```markdown
+- [x] Tarefa concluída
+- [ ] Tarefa pendente
+- [ ] Tarefa a fazer
+```
+
+Resultado:
+
+- [x] Tarefa concluída
+- [ ] Tarefa pendente
+- [ ] Tarefa a fazer
+
+
+
+
+## Links
+
+```markdown
+[Texto do link](https://www.exemplo.com)
+```
+
+**Exemplo:**
+
+[IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br)
+
+
+
+
+
+## Imagens
+
+Para incluir imagens externas em seus documentos:
+
+```markdown
+![Texto alternativo](img/imagem.jpg)
+```
+
+No Quarto, você pode adicionar atributos como largura e alinhamento:
+
+```markdown
+![](imagens/foto.jpg){width=60% fig-align="center"}
+```
+
+
+
+
+# Escrevendo matemática com LaTeX
+
+## Expressões Matemáticas Inline
+
+Use `$...$` para inserir expressões matemáticas LaTeX em linha 
+com o texto:
+
+```markdown
+A fórmula da área do círculo é $A = \pi r^2$, onde $r$ é o raio.
+```
+
+Resultado:
+
+A fórmula da área do círculo é $A = \pi r^2$, onde $r$ é o raio.
+
+
+## Blocos de Equações
+
+Use `$$...$$` para equações em destaque:
+
+```markdown
+A equação quadrática e sua solução:
+
 $$
-VPL = \sum_{t=0}^{n} \frac{FC_t}{(1 + r)^t} - I_0
+ax^2 + bx + c = 0
+$$
+
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 $$
 ```
 
-Que produz:
+Resultado:
+
+A equação quadrática e sua solução:
 
 $$
-VPL = \sum_{t=0}^{n} \frac{FC_t}{(1 + r)^t} - I_0
+ax^2 + bx + c = 0
 $$
 
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
 
-
-
-## Inserindo Links e Imagens em Markdown {.smaller}
-
-- **Links:**
-
-Use `[texto do link](URL)` para criar links.
-
-Exemplo:
+## Exemplos de Expressões Matemáticas Úteis
 
 ```markdown
-[Visite o Google](https://www.google.com)
+Frações: 
+
+$$
+\frac{numerador}{denominador}$
+$$
+
+Somatório: 
+
+$$
+\sum_{i=1}^{n} x_i
+$$
+
+Produtório: 
+
+$$
+\prod_{i=1}^{n} x_i
+$$
+
+Integral: 
+
+$$
+\int_{a}^{b} f(x) dx
+$$
+
+Limite: 
+
+$$
+\lim_{x \to \infty} f(x)
+$$
 ```
 
-- **Imagens:**
+**Resultado:**
 
-Use `![Texto da Imagem](caminho ou URL da imagem)` para inserir imagens.
+Frações: 
 
-Exemplo:
+$$
+\frac{numerador}{denominador}
+$$
+
+Somatório: 
+
+$$
+\sum_{i=1}^{n} x_i
+$$
+
+Produtório: 
+
+$$
+\prod_{i=1}^{n} x_i
+$$
+
+Integral: 
+
+$$
+\int_{a}^{b} f(x) dx
+$$
+
+Limite: 
+
+$$
+\lim_{x \to \infty} f(x)
+$$
+
+## Tabelas
+
+Tabelas em Markdown são criadas usando barras verticais e hífens:
 
 ```markdown
-![Texto da Imagem](imagens/teste.png)
+| Produto   | Preço (R$) | Estoque |
+|-----------|------------|---------|
+| Produto A | 25,90      | 42      |
+| Produto B | 15,50      | 38      |
+| Produto C | 32,80      | 12      |
 ```
 
+Resultado:
 
+| Produto   | Preço (R$) | Estoque |
+|-----------|------------|---------|
+| Produto A | 25,90      | 42      |
+| Produto B | 15,50      | 38      |
+| Produto C | 32,80      | 12      |
 
-## Escrevendo código
-
-- **Blocos de Código:**
-
-- Use crases triplas para criar blocos de código.
-
-- Especifique a linguagem de programação para destaque de sintaxe.
-
-- Exemplo:
-
-```{r}
-#| eval: false
-#| echo: fenced
-# Um exemplo simples de código R
-x <- c(1, 2, 3, 4, 5)
-y <- 2 * x + rnorm(5, 0, 0.5)
-plot(x, y, 
-     main = "Gráfico de Dispersão Simples", 
-     xlab = "Valores de X", 
-     ylab = "Valores de Y"
-     )
-```
-
-
-## Citações
-
-Use `>` para criar citações.
-
-Exemplo:
+Alinhamento nas colunas:
 
 ```markdown
-> Esta é uma citação em Markdown.
+| Produto   | Preço (R$) | Estoque |
+|:----------|:----------:|---------:|
+| Esquerda  | Centro     | Direita  |
 ```
 
-> Esta é uma citação em Markdown.
 
-
-
-## Tabelas em Markdown {.smaller}
-
-Raramente crio tabelas manualmente com `-` e `|`. Você pode criar tabelas 
-muito bem formatadas a partir de arquivos de dados usando 
-as linguagens R ou Python.
-
-Entretanto, eventualmente, é necessário e eficiente criar uma 
-tabela markdown manualmente ou utilizando um dos vários 
-serviços online gratuitos que auxiliam a criacão de tabelas 
-markdown.
-
-
-- **Criando Tabelas:**
-
-Use `|` para separar colunas e `-` para criar a linha de cabeçalho.
-
-Exemplo:
+## Citações em Bloco
 
 ```markdown
-| Coluna 1 | Coluna 2 | Coluna 3 |
-|----------|----------|----------|
-| Linha 1  | Valor 1  | Valor 2  |
-| Linha 2  | Valor 3  | Valor 4  |
+> Esta é uma citação em bloco.
+> Continua na próxima linha.
+>
+> Este é um novo parágrafo na mesma citação.
 ```
 
-| Coluna 1 | Coluna 2 | Coluna 3 |
-|----------|----------|----------|
-| Linha 1  | Valor 1  | Valor 2  |
-| Linha 2  | Valor 3  | Valor 4  |
+Resultado:
 
-- **Alinhamento de Texto:**
+> Esta é uma citação em bloco.
+> Continua na próxima linha.
+>
+> Este é um novo parágrafo na mesma citação.
 
- Use `:` para alinhar texto à esquerda, centro ou direita.
 
-Exemplo:
+
+
+
+# Elementos Especiais do Sistema Quarto
+
+## Callouts (Caixas de Destaque)
+
+O Quarto oferece caixas para destacar informações. 
+
+Esses recursos funcionam perfeitamente para arquivos html e funcionam, 
+mas não tão perfeitamente, em arquivos pdf produzidos pelo Typst.
 
 ```markdown
-| Esquerda | Centro  | Direita |
-|:--------|:-------:|--------:|
-| Texto   | Texto   | Texto   |
+::: {.callout-note}
+## Nota
+
+Uma informação importante a considerar.
+:::
+
+::: {.callout-tip}
+## Dica
+
+Uma sugestão para melhorar seu documento.
+:::
+
+::: {.callout-warning}
+## Atenção
+
+Um aviso para tomar cuidado.
+:::
 ```
 
-| Esquerda | Centro  | Direita |
-|:--------|:-------:|--------:|
-| Texto   | Texto   | Texto   |
+
+Resultado: 
+
+::: {.callout-note}
+## Nota
+
+Uma informação importante a considerar.
+:::
+
+::: {.callout-tip}
+## Dica
+
+Uma sugestão para melhorar seu documento.
+:::
+
+::: {.callout-warning}
+## Atenção
+
+Um aviso para tomar cuidado.
+:::
 
 
 
+# Dicas Práticas
+
+1. **Seja consistente** na estrutura e formatação.
+2. **Divida o conteúdo** em seções lógicas.
+3. **Use cabeçalhos** para criar uma hierarquia clara.
+4. **Revise** a visualização do documento regularmente.
+5. **Mantenha imagens** em uma pasta separada (img) e organizada.
+6. **Aprenda gradualmente** - comece com os elementos básicos.
 
 
 
+# Conclusão
 
-
-
-
+Markdown é uma linguagem simples e poderosa para criar documentos 
+no sistema Quarto. Com este tutorial básico, você já pode começar a 
+escrever documentos bem formatados, adicionando posteriormente elementos 
+mais avançados conforme sua necessidade e familiaridade com a linguagem e 
+com o sistema Quarto.
