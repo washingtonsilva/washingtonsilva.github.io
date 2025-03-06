@@ -1,0 +1,286 @@
+---
+title: "Markdown"
+description: | 
+  Uma introducão à linguagem de marcação de texto markdown, que é um componente importante do sistema de publicação Quarto.
+lang: "pt"
+date: "2024-02-07"
+toc: true
+number-sections: true
+toc-depth: 2
+toc-location: left
+author:
+  - name: Prof. Dr. Washington S. da Silva 
+    affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
+    affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
+crossref:
+  fig-title: '**Fig.**'
+  fig-labels: arabic
+execute: 
+  warning: false
+  message: false
+bibliography: referencias.bibtex
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+categories: [controle de versão, git, gitHub]
+---
+
+
+![](img/markdown.png){width=80%}
+
+
+
+# Introdução
+
+
+::: {.callout-note icon="false"}
+## Objetivos
+
+
+:::
+
+
+
+
+# Markdown
+
+
+::: {.callout-note icon="false"}
+## O que é Markdown?
+
+- **Linguagem de Markup Simples:** Markdown é uma linguagem de marcação 
+leve e fácil de aprender, usada para formatar texto. Ela converte texto 
+simples em HTML, permitindo criar documentos formatados sem a complexidade 
+do HTML.
+
+- **Amplamente Utilizado:** Markdown é utilizado em diversas plataformas, 
+como Quarto, GitHub, Jupyter Notebooks, e em sites e blogs, para criar textos 
+formatados de forma rápida e eficiente.
+
+- **Compatibilidade:** Os arquivos Markdown geralmente têm a extensão 
+`.md` ou `.markdown` e podem ser visualizados em qualquer editor de texto 
+ou convertidos em HTML e outros formatos.
+:::
+
+
+
+
+# Escrevendo Texto
+
+## Cabeçalhos
+
+- Use `#` para criar cabeçalhos. Adicione mais `#` para subníveis.
+
+- Exemplo:
+
+```markdown
+# Título Principal
+## Subtítulo
+### Sub-subtítulo
+```
+
+
+
+## Ênfase
+
+- Use `*` ou `_` para itálico e `**` ou `__` para negrito.
+
+- Exemplo:
+
+```markdown
+- *itálico* ou _itálico_
+- **negrito** ou __negrito__
+```
+
+- *itálico* ou _itálico_
+- **negrito** ou __negrito__
+
+
+
+## Listas {.smaller}
+
+- **Listas Ordenadas:** Use números seguidos de um ponto.
+
+Exemplo:
+
+```markdown
+1. Primeiro item
+2. Segundo item
+```
+
+1. Primeiro item
+2. Segundo item
+  
+- **Listas Não Ordenadas:** Use `-`, `*` ou `+`.
+
+Exemplo:
+
+```markdown
+- Item não ordenado
+* Outro item não ordenado
+```
+
+- Item não ordenado
+* Outro item não ordenado
+
+
+
+## Escrevendo Matemática com LaTeX 
+
+- **Expressões Inline**
+
+Para expressões matemáticas inline, use delimitadores $ ... $.
+
+Exemplo:
+
+```markdown
+Se o fluxo de caixa no primeiro ano for $FC_1 = 1000$, a taxa de desconto 
+for $r = 10\%$, e o investimento inicial for $I_0 = 5000$, o VPL pode ser 
+calculado como $VPL = \frac{1000}{(1 + 0.1)^1} - 5000$.
+```
+
+Que produz:
+
+- Se o fluxo de caixa no primeiro ano for $FC_1 = 1000$, a taxa de desconto 
+for $r = 10\%$, e o investimento inicial for $I_0 = 5000$, o VPL pode ser 
+calculado como $VPL = \frac{1000}{(1 + 0.1)^1} - 5000$.
+
+
+- **Blocos de código LaTeX:** 
+
+Para escrever uma ou mais equações e outros objetos matemáticas 
+isoladamente, use delimitadores `$$ ... $$` para expressões matemáticas 
+em bloco.
+
+Exemplo: 
+
+```markdown
+$$
+VPL = \sum_{t=0}^{n} \frac{FC_t}{(1 + r)^t} - I_0
+$$
+```
+
+Que produz:
+
+$$
+VPL = \sum_{t=0}^{n} \frac{FC_t}{(1 + r)^t} - I_0
+$$
+
+
+
+
+## Inserindo Links e Imagens em Markdown {.smaller}
+
+- **Links:**
+
+Use `[texto do link](URL)` para criar links.
+
+Exemplo:
+
+```markdown
+[Visite o Google](https://www.google.com)
+```
+
+- **Imagens:**
+
+Use `![Texto da Imagem](caminho ou URL da imagem)` para inserir imagens.
+
+Exemplo:
+
+```markdown
+![Texto da Imagem](imagens/teste.png)
+```
+
+
+
+## Escrevendo código
+
+- **Blocos de Código:**
+
+- Use crases triplas para criar blocos de código.
+
+- Especifique a linguagem de programação para destaque de sintaxe.
+
+- Exemplo:
+
+```{r}
+#| eval: false
+#| echo: fenced
+# Um exemplo simples de código R
+x <- c(1, 2, 3, 4, 5)
+y <- 2 * x + rnorm(5, 0, 0.5)
+plot(x, y, 
+     main = "Gráfico de Dispersão Simples", 
+     xlab = "Valores de X", 
+     ylab = "Valores de Y"
+     )
+```
+
+
+## Citações
+
+Use `>` para criar citações.
+
+Exemplo:
+
+```markdown
+> Esta é uma citação em Markdown.
+```
+
+> Esta é uma citação em Markdown.
+
+
+
+## Tabelas em Markdown {.smaller}
+
+Raramente crio tabelas manualmente com `-` e `|`. Você pode criar tabelas 
+muito bem formatadas a partir de arquivos de dados usando 
+as linguagens R ou Python.
+
+Entretanto, eventualmente, é necessário e eficiente criar uma 
+tabela markdown manualmente ou utilizando um dos vários 
+serviços online gratuitos que auxiliam a criacão de tabelas 
+markdown.
+
+
+- **Criando Tabelas:**
+
+Use `|` para separar colunas e `-` para criar a linha de cabeçalho.
+
+Exemplo:
+
+```markdown
+| Coluna 1 | Coluna 2 | Coluna 3 |
+|----------|----------|----------|
+| Linha 1  | Valor 1  | Valor 2  |
+| Linha 2  | Valor 3  | Valor 4  |
+```
+
+| Coluna 1 | Coluna 2 | Coluna 3 |
+|----------|----------|----------|
+| Linha 1  | Valor 1  | Valor 2  |
+| Linha 2  | Valor 3  | Valor 4  |
+
+- **Alinhamento de Texto:**
+
+ Use `:` para alinhar texto à esquerda, centro ou direita.
+
+Exemplo:
+
+```markdown
+| Esquerda | Centro  | Direita |
+|:--------|:-------:|--------:|
+| Texto   | Texto   | Texto   |
+```
+
+| Esquerda | Centro  | Direita |
+|:--------|:-------:|--------:|
+| Texto   | Texto   | Texto   |
+
+
+
+
+
+
+
+
+
+
