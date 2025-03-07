@@ -3,7 +3,7 @@ author: Washington Santos da Silva, Bruno César de Melo Moreira, Raquel Apareci
 date: 2024-06-22
 title: "Efeito de cotas para ingresso e de fatores socioeconômicos sobre o desempenho acadêmico de estudantes em um curso técnico integrado: um estudo de caso"
 details: <em>Revista Eletrônica de Educação</em>, 18(1)
-doi: https://www.reveduc.ufscar.br/index.php/reveduc/article/view/4502
+link: https://www.reveduc.ufscar.br/index.php/reveduc/article/view/4502
 ---
 
 Abstract
