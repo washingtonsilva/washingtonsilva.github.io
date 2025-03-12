@@ -72,7 +72,7 @@ Os cabeçalhos são criados usando o símbolo `#`:
 ## Parágrafos e Formatação de Texto
 
 Em Markdown, os parágrafos são criados através de linhas em branco. 
-Para iniciar um novo parágrafo, basta deixar uma linha vazia entre \
+Para iniciar um novo parágrafo, basta deixar uma linha vazia entre 
 os blocos de texto.
 
 ```markdown
