@@ -1,0 +1,506 @@
+---
+title: "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R"
+description: | 
+  Um tutorial básico sobre o RStudio, um ambiente de desenvolvimento integrado simples e eficiente para a linguagem R.
+lang: "pt"
+date: "2024-01-07"
+toc: true
+number-sections: true
+toc-depth: 2
+toc-location: left
+author:
+  - name: Prof. Dr. Washington S. da Silva 
+    affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
+    affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
+crossref:
+  fig-title: '**Fig.**'
+  fig-labels: arabic
+execute: 
+  warning: false
+  message: false
+categories: [IDE, linguagem R, RStudio]
+---
+
+
+
+# Introdução
+
+
+::: {.callout-note icon="false"}
+## Objetivos
+
+- Este tutorial é destinado aos estudantes do bacharelado em Administração 
+e aos mestrandos do Mestrado Profissional em Administração do 
+IFMG - Campus Formiga.
+
+- Também é útil para administradores, economistas, contabilistas, 
+auditores e outros profissionais que desejam utilizar ferramentas 
+modernas para criar relatórios e outros produtos de forma reproduzível 
+e auditável.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## Instalação do RStudio no Windows
+
+1.  Acesse [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/){target="_blank"}
+
+2.  Role a página para baixo, em geral, o site detecta seu sistema 
+operacional e disponibiliza o instalador adequado loga abaixo 
+de `2: Install RStudio`.
+
+3.  Clique em `Download RStudio Desktop for Windows` caso seu sistema 
+operacional seja Windows.
+
+4. Finalizado o download, basta clicar duas vezes no arquivo e, em seguida, 
+clicar em em continuar/avançar/next até o início da instalação.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## O que é RStudio?
+
+- RStudio é um Ambiente de Desenvolvimento Integrado (em inglês, 
+*Integrated Development Environment*, IDE) poderoso para a linguagem R, 
+destinado a cientistas e analistas de dados.
+
+- Últil também para outras linguagens, mas principlamente para a 
+linguagem R.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## O que é um Ambiente de Desenvolvimento Integrado?
+
+- Um Ambiente de Desenvolvimento Integrado (IDE) é um programa 
+abrangente que facilita o desenvolvimento de software ao integrar 
+múltiplas funcionalidades essenciais em uma única interface. 
+
+- Além de incluir um **editor de texto** avançado, ele oferece 
+recursos de construção automática e um depurador robusto. 
+
+Destacam-se também funcionalidades como: 
+
+- **destaque de sintaxe**, que melhora a legibilidade do código 
+ao colorir diferentes partes do código-fonte conforme sua função 
+gramatical. 
+
+- **auto-completar código**, que agiliza a escrita ao sugerir e 
+completar automaticamente trechos de código baseados no contexto, e;
+
+- **identificação de erros em tempo real**, que ajuda a detectar e corrigir 
+falhas antes da execução do programa. 
+:::
+
+
+
+::: {.callout-note icon="false"}
+## Por que usar o RStudio?
+
+
+:::
+
+
+::: {.callout-note icon="false"}
+## RStudio IDE x Linguagem R
+
+![](https://d33wubrfki0l68.cloudfront.net/0b4d0569b2ddf6147da90b110fbb2a17653c8b08/f06f3/images/shutterstock/r_vs_rstudio_1.png){width="100%" fig-align="center"}
+
+- R é uma **linguagem de programação**, enquanto o RStudio é um 
+**Ambiente de Desenvolvimento Integrado** que contém recursos que 
+facilitam o uso da linguagem R.
+
+- Utilizando a analogia de um carro, R seria o motor enquanto o RStudio 
+seria o painel de controles (*dashboard*)
+
+- Portanto, é necessário ter os dois softwares instalados.
+:::
+
+
+
+# RStudio: Uma Visão Geral
+
+
+## Interface do RStudio
+
+![](img/rstudio-panes.jpeg){fig-align="center"}
+
+
+
+
+## Painel: Source
+
+- O painel `Source` permite que a visualização e edição de vários arquivos 
+relacionados a diversas linguagens, tais como: `.R`, `.qmd`,`.rmd` `.py`, 
+ou arquivos de texto gerais como `.txt` ou `.md.` 
+
+- Por padrão, é o painel superior esquerdo e pode ser iniciado abrindo 
+qualquer arquivo editável no RStudio. 
+
+- Cada arquivo adicional que for aberto será adicionado como uma nova guia 
+no painel.
+
+
+
+## Painel: Console
+
+- Esse painel fornece uma área para executar o código interativamente, isto 
+é, você pode "conversar" diretamente com o interpretado da linguagem R.
+
+- Por padrão, está vinculado a linguagem R ele também pode fornecer um 
+console Python.
+
+**Atalhos importantes:**
+
+- `Ctrl+1` : Move o cursor para o painel `Source` 
+- `Ctrl+2`: — Move o cursor para o `Console` 
+- `Ctrl+L`: Limpa o Console 
+- `Esc`: Interrompe a execução de R
+
+
+
+
+## Painel: Environment
+
+**Guia `Environment`**
+
+- Essa guia exibe objetos R e Python ativos na sessão atual.
+
+- A barra de menus de `Environment` fornece carregamento ou salvamento de 
+  R workspaces, importação interativa de conjuntos de dados de arquivos de 
+  texto, Excel ou SPSS/SAS/Stata. 
+
+- Ela também exibe a memória usada pela sessão R ativa e um ícone 
+  de uma vassoura para remover todos os objetos ativos.
+
+
+
+## Painel: Output
+
+Por padrão, o painel `Output` é o painel inferior direito e 
+contém as seguintes guias: 
+
+**Guia `Files`**
+
+- Esta guia fornece uma exploração interativa da pasta de arquivos da 
+pasta para a qual R está direcionado, chamada *working directory* 
+(pasta de trabalho)
+
+- Nesta guia, você pode adicionar, excluir, renomear e remover 
+arquivos e pastas, entre outras operações.
+
+
+**Guia `Help`**
+
+- O ícone `Home` exibe a página de ajuda geral, com links para 
+  Manuais e Referências sobre o R e RStudio.
+  
+- Exibe também a documentação dos pacotes. 
+
+
+**Guia `Viewer`**
+
+- Exibe usada conteúdos interativos tais como: gráficos 
+interativos, aplicativos Shiny, páginas html geradas pelo Quarto, 
+entre outros.
+
+  
+**Guia `Presentation`**
+
+- Esta guia é usada para exibir slides HTML gerados pelo 
+sistema Quarto.
+
+
+**Guia `Plots`**
+
+- Esta guia exibe imagens estáticas produzidas na sessão. 
+
+- Há setas para navegar entre gráficos mais antigos e mais recentes, 
+zoom, um botão de exportação para salvar as imagens, um botão de 
+exclusão imagem e um ícone de vassoura que limpará todos os gráficos.
+
+
+**Guia `Packages`**
+
+- Esta guia permite visualizar os pacotes R instalados. 
+
+- Há uma barra para pesquisar a biblioteca atual de pacotes. 
+
+- Há também um botão para instalação e atualização de pacotes. 
+
+
+
+
+## Instalando Pacotes R: 
+
+### Usando a Guia Packages
+
+Para instalar pacotes usando a guia **Packages** no RStudio:
+
+- Clique na guia **Packages**.
+
+- Clique em **Install Packages**.
+
+- Digite o nome de cada pacote que deseja instalar separados 
+por um espaço ou vírgula na caixa de texto.
+
+- Copie os pacotes abaixo e cole na caixa de texto:
+
+```r
+tidyverse usethis 
+```
+
+- Clique em **Install** para iniciar a instalação
+
+
+![](img/install_packages.jpeg){fig-align="center"}
+
+
+
+
+### Usando comandos
+
+- Uma forma alternativa de instalar pacotes é usando a linha de comando. 
+
+- Você pode usar o seguinte comando diretamente no console, em um script, 
+ou em um documento Quarto:
+
+```{r}
+#| eval: false
+
+install.packages("tidyverse", "usethis")
+```
+
+
+
+## Pacotes: Atenção!
+
+::: {.callout-tip}
+## Instalação e Carregamento de Pacotes.
+
+- Usando um IDE como o RStudio, ou outro, em um computador, 
+precisamos instalar pacotes apenas **uma vez**.
+
+- Entretanto, para utilizar os pacotes já instalados, precisamos 
+**sempre carregá-los** com:
+
+```{r}
+#| eval: false
+
+# carrega os pacotes utilizados
+library(tidyverse)
+library(usethis)
+.
+.
+```
+:::
+
+
+
+::: {.callout-tip}
+## Conexão com a Internet.
+
+- Para instalar pacotes, de R ou Python, é necessária uma 
+**conexão ativa com a internet**.
+
+- Pode ser necessário repetir a instalação devido à falhas 
+na conexão, que faz com que os arquivos dos pacotes não 
+sejam baixados completamente.
+:::
+
+
+## Configurações Básicas Recomendadas do RStudio
+
+1. Abra o RStudio
+
+2. Clique no menu "*Tools*" > "*Global Options*" > "*Basic*"
+
+3. **Desmarque** a opção: "*Restore most recently opened project at startup*"
+
+4. **Desmarque** a opção: "*Restore previously open source document at startup*"
+
+5. **Desmarque** a opção: "*Restore .Rdata into workspace at startup*"
+
+6. Na caixa à direita de "*Save workspace to .Rdata on exit:*", **selecione** 
+"*never*"
+
+7. Clique em "*Ok*" e, em seguida, em "*Apply*"
+
+![](img/rstudio_config_basica.jpeg){fig-align="center" width="90%"}
+
+
+
+
+# Projetos RStudio
+
+::: {.callout-note icon="false"}
+## Visão Geral
+
+- Cientistas e Analistas de dados mantêm todos os arquivos associados 
+a um determinado projeto juntos e organizados em pastas/diretórios — 
+dados, scripts, relatórios, etc. 
+
+- Esta é uma prática tão sábia e comum que o RStudio tem suporte integrado 
+para isso por meio dos `Projects`. 
+
+- Os *RStudio Projects* (em português, *Projetos RStudio*) tornam simples 
+organizar seus projetos em vários contextos, cada um com sua própria 
+pasta e documentos diversos.
+
+- Seja com R ou Python, é fundamental criar um projeto do 
+Editor ou IDE para organizar os arquivos de cada projeto.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## Vantagens dos RStudio Projects
+
+- **Vantagem 1**: Você se livra dos problema dos caminhos de arquivos e 
+pastas.
+
+- **Vantagem 2**: Navegação fácil entre projetos. Você pode facilmente 
+ter dois projetos abertos ao mesmo tempo dentro de duas sessões diferentes 
+do RStudio.
+
+- Entre outras vantagens.
+:::
+
+
+
+## Criando Projects no RStudio
+
+Os Projetos RStudio estão associados a pastas. 
+
+Os Projetos RStudio podem ser criados:
+
+- Em um nova pasta, que não existe.
+
+- Em uma pasta existente, por exemplo, uma pasta que contém um 
+repositório clonado do GitHub.
+
+O caminho mais curto para criar um projeto no RStudio envolve:
+
+1. Clique no botão `Project`, em seguida, clique em `New Project`, 
+no canto superior direito do RStudio:
+
+![](img/menu_projects.jpeg){fig-align="center" width="100%"}
+
+- Em seguida, clique em `New Directory`:
+
+![](img/new_proj01.png){fig-align="center" width="80%"}
+
+
+2. Na janela seguinte selecione `New Project`:
+
+![](img/new_proj2.png){fig-align="center" width="80%"}
+
+
+3. Escolha a pasta dentro da qual você criará a subpasta 
+**seunome_icd2025** 
+(que será a pasta do projeto), clicando no botão **Browse**.
+
+4. Digite o nome do projeto (**seunome_icd2025**) no campo de texto abaixo de 
+*Directory Name*.
+
+5. Clique em **Create Project** para criar o projeto.
+
+
+
+## Projeto Criado
+
+Quando um novo projeto é criado, o RStudio:
+
+- Cria um arquivo de projeto (`seunome_icd2025.Rproj`) dentro 
+da pasta do projeto. 
+
+- Carrega o projeto no RStudio e exibe seu nome no menu 
+**Projects**.
+
+- Com um projeto criado, toda vez que abrir o RStudio, basta 
+clicar em Project, logo abaixo irá aparecer o nome do projeto, 
+clique no nome para abrir o projeto.
+
+
+
+## Gerenciamento de Arquivos
+
+O RStudio suporta realce de sintaxe e outros recursos especializados 
+de edição de código para tipos de arquivos específicos:
+
+- Scripts R, Python, SQL e outros.
+
+- Documentos computacionais e científicos em Quarto, R Markdown e LaTeX.
+
+- Conteúdo da Web, como HTML, CSS
+
+- E muitos mais.
+
+
+
+### Menu `Files`
+
+- É possível criar um novo arquivo com `File -> New File`:
+
+![](https://docs.posit.co/ide/user/ide/guide/ui/images/system-files-menu.png){fig-align="center"}
+
+
+- Outra possibilidade é usar o ícone no canto superior esquerdo do 
+RStudio:
+
+![](img/cria_arquivos.png){fig-align="center"}
+
+
+
+## Configurando o RStudio para usar o Git Bash como Terminal
+
+
+::: {.callout-note icon="false"}
+## Configurando o Terminal do RStudio para Git Bash
+
+Como trabalharemos com o RStudio e o sistema Quarto, é importante 
+saber como acessar e usar o terminal Git Bash diretamente dentro 
+do RStudio:
+
+1. **Configurando o terminal Git Bash no RStudio**:
+
+- Abra o RStudio
+
+- Vá para "*Tools*" > "*Global Options*" > "*Terminal*".
+
+- No campo "*New terminals open with:*", selecione "*Git Bash*" no 
+menu suspenso.
+
+- Clique em "*Apply*" e depois em "*OK*"
+
+2. **Acessando o terminal Git Bash no RStudio**:
+
+- No painel inferior do RStudio, clique na aba "*Terminal*".
+
+- Um novo terminal Git Bash será aberto.
+
+- Se um terminal já estiver aberto, mas não for o Git Bash, clique 
+  no ícone "+" no canto superior direito do painel de terminal e 
+  selecione "*New Terminal*" para abrir um novo terminal Git Bash
+
+3. **Vantagens de usar o Git Bash dentro do RStudio**:
+
+- Mantém seu fluxo de trabalho dentro de um único ambiente.
+
+- Facilita a navegação entre edição de arquivos e execução de comandos Git.
+
+- Permite copiar e colar facilmente entre o editor e o terminal.
+
+- Evita a necessidade de alternar entre aplicativos diferentes.
+:::
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@ listing:
     contents: 
       - git
       - markdown
+      - rstudio
     sort: "date desc"
     type: default
     categories: true

@@ -1,8 +1,10 @@
 [
   {
-    "listing": "/blog/index.html",
+    "listing": "/tutorials/index.html",
     "items": [
-      "/blog/p01/tempo.html"
+      "/tutorials/git/index.html",
+      "/tutorials/markdown/index.html",
+      "/tutorials/rstudio/index.html"
     ]
   },
   {
@@ -26,10 +28,9 @@
     ]
   },
   {
-    "listing": "/tutorials/index.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/tutorials/git/index.html",
-      "/tutorials/markdown/index.html"
+      "/blog/p01/tempo.html"
     ]
   }
 ]
