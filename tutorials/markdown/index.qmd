@@ -12,6 +12,7 @@ author:
   - name: Prof. Dr. Washington S. da Silva 
     affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
     affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
+categories: [markdown]
 ---
 
 ![](img/markdown.png){width=80% fig-align="center"}
