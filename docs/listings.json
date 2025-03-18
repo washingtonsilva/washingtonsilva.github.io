@@ -2,9 +2,9 @@
   {
     "listing": "/tutorials/index.html",
     "items": [
-      "/tutorials/git/index.html",
+      "/tutorials/rstudio/index.html",
       "/tutorials/markdown/index.html",
-      "/tutorials/rstudio/index.html"
+      "/tutorials/git/index.html"
     ]
   },
   {
