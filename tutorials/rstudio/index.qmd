@@ -3,7 +3,7 @@ title: "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R"
 description: | 
   Um tutorial básico sobre o RStudio, um ambiente de desenvolvimento integrado simples e eficiente para a linguagem R.
 lang: "pt"
-date: "2024-01-07"
+date: "2024-12-07"
 toc: true
 number-sections: true
 toc-depth: 2

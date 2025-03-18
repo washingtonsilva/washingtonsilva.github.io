@@ -4,7 +4,7 @@ description: |
   Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o 
   GitHub.
 lang: "pt"
-date: "2024-10-07"
+date: "2024-08-07"
 toc: true
 number-sections: true
 toc-depth: 2

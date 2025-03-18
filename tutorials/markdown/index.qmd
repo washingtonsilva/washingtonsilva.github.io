@@ -3,7 +3,7 @@ title: "Markdown: Elementos Essenciais para Documentos do Sistema Quarto"
 description: | 
   Um guia simples da linguagem de marcação Markdown para elaboração de documentos no sistema Quarto.
 lang: "pt"
-date: "2024-03-05"
+date: "2024-09-05"
 toc: true
 number-sections: true
 toc-depth: 3
