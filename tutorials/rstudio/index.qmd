@@ -101,7 +101,28 @@ falhas antes da execução do programa.
 ::: {.callout-note icon="false"}
 ## Por que usar o RStudio?
 
+- **Interface Amigável**: O RStudio oferece uma interface gráfica intuitiva 
+que facilita o trabalho, especialmente para iniciantes, com acesso visual 
+a scripts, console, dados e gráficos simultaneamente.
 
+- **Aumento de Produtividade**: Recursos como autocompletar código, 
+atalhos de teclado e visualização integrada de gráficos aceleram 
+significativamente o fluxo de trabalho.
+
+- **Gestão de Projetos**: O sistema de projetos do RStudio organiza seu 
+trabalho, mantendo todos os arquivos relacionados em um único local.
+
+- **Integração com outras ferramentas**: Oferece suporte a várias 
+linguagens (R, Python, SQL), integra-se com sistemas de controle de 
+versão como Git, e facilita a publicação de conteúdo via sistema Quarto.
+
+- **Reprodutibilidade Científica**: Facilita a criação de documentos 
+reproduzíveis que combinam código, resultados e texto narrativo, essenciais 
+para pesquisa científica e relatórios corporativos.
+
+- **Comunidade Ativa**: Desenvolvido pela Posit (anteriormente RStudio), 
+conta com uma grande comunidade de usuários e desenvolvedores que 
+constantemente melhoram a ferramenta.
 :::
 
 
@@ -497,6 +518,59 @@ menu suspenso.
 
 - Evita a necessidade de alternar entre aplicativos diferentes.
 :::
+
+
+Como o foco deste tutorial será RStudio e há outros tutoriais, fiz 
+algumas modificações na sua sugestão, veja o que acha:
+
+# Glossário de Termos
+
+## A {.unnumbered}
+
+**Ambiente de Desenvolvimento Integrado (IDE)**: Software que combina editor 
+de código ou texto, console, gerenciamento de arquivos e outras 
+ferramentas para facilitar o desenvolvimento de softwares.
+
+## C {.unnumbered}
+
+**Console**: Interface de linha de comando onde os códigos R são executados 
+interativamente e os resultados são mostrados imediatamente.
+
+## E {.unnumbered}
+
+**Editor de texto/código**: Componente do IDE onde você escreve e edita 
+o código antes de executá-lo.
+
+
+## P {.unnumbered}
+
+**Pacote**: Coleção de funções, dados e documentação que estende as 
+funcionalidades da linguagem R. 
+
+**Painel** (*Pane*): Áreas da interface do RStudio que contêm diferentes 
+ferramentas, como editor, console, ambiente, etc.
+
+**Projeto RStudio**: Sistema que organiza arquivos relacionados a uma 
+análise específica em uma estrutura coerente, facilitando a organização 
+e reprodutibilidade.
+
+## Q {.unnumbered}
+
+**Quarto**: Sistema de publicação científica e técnica que permite combinar 
+código, texto narrativo, equações e visualizações em um único documento. 
+Sucessor do R Markdown.
+
+## R {.unnumbered}
+
+**R**: Linguagem de programação especializada em análise estatística e 
+visualização de dados.
+
+**Reprodutibilidade**: Princípio que permite que outros pesquisadores 
+e profissionais possam replicar exatamente os mesmos resultados utilizando 
+os mesmos dados e códigos. No contexto corporativo, garante a auditabilidade 
+de análises, facilita a transferência de conhecimento entre equipes, 
+permite verificação de resultados por diferentes stakeholders e 
+assegura a continuidade de projetos mesmo com mudanças de pessoal.
 
 
 

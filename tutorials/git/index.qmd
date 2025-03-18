@@ -1397,6 +1397,102 @@ arquivos com nomes diferentes.
 
 
 
+
+# Glossário de Termos
+
+## B {.unnumbered}
+
+**Branch**: Ramificação independente do código que permite trabalhar 
+em funcionalidades ou correções sem afetar a linha principal de 
+desenvolvimento.
+
+## C {.unnumbered}
+
+**Clone**: Cópia completa de um repositório, incluindo todos os arquivos, 
+histórico e branches, para o computador local.
+
+**Commit**: "Fotografia" do estado do projeto em um determinado momento, 
+com uma mensagem descritiva das alterações realizadas.
+
+**Conflito**: Situação onde o Git não consegue mesclar automaticamente 
+alterações de diferentes fontes porque ambas modificaram a mesma parte 
+de um arquivo.
+
+## F {.unnumbered}
+
+**Fork**: Cópia pessoal de um repositório de outra pessoa no GitHub, 
+permitindo experimentar mudanças sem afetar o projeto original.
+
+## G {.unnumbered}
+
+**Git**: Sistema de controle de versão distribuído que registra alterações 
+em arquivos ao longo do tempo.
+
+**Git Bash**: Terminal especial instalado com o Git no Windows que permite 
+executar comandos Git e outros comandos Unix.
+
+**GitHub**: Plataforma online que hospeda repositórios Git e oferece 
+ferramentas adicionais para colaboração e desenvolvimento de projetos.
+
+## H {.unnumbered}
+
+**Hash**: Identificador único (como `f7d2e09`) gerado para cada commit, 
+permitindo referenciar versões específicas dos arquivos.
+
+## I {.unnumbered}
+
+**Issue**: Funcionalidade do GitHub para rastrear tarefas, melhorias, bugs 
+e outras questões relacionadas a um projeto.
+
+## M {.unnumbered}
+
+**Main**: Branch principal de um repositório Git (anteriormente chamado 
+de "master").
+
+**Merge**: Processo de unir alterações de diferentes branches ou commits.
+
+## O {.unnumbered}
+
+**Origin**: Nome padrão dado ao repositório remoto (normalmente no GitHub) 
+a partir do qual um repositório local foi clonado.
+
+## P {.unnumbered}
+
+**Pull**: Ação de baixar as alterações do repositório remoto para o 
+repositório local, atualizando-o.
+
+**Push**: Ação de enviar commits do repositório local para o repositório 
+remoto (GitHub).
+
+## R {.unnumbered}
+
+**Repositório**: Coleção de arquivos e pastas de um projeto, junto com o 
+histórico completo de alterações.
+
+**Repositório Local**: Versão do repositório armazenada no seu computador.
+
+**Repositório Remoto**: Versão do repositório armazenada em um servidor 
+(como o GitHub).
+
+## S {.unnumbered}
+
+**Stage/Staging Area**: Área intermediária onde as alterações são 
+adicionadas (via `git add`) antes de serem definitivamente salvas 
+em um commit.
+
+## T {.unnumbered}
+
+**Terminal**: Interface de linha de comando onde os comandos Git são 
+executados.
+
+## W {.unnumbered}
+
+**Working Directory**: Diretório local onde os arquivos do projeto estão 
+sendo editados ativamente.
+
+
+
+
 # Referências
 
 ::: {#refs}
