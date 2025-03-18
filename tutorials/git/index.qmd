@@ -27,7 +27,7 @@ categories: [controle de versão, git, gitHub]
 ---
 
 
-![](img/git-github.jpg){width=80%}
+![](img/git-github.jpg){fig-align="center" width=80%}
 
 
 

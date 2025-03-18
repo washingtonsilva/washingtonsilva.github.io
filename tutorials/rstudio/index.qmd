@@ -18,9 +18,10 @@ crossref:
 execute: 
   warning: false
   message: false
-categories: [IDE, linguagem R, RStudio]
+categories: [Ambiente de Desenvolvimento Integrado, RStudio]
 ---
 
+![](img/logo-rstudio.png){width=40% fig-align="center"}
 
 
 # Introdução
