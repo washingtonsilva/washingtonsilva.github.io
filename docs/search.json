@@ -140,6 +140,48 @@
     "text": "3.4 Configurando o RStudio para usar o Git Bash como Terminal\n\n\n\n\n\n\nConfigurando o Terminal do RStudio para Git Bash\n\n\n\nComo trabalharemos com o RStudio e o sistema Quarto, é importante saber como acessar e usar o terminal Git Bash diretamente dentro do RStudio:\n\nConfigurando o terminal Git Bash no RStudio:\n\n\nAbra o RStudio\nVá para “Tools” &gt; “Global Options” &gt; “Terminal”.\nNo campo “New terminals open with:”, selecione “Git Bash” no menu suspenso.\nClique em “Apply” e depois em “OK”\n\n\nAcessando o terminal Git Bash no RStudio:\n\n\nNo painel inferior do RStudio, clique na aba “Terminal”.\nUm novo terminal Git Bash será aberto.\nSe um terminal já estiver aberto, mas não for o Git Bash, clique no ícone “+” no canto superior direito do painel de terminal e selecione “New Terminal” para abrir um novo terminal Git Bash\n\n\nVantagens de usar o Git Bash dentro do RStudio:\n\n\nMantém seu fluxo de trabalho dentro de um único ambiente.\nFacilita a navegação entre edição de arquivos e execução de comandos Git.\nPermite copiar e colar facilmente entre o editor e o terminal.\nEvita a necessidade de alternar entre aplicativos diferentes.\n\n\n\nComo o foco deste tutorial será RStudio e há outros tutoriais, fiz algumas modificações na sua sugestão, veja o que acha:"
   },
   {
+    "objectID": "tutorials/rstudio/index.html#a",
+    "href": "tutorials/rstudio/index.html#a",
+    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
+    "section": "A",
+    "text": "A\nAmbiente de Desenvolvimento Integrado (IDE): Software que combina editor de código ou texto, console, gerenciamento de arquivos e outras ferramentas para facilitar o desenvolvimento de softwares."
+  },
+  {
+    "objectID": "tutorials/rstudio/index.html#c",
+    "href": "tutorials/rstudio/index.html#c",
+    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
+    "section": "C",
+    "text": "C\nConsole: Interface de linha de comando onde os códigos R são executados interativamente e os resultados são mostrados imediatamente."
+  },
+  {
+    "objectID": "tutorials/rstudio/index.html#e",
+    "href": "tutorials/rstudio/index.html#e",
+    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
+    "section": "E",
+    "text": "E\nEditor de texto/código: Componente do IDE onde você escreve e edita o código antes de executá-lo."
+  },
+  {
+    "objectID": "tutorials/rstudio/index.html#p",
+    "href": "tutorials/rstudio/index.html#p",
+    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
+    "section": "P",
+    "text": "P\nPacote: Coleção de funções, dados e documentação que estende as funcionalidades da linguagem R.\nPainel (Pane): Áreas da interface do RStudio que contêm diferentes ferramentas, como editor, console, ambiente, etc.\nProjeto RStudio: Sistema que organiza arquivos relacionados a uma análise específica em uma estrutura coerente, facilitando a organização e reprodutibilidade."
+  },
+  {
+    "objectID": "tutorials/rstudio/index.html#q",
+    "href": "tutorials/rstudio/index.html#q",
+    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
+    "section": "Q",
+    "text": "Q\nQuarto: Sistema de publicação científica e técnica que permite combinar código, texto narrativo, equações e visualizações em um único documento. Sucessor do R Markdown."
+  },
+  {
+    "objectID": "tutorials/rstudio/index.html#r",
+    "href": "tutorials/rstudio/index.html#r",
+    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
+    "section": "R",
+    "text": "R\nR: Linguagem de programação especializada em análise estatística e visualização de dados.\nReprodutibilidade: Princípio que permite que outros pesquisadores e profissionais possam replicar exatamente os mesmos resultados utilizando os mesmos dados e códigos. No contexto corporativo, garante a auditabilidade de análises, facilita a transferência de conhecimento entre equipes, permite verificação de resultados por diferentes stakeholders e assegura a continuidade de projetos mesmo com mudanças de pessoal."
+  },
+  {
     "objectID": "tutorials/index.html",
     "href": "tutorials/index.html",
     "title": "Tutoriais",
@@ -406,6 +448,97 @@
     "text": "5.8 Dicas para usar o Terminal Git Bash no RStudio\n\n\n\n\n\n\nDicas para usar o Terminal Git Bash no RStudio\n\n\n\nPara tornar seu trabalho com Git mais eficiente usando o terminal no RStudio:\n\nAtalhos úteis no terminal Git Bash:\n\n\nPressione a tecla “seta para cima” para acessar comandos anteriores\nUse Tab para autocompletar nomes de arquivos e comandos\nCtrl+C cancela um comando em execução\nCtrl+L limpa a tela do terminal (ou digite clear)\n\n\nVerificando rapidamente as mudanças:\n\n# Ver mudanças em um arquivo específico\ngit diff caminho/para/arquivo.qmd\n\n# Ver apenas os nomes dos arquivos modificados\ngit status -s\n\nAdicionando arquivos seletivamente:\n\n# Adicionar arquivos interativamente (pergunta arquivo por arquivo)\ngit add -i\n\n# Adicionar apenas partes específicas de um arquivo\ngit add -p\n\nRevertendo mudanças quando necessário:\n\n# Descartar mudanças em um arquivo específico (cuidado!)\ngit checkout -- nome-do-arquivo.qmd\n\n# Desfazer o último commit (mantendo as mudanças)\ngit reset --soft HEAD~1\n\nVisualizando o histórico:\n\n# Ver histórico resumido\ngit log --oneline\n\n# Ver histórico com detalhes das mudanças\ngit log -p\n\n# Ver histórico de um arquivo específico\ngit log -p nome-do-arquivo.qmd\n\nMantendo o terminal aberto:\n\n\nVocê pode manter o terminal Git Bash aberto o tempo todo enquanto trabalha.\nPara abrir um novo terminal sem fechar o atual, clique no ícone “+” no painel do terminal.\nUse diferentes terminais para diferentes tarefas (um para Git, outro para R, etc.).\n\n\nSalvando comandos frequentes em um arquivo de texto:\n\n\nCrie um arquivo de texto no seu projeto chamado “git-comandos.txt”.\nGuarde ali os comandos que você usa com frequência para copiar e colar.\nAdicione comentários úteis ao lado de cada comando."
   },
   {
+    "objectID": "tutorials/git/index.html#b",
+    "href": "tutorials/git/index.html#b",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "B",
+    "text": "B\nBranch: Ramificação independente do código que permite trabalhar em funcionalidades ou correções sem afetar a linha principal de desenvolvimento."
+  },
+  {
+    "objectID": "tutorials/git/index.html#c",
+    "href": "tutorials/git/index.html#c",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "C",
+    "text": "C\nClone: Cópia completa de um repositório, incluindo todos os arquivos, histórico e branches, para o computador local.\nCommit: “Fotografia” do estado do projeto em um determinado momento, com uma mensagem descritiva das alterações realizadas.\nConflito: Situação onde o Git não consegue mesclar automaticamente alterações de diferentes fontes porque ambas modificaram a mesma parte de um arquivo."
+  },
+  {
+    "objectID": "tutorials/git/index.html#f",
+    "href": "tutorials/git/index.html#f",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "F",
+    "text": "F\nFork: Cópia pessoal de um repositório de outra pessoa no GitHub, permitindo experimentar mudanças sem afetar o projeto original."
+  },
+  {
+    "objectID": "tutorials/git/index.html#g",
+    "href": "tutorials/git/index.html#g",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "G",
+    "text": "G\nGit: Sistema de controle de versão distribuído que registra alterações em arquivos ao longo do tempo.\nGit Bash: Terminal especial instalado com o Git no Windows que permite executar comandos Git e outros comandos Unix.\nGitHub: Plataforma online que hospeda repositórios Git e oferece ferramentas adicionais para colaboração e desenvolvimento de projetos."
+  },
+  {
+    "objectID": "tutorials/git/index.html#h",
+    "href": "tutorials/git/index.html#h",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "H",
+    "text": "H\nHash: Identificador único (como f7d2e09) gerado para cada commit, permitindo referenciar versões específicas dos arquivos."
+  },
+  {
+    "objectID": "tutorials/git/index.html#i",
+    "href": "tutorials/git/index.html#i",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "I",
+    "text": "I\nIssue: Funcionalidade do GitHub para rastrear tarefas, melhorias, bugs e outras questões relacionadas a um projeto."
+  },
+  {
+    "objectID": "tutorials/git/index.html#m",
+    "href": "tutorials/git/index.html#m",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "M",
+    "text": "M\nMain: Branch principal de um repositório Git (anteriormente chamado de “master”).\nMerge: Processo de unir alterações de diferentes branches ou commits."
+  },
+  {
+    "objectID": "tutorials/git/index.html#o",
+    "href": "tutorials/git/index.html#o",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "O",
+    "text": "O\nOrigin: Nome padrão dado ao repositório remoto (normalmente no GitHub) a partir do qual um repositório local foi clonado."
+  },
+  {
+    "objectID": "tutorials/git/index.html#p",
+    "href": "tutorials/git/index.html#p",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "P",
+    "text": "P\nPull: Ação de baixar as alterações do repositório remoto para o repositório local, atualizando-o.\nPush: Ação de enviar commits do repositório local para o repositório remoto (GitHub)."
+  },
+  {
+    "objectID": "tutorials/git/index.html#r",
+    "href": "tutorials/git/index.html#r",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "R",
+    "text": "R\nRepositório: Coleção de arquivos e pastas de um projeto, junto com o histórico completo de alterações.\nRepositório Local: Versão do repositório armazenada no seu computador.\nRepositório Remoto: Versão do repositório armazenada em um servidor (como o GitHub)."
+  },
+  {
+    "objectID": "tutorials/git/index.html#s",
+    "href": "tutorials/git/index.html#s",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "S",
+    "text": "S\nStage/Staging Area: Área intermediária onde as alterações são adicionadas (via git add) antes de serem definitivamente salvas em um commit."
+  },
+  {
+    "objectID": "tutorials/git/index.html#t",
+    "href": "tutorials/git/index.html#t",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "T",
+    "text": "T\nTerminal: Interface de linha de comando onde os comandos Git são executados."
+  },
+  {
+    "objectID": "tutorials/git/index.html#w",
+    "href": "tutorials/git/index.html#w",
+    "title": "Controle de Versão com Git e GitHub",
+    "section": "W",
+    "text": "W\nWorking Directory: Diretório local onde os arquivos do projeto estão sendo editados ativamente."
+  },
+  {
     "objectID": "tutorials/markdown/index.html#cabeçalhos",
     "href": "tutorials/markdown/index.html#cabeçalhos",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
@@ -544,138 +677,5 @@
     "title": "Deposition of Potentially Toxic Metals in the Soil from Surrounding Cement Plants in a Karst Area of Southeastern Brazil",
     "section": "",
     "text": "Abstract\nCement factories are the main sources of environmental pollutants among the different industrial activities, including soil contamination by potentially toxic metals. The karst region of Southeastern Brazil is known for the implementation of large cement producing facilities. This study aims to evaluate whether there is an increase in the concentration of PTM in the soil surrounding the cement plants and to estimate their harmfulness to both local human population and environment. In total, 18 soil samples were collected from the surroundings of three cement plants as well as four soil samples from areas outside the influence of cement plants and concentration of the following potentially toxic metals (PTM) were estimated: Cd, Pb, Co, Cu, Cr, Mn, Ni, and Zn. The results revealed that all PTM concentrations from cement plant surroundings were significantly higher than PTM concentrations from control areas and no PTM concentrations from CPS or CA soil samples exceeded national and global contamination thresholds. However, Igeo Index indicated low level soil contamination by Pb, Cu, and Cr, as well as high levels for Co. We could not verify significant non-carcinogenic risk to health for any soil sample, but carcinogenic risk analysis revealed different levels of carcinogenic risk among the sampled locations, for both adults and children. Our results indicate that exclusively evaluating the concentration of potentially toxic metals is not enough to verify the potential harmful effects of cement production for the surrounding population. Here we evidence that additional indices, based on both contamination indices and health risk assessments, should be considered for better evaluation of the impacts of cement production activity."
-  },
-  {
-    "objectID": "tutorials/rstudio/index.html#a",
-    "href": "tutorials/rstudio/index.html#a",
-    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
-    "section": "A",
-    "text": "A\nAmbiente de Desenvolvimento Integrado (IDE): Software que combina editor de código ou texto, console, gerenciamento de arquivos e outras ferramentas para facilitar o desenvolvimento de softwares."
-  },
-  {
-    "objectID": "tutorials/rstudio/index.html#c",
-    "href": "tutorials/rstudio/index.html#c",
-    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
-    "section": "C",
-    "text": "C\nConsole: Interface de linha de comando onde os códigos R são executados interativamente e os resultados são mostrados imediatamente."
-  },
-  {
-    "objectID": "tutorials/rstudio/index.html#e",
-    "href": "tutorials/rstudio/index.html#e",
-    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
-    "section": "E",
-    "text": "E\nEditor de texto/código: Componente do IDE onde você escreve e edita o código antes de executá-lo."
-  },
-  {
-    "objectID": "tutorials/rstudio/index.html#p",
-    "href": "tutorials/rstudio/index.html#p",
-    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
-    "section": "P",
-    "text": "P\nPacote: Coleção de funções, dados e documentação que estende as funcionalidades da linguagem R.\nPainel (Pane): Áreas da interface do RStudio que contêm diferentes ferramentas, como editor, console, ambiente, etc.\nProjeto RStudio: Sistema que organiza arquivos relacionados a uma análise específica em uma estrutura coerente, facilitando a organização e reprodutibilidade."
-  },
-  {
-    "objectID": "tutorials/rstudio/index.html#q",
-    "href": "tutorials/rstudio/index.html#q",
-    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
-    "section": "Q",
-    "text": "Q\nQuarto: Sistema de publicação científica e técnica que permite combinar código, texto narrativo, equações e visualizações em um único documento. Sucessor do R Markdown."
-  },
-  {
-    "objectID": "tutorials/rstudio/index.html#r",
-    "href": "tutorials/rstudio/index.html#r",
-    "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
-    "section": "R",
-    "text": "R\nR: Linguagem de programação especializada em análise estatística e visualização de dados.\nReprodutibilidade: Princípio que permite que outros pesquisadores e profissionais possam replicar exatamente os mesmos resultados utilizando os mesmos dados e códigos. No contexto corporativo, garante a auditabilidade de análises, facilita a transferência de conhecimento entre equipes, permite verificação de resultados por diferentes stakeholders e assegura a continuidade de projetos mesmo com mudanças de pessoal."
-  },
-  {
-    "objectID": "tutorials/git/index.html#b",
-    "href": "tutorials/git/index.html#b",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "B",
-    "text": "B\nBranch: Ramificação independente do código que permite trabalhar em funcionalidades ou correções sem afetar a linha principal de desenvolvimento."
-  },
-  {
-    "objectID": "tutorials/git/index.html#c",
-    "href": "tutorials/git/index.html#c",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "C",
-    "text": "C\nClone: Cópia completa de um repositório, incluindo todos os arquivos, histórico e branches, para o computador local.\nCommit: “Fotografia” do estado do projeto em um determinado momento, com uma mensagem descritiva das alterações realizadas.\nConflito: Situação onde o Git não consegue mesclar automaticamente alterações de diferentes fontes porque ambas modificaram a mesma parte de um arquivo."
-  },
-  {
-    "objectID": "tutorials/git/index.html#f",
-    "href": "tutorials/git/index.html#f",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "F",
-    "text": "F\nFork: Cópia pessoal de um repositório de outra pessoa no GitHub, permitindo experimentar mudanças sem afetar o projeto original."
-  },
-  {
-    "objectID": "tutorials/git/index.html#g",
-    "href": "tutorials/git/index.html#g",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "G",
-    "text": "G\nGit: Sistema de controle de versão distribuído que registra alterações em arquivos ao longo do tempo.\nGit Bash: Terminal especial instalado com o Git no Windows que permite executar comandos Git e outros comandos Unix.\nGitHub: Plataforma online que hospeda repositórios Git e oferece ferramentas adicionais para colaboração e desenvolvimento de projetos."
-  },
-  {
-    "objectID": "tutorials/git/index.html#h",
-    "href": "tutorials/git/index.html#h",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "H",
-    "text": "H\nHash: Identificador único (como f7d2e09) gerado para cada commit, permitindo referenciar versões específicas dos arquivos."
-  },
-  {
-    "objectID": "tutorials/git/index.html#i",
-    "href": "tutorials/git/index.html#i",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "I",
-    "text": "I\nIssue: Funcionalidade do GitHub para rastrear tarefas, melhorias, bugs e outras questões relacionadas a um projeto."
-  },
-  {
-    "objectID": "tutorials/git/index.html#m",
-    "href": "tutorials/git/index.html#m",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "M",
-    "text": "M\nMain: Branch principal de um repositório Git (anteriormente chamado de “master”).\nMerge: Processo de unir alterações de diferentes branches ou commits."
-  },
-  {
-    "objectID": "tutorials/git/index.html#o",
-    "href": "tutorials/git/index.html#o",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "O",
-    "text": "O\nOrigin: Nome padrão dado ao repositório remoto (normalmente no GitHub) a partir do qual um repositório local foi clonado."
-  },
-  {
-    "objectID": "tutorials/git/index.html#p",
-    "href": "tutorials/git/index.html#p",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "P",
-    "text": "P\nPull: Ação de baixar as alterações do repositório remoto para o repositório local, atualizando-o.\nPush: Ação de enviar commits do repositório local para o repositório remoto (GitHub)."
-  },
-  {
-    "objectID": "tutorials/git/index.html#r",
-    "href": "tutorials/git/index.html#r",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "R",
-    "text": "R\nRepositório: Coleção de arquivos e pastas de um projeto, junto com o histórico completo de alterações.\nRepositório Local: Versão do repositório armazenada no seu computador.\nRepositório Remoto: Versão do repositório armazenada em um servidor (como o GitHub)."
-  },
-  {
-    "objectID": "tutorials/git/index.html#s",
-    "href": "tutorials/git/index.html#s",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "S",
-    "text": "S\nStage/Staging Area: Área intermediária onde as alterações são adicionadas (via git add) antes de serem definitivamente salvas em um commit."
-  },
-  {
-    "objectID": "tutorials/git/index.html#t",
-    "href": "tutorials/git/index.html#t",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "T",
-    "text": "T\nTerminal: Interface de linha de comando onde os comandos Git são executados."
-  },
-  {
-    "objectID": "tutorials/git/index.html#w",
-    "href": "tutorials/git/index.html#w",
-    "title": "Controle de Versão com Git e GitHub",
-    "section": "W",
-    "text": "W\nWorking Directory: Diretório local onde os arquivos do projeto estão sendo editados ativamente."
   }
 ]
