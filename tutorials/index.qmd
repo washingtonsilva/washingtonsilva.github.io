@@ -1,6 +1,6 @@
 ---
 title: "Tutoriais"
-lang: pt
+lang: pt-BR
 page-layout: full
 listing:
     contents: 
@@ -17,11 +17,28 @@ listing:
     fields: [title, description, date, categories]
 ---
 
-Esta página reúne tutoriais e materiais didáticos sobre Estatística, 
-Econometria, Ciência de Dados, R, Git, Python e outros recursos.
+::: {.callout-note icon="false"}
+## Ciência de Dados Reproduzível e Auditável
+
+Esta página reúne tutoriais desenvolvidos no âmbito do projeto de pesquisa 
+denominado "*Aplicação de Modelos de Aprendizagem Estatística e de Máquina em Finanças: Desenvolvimento de Soluções Reproduzíveis e Auditáveis*", 
+vinculado ao Mestrado Profissional em Administração do IFMG - 
+Campus Formiga.
+
+Os materiais aqui disponibilizados são direcionados tanto para os alunos 
+do Bacharelado em Administração quanto para os do Mestrado Profissional em 
+Administração do IFMG - Campus Formiga, com foco nas ferramentas e 
+metodologias essenciais para análise de dados reproduzível e auditável. 
+Estes tutoriais são especialmente úteis para disciplinas como Introdução 
+à Ciência de Dados e projetos de pesquisa quantitativa.
+:::
+
+
 
 :::{#tutorials}
 :::
+
+
 
 
 
