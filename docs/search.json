@@ -627,7 +627,7 @@
     "href": "tutorials/quarto/index.html#metadados",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
     "section": "3.1 Metadados",
-    "text": "3.1 Metadados\nO arquivo mínimo gerado pelo RStudio, exibido na Fig. 6, contém apenas um cabeçalho, mais precisamente, contém um cabeçalho YAML simples (mais detalhes a seguir), o qual é demarcado por três traços (—) em cada extremidade.\nConsiderando que você tenha criado o arquivo 01_teste.qmd (e salvo esse arquivo na pasta apropriada do seu projeto RStudio), apague o cabeçalho mínimo desse arquivo criado pelo RStudio, em seguida, copie e cole o código do cabeçaho exibio abaixo no mesmo local:\n---\ntitle: \"Olá, Quarto\"\nformat: html\neditor: source\n---\nAgora, renderize o arquivo 01_teste.qmd clicando no botão Render localizado na barra superior do painel Source do Rstudio.\nO código acima constitui um exemplo do uso da linguagem de marcação YAML (de “Yet Another Markup Language”) para fornecer metadados aos documentos gerados com Quarto. A sintaxe de YAML usa pares chave-valor no formato key: value.\nOutros campos YAML comumente encontrados em cabeçalhos de arquivos quarto incluem metadados como author, title, date, bem como opções de personalização como theme, entre diversas outras.\nDe forma mais detalhada, os metadados do cabeçalho YAML consistem:\n\n\n\n\n… de pares chave-valor (key-value),\n… que podem aninhar,\n… sque ão exigentes quanto ao recuo,\n… e são mantidos entre ---.\n\n\n\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
+    "text": "3.1 Metadados\nO arquivo mínimo gerado pelo RStudio, exibido na Fig. 6, contém apenas um cabeçalho, mais precisamente, contém um cabeçalho YAML simples (mais detalhes a seguir), o qual é demarcado por três traços (—) em cada extremidade.\nO código acima constitui um exemplo do uso da linguagem de marcação YAML (de “Yet Another Markup Language”) para fornecer metadados aos documentos gerados com Quarto. A sintaxe de YAML usa pares chave-valor no formato key: value.\nOutros campos YAML comumente encontrados em cabeçalhos de arquivos quarto incluem metadados como author, title, date, bem como opções de personalização como theme, entre diversas outras.\nDe forma mais detalhada, os metadados do cabeçalho YAML consistem:\n\n\n\n\n… de pares chave-valor (key-value),\n… que podem aninhar,\n… que ão exigentes quanto ao recuo,\n… e são mantidos entre ---.\n\n\n\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
   },
   {
     "objectID": "tutorials/quarto/index.html#sintáxe-yaml",
@@ -648,14 +648,14 @@
     "href": "tutorials/quarto/index.html#opções-dos-cabeçalhos-yaml",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
     "section": "3.4 Opções dos Cabeçalhos YAML",
-    "text": "3.4 Opções dos Cabeçalhos YAML\nAs opções que podem ser usadas nos cabeçalhos YAML de um arquivo quarto dependem do formato final do documento a ser produzido.\nNesta seção, são explicadas algumas das principais opções disponíveis para os formatos HTML e pdf, que são os principais formatos que utilizamos na disciplina Introdução à Ciência de Dados.\n\n3.4.1 Algumas Opções Disponíveis para Arquivos HTML\nOs arquivos HTML gerados pelo Quarto oferecem diversas opções de personalização. Aqui estão algumas das mais úteis:\n\n\n\n\n\n\n\n\nOpção\nDescrição\nExemplo de Uso\n\n\n\n\ntheme\nDefine o tema visual do documento\ntheme: cosmo\n\n\ntoc\nAtiva o índice do documento\ntoc: true\n\n\ntoc-depth\nDefine a profundidade do índice\ntoc-depth: 3\n\n\ntoc-location\nDefine a posição do índice\ntoc-location: left\n\n\ncode-fold\nPermite recolher/expandir blocos de código\ncode-fold: true\n\n\ncode-tools\nAdiciona ferramentas para copiar código\ncode-tools: true\n\n\ncode-line-numbers\nAdiciona números às linhas de código\ncode-line-numbers: true\n\n\nembed-resources\nIncorpora todos recursos no arquivo HTML\nembed-resources: true\n\n\nfig-format\nDefine o formato das figuras\nfig-format: png\n\n\ndf-print\nControla como dataframes são exibidos\ndf-print: paged\n\n\n\nExemplo de uso no cabeçalho YAML:\nformat:\n  html:\n    theme: cosmo\n    toc: true\n    toc-depth: 3\n    toc-location: left\n    code-fold: true\n    code-tools: true\n    embed-resources: true"
+    "text": "3.4 Opções dos Cabeçalhos YAML\nAs opções que podem ser usadas nos cabeçalhos YAML de um arquivo quarto dependem do formato final do documento a ser produzido.\nNesta seção, são explicadas algumas das principais opções disponíveis para os formatos HTML e pdf, que são os principais formatos que utilizamos na disciplina Introdução à Ciência de Dados.\n\n3.4.1 Algumas Opções Disponíveis para Arquivos HTML\nOs arquivos HTML gerados pelo Quarto oferecem diversas opções de personalização. Aqui estão algumas das mais úteis:\n\n\n\n\n\n\n\n\nOpção\nDescrição\nExemplo de Uso\n\n\n\n\ntheme\nDefine o tema visual do documento\ntheme: cosmo\n\n\nembed-resources\nIncorpora todos recursos no arquivo HTML\nembed-resources: true\n\n\ntoc\nAtiva o índice do documento\ntoc: true\n\n\ntoc-depth\nDefine a profundidade do índice\ntoc-depth: 3\n\n\ntoc-location\nDefine a posição do índice\ntoc-location: left\n\n\ncode-fold\nPermite recolher/expandir blocos de código\ncode-fold: true\n\n\ncode-tools\nAdiciona ferramentas para copiar código\ncode-tools: true\n\n\ncode-line-numbers\nAdiciona números às linhas de código\ncode-line-numbers: true\n\n\n\nExemplo de uso no cabeçalho YAML:\nformat:\n  html:\n    theme: cosmo\n    embed-resources: true\n    toc: true\n    toc-depth: 3\n    toc-location: left\n    code-fold: true\n    code-tools: true"
   },
   {
     "objectID": "tutorials/quarto/index.html#algumas-opções-disponíveis-para-arquivos-pdf",
     "href": "tutorials/quarto/index.html#algumas-opções-disponíveis-para-arquivos-pdf",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
     "section": "3.5 Algumas Opções Disponíveis para Arquivos PDF",
-    "text": "3.5 Algumas Opções Disponíveis para Arquivos PDF\nO Quarto pode gerar documentos PDF de alta qualidade, usando o sistema Typst ou LaTeX como motor de renderização. Aqui estão algumas opções úteis para personalização de documentos PDF:\n\n\n\n\n\n\n\n\nOpção\nDescrição\nExemplo de Uso\n\n\n\n\npapersize\nDefine o tamanho do papel\npapersize: a4\n\n\nfontsize\nDefine o tamanho da fonte\nfontsize: 12pt\n\n\nlinestretch\nDefine o espaçamento entre linhas\nlinestretch: 1.5\n\n\nlinkcolor\nDefine a cor dos links\nlinkcolor: \"blue\"\n\n\ntoc\nAtiva o sumário\ntoc: true\n\n\nlof\nAtiva lista de figuras\nlof: true\n\n\nlot\nAtiva lista de tabelas\nlot: true\n\n\n\nExemplo de uso no cabeçalho YAML para Typst:\nformat:\n  typst:\n    papersize: a4\n    fontsize: 12pt\n    number-sections: true\n    linkcolor: \"blue\""
+    "text": "3.5 Algumas Opções Disponíveis para Arquivos PDF\nO Quarto pode gerar documentos PDF de alta qualidade, usando o sistema Typst ou LaTeX como motor de renderização. Aqui estão algumas opções úteis para personalização de documentos PDF:\n\n\n\n\n\n\n\n\nOpção\nDescrição\nExemplo de Uso\n\n\n\n\npapersize\nDefine o tamanho do papel\npapersize: a4\n\n\nfontsize\nDefine o tamanho da fonte\nfontsize: 12pt\n\n\nlinestretch\nDefine o espaçamento entre linhas\nlinestretch: 1.5\n\n\nlinkcolor\nDefine a cor dos links\nlinkcolor: \"blue\"\n\n\nlof\nAtiva lista de figuras\nlof: true\n\n\nlot\nAtiva lista de tabelas\nlot: true\n\n\n\nExemplo de uso no cabeçalho YAML para Typst:\nformat:\n  typst:\n    papersize: a4\n    fontsize: 12pt\n    number-sections: true\n    linkcolor: \"blue\""
   },
   {
     "objectID": "tutorials/quarto/index.html#criando-uma-célula-de-código",
@@ -669,7 +669,7 @@
     "href": "tutorials/quarto/index.html#exemplo-de-uma-célula-de-código-básica",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
     "section": "5.2 Exemplo de uma Célula de Código Básica",
-    "text": "5.2 Exemplo de uma Célula de Código Básica\n\n# Este é um exemplo de célula de código R\nx &lt;- 1:10\nmean(x)\n\n[1] 5.5"
+    "text": "5.2 Exemplo de uma Célula de Código Básica\n```{r}\n# Este é um exemplo de célula de código R\nx &lt;- 1:10\nmean(x)\n```"
   },
   {
     "objectID": "tutorials/quarto/index.html#opções-de-célula-de-código-no-quarto",
@@ -697,7 +697,7 @@
     "href": "tutorials/quarto/index.html#código-inline",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
     "section": "5.6 Código Inline",
-    "text": "5.6 Código Inline\nAlém das células de código, você também pode incluir código R diretamente no texto usando a sintaxe `r `. Por exemplo, a média de 1 a 10 é 5.5, que será renderizado como o valor calculado."
+    "text": "5.6 Código Inline\nAlém das células de código, você também pode incluir código R diretamente no texto usando a sintaxe `r `. Por exemplo, a média de 1 a 10 é `r mean(1:10)`, que será renderizado como o valor calculado."
   },
   {
     "objectID": "tutorials/quarto/index.html#ocultando-células-de-código",
@@ -717,29 +717,113 @@
     "objectID": "tutorials/quarto/index.html#relatório-no-formato-html",
     "href": "tutorials/quarto/index.html#relatório-no-formato-html",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
-    "section": "6.1 Relatório no formato HTML",
-    "text": "6.1 Relatório no formato HTML\nPara criar um relatório com o sistema Quarto no formato HTML, utilize o seguinte cabeçalho YAML:\n---\ntitle: \"Título do Relatório\"\nlang: pt-BR\nauthor: Seu Nome\ndate: today\ndate-format: \"DD/MM/YYYY\"\nformat:\n  html:\n    theme: cosmos\n    toc: true\n    number-sections: true\n    embed-resources: true\n    code-fold: true\n    fig-cap-location: bottom\n    tbl-cap-location: top\nexecute:\n  echo: true\n  message: false\n  warning: false\neditor: source\n---\nA Tab. 1 contém explicações de cada um dos pares chave-valor usados no cabeçalho acima.\n\n\n\nTabela 1: Explicação dos parâmetros YAML para documentos HTML no Quarto\n\n\n\n\n\n\n\n\n\n\nChave\nValor no Exemplo\nExplicação\n\n\n\n\ntitle\n\"Título do Relatório\"\nDefine o título principal que aparecerá no topo do documento HTML.\n\n\nlang\npt-BR\nEspecifica o idioma do documento como português brasileiro, afetando a hifenização, formatação de datas, separadores decimais e outros elementos dependentes do idioma regional.\n\n\nauthor\nSeu Nome\nIdentifica o autor do documento, aparecendo normalmente logo abaixo do título.\n\n\ndate\ntoday\nConfigura a data do documento para a data atual quando o documento for renderizado.\n\n\ndate-format\n\"DD/MM/YYYY\"\nDefine o formato da data como dia/mês/ano (exemplo: 18/03/2025).\n\n\nformat\n\nSeção que configura o formato de saída\n\n\ntheme\ncosmos\nDefine o tema visual do documento HTML, neste caso usando o tema “cosmos” que determina cores, fontes e estilos.\n\n\ntoc\ntrue\nAtiva a tabela de conteúdo (índice), facilitando a navegação pelo documento.\n\n\nnumber-sections\ntrue\nAdiciona numeração automática às seções e subseções (1, 1.1, 1.2, 2, etc.).\n\n\nembed-resources\ntrue\nCria um arquivo HTML único e independente com todos os recursos necessários incorporados (CSS, imagens, etc.).\n\n\ncode-fold\ntrue\nPermite que blocos de código sejam recolhidos/expandidos pelo leitor, tornando o documento mais limpo.\n\n\nfig-cap-location\nbottom\nPosiciona as legendas das figuras abaixo das imagens.\n\n\ntbl-cap-location\ntop\nPosiciona as legendas das tabelas acima das tabelas.\n\n\nexecute\n\nSeção que controla a execução de código\n\n\necho\ntrue\nMostra o código fonte junto com seus resultados no documento final.\n\n\nmessage\nfalse\nOculta mensagens geradas durante a execução do código.\n\n\nwarning\nfalse\nOculta avisos gerados durante a execução do código.\n\n\neditor\nsource\nEspecifica o modo de edição padrão como “source” (código fonte) ao abrir o documento no RStudio ou outro editor compatível."
+    "section": "7.1 Relatório no formato HTML",
+    "text": "7.1 Relatório no formato HTML\nPara criar um relatório com o sistema Quarto no formato HTML, utilize o seguinte cabeçalho YAML:\n---\ntitle: \"Título do Relatório\"\nlang: pt-BR\nauthor: Seu Nome\ndate: today\ndate-format: \"DD/MM/YYYY\"\nformat:\n  html:\n    theme: cosmos\n    toc: true\n    number-sections: true\n    embed-resources: true\n    code-fold: true\n    fig-cap-location: bottom\n    tbl-cap-location: top\nexecute:\n  echo: true\n  message: false\n  warning: false\neditor: source\n---\nA Tab. 1 contém explicações de cada um dos pares chave-valor usados no cabeçalho acima.\n\n\n\nTabela 1: Explicação dos parâmetros YAML para documentos HTML no Quarto\n\n\n\n\n\n\n\n\n\n\nChave\nValor no Exemplo\nExplicação\n\n\n\n\ntitle\n\"Título do Relatório\"\nDefine o título principal que aparecerá no topo do documento HTML.\n\n\nlang\npt-BR\nEspecifica o idioma do documento como português brasileiro, afetando a hifenização, formatação de datas, separadores decimais e outros elementos dependentes do idioma regional.\n\n\nauthor\nSeu Nome\nIdentifica o autor do documento, aparecendo normalmente logo abaixo do título.\n\n\ndate\ntoday\nConfigura a data do documento para a data atual quando o documento for renderizado.\n\n\ndate-format\n\"DD/MM/YYYY\"\nDefine o formato da data como dia/mês/ano (exemplo: 18/03/2025).\n\n\nformat\n\nSeção que configura o formato de saída\n\n\ntheme\ncosmos\nDefine o tema visual do documento HTML, neste caso usando o tema “cosmos” que determina cores, fontes e estilos.\n\n\ntoc\ntrue\nAtiva a tabela de conteúdo (índice), facilitando a navegação pelo documento.\n\n\nnumber-sections\ntrue\nAdiciona numeração automática às seções e subseções (1, 1.1, 1.2, 2, etc.).\n\n\nembed-resources\ntrue\nCria um arquivo HTML único e independente com todos os recursos necessários incorporados (CSS, imagens, etc.).\n\n\ncode-fold\ntrue\nPermite que blocos de código sejam recolhidos/expandidos pelo leitor, tornando o documento mais limpo.\n\n\nfig-cap-location\nbottom\nPosiciona as legendas das figuras abaixo das imagens.\n\n\ntbl-cap-location\ntop\nPosiciona as legendas das tabelas acima das tabelas.\n\n\nexecute\n\nSeção que controla a execução de código\n\n\necho\ntrue\nMostra o código fonte junto com seus resultados no documento final.\n\n\nmessage\nfalse\nOculta mensagens geradas durante a execução do código.\n\n\nwarning\nfalse\nOculta avisos gerados durante a execução do código.\n\n\neditor\nsource\nEspecifica o modo de edição padrão como “source” (código fonte) ao abrir o documento no RStudio ou outro editor compatível."
   },
   {
     "objectID": "tutorials/quarto/index.html#relatório-no-formato-pdf-com-typst",
     "href": "tutorials/quarto/index.html#relatório-no-formato-pdf-com-typst",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
-    "section": "6.2 Relatório no formato pdf com Typst",
-    "text": "6.2 Relatório no formato pdf com Typst\nPara criar um relatório com o sistema Quarto no formato pdf com o sistema Typst, utilize o seguinte cabeçalho YAML:\n---\ntitle: \"Título do Relatório\"\nlang: pt-BR\nauthor: \"Seu Nome\"\ndate: today\ndate-format: \"DD/MM/YYYY\"\nformat:\n  typst:\n    papersize: a4\n    number-sections: true\n    toc: false\n    fig-cap-location: bottom\n    tbl-cap-location: top\n    linkcolor: \"blue\"\nexecute:\n  echo: true\n  warning: false\n  message: false\n---\nNa Tab. 2, apresento apenas os parâmetros específicos do formato Typst ou aqueles com valores diferentes dos explicados anteriormente na tabela de parâmetros HTML. Parâmetros comuns como title, lang, author, date, date-format, e as opções de execute mantêm o mesmo significado em ambos os formatos.\n\n\n\nTabela 2: Explicação dos parâmetros YAML específicos para documentos Typst no Quarto\n\n\n\n\n\n\n\n\n\n\nParâmetro\nValor no Exemplo\nExplicação Didática\n\n\n\n\nformat: typst\n\nIndica que o documento será renderizado usando o sistema Typst, um sistema moderno de tipografia para produzir documentos PDF, alternativo ao LaTeX.\n\n\npapersize\na4\nDefine o tamanho do papel como A4 (210 × 297 mm), padrão internacional comum em documentos acadêmicos no Brasil.\n\n\nnumber-sections\ntrue\nAdiciona numeração automática às seções e subseções do documento (1, 1.1, 1.2, 2, etc.).\n\n\ntoc\nfalse\nDesativa a tabela de conteúdo (índice) no documento final.\n\n\nfig-cap-location\nbottom\nPosiciona as legendas das figuras abaixo das imagens.\n\n\ntbl-cap-location\ntop\nPosiciona as legendas das tabelas acima das tabelas.\n\n\nlinkcolor\n\"blue\"\nDefine a cor dos hiperlinks no documento como azul, facilitando a identificação visual de links para o leitor.\n\n\n\n\n\n\nO sistema Typst é uma alternativa mais moderna e ágil ao LaTeX para produção de PDFs, sendo particularmente útil para documentos acadêmicos que exigem alta qualidade tipográfica. O formato Typst oferece um bom equilíbrio entre a simplicidade do HTML e o poder de formatação do LaTeX."
+    "section": "7.2 Relatório no formato pdf com Typst",
+    "text": "7.2 Relatório no formato pdf com Typst\nPara criar um relatório com o sistema Quarto no formato pdf com o sistema Typst, utilize o seguinte cabeçalho YAML:\n---\ntitle: \"Título do Relatório\"\nlang: pt-BR\nauthor: \"Seu Nome\"\ndate: today\ndate-format: \"DD/MM/YYYY\"\nformat:\n  typst:\n    papersize: a4\n    number-sections: true\n    toc: false\n    fig-cap-location: bottom\n    tbl-cap-location: top\n    linkcolor: \"blue\"\nexecute:\n  echo: true\n  warning: false\n  message: false\n---\nNa Tab. 2, apresento apenas os parâmetros específicos do formato Typst ou aqueles com valores diferentes dos explicados anteriormente na tabela de parâmetros HTML. Parâmetros comuns como title, lang, author, date, date-format, e as opções de execute mantêm o mesmo significado em ambos os formatos.\n\n\n\nTabela 2: Explicação dos parâmetros YAML específicos para documentos Typst no Quarto\n\n\n\n\n\n\n\n\n\n\nParâmetro\nValor no Exemplo\nExplicação Didática\n\n\n\n\nformat: typst\n\nIndica que o documento será renderizado usando o sistema Typst, um sistema moderno de tipografia para produzir documentos PDF, alternativo ao LaTeX.\n\n\npapersize\na4\nDefine o tamanho do papel como A4 (210 × 297 mm), padrão internacional comum em documentos acadêmicos no Brasil.\n\n\nfontsize\nfontsize: 12pt\nDefine o tamanho da fonte.\n\n\nnumber-sections\ntrue\nAdiciona numeração automática às seções e subseções do documento (1, 1.1, 1.2, 2, etc.).\n\n\nfig-cap-location\nbottom\nPosiciona as legendas das figuras abaixo das imagens.\n\n\ntbl-cap-location\ntop\nPosiciona as legendas das tabelas acima das tabelas.\n\n\nlinkcolor\n\"blue\"\nDefine a cor dos hiperlinks no documento como azul, facilitando a identificação visual de links para o leitor.\n\n\n\n\n\n\nO sistema Typst é uma alternativa mais moderna e ágil ao LaTeX para produção de PDFs, sendo particularmente útil para documentos acadêmicos que exigem alta qualidade tipográfica. O formato Typst oferece um bom equilíbrio entre a simplicidade do HTML e o poder de formatação do LaTeX."
   },
   {
     "objectID": "tutorials/quarto/index.html#relatório-no-formato-docx",
     "href": "tutorials/quarto/index.html#relatório-no-formato-docx",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
-    "section": "6.3 Relatório no formato docx",
-    "text": "6.3 Relatório no formato docx\nPara criar um relatório com o sistema Quarto no formato docx do MS Word, utilize o seguinte cabeçalho YAML:\n---\ntitle: \"Título do Relatório\"\nlang: pt-BR\nauthor: Seu Nome\ndate: today\ndate-format: \"DD/MM/YYYY\"\nformat:\n  docx:\n    number-sections: true\nexecute:\n  echo: true\n  message: false\n  warning: false\neditor: source\n---\nEste cabeçalho YAML configura a produção de um documento no formato Microsoft Word (.docx). Todas as opções utilizadas já foram explicadas nas tabelas anteriores.\nA única diferença é a especificação format: docx:, que indica ao Quarto que o documento deve ser renderizado como um arquivo .docx. Este formato pode ser útil quando for necessário compartilhar documentos editáveis com pessoas que utilizam o Microsoft Office, embora não seja o formato mais recomendado para trabalhos acadêmicos devido às suas limitações de formatação consistente e controle tipográfico."
+    "section": "7.3 Relatório no formato docx",
+    "text": "7.3 Relatório no formato docx\nPara criar um relatório com o sistema Quarto no formato docx do MS Word, utilize o seguinte cabeçalho YAML:\n---\ntitle: \"Título do Relatório\"\nlang: pt-BR\nauthor: Seu Nome\ndate: today\ndate-format: \"DD/MM/YYYY\"\nformat:\n  docx:\n    number-sections: true\nexecute:\n  echo: true\n  message: false\n  warning: false\neditor: source\n---\nEste cabeçalho YAML configura a produção de um documento no formato Microsoft Word (.docx). Todas as opções utilizadas já foram explicadas nas tabelas anteriores.\nA única diferença é a especificação format: docx:, que indica ao Quarto que o documento deve ser renderizado como um arquivo .docx. Este formato pode ser útil quando for necessário compartilhar documentos editáveis com pessoas que utilizam o Microsoft Office, embora não seja o formato mais recomendado para trabalhos acadêmicos devido às suas limitações de formatação consistente e controle tipográfico."
   },
   {
-    "objectID": "tutorials/quarto/index.html#a",
-    "href": "tutorials/quarto/index.html#a",
+    "objectID": "tutorials/quarto/index.html#c",
+    "href": "tutorials/quarto/index.html#c",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
-    "section": "A",
-    "text": "A\nTO DO"
+    "section": "C",
+    "text": "C\nCélulas de Código (Code Chunks): Blocos de código em um documento Quarto que podem ser executados, gerando resultados que são incluídos no documento final.\nCabeçalho YAML: Seção no início de um documento Quarto, delimitada por três traços (—), onde são definidos metadados e opções de formatação para o documento.\nChave-valor (key-value): Formato de dados usado no YAML que associa um nome de propriedade (chave) a um conteúdo ou configuração específica (valor).\nCódigo Inline: Código R incorporado diretamente no texto de um documento Quarto, indicado pela sintaxe `r `, que é executado durante a renderização."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#e",
+    "href": "tutorials/quarto/index.html#e",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "E",
+    "text": "E\necho: Opção de célula de código que controla se o código fonte é exibido (true) ou ocultado (false) no documento final.\neval: Opção de célula de código que determina se o código deve ser executado (true) ou não (false) durante a renderização."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#f",
+    "href": "tutorials/quarto/index.html#f",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "F",
+    "text": "F\nFormato de Saída: Tipo de documento final gerado pelo Quarto, como HTML, PDF, DOCX, apresentações, entre outros.\nfig-cap: Opção de célula de código que adiciona uma legenda a uma figura gerada pelo código."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#i",
+    "href": "tutorials/quarto/index.html#i",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "I",
+    "text": "I\nIndentação: Espaçamento consistente utilizado no YAML para indicar hierarquia e aninhamento de opções, crucial para o funcionamento correto dos metadados."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#k",
+    "href": "tutorials/quarto/index.html#k",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "K",
+    "text": "K\nknitr: Pacote R responsável por executar o código R em documentos Quarto, transformando o documento .qmd em um arquivo markdown intermediário (.md)."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#l",
+    "href": "tutorials/quarto/index.html#l",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "L",
+    "text": "L\nLinguagem de Marcação: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou símbolos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto)."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#m",
+    "href": "tutorials/quarto/index.html#m",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "M",
+    "text": "M\nMarkdown: Linguagem de marcação leve usada para formatar textos nos documentos Quarto, permitindo cabeçalhos, listas, negrito, itálico, links, entre outros elementos.\nMetadados: Informações sobre o documento (como título, autor, data, formato) definidas no cabeçalho YAML."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#p",
+    "href": "tutorials/quarto/index.html#p",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "P",
+    "text": "P\nPandoc: Ferramenta universal de conversão de documentos que o Quarto utiliza para transformar arquivos markdown em formatos finais como HTML, PDF e DOCX.\nPublicação Técnica e Científica: Processo de criar e disseminar documentos com conteúdo acadêmico ou técnico, seguindo padrões estabelecidos de formatação e referenciação."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#q",
+    "href": "tutorials/quarto/index.html#q",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "Q",
+    "text": "Q\nQMD: Extensão de arquivo (.qmd) específica dos documentos Quarto, que contém texto em Markdown, código e metadados YAML.\nQuarto: Sistema de publicação científica e técnica de código aberto que permite combinar texto narrativo, código, equações e resultados em um único documento reproduzível."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#r",
+    "href": "tutorials/quarto/index.html#r",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "R",
+    "text": "R\nReferência Cruzada: Recurso que permite fazer referência a elementos como figuras, tabelas e seções em qualquer parte do documento usando identificadores únicos.\nRender: Processo de transformar um documento Quarto (.qmd) em seu formato final (HTML, PDF, etc.), executando código e formatando o conteúdo conforme as especificações.\nReprodutibilidade: Princípio que permite que outros pesquisadores e profissionais possam replicar exatamente os mesmos resultados utilizando os mesmos dados e códigos. No contexto corporativo, garante a auditabilidade de análises, facilita a transferência de conhecimento entre equipes, permite verificação de resultados por diferentes stakeholders e assegura a continuidade de projetos mesmo com mudanças de pessoal."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#t",
+    "href": "tutorials/quarto/index.html#t",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "T",
+    "text": "T\nTOC (Table of Contents): Sumário ou índice automático gerado pelo Quarto com base na estrutura de títulos e subtítulos do documento.\nTypst: Sistema moderno de tipografia utilizado pelo Quarto como alternativa ao LaTeX para produzir documentos PDF com alta qualidade tipográfica."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#w",
+    "href": "tutorials/quarto/index.html#w",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "W",
+    "text": "W\nwarning: Opção de célula de código que controla se os avisos gerados durante a execução do código são exibidos (true) ou ocultados (false) no documento final."
+  },
+  {
+    "objectID": "tutorials/quarto/index.html#y",
+    "href": "tutorials/quarto/index.html#y",
+    "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
+    "section": "Y",
+    "text": "Y\nYAML (Yet Another Markup Language): Linguagem de serialização de dados legível por humanos usada para os metadados de documentos Quarto, caracterizada pelo formato de pares chave-valor e indentação significativa."
   },
   {
     "objectID": "Readme.html",

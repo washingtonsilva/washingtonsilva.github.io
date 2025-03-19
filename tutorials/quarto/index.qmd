@@ -9,6 +9,7 @@ toc: true
 number-sections: true
 toc-depth: 4
 toc-location: left
+highlight-style: github
 author:
   - name: Prof. Dr. Washington S. da Silva 
     affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
@@ -156,7 +157,7 @@ para denominar esta boa prática de extrema importância.
 
 
 
-Como vimos no [tutorial sobre o RStudio](){target="_blank"}, 
+Como vimos no [tutorial sobre o RStudio](https://washingtonsilva.github.io/tutorials/rstudio/){target="_blank"}, 
 há duas formas simples de criar um arquivo do sistema Quarto usando o 
 este IDE:
 
@@ -222,25 +223,6 @@ um cabeçalho, mais precisamente, contém um cabeçalho
 YAML simples (mais detalhes a seguir), o qual é demarcado por três 
 traços (---) em cada extremidade. 
 
-Considerando que você tenha criado o arquivo `01_teste.qmd` (e salvo esse 
-arquivo na pasta apropriada do seu projeto RStudio), apague o 
-cabeçalho mínimo desse arquivo criado pelo RStudio, em seguida, 
-copie e cole o código do cabeçaho exibio abaixo no mesmo 
-local:
-
-
-``` yaml
----
-title: "Olá, Quarto"
-format: html
-editor: source
----
-```
-
-Agora, renderize o arquivo `01_teste.qmd` clicando no botão 
-`Render` localizado na barra superior do painel `Source` do 
-Rstudio.
-
 O código acima constitui um exemplo do uso da linguagem de marcação 
 YAML (de "Yet Another Markup Language") para fornecer metadados aos 
 documentos gerados com Quarto. A sintaxe de YAML usa pares 
@@ -262,7 +244,7 @@ De forma mais detalhada, os metadados do cabeçalho YAML consistem:
 
 [... que podem aninhar,]{.fragment}
 
-[... sque ão exigentes quanto ao recuo,]{.fragment}
+[... que ão exigentes quanto ao recuo,]{.fragment}
 
 [... e são mantidos entre `---`.]{.fragment}
 
@@ -387,6 +369,7 @@ format:
 
 
 
+
 ## Opções dos Cabeçalhos YAML
 
 As opções que podem ser usadas nos cabeçalhos YAML de um arquivo 
@@ -405,15 +388,15 @@ de personalização. Aqui estão algumas das mais úteis:
 | Opção | Descrição | Exemplo de Uso |
 |-------|-----------|----------------|
 | `theme` | Define o tema visual do documento | `theme: cosmo` |
+| `embed-resources` | Incorpora todos recursos no arquivo HTML | `embed-resources: true` |
 | `toc` | Ativa o índice do documento | `toc: true` |
 | `toc-depth` | Define a profundidade do índice | `toc-depth: 3` |
 | `toc-location` | Define a posição do índice | `toc-location: left` |
 | `code-fold` | Permite recolher/expandir blocos de código | `code-fold: true` |
 | `code-tools` | Adiciona ferramentas para copiar código | `code-tools: true` |
 | `code-line-numbers` | Adiciona números às linhas de código | `code-line-numbers: true` |
-| `embed-resources` | Incorpora todos recursos no arquivo HTML | `embed-resources: true` |
-| `fig-format` | Define o formato das figuras | `fig-format: png` |
-| `df-print` | Controla como dataframes são exibidos | `df-print: paged` |
+
+
 
 Exemplo de uso no cabeçalho YAML:
 
@@ -421,12 +404,12 @@ Exemplo de uso no cabeçalho YAML:
 format:
   html:
     theme: cosmo
+    embed-resources: true
     toc: true
     toc-depth: 3
     toc-location: left
     code-fold: true
     code-tools: true
-    embed-resources: true
 ```
 
 ## Algumas Opções Disponíveis para Arquivos PDF
@@ -441,7 +424,6 @@ algumas opções úteis para personalização de documentos PDF:
 | `fontsize` | Define o tamanho da fonte | `fontsize: 12pt` |
 | `linestretch` | Define o espaçamento entre linhas | `linestretch: 1.5` |
 | `linkcolor` | Define a cor dos links | `linkcolor: "blue"` |
-| `toc` | Ativa o sumário | `toc: true` |
 | `lof` | Ativa lista de figuras | `lof: true` |
 | `lot` | Ativa lista de tabelas | `lot: true` |
 
@@ -484,7 +466,7 @@ mencionado acima.
 
 As células de código (ou *code chunks*) são blocos que permitem a 
 inclusão e execução de código R diretamente no seu documento Quarto. 
-\Elas são essenciais para análises de dados reproduzíveis, pois 
+Elas são essenciais para análises de dados reproduzíveis, pois 
 integram o código com seus resultados e explicações textuais.
 
 
@@ -503,7 +485,7 @@ Você pode adicionar uma célula de código de três maneiras:
 
 ## Exemplo de uma Célula de Código Básica
 
-```{r}
+```{{r}}
 # Este é um exemplo de célula de código R
 x <- 1:10
 mean(x)
@@ -627,6 +609,44 @@ e o Quarto automaticamente substituirá isso pelo número da figura.
 
 
 
+# Renderização {#sec-render}
+
+Considerando que você tenha criado o arquivo `01_teste.qmd` (e salvo esse 
+arquivo na pasta apropriada do seu projeto RStudio), apague o 
+cabeçalho mínimo desse arquivo criado pelo RStudio, em seguida, 
+copie e cole o código do cabeçaho exibio abaixo no mesmo 
+local:
+
+
+``` yaml
+---
+title: "Olá, Quarto"
+format: html
+editor: source
+---
+```
+
+Agora, renderize o arquivo `01_teste.qmd` clicando no botão 
+![](img/render-button.png){width=25px height=25px style="vertical-align:middle;"} Render, localizado na barra superior do painel `Source` do Rstudio, 
+como mostra a @fig-7.
+
+![Renderizando um arquivo quarto.](img/rstudio-render.png){#fig-7 fig-align="center"}
+
+
+A renderização do arquivo `01_teste.qmd` produz um arquivo html exibido 
+na guia Viewer do RStudio, conforme a @fig-8. Esse arquivo, como esperado, 
+mostra apenas o título atribuído ao documento usando a chave: valor 
+`title: "Olá, Quarto"`.
+
+![Renderizando um arquivo quarto.](img/fig08.jpeg){#fig-8 fig-align="center"}
+
+Ao renderizar, o sistema Quarto gera um novo arquivo que contém texto 
+selecionado, código e resultados do arquivo .qmd. O novo arquivo 
+pode ser um documento HTML, PDF, MS Word, apresentação, site, livro, 
+documento interativo ou outro formato.
+
+
+
 # Criando Relatórios Quarto em Diversos Formatos com o RStudio {#sec-relatorios}
 
 Para que você possa começar a trabalhar com relatórios produzidos pelo sistema 
@@ -733,8 +753,8 @@ significado em ambos os formatos.
 |---------------|----------------------|--------------------------|
 | `format: typst` | | Indica que o documento será renderizado usando o sistema Typst, um sistema moderno de tipografia para produzir documentos PDF, alternativo ao LaTeX. |
 | `papersize` | `a4` | Define o tamanho do papel como A4 (210 × 297 mm), padrão internacional comum em documentos acadêmicos no Brasil. |
+| `fontsize` | `fontsize: 12pt` | Define o tamanho da fonte. |
 | `number-sections` | `true` | Adiciona numeração automática às seções e subseções do documento (1, 1.1, 1.2, 2, etc.). |
-| `toc` | `false` | Desativa a tabela de conteúdo (índice) no documento final. |
 | `fig-cap-location` | `bottom` | Posiciona as legendas das figuras abaixo das imagens. |
 | `tbl-cap-location` | `top` | Posiciona as legendas das tabelas acima das tabelas. |
 | `linkcolor` | `"blue"` | Define a cor dos hiperlinks no documento como azul, facilitando a identificação visual de links para o leitor. |
@@ -788,9 +808,137 @@ devido às suas limitações de formatação consistente e controle tipográfico
 
 # Glossário de Termos
 
-## A {.unnumbered}
 
-TO DO
+## C {.unnumbered}
+
+**Células de Código** (*Code Chunks*): Blocos de código em um documento 
+Quarto que podem ser executados, gerando resultados que são incluídos 
+no documento final.
+
+**Cabeçalho YAML**: Seção no início de um documento Quarto, delimitada 
+por três traços (---), onde são definidos metadados e opções de formatação 
+para o documento.
+
+**Chave-valor** (*key-value*): Formato de dados usado no YAML que associa 
+um nome de propriedade (chave) a um conteúdo ou configuração 
+específica (valor).
+
+**Código Inline**: Código R incorporado diretamente no texto de um 
+documento Quarto, indicado pela sintaxe `` `r ` ``, que é executado 
+durante a renderização.
+
+
+## E {.unnumbered}
+
+**echo**: Opção de célula de código que controla se o código fonte é 
+exibido (true) ou ocultado (false) no documento final.
+
+**eval**: Opção de célula de código que determina se o código deve ser 
+executado (true) ou não (false) durante a renderização.
+
+
+## F {.unnumbered}
+
+**Formato de Saída**: Tipo de documento final gerado pelo Quarto, como 
+HTML, PDF, DOCX, apresentações, entre outros.
+
+**fig-cap**: Opção de célula de código que adiciona uma legenda a uma figura gerada pelo código.
+
+
+## I {.unnumbered}
+
+**Indentação**: Espaçamento consistente utilizado no YAML para indicar 
+hierarquia e aninhamento de opções, crucial para o funcionamento correto 
+dos metadados.
+
+
+## K {.unnumbered}
+
+**knitr**: Pacote R responsável por executar o código R em documentos 
+Quarto, transformando o documento .qmd em um arquivo markdown 
+intermediário (.md).
+
+
+## L {.unnumbered}
+
+**Linguagem de Marcação**: Sistema de anotações inseridas em um texto para 
+definir como ele deve ser estruturado, formatado ou apresentado. Ao 
+contrário das linguagens de programação que executam comandos, as 
+linguagens de marcação utilizam tags ou símbolos para identificar elementos 
+do documento (como títulos, parágrafos, listas) sem se preocupar com a 
+lógica computacional. Exemplos incluem HTML (para páginas web), XML 
+(para dados estruturados), LaTeX (para documentos científicos) e Markdown 
+(usada no Quarto para formatação simplificada de texto).
+
+
+## M {.unnumbered}
+
+**Markdown**: Linguagem de marcação leve usada para formatar textos nos 
+documentos Quarto, permitindo cabeçalhos, listas, negrito, itálico, 
+links, entre outros elementos.
+
+**Metadados**: Informações sobre o documento (como título, autor, 
+data, formato) definidas no cabeçalho YAML.
+
+
+## P {.unnumbered}
+
+**Pandoc**: Ferramenta universal de conversão de documentos que o 
+Quarto utiliza para transformar arquivos markdown em formatos finais 
+como HTML, PDF e DOCX.
+
+**Publicação Técnica e Científica**: Processo de criar e disseminar 
+documentos com conteúdo acadêmico ou técnico, seguindo padrões estabelecidos 
+de formatação e referenciação.
+
+
+## Q {.unnumbered}
+
+**QMD**: Extensão de arquivo (.qmd) específica dos documentos Quarto, que 
+contém texto em Markdown, código e metadados YAML.
+
+**Quarto**: Sistema de publicação científica e técnica de código aberto 
+que permite combinar texto narrativo, código, equações e resultados em 
+um único documento reproduzível.
+
+
+## R {.unnumbered}
+
+**Referência Cruzada**: Recurso que permite fazer referência a elementos 
+como figuras, tabelas e seções em qualquer parte do documento usando 
+identificadores únicos.
+
+**Render**: Processo de transformar um documento Quarto (.qmd) em seu 
+formato final (HTML, PDF, etc.), executando código e formatando o 
+conteúdo conforme as especificações.
+
+**Reprodutibilidade**: Princípio que permite que outros pesquisadores 
+e profissionais possam replicar exatamente os mesmos resultados utilizando 
+os mesmos dados e códigos. No contexto corporativo, garante a auditabilidade 
+de análises, facilita a transferência de conhecimento entre equipes, 
+permite verificação de resultados por diferentes stakeholders e 
+assegura a continuidade de projetos mesmo com mudanças de pessoal.
+
+## T {.unnumbered}
+
+**TOC** (*Table of Contents*): Sumário ou índice automático gerado pelo 
+Quarto com base na estrutura de títulos e subtítulos do documento.
+
+**Typst**: Sistema moderno de tipografia utilizado pelo Quarto como 
+alternativa ao LaTeX para produzir documentos PDF com alta qualidade 
+tipográfica.
+
+
+## W {.unnumbered}
+
+**warning**: Opção de célula de código que controla se os avisos gerados 
+durante a execução do código são exibidos (true) ou ocultados (false) no 
+documento final.
+
+
+## Y {.unnumbered}
+
+**YAML** (*Yet Another Markup Language*): Linguagem de serialização de dados legível por humanos usada para os metadados de documentos Quarto, caracterizada pelo formato de pares chave-valor e indentação significativa.
 
 
 

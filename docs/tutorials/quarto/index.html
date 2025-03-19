@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d733bae8d25ee96a5ec25d3f450c87d8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f3d070668b2ed1bf0339a96c08600985.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -213,15 +213,28 @@ cookieconsent.run({
   <li><a href="#ocultando-células-de-código" id="toc-ocultando-células-de-código" class="nav-link" data-scroll-target="#ocultando-células-de-código"><span class="header-section-number">5.7</span> Ocultando Células de Código</a></li>
   <li><a href="#referenciando-figuras-e-tabelas" id="toc-referenciando-figuras-e-tabelas" class="nav-link" data-scroll-target="#referenciando-figuras-e-tabelas"><span class="header-section-number">5.8</span> Referenciando Figuras e Tabelas</a></li>
   </ul></li>
-  <li><a href="#sec-relatorios" id="toc-sec-relatorios" class="nav-link" data-scroll-target="#sec-relatorios"><span class="header-section-number">6</span> Criando Relatórios Quarto em Diversos Formatos com o RStudio</a>
+  <li><a href="#sec-render" id="toc-sec-render" class="nav-link" data-scroll-target="#sec-render"><span class="header-section-number">6</span> Renderização</a></li>
+  <li><a href="#sec-relatorios" id="toc-sec-relatorios" class="nav-link" data-scroll-target="#sec-relatorios"><span class="header-section-number">7</span> Criando Relatórios Quarto em Diversos Formatos com o RStudio</a>
   <ul>
-  <li><a href="#relatório-no-formato-html" id="toc-relatório-no-formato-html" class="nav-link" data-scroll-target="#relatório-no-formato-html"><span class="header-section-number">6.1</span> Relatório no formato HTML</a></li>
-  <li><a href="#relatório-no-formato-pdf-com-typst" id="toc-relatório-no-formato-pdf-com-typst" class="nav-link" data-scroll-target="#relatório-no-formato-pdf-com-typst"><span class="header-section-number">6.2</span> Relatório no formato pdf com Typst</a></li>
-  <li><a href="#relatório-no-formato-docx" id="toc-relatório-no-formato-docx" class="nav-link" data-scroll-target="#relatório-no-formato-docx"><span class="header-section-number">6.3</span> Relatório no formato docx</a></li>
+  <li><a href="#relatório-no-formato-html" id="toc-relatório-no-formato-html" class="nav-link" data-scroll-target="#relatório-no-formato-html"><span class="header-section-number">7.1</span> Relatório no formato HTML</a></li>
+  <li><a href="#relatório-no-formato-pdf-com-typst" id="toc-relatório-no-formato-pdf-com-typst" class="nav-link" data-scroll-target="#relatório-no-formato-pdf-com-typst"><span class="header-section-number">7.2</span> Relatório no formato pdf com Typst</a></li>
+  <li><a href="#relatório-no-formato-docx" id="toc-relatório-no-formato-docx" class="nav-link" data-scroll-target="#relatório-no-formato-docx"><span class="header-section-number">7.3</span> Relatório no formato docx</a></li>
   </ul></li>
-  <li><a href="#glossário-de-termos" id="toc-glossário-de-termos" class="nav-link" data-scroll-target="#glossário-de-termos"><span class="header-section-number">7</span> Glossário de Termos</a>
+  <li><a href="#glossário-de-termos" id="toc-glossário-de-termos" class="nav-link" data-scroll-target="#glossário-de-termos"><span class="header-section-number">8</span> Glossário de Termos</a>
   <ul>
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">A</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">E</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">F</a></li>
+  <li><a href="#i" id="toc-i" class="nav-link" data-scroll-target="#i">I</a></li>
+  <li><a href="#k" id="toc-k" class="nav-link" data-scroll-target="#k">K</a></li>
+  <li><a href="#l" id="toc-l" class="nav-link" data-scroll-target="#l">L</a></li>
+  <li><a href="#m" id="toc-m" class="nav-link" data-scroll-target="#m">M</a></li>
+  <li><a href="#p" id="toc-p" class="nav-link" data-scroll-target="#p">P</a></li>
+  <li><a href="#q" id="toc-q" class="nav-link" data-scroll-target="#q">Q</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#t" id="toc-t" class="nav-link" data-scroll-target="#t">T</a></li>
+  <li><a href="#w" id="toc-w" class="nav-link" data-scroll-target="#w">W</a></li>
+  <li><a href="#y" id="toc-y" class="nav-link" data-scroll-target="#y">Y</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -408,7 +421,7 @@ Sempre Utilize Projetos RStudio
 </ul>
 </div>
 </div>
-<p>Como vimos no <a href="" target="_blank">tutorial sobre o RStudio</a>, há duas formas simples de criar um arquivo do sistema Quarto usando o este IDE:</p>
+<p>Como vimos no <a href="https://washingtonsilva.github.io/tutorials/rstudio/" target="_blank">tutorial sobre o RStudio</a>, há duas formas simples de criar um arquivo do sistema Quarto usando o este IDE:</p>
 <ol type="1">
 <li>Clicando em <code>File -&gt; New File -&gt; Quarto Document</code>, conforme a <a href="#fig-3" class="quarto-xref">Fig.&nbsp;3</a>.</li>
 </ol>
@@ -479,13 +492,6 @@ Sempre Utilize Projetos RStudio
 <section id="metadados" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="metadados"><span class="header-section-number">3.1</span> Metadados</h2>
 <p>O arquivo mínimo gerado pelo RStudio, exibido na <a href="#fig-6" class="quarto-xref">Fig.&nbsp;6</a>, contém apenas um cabeçalho, mais precisamente, contém um cabeçalho YAML simples (mais detalhes a seguir), o qual é demarcado por três traços (—) em cada extremidade.</p>
-<p>Considerando que você tenha criado o arquivo <code>01_teste.qmd</code> (e salvo esse arquivo na pasta apropriada do seu projeto RStudio), apague o cabeçalho mínimo desse arquivo criado pelo RStudio, em seguida, copie e cole o código do cabeçaho exibio abaixo no mesmo local:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Olá, Quarto"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Agora, renderize o arquivo <code>01_teste.qmd</code> clicando no botão <code>Render</code> localizado na barra superior do painel <code>Source</code> do Rstudio.</p>
 <p>O código acima constitui um exemplo do uso da linguagem de marcação YAML (de “Yet Another Markup Language”) para fornecer metadados aos documentos gerados com Quarto. A sintaxe de YAML usa pares <em>chave-valor</em> no formato <code>key: value</code>.</p>
 <p>Outros campos YAML comumente encontrados em cabeçalhos de arquivos quarto incluem metadados como <code>author</code>, <code>title</code>, <code>date</code>, bem como opções de personalização como <code>theme</code>, entre diversas outras.</p>
 <p>De forma mais detalhada, os metadados do cabeçalho YAML consistem:</p>
@@ -495,17 +501,17 @@ Sempre Utilize Projetos RStudio
 </div><div class="column" style="width:50%;">
 <p><span class="fragment">… de pares chave-valor (<em>key-value</em>),</span></p>
 <p><span class="fragment">… que podem aninhar,</span></p>
-<p><span class="fragment">… sque ão exigentes quanto ao recuo,</span></p>
+<p><span class="fragment">… que ão exigentes quanto ao recuo,</span></p>
 <p><span class="fragment">… e são mantidos entre <code>---</code>.</span></p>
 </div><div class="column fragment" style="width:40%;">
 <p><br>
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -513,28 +519,28 @@ Sempre Utilize Projetos RStudio
 <h2 data-number="3.2" class="anchored" data-anchor-id="sintáxe-yaml"><span class="header-section-number">3.2</span> Sintáxe YAML</h2>
 <div class="columns">
 <div class="column" style="max-height: 1000px">
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Document"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Santos Dummont</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Albert Einstein</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">    abstract</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      Aqui vai o abstract.</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>     Tem dois parágrafos.</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Document"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Santos Dummont</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Albert Einstein</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">    abstract</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      Aqui vai o abstract.</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>     Tem dois parágrafos.</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="font-size: .85em">
 <div class="incremental">
 <ul class="incremental">
 <li><p>Definindo um único valor com</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">key</span><span class="kw">:</span><span class="at"> value</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">key</span><span class="kw">:</span><span class="at"> value</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Definindo uma lista de valores:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">key</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> value1</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> value2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">key</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> value1</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> value2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>indente 2 espaços para aninhar</p></li>
 <li><p>Sequências de caracteres de várias linhas seguem <code>|</code></p></li>
 </ul>
@@ -547,33 +553,33 @@ Sempre Utilize Projetos RStudio
 <p><span class="inline-el"><strong>Inválidos</strong></span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">format:html</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">format:html</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">html</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">html</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br>
-</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <p><span class="block-el"><strong>Válidos</strong></span></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  html</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  html</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 </p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml fragment code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -604,62 +610,52 @@ Sempre Utilize Projetos RStudio
 <td><code>theme: cosmo</code></td>
 </tr>
 <tr class="even">
-<td><code>toc</code></td>
-<td>Ativa o índice do documento</td>
-<td><code>toc: true</code></td>
-</tr>
-<tr class="odd">
-<td><code>toc-depth</code></td>
-<td>Define a profundidade do índice</td>
-<td><code>toc-depth: 3</code></td>
-</tr>
-<tr class="even">
-<td><code>toc-location</code></td>
-<td>Define a posição do índice</td>
-<td><code>toc-location: left</code></td>
-</tr>
-<tr class="odd">
-<td><code>code-fold</code></td>
-<td>Permite recolher/expandir blocos de código</td>
-<td><code>code-fold: true</code></td>
-</tr>
-<tr class="even">
-<td><code>code-tools</code></td>
-<td>Adiciona ferramentas para copiar código</td>
-<td><code>code-tools: true</code></td>
-</tr>
-<tr class="odd">
-<td><code>code-line-numbers</code></td>
-<td>Adiciona números às linhas de código</td>
-<td><code>code-line-numbers: true</code></td>
-</tr>
-<tr class="even">
 <td><code>embed-resources</code></td>
 <td>Incorpora todos recursos no arquivo HTML</td>
 <td><code>embed-resources: true</code></td>
 </tr>
 <tr class="odd">
-<td><code>fig-format</code></td>
-<td>Define o formato das figuras</td>
-<td><code>fig-format: png</code></td>
+<td><code>toc</code></td>
+<td>Ativa o índice do documento</td>
+<td><code>toc: true</code></td>
 </tr>
 <tr class="even">
-<td><code>df-print</code></td>
-<td>Controla como dataframes são exibidos</td>
-<td><code>df-print: paged</code></td>
+<td><code>toc-depth</code></td>
+<td>Define a profundidade do índice</td>
+<td><code>toc-depth: 3</code></td>
+</tr>
+<tr class="odd">
+<td><code>toc-location</code></td>
+<td>Define a posição do índice</td>
+<td><code>toc-location: left</code></td>
+</tr>
+<tr class="even">
+<td><code>code-fold</code></td>
+<td>Permite recolher/expandir blocos de código</td>
+<td><code>code-fold: true</code></td>
+</tr>
+<tr class="odd">
+<td><code>code-tools</code></td>
+<td>Adiciona ferramentas para copiar código</td>
+<td><code>code-tools: true</code></td>
+</tr>
+<tr class="even">
+<td><code>code-line-numbers</code></td>
+<td>Adiciona números às linhas de código</td>
+<td><code>code-line-numbers: true</code></td>
 </tr>
 </tbody>
 </table>
 <p>Exemplo de uso no cabeçalho YAML:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-location</span><span class="kw">:</span><span class="at"> left</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-location</span><span class="kw">:</span><span class="at"> left</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="algumas-opções-disponíveis-para-arquivos-pdf" class="level2" data-number="3.5">
@@ -700,16 +696,11 @@ Sempre Utilize Projetos RStudio
 <td><code>linkcolor: "blue"</code></td>
 </tr>
 <tr class="odd">
-<td><code>toc</code></td>
-<td>Ativa o sumário</td>
-<td><code>toc: true</code></td>
-</tr>
-<tr class="even">
 <td><code>lof</code></td>
 <td>Ativa lista de figuras</td>
 <td><code>lof: true</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>lot</code></td>
 <td>Ativa lista de tabelas</td>
 <td><code>lot: true</code></td>
@@ -717,12 +708,12 @@ Sempre Utilize Projetos RStudio
 </tbody>
 </table>
 <p>Exemplo de uso no cabeçalho YAML para Typst:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">typst</span><span class="kw">:</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">papersize</span><span class="kw">:</span><span class="at"> a4</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">linkcolor</span><span class="kw">:</span><span class="at"> </span><span class="st">"blue"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">typst</span><span class="kw">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">papersize</span><span class="kw">:</span><span class="at"> a4</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">linkcolor</span><span class="kw">:</span><span class="at"> </span><span class="st">"blue"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="textos" class="level1" data-number="4">
@@ -733,7 +724,7 @@ Sempre Utilize Projetos RStudio
 </section>
 <section id="células-de-código-code-chunks" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Células de Código (<em>Code Chunks</em>)</h1>
-<p>As células de código (ou <em>code chunks</em>) são blocos que permitem a inclusão e execução de código R diretamente no seu documento Quarto. são essenciais para análises de dados reproduzíveis, pois integram o código com seus resultados e explicações textuais.</p>
+<p>As células de código (ou <em>code chunks</em>) são blocos que permitem a inclusão e execução de código R diretamente no seu documento Quarto. Elas são essenciais para análises de dados reproduzíveis, pois integram o código com seus resultados e explicações textuais.</p>
 <section id="criando-uma-célula-de-código" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="criando-uma-célula-de-código"><span class="header-section-number">5.1</span> Criando uma Célula de Código</h2>
 <p>Você pode adicionar uma célula de código de três maneiras:</p>
@@ -745,33 +736,30 @@ Sempre Utilize Projetos RStudio
 </section>
 <section id="exemplo-de-uma-célula-de-código-básica" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="exemplo-de-uma-célula-de-código-básica"><span class="header-section-number">5.2</span> Exemplo de uma Célula de Código Básica</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Este é um exemplo de célula de código R</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.5</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="in"># Este é um exemplo de célula de código R</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 1:10</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="in">mean(x)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="opções-de-célula-de-código-no-quarto" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="opções-de-célula-de-código-no-quarto"><span class="header-section-number">5.3</span> Opções de Célula de Código no Quarto</h2>
 <p>O Quarto usa um formato de YAML dentro das células de código, com cada opção precedida por <code>#|</code>. Este formato é diferente do R Markdown e oferece maior clareza e flexibilidade:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: true</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="in"># Esta célula mostrará o código (echo: true), </span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="in"># mas ocultará avisos (warning) e mensagens</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="in">library(dplyr)</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars %&gt;% </span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(cyl) %&gt;%</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="in">    n = n(),</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="in">    mpg_média = mean(mpg, na.rm = TRUE)</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: true</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="in"># Esta célula mostrará o código (echo: true), </span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="in"># mas ocultará avisos (warning) e mensagens</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="in">library(dplyr)</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars %&gt;% </span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(cyl) %&gt;%</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="in">    n = n(),</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="in">    mpg_média = mean(mpg, na.rm = TRUE)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="opções-comuns-para-células-de-código-no-quarto" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="opções-comuns-para-células-de-código-no-quarto"><span class="header-section-number">5.4</span> Opções Comuns para Células de Código no Quarto</h2>
@@ -828,93 +816,125 @@ Sempre Utilize Projetos RStudio
 </section>
 <section id="exemplo-com-figura-e-legenda" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="exemplo-com-figura-e-legenda"><span class="header-section-number">5.5</span> Exemplo com Figura e Legenda</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-1</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Relação entre Consumo na Estrada e na Cidade por Cilindrada"</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-width: 8</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-height: 6</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mpg, aes(x = hwy, y = cty, color = cyl)) +</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5, size = 2) +</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_color_viridis_c() +</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal() +</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Consumo na Estrada (mpg)",</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Consumo na Cidade (mpg)",</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="in">    color = "Cilindrada"</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-1</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Relação entre Consumo na Estrada e na Cidade por Cilindrada"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-width: 8</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-height: 6</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mpg, aes(x = hwy, y = cty, color = cyl)) +</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5, size = 2) +</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_color_viridis_c() +</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal() +</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Consumo na Estrada (mpg)",</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Consumo na Cidade (mpg)",</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="in">    color = "Cilindrada"</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="código-inline" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="código-inline"><span class="header-section-number">5.6</span> Código Inline</h2>
-<p>Além das células de código, você também pode incluir código R diretamente no texto usando a sintaxe <code>`r `</code>. Por exemplo, a média de 1 a 10 é <code>5.5</code>, que será renderizado como o valor calculado.</p>
+<p>Além das células de código, você também pode incluir código R diretamente no texto usando a sintaxe <code>`r `</code>. Por exemplo, a média de 1 a 10 é <code>`r mean(1:10)`</code>, que será renderizado como o valor calculado.</p>
 </section>
 <section id="ocultando-células-de-código" class="level2" data-number="5.7">
 <h2 data-number="5.7" class="anchored" data-anchor-id="ocultando-células-de-código"><span class="header-section-number">5.7</span> Ocultando Células de Código</h2>
 <p>Para um relatório mais formal, às vezes você pode querer mostrar apenas os resultados sem o código. Isso pode ser controlado globalmente no cabeçalho YAML com <code>execute: echo: false</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Seu Nome</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Seu Nome</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ou célula por célula:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-2</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Gráfico de Dispersão entre Peso e Consumo"</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="in"># Este código não será exibido, apenas o resultado</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="in">plot(mtcars$mpg, mtcars$wt, </span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="in">     xlab = "Consumo (mpg)", </span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="in">     ylab = "Peso (1000 lbs)")</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-2</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Gráfico de Dispersão entre Peso e Consumo"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="in"># Este código não será exibido, apenas o resultado</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="in">plot(mtcars$mpg, mtcars$wt, </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="in">     xlab = "Consumo (mpg)", </span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="in">     ylab = "Peso (1000 lbs)")</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="referenciando-figuras-e-tabelas" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="referenciando-figuras-e-tabelas"><span class="header-section-number">5.8</span> Referenciando Figuras e Tabelas</h2>
 <p>O Quarto permite referenciar facilmente figuras e tabelas usando o atributo <code>label</code>. Por exemplo, a figura criada acima pode ser referenciada como <code>@fig-2</code> em qualquer lugar do texto, e o Quarto automaticamente substituirá isso pelo número da figura.</p>
 </section>
 </section>
-<section id="sec-relatorios" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Criando Relatórios Quarto em Diversos Formatos com o RStudio</h1>
+<section id="sec-render" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Renderização</h1>
+<p>Considerando que você tenha criado o arquivo <code>01_teste.qmd</code> (e salvo esse arquivo na pasta apropriada do seu projeto RStudio), apague o cabeçalho mínimo desse arquivo criado pelo RStudio, em seguida, copie e cole o código do cabeçaho exibio abaixo no mesmo local:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Olá, Quarto"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Agora, renderize o arquivo <code>01_teste.qmd</code> clicando no botão <img src="img/render-button.png" style="vertical-align:middle;" width="25" height="25"> Render, localizado na barra superior do painel <code>Source</code> do Rstudio, como mostra a <a href="#fig-7" class="quarto-xref">Fig.&nbsp;7</a>.</p>
+<div id="fig-7" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/rstudio-render.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<strong>Figura</strong>&nbsp;7: Renderizando um arquivo quarto.
+</figcaption>
+</figure>
+</div>
+<p>A renderização do arquivo <code>01_teste.qmd</code> produz um arquivo html exibido na guia Viewer do RStudio, conforme a <a href="#fig-8" class="quarto-xref">Fig.&nbsp;8</a>. Esse arquivo, como esperado, mostra apenas o título atribuído ao documento usando a chave: valor <code>title: "Olá, Quarto"</code>.</p>
+<div id="fig-8" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/fig08.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<strong>Figura</strong>&nbsp;8: Renderizando um arquivo quarto.
+</figcaption>
+</figure>
+</div>
+<p>Ao renderizar, o sistema Quarto gera um novo arquivo que contém texto selecionado, código e resultados do arquivo .qmd. O novo arquivo pode ser um documento HTML, PDF, MS Word, apresentação, site, livro, documento interativo ou outro formato.</p>
+</section>
+<section id="sec-relatorios" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Criando Relatórios Quarto em Diversos Formatos com o RStudio</h1>
 <p>Para que você possa começar a trabalhar com relatórios produzidos pelo sistema Quarto, nas subseções a seguir são fornecidos códigos dos cabeçalhos YAML que podem ser utilizados para produzir relatórios em diferentes formatos.</p>
 <p>Esses exemplos são apenas uma referência inicial para você começar a trabalhar e a se aprofundar no uso do sistema Quarto para produzir relatórios acadêmicos ou corporativos.</p>
-<section id="relatório-no-formato-html" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="relatório-no-formato-html"><span class="header-section-number">6.1</span> Relatório no formato HTML</h2>
+<section id="relatório-no-formato-html" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="relatório-no-formato-html"><span class="header-section-number">7.1</span> Relatório no formato HTML</h2>
 <p>Para criar um relatório com o sistema Quarto no formato HTML, utilize o seguinte cabeçalho YAML:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Seu Nome</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD/MM/YYYY"</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmos</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-cap-location</span><span class="kw">:</span><span class="at"> bottom</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tbl-cap-location</span><span class="kw">:</span><span class="at"> top</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Seu Nome</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD/MM/YYYY"</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmos</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-cap-location</span><span class="kw">:</span><span class="at"> bottom</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tbl-cap-location</span><span class="kw">:</span><span class="at"> top</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A <a href="#tbl-1" class="quarto-xref">Tab.&nbsp;1</a> contém explicações de cada um dos pares chave-valor usados no cabeçalho acima.</p>
 <div id="tbl-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1032,28 +1052,28 @@ Sempre Utilize Projetos RStudio
 </figure>
 </div>
 </section>
-<section id="relatório-no-formato-pdf-com-typst" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="relatório-no-formato-pdf-com-typst"><span class="header-section-number">6.2</span> Relatório no formato pdf com Typst</h2>
+<section id="relatório-no-formato-pdf-com-typst" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="relatório-no-formato-pdf-com-typst"><span class="header-section-number">7.2</span> Relatório no formato pdf com Typst</h2>
 <p>Para criar um relatório com o sistema Quarto no formato pdf com o sistema Typst, utilize o seguinte cabeçalho YAML:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Seu Nome"</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD/MM/YYYY"</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">typst</span><span class="kw">:</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">papersize</span><span class="kw">:</span><span class="at"> a4</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-cap-location</span><span class="kw">:</span><span class="at"> bottom</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tbl-cap-location</span><span class="kw">:</span><span class="at"> top</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">linkcolor</span><span class="kw">:</span><span class="at"> </span><span class="st">"blue"</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Seu Nome"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD/MM/YYYY"</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">typst</span><span class="kw">:</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">papersize</span><span class="kw">:</span><span class="at"> a4</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-cap-location</span><span class="kw">:</span><span class="at"> bottom</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tbl-cap-location</span><span class="kw">:</span><span class="at"> top</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">linkcolor</span><span class="kw">:</span><span class="at"> </span><span class="st">"blue"</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Na <a href="#tbl-2" class="quarto-xref">Tab.&nbsp;2</a>, apresento apenas os parâmetros específicos do formato Typst ou aqueles com valores diferentes dos explicados anteriormente na tabela de parâmetros HTML. Parâmetros comuns como <code>title</code>, <code>lang</code>, <code>author</code>, <code>date</code>, <code>date-format</code>, e as opções de <code>execute</code> mantêm o mesmo significado em ambos os formatos.</p>
 <div id="tbl-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1086,14 +1106,14 @@ Sempre Utilize Projetos RStudio
 <td>Define o tamanho do papel como A4 (210 × 297 mm), padrão internacional comum em documentos acadêmicos no Brasil.</td>
 </tr>
 <tr class="odd">
+<td><code>fontsize</code></td>
+<td><code>fontsize: 12pt</code></td>
+<td>Define o tamanho da fonte.</td>
+</tr>
+<tr class="even">
 <td><code>number-sections</code></td>
 <td><code>true</code></td>
 <td>Adiciona numeração automática às seções e subseções do documento (1, 1.1, 1.2, 2, etc.).</td>
-</tr>
-<tr class="even">
-<td><code>toc</code></td>
-<td><code>false</code></td>
-<td>Desativa a tabela de conteúdo (índice) no documento final.</td>
 </tr>
 <tr class="odd">
 <td><code>fig-cap-location</code></td>
@@ -1117,33 +1137,92 @@ Sempre Utilize Projetos RStudio
 </div>
 <p>O sistema Typst é uma alternativa mais moderna e ágil ao LaTeX para produção de PDFs, sendo particularmente útil para documentos acadêmicos que exigem alta qualidade tipográfica. O formato Typst oferece um bom equilíbrio entre a simplicidade do HTML e o poder de formatação do LaTeX.</p>
 </section>
-<section id="relatório-no-formato-docx" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="relatório-no-formato-docx"><span class="header-section-number">6.3</span> Relatório no formato docx</h2>
+<section id="relatório-no-formato-docx" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="relatório-no-formato-docx"><span class="header-section-number">7.3</span> Relatório no formato docx</h2>
 <p>Para criar um relatório com o sistema Quarto no formato docx do MS Word, utilize o seguinte cabeçalho YAML:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Seu Nome</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD/MM/YYYY"</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Título do Relatório"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> pt-BR</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Seu Nome</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD/MM/YYYY"</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">message</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> source</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Este cabeçalho YAML configura a produção de um documento no formato Microsoft Word (.docx). Todas as opções utilizadas já foram explicadas nas tabelas anteriores.</p>
 <p>A única diferença é a especificação <code>format: docx:</code>, que indica ao Quarto que o documento deve ser renderizado como um arquivo .docx. Este formato pode ser útil quando for necessário compartilhar documentos editáveis com pessoas que utilizam o Microsoft Office, embora não seja o formato mais recomendado para trabalhos acadêmicos devido às suas limitações de formatação consistente e controle tipográfico.</p>
 </section>
 </section>
-<section id="glossário-de-termos" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Glossário de Termos</h1>
-<section id="a" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="a">A</h2>
-<p>TO DO</p>
+<section id="glossário-de-termos" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Glossário de Termos</h1>
+<section id="c" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="c">C</h2>
+<p><strong>Células de Código</strong> (<em>Code Chunks</em>): Blocos de código em um documento Quarto que podem ser executados, gerando resultados que são incluídos no documento final.</p>
+<p><strong>Cabeçalho YAML</strong>: Seção no início de um documento Quarto, delimitada por três traços (—), onde são definidos metadados e opções de formatação para o documento.</p>
+<p><strong>Chave-valor</strong> (<em>key-value</em>): Formato de dados usado no YAML que associa um nome de propriedade (chave) a um conteúdo ou configuração específica (valor).</p>
+<p><strong>Código Inline</strong>: Código R incorporado diretamente no texto de um documento Quarto, indicado pela sintaxe <code>`r `</code>, que é executado durante a renderização.</p>
+</section>
+<section id="e" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="e">E</h2>
+<p><strong>echo</strong>: Opção de célula de código que controla se o código fonte é exibido (true) ou ocultado (false) no documento final.</p>
+<p><strong>eval</strong>: Opção de célula de código que determina se o código deve ser executado (true) ou não (false) durante a renderização.</p>
+</section>
+<section id="f" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="f">F</h2>
+<p><strong>Formato de Saída</strong>: Tipo de documento final gerado pelo Quarto, como HTML, PDF, DOCX, apresentações, entre outros.</p>
+<p><strong>fig-cap</strong>: Opção de célula de código que adiciona uma legenda a uma figura gerada pelo código.</p>
+</section>
+<section id="i" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="i">I</h2>
+<p><strong>Indentação</strong>: Espaçamento consistente utilizado no YAML para indicar hierarquia e aninhamento de opções, crucial para o funcionamento correto dos metadados.</p>
+</section>
+<section id="k" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="k">K</h2>
+<p><strong>knitr</strong>: Pacote R responsável por executar o código R em documentos Quarto, transformando o documento .qmd em um arquivo markdown intermediário (.md).</p>
+</section>
+<section id="l" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="l">L</h2>
+<p><strong>Linguagem de Marcação</strong>: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou símbolos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto).</p>
+</section>
+<section id="m" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="m">M</h2>
+<p><strong>Markdown</strong>: Linguagem de marcação leve usada para formatar textos nos documentos Quarto, permitindo cabeçalhos, listas, negrito, itálico, links, entre outros elementos.</p>
+<p><strong>Metadados</strong>: Informações sobre o documento (como título, autor, data, formato) definidas no cabeçalho YAML.</p>
+</section>
+<section id="p" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p">P</h2>
+<p><strong>Pandoc</strong>: Ferramenta universal de conversão de documentos que o Quarto utiliza para transformar arquivos markdown em formatos finais como HTML, PDF e DOCX.</p>
+<p><strong>Publicação Técnica e Científica</strong>: Processo de criar e disseminar documentos com conteúdo acadêmico ou técnico, seguindo padrões estabelecidos de formatação e referenciação.</p>
+</section>
+<section id="q" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="q">Q</h2>
+<p><strong>QMD</strong>: Extensão de arquivo (.qmd) específica dos documentos Quarto, que contém texto em Markdown, código e metadados YAML.</p>
+<p><strong>Quarto</strong>: Sistema de publicação científica e técnica de código aberto que permite combinar texto narrativo, código, equações e resultados em um único documento reproduzível.</p>
+</section>
+<section id="r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="r">R</h2>
+<p><strong>Referência Cruzada</strong>: Recurso que permite fazer referência a elementos como figuras, tabelas e seções em qualquer parte do documento usando identificadores únicos.</p>
+<p><strong>Render</strong>: Processo de transformar um documento Quarto (.qmd) em seu formato final (HTML, PDF, etc.), executando código e formatando o conteúdo conforme as especificações.</p>
+<p><strong>Reprodutibilidade</strong>: Princípio que permite que outros pesquisadores e profissionais possam replicar exatamente os mesmos resultados utilizando os mesmos dados e códigos. No contexto corporativo, garante a auditabilidade de análises, facilita a transferência de conhecimento entre equipes, permite verificação de resultados por diferentes stakeholders e assegura a continuidade de projetos mesmo com mudanças de pessoal.</p>
+</section>
+<section id="t" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="t">T</h2>
+<p><strong>TOC</strong> (<em>Table of Contents</em>): Sumário ou índice automático gerado pelo Quarto com base na estrutura de títulos e subtítulos do documento.</p>
+<p><strong>Typst</strong>: Sistema moderno de tipografia utilizado pelo Quarto como alternativa ao LaTeX para produzir documentos PDF com alta qualidade tipográfica.</p>
+</section>
+<section id="w" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="w">W</h2>
+<p><strong>warning</strong>: Opção de célula de código que controla se os avisos gerados durante a execução do código são exibidos (true) ou ocultados (false) no documento final.</p>
+</section>
+<section id="y" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="y">Y</h2>
+<p><strong>YAML</strong> (<em>Yet Another Markup Language</em>): Linguagem de serialização de dados legível por humanos usada para os metadados de documentos Quarto, caracterizada pelo formato de pares chave-valor e indentação significativa.</p>
 
 
 </section>
