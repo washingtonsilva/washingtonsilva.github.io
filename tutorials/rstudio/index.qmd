@@ -520,8 +520,8 @@ menu suspenso.
 :::
 
 
-Como o foco deste tutorial será RStudio e há outros tutoriais, fiz 
-algumas modificações na sua sugestão, veja o que acha:
+
+
 
 # Glossário de Termos
 

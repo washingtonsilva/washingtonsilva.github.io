@@ -1,0 +1,804 @@
+---
+title: "Quarto: Um Sistema de Publicação Técnica e Científica"
+description: | 
+  Um tutorial sobre como utilizar o sistema de pubicação Quarto e a 
+  linguagem R usando o IDE RStudio.
+lang: "pt-BR"
+date: "2024-10-07"
+toc: true
+number-sections: true
+toc-depth: 4
+toc-location: left
+author:
+  - name: Prof. Dr. Washington S. da Silva 
+    affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
+    affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
+crossref:
+  fig-title: '**Figura**'
+  fig-prefix: 'Fig.'
+  fig-labels: arabic
+  tbl-title: '**Tabela**'
+  tbl-prefix: 'Tab.'
+execute: 
+  warning: false
+  message: false
+categories: [Sistema Quarto, Reprodutibilidade, RStudio]
+---
+
+![](img/logo-quarto.png){width=30% fig-align="center"}
+
+
+
+# Introdução {#sec-introducao}
+
+::: {.callout-note icon="false"}
+## Objetivos
+
+- Este tutorial é destinado aos estudantes do bacharelado em Administração 
+e aos mestrandos do Mestrado Profissional em Administração do 
+IFMG - Campus Formiga.
+
+- Também é útil para administradores, economistas, contabilistas, 
+auditores e outros profissionais que desejam utilizar ferramentas 
+modernas para criar relatórios e outros produtos de forma reproduzível 
+e auditável.
+
+- Neste tutorial, mostraremos como usar o IDE RStudio com o sistema Quarto 
+e a linguagem R. 
+
+- Você aprenderá como criar e editar textos e código R e a visualizar o 
+documento renderizado na guia `Viewer` do RStudio enquanto trabalha 
+em um documento computacional.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## Instalação do sistema Quarto no Windows
+
+1.  Acesse [https://quarto.org/docs/download/](https://quarto.org/docs/download/){target="_blank"}
+
+2.  Clique em _**Download Quarto CLI**_ para fazer o download do arquivo de 
+instalação.
+
+3. Finalizado o download, basta clicar no arquivo e, em seguida, clicar em 
+em continuar/avançar/next até o final da instalação.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## O que é o sistema de publicação Quarto?
+
+- É um sistema de publicação científica e técnica (relativamente) novo, 
+de código aberto.
+
+- Com o Quarto, você pode unir texto narrativo e código para produzir
+produtos elegantemente formatados como relatórios em diversos 
+formatos, slides, dashboards, blogs, websites, livros e muito mais...
+
+![Sistema Quarto: um formato, diversos produtos.](img/fig01.png){#fig-1 fig-align="center" width="100%"}
+
+**Como o sistema Quarto funciona?**
+
+- Quando você renderiza um arquivo Quarto (que possui a 
+extensão `.qmd`) contendo código R, primeiro o pacote [knitr](https://yihui.org/knitr/){target="_blank"} da linguagem R 
+executa todas as células de código R e cria um novo documento markdown 
+(.md), que inclui o código e sua saída. 
+
+- O arquivo markdown gerado é então processado pelo programa 
+[pandoc](https://pandoc.org){target="_blank"}, que gera o formato 
+escolhido. 
+
+- O botão `Render` do Rstudio encapsula essas ações e as 
+executa na ordem correta para você.
+
+![Funcionamento do Sistema Quarto com a linguagem R.](img/fig02.png){#fig-2 fig-align="center" width="100%"}
+:::
+
+
+
+::: {.callout-note icon="false"}
+## Por que usar o sistema Quarto?
+
+- **Reprodutibilidade científica**: O Quarto permite documentar todo 
+o processo de análise de dados, desde a importação e limpeza até a 
+visualização e interpretação, garantindo que seu trabalho possa ser 
+reproduzido por outros profissionais, pesquisadores ou por você mesmo 
+no futuro.
+
+- **Integração de código e narrativa**: Você pode combinar texto 
+explicativo, código R e resultados (tabelas, gráficos) em um único 
+documento, facilitando a compreensão e a comunicação de suas análises.
+
+- **Múltiplos formatos de saída**: Com o mesmo arquivo fonte, 
+você pode gerar facilmente diferentes formatos (HTML, PDF, DOCX, 
+apresentações) sem precisar reformatar seu conteúdo.
+
+- **Colaboração e versionamento**: Sendo um arquivo de texto simples, 
+os documentos Quarto podem ser facilmente versionados com Git e GitHub, 
+facilitando a colaboração e o controle de versões.
+
+- **Atualizações automáticas**: Ao modificar seus dados ou código, 
+basta renderizar novamente o documento para atualizar todos os 
+resultados, tabelas e gráficos, eliminando o risco de inconsistências.
+
+- **Profissionalismo**: Produz documentos com aparência profissional, 
+com formatação consistente e recursos avançados como referências 
+cruzadas, citações bibliográficas e equações matemáticas.
+
+- **Ferramenta corporativa e acadêmica**: Utilizado tanto em ambientes 
+corporativos para relatórios de negócios quanto em instituições 
+acadêmicas para artigos científicos, teses e dissertações.
+:::
+
+
+
+
+
+# Criando um Arquivo Quarto com o RStudio {#sec-criarqquarto}
+
+::: {.callout-tip}
+## Sempre Utilize Projetos RStudio
+
+- Como destacamos no [tutorial sobre o RStudio](https://washingtonsilva.github.io/tutorials/rstudio/){target="_blank"} 
+é fundamental sempre utilizar um Projeto RStudio para organizar seus 
+projetos de análise de dados nos quais você utiliza a linguagem R. 
+
+- Assim, neste tutorial, assumimos que você já criou um projeto RStudio 
+e que os arquivos do sistema quarto serão salvos e organizados nesse 
+projeto já criado. Para detalhes sobre como criar um projeto Rstudio 
+veja o [tutorial específico](https://washingtonsilva.github.io/tutorials/rstudio/){target="_blank"} .
+
+- Em Ciência de Dados, utilizamos o termo *workflow orietando a projetos* 
+para denominar esta boa prática de extrema importância.
+:::
+
+
+
+Como vimos no [tutorial sobre o RStudio](){target="_blank"}, 
+há duas formas simples de criar um arquivo do sistema Quarto usando o 
+este IDE:
+
+1. Clicando em `File -> New File -> Quarto Document`, conforme a @fig-3.
+
+![Criando um arquivo quarto no RStudio usando o menu File.](https://docs.posit.co/ide/user/ide/guide/ui/images/system-files-menu.png){#fig-3 fig-align="center"}
+
+
+2. Uma opção mais rápida é clicar no ícone <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#78B166"/><rect x="7" y="11" width="10" height="2" rx="0.5" fill="white"/><rect x="11" y="7" width="2" height="10" rx="0.5" fill="white"/></svg>, localizado no canto superior esquerdo da interface do RStudio e, em seguida, clicar em `Quarto Document`, como na @fig-4.
+
+![Criando um arquivo quarto no RStudio usando o ícone para criação rápida de arquivos.](img/fig04.jpeg){#fig-4 fig-align="center"}
+
+
+3. Utilizando qualquer uma das opções anteriores, após clicar em 
+`Quarto Document`, aparecerá a interface exibida na @fig-5:
+
+![Interface do RStudio para criar um arquivo Quarto.](img/fig05.jpeg){#fig-5 fig-align="center"}
+
+
+4. Você pode, mas não é usual, inserir o título e o autor do documento 
+nesta interface, porque o fluxo usual é simplesmente clicar no formato 
+desejado e, em seguida, clicar em `Create`. 
+
+5. Neste exemplo, vamos utilizar a opção padrão que é o formato HTML. Assim, 
+após clicar em `Create`, o RStudio irá criar, no painel Source, 
+o arquivo exibido na @fig-6.
+
+![Arquivo Quarto padrão criado pelo RStudio.](img/fig06.jpeg){#fig-6 fig-align="center"}
+
+6. Agora, salve esse arquivo na subpasta `testes` da 
+pasta `relatorios` do projeto Rstudio 
+que você criou ao estudar o [tutorial sobre o RStudio](https://washingtonsilva.github.io/tutorials/rstudio/){target="_blank"}. 
+Utilize o nome `01_teste.qmd` para este arquivo, este é apenas um nome 
+sugerido, e você pode escolher outro nome, mas deve manter a extensão .qmd
+
+
+Agora que você já criou seu primeiro arquivo Quarto, vamos 
+entender melhor sua estrutura e componentes na próxima 
+seção (@sec-anatomia).
+
+
+
+
+# Anatomia de um Arquivo Quarto {#sec-anatomia}
+
+Um arquivo do sistema Quarto, que possui a extensão `.qmd`, consiste 
+essencialmente de três elementos:
+
+- **Metadados** 
+
+- **Texto** (incluindo equações matemáticas escritas com Latex, se necessário.)
+
+- **Células de Código**
+
+Nas próximas seções do tutorial, vamos entender esses elementos 
+em detalhes.
+
+
+## Metadados 
+
+O arquivo mínimo gerado pelo RStudio, exibido na @fig-6, contém apenas
+um cabeçalho, mais precisamente, contém um cabeçalho 
+YAML simples (mais detalhes a seguir), o qual é demarcado por três 
+traços (---) em cada extremidade. 
+
+Considerando que você tenha criado o arquivo `01_teste.qmd` (e salvo esse 
+arquivo na pasta apropriada do seu projeto RStudio), apague o 
+cabeçalho mínimo desse arquivo criado pelo RStudio, em seguida, 
+copie e cole o código do cabeçaho exibio abaixo no mesmo 
+local:
+
+
+``` yaml
+---
+title: "Olá, Quarto"
+format: html
+editor: source
+---
+```
+
+Agora, renderize o arquivo `01_teste.qmd` clicando no botão 
+`Render` localizado na barra superior do painel `Source` do 
+Rstudio.
+
+O código acima constitui um exemplo do uso da linguagem de marcação 
+YAML (de "Yet Another Markup Language") para fornecer metadados aos 
+documentos gerados com Quarto. A sintaxe de YAML usa pares 
+*chave-valor* no formato `key: value`. 
+
+Outros campos YAML comumente encontrados em cabeçalhos de arquivos 
+quarto incluem metadados como `author`, `title`, `date`, bem como 
+opções de personalização como `theme`, entre diversas outras.
+
+De forma mais detalhada, os metadados do cabeçalho YAML consistem:
+
+:::columns
+
+:::{.column width=10%}
+:::
+
+:::{.column width=50%}
+[... de pares chave-valor (*key-value*),]{.fragment}
+
+[... que podem aninhar,]{.fragment}
+
+[... sque ão exigentes quanto ao recuo,]{.fragment}
+
+[... e são mantidos entre `---`.]{.fragment}
+
+:::
+
+:::{.column width=40% .fragment}
+
+\
+
+``` yaml
+---
+format: 
+  html:
+    toc: true
+    code-fold: true
+---
+```
+:::
+
+:::
+
+
+
+## Sintáxe YAML
+
+:::columns
+:::{.column width="50%" style="max-height: 1000px"}
+```yaml
+---
+title: "Título do Document"
+author:
+  - Santos Dummont
+  - Albert Einstein
+format:
+  html:
+    toc: true
+    abstract: |
+      Aqui vai o abstract.
+
+     Tem dois parágrafos.
+---
+```
+:::
+
+:::{.column width="50%" style="font-size: .85em"}
+
+::: incremental
+- Definindo um único valor com
+  ```yaml
+  key: value
+  ```
+- Definindo uma lista de valores:
+  ```yaml
+  key:
+    - value1
+    - value2
+  ```
+- indente 2 espaços para aninhar
+- Sequências de caracteres de várias linhas seguem `|`
+:::
+
+:::
+:::
+
+
+
+## Atenção! YAML é Exigente com Indentação
+
+[**Inválidos**]{.inline-el}
+
+:::columns
+:::{.column width=50%}
+``` yaml {.fragment}
+---
+format:html
+---
+```
+
+\
+
+``` yaml {.fragment}
+---
+format:
+html
+---
+```
+
+\
+
+``` yaml {.fragment}
+---
+format: 
+  html:
+---
+```
+
+:::
+:::{.column width=50%}
+
+[**Válidos**]{.block-el}
+
+``` yaml {.fragment}
+format: html
+```
+
+\
+
+``` yaml {.fragment}
+format:
+  html
+```
+
+\
+
+``` yaml {.fragment}
+format: 
+  html:
+    toc: true
+```
+:::
+:::
+
+
+
+## Opções dos Cabeçalhos YAML
+
+As opções que podem ser usadas nos cabeçalhos YAML de um arquivo 
+quarto dependem do formato final do documento a ser produzido. 
+
+Nesta seção, são explicadas algumas das principais opções disponíveis para
+os formatos HTML e pdf, que são os principais formatos que utilizamos 
+na disciplina Introdução à Ciência de Dados.
+
+
+### Algumas Opções Disponíveis para Arquivos HTML
+
+Os arquivos HTML gerados pelo Quarto oferecem diversas opções 
+de personalização. Aqui estão algumas das mais úteis:
+
+| Opção | Descrição | Exemplo de Uso |
+|-------|-----------|----------------|
+| `theme` | Define o tema visual do documento | `theme: cosmo` |
+| `toc` | Ativa o índice do documento | `toc: true` |
+| `toc-depth` | Define a profundidade do índice | `toc-depth: 3` |
+| `toc-location` | Define a posição do índice | `toc-location: left` |
+| `code-fold` | Permite recolher/expandir blocos de código | `code-fold: true` |
+| `code-tools` | Adiciona ferramentas para copiar código | `code-tools: true` |
+| `code-line-numbers` | Adiciona números às linhas de código | `code-line-numbers: true` |
+| `embed-resources` | Incorpora todos recursos no arquivo HTML | `embed-resources: true` |
+| `fig-format` | Define o formato das figuras | `fig-format: png` |
+| `df-print` | Controla como dataframes são exibidos | `df-print: paged` |
+
+Exemplo de uso no cabeçalho YAML:
+
+```yaml
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    code-fold: true
+    code-tools: true
+    embed-resources: true
+```
+
+## Algumas Opções Disponíveis para Arquivos PDF
+
+O Quarto pode gerar documentos PDF de alta qualidade, usando o 
+sistema Typst ou LaTeX como motor de renderização. Aqui estão 
+algumas opções úteis para personalização de documentos PDF:
+
+| Opção | Descrição | Exemplo de Uso |
+|-------|-----------|----------------|
+| `papersize` | Define o tamanho do papel | `papersize: a4` |
+| `fontsize` | Define o tamanho da fonte | `fontsize: 12pt` |
+| `linestretch` | Define o espaçamento entre linhas | `linestretch: 1.5` |
+| `linkcolor` | Define a cor dos links | `linkcolor: "blue"` |
+| `toc` | Ativa o sumário | `toc: true` |
+| `lof` | Ativa lista de figuras | `lof: true` |
+| `lot` | Ativa lista de tabelas | `lot: true` |
+
+Exemplo de uso no cabeçalho YAML para Typst:
+
+```yaml
+format:
+  typst:
+    papersize: a4
+    fontsize: 12pt
+    number-sections: true
+    linkcolor: "blue"
+```
+
+
+
+# Textos
+
+A parte textual dos documentos Quarto utiliza a linguagem de 
+marcação Markdown, que é uma forma simplificada de estruturar textos. 
+Com Markdown, você pode facilmente criar títulos, subtítulos, listas, 
+textos em negrito ou itálico, links, e muito mais.
+
+Como já desenvolvemos um [tutorial completo sobre Markdown](https://washingtonsilva.github.io/tutorials/markdown/){target="_blank"} 
+específico para elaboração de documentos no sistema Quarto, recomendo 
+que você consulte esse material para aprender a formatar seus 
+textos adequadamente.
+
+Lembre-se que o Quarto também suporta equações matemáticas 
+usando a sintaxe LaTeX, o que é particularmente útil para 
+documentos técnicos e científicos. Exemplos de uso de equações 
+matemáticas também estão disponíveis no tutorial de Markdown 
+mencionado acima.
+
+
+
+
+
+# Células de Código (*Code Chunks*)
+
+As células de código (ou *code chunks*) são blocos que permitem a 
+inclusão e execução de código R diretamente no seu documento Quarto. 
+\Elas são essenciais para análises de dados reproduzíveis, pois 
+integram o código com seus resultados e explicações textuais.
+
+
+## Criando uma Célula de Código
+
+Você pode adicionar uma célula de código de três maneiras:
+
+1. Digitando manualmente os delimitadores de célula: ````{r}` e `````.
+
+2. Usando o atalho de teclado: `Ctrl+Alt+I` (Windows/Linux) ou `Cmd+Option+I` 
+  (Mac).
+  
+3. Clicando no botão "Insert" na barra de ferramentas do RStudio e 
+  selecionando "Code Chunk".
+  
+
+## Exemplo de uma Célula de Código Básica
+
+```{r}
+# Este é um exemplo de célula de código R
+x <- 1:10
+mean(x)
+```
+
+
+## Opções de Célula de Código no Quarto
+
+O Quarto usa um formato de YAML dentro das células de código, 
+com cada opção precedida por `#|`. Este formato é diferente do R Markdown 
+e oferece maior clareza e flexibilidade:
+
+
+```{{r}}
+#| echo: true
+#| warning: false
+#| message: false
+
+# Esta célula mostrará o código (echo: true), 
+# mas ocultará avisos (warning) e mensagens
+library(dplyr)
+mtcars %>% 
+  group_by(cyl) %>%
+  summarise(
+    n = n(),
+    mpg_média = mean(mpg, na.rm = TRUE)
+  )
+```
+
+
+## Opções Comuns para Células de Código no Quarto
+
+| Opção | Descrição |
+|-------|-----------|
+| `echo` | Controla se o código é exibido (`true`) ou oculto (`false`) |
+| `eval` | Define se o código deve ser executado (`true`) ou não (`false`) |
+| `warning` | Controla a exibição de avisos durante a execução |
+| `message` | Controla a exibição de mensagens durante a execução |
+| `error` | Define se erros devem ser exibidos (`true`) ou parar a renderização (`false`) |
+| `fig-width` | Define a largura da figura de saída em polegadas |
+| `fig-height` | Define a altura da figura de saída em polegadas |
+| `fig-cap` | Adiciona uma legenda à figura resultante |
+| `label` | Atribui um identificador único à célula, útil para referência cruzada |
+
+
+## Exemplo com Figura e Legenda
+
+```{{r}}
+#| label: fig-1
+#| fig-cap: "Relação entre Consumo na Estrada e na Cidade por Cilindrada"
+#| fig-width: 8
+#| fig-height: 6
+
+library(ggplot2)
+ggplot(mpg, aes(x = hwy, y = cty, color = cyl)) +
+  geom_point(alpha = 0.5, size = 2) +
+  scale_color_viridis_c() +
+  theme_minimal() +
+  labs(
+    x = "Consumo na Estrada (mpg)",
+    y = "Consumo na Cidade (mpg)",
+    color = "Cilindrada"
+  )
+```
+
+
+## Código Inline
+
+Além das células de código, você também pode incluir código R 
+diretamente no texto usando a sintaxe `` `r ` ``. Por exemplo, 
+a média de 1 a 10 é `` `r mean(1:10)` ``, que será renderizado 
+como o valor calculado.
+
+
+## Ocultando Células de Código
+
+Para um relatório mais formal, às vezes você pode querer 
+mostrar apenas os resultados sem o código. Isso pode ser controlado 
+globalmente no cabeçalho YAML com `execute: echo: false`:
+
+``` yaml
+---
+title: "Título do Relatório"
+lang: pt-BR
+author: Seu Nome
+format:
+  html:
+    toc: true
+    number-sections: true
+    embed-resources: true
+execute:
+  echo: false
+  message: false
+  warning: false
+editor: source
+---
+```
+
+Ou célula por célula:
+
+```{{r}}
+#| label: fig-2
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Gráfico de Dispersão entre Peso e Consumo"
+
+# Este código não será exibido, apenas o resultado
+plot(mtcars$mpg, mtcars$wt, 
+     xlab = "Consumo (mpg)", 
+     ylab = "Peso (1000 lbs)")
+```
+
+
+## Referenciando Figuras e Tabelas
+
+O Quarto permite referenciar facilmente figuras e tabelas usando 
+o atributo `label`. Por exemplo, a figura criada acima pode ser 
+referenciada como `@fig-2` em qualquer lugar do texto, 
+e o Quarto automaticamente substituirá isso pelo número da figura.
+
+
+
+# Criando Relatórios Quarto em Diversos Formatos com o RStudio {#sec-relatorios}
+
+Para que você possa começar a trabalhar com relatórios produzidos pelo sistema 
+Quarto, nas subseções a seguir são fornecidos códigos dos cabeçalhos YAML 
+que podem ser utilizados para produzir relatórios em diferentes formatos. 
+
+Esses exemplos são apenas uma referência inicial para você começar a 
+trabalhar e a se aprofundar no uso do sistema Quarto para produzir 
+relatórios acadêmicos ou corporativos.
+
+
+## Relatório no formato HTML
+
+Para criar um relatório com o sistema Quarto no formato HTML, utilize 
+o seguinte cabeçalho YAML:
+
+``` yaml
+---
+title: "Título do Relatório"
+lang: pt-BR
+author: Seu Nome
+date: today
+date-format: "DD/MM/YYYY"
+format:
+  html:
+    theme: cosmos
+    toc: true
+    number-sections: true
+    embed-resources: true
+    code-fold: true
+    fig-cap-location: bottom
+    tbl-cap-location: top
+execute:
+  echo: true
+  message: false
+  warning: false
+editor: source
+---
+```
+
+A @tbl-1 contém explicações de cada um dos pares chave-valor usados 
+no cabeçalho acima.
+
+| **Chave** | **Valor no Exemplo** | **Explicação** |
+|---------------|----------------------|--------------------------|
+| `title` | `"Título do Relatório"` | Define o título principal que aparecerá no topo do documento HTML. |
+| `lang` | `pt-BR` | Especifica o idioma do documento como português brasileiro, afetando a hifenização, formatação de datas, separadores decimais e outros elementos dependentes do idioma regional.|
+| `author` | `Seu Nome` | Identifica o autor do documento, aparecendo normalmente logo abaixo do título. |
+| `date` | `today` | Configura a data do documento para a data atual quando o documento for renderizado. |
+| `date-format` | `"DD/MM/YYYY"` | Define o formato da data como dia/mês/ano (exemplo: 18/03/2025). |
+| **format** | | **Seção que configura o formato de saída** |
+| `theme` | `cosmos` | Define o tema visual do documento HTML, neste caso usando o tema "cosmos" que determina cores, fontes e estilos. |
+| `toc` | `true` | Ativa a tabela de conteúdo (índice), facilitando a navegação pelo documento. |
+| `number-sections` | `true` | Adiciona numeração automática às seções e subseções (1, 1.1, 1.2, 2, etc.). |
+| `embed-resources` | `true` | Cria um arquivo HTML único e independente com todos os recursos necessários incorporados (CSS, imagens, etc.). |
+| `code-fold` | `true` | Permite que blocos de código sejam recolhidos/expandidos pelo leitor, tornando o documento mais limpo. |
+| `fig-cap-location` | `bottom` | Posiciona as legendas das figuras abaixo das imagens. |
+| `tbl-cap-location` | `top` | Posiciona as legendas das tabelas acima das tabelas. |
+| **execute** | | **Seção que controla a execução de código** |
+| `echo` | `true` | Mostra o código fonte junto com seus resultados no documento final. |
+| `message` | `false` | Oculta mensagens geradas durante a execução do código. |
+| `warning` | `false` | Oculta avisos gerados durante a execução do código. |
+| `editor` | `source` | Especifica o modo de edição padrão como "source" (código fonte) ao abrir o documento no RStudio ou outro editor compatível. |
+
+: Explicação dos parâmetros YAML para documentos HTML no Quarto {#tbl-1}
+
+
+## Relatório no formato pdf com Typst
+
+Para criar um relatório com o sistema Quarto no formato pdf com o sistema 
+Typst, utilize o seguinte cabeçalho YAML:
+
+
+``` yaml
+---
+title: "Título do Relatório"
+lang: pt-BR
+author: "Seu Nome"
+date: today
+date-format: "DD/MM/YYYY"
+format:
+  typst:
+    papersize: a4
+    number-sections: true
+    toc: false
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    linkcolor: "blue"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+```
+
+
+Na @tbl-2, apresento apenas os parâmetros específicos do formato Typst 
+ou aqueles com valores diferentes dos explicados anteriormente na tabela 
+de parâmetros HTML. Parâmetros comuns como `title`, `lang`, `author`, 
+`date`, `date-format`, e as opções de `execute` mantêm o mesmo 
+significado em ambos os formatos.
+
+| **Parâmetro** | **Valor no Exemplo** | **Explicação Didática** |
+|---------------|----------------------|--------------------------|
+| `format: typst` | | Indica que o documento será renderizado usando o sistema Typst, um sistema moderno de tipografia para produzir documentos PDF, alternativo ao LaTeX. |
+| `papersize` | `a4` | Define o tamanho do papel como A4 (210 × 297 mm), padrão internacional comum em documentos acadêmicos no Brasil. |
+| `number-sections` | `true` | Adiciona numeração automática às seções e subseções do documento (1, 1.1, 1.2, 2, etc.). |
+| `toc` | `false` | Desativa a tabela de conteúdo (índice) no documento final. |
+| `fig-cap-location` | `bottom` | Posiciona as legendas das figuras abaixo das imagens. |
+| `tbl-cap-location` | `top` | Posiciona as legendas das tabelas acima das tabelas. |
+| `linkcolor` | `"blue"` | Define a cor dos hiperlinks no documento como azul, facilitando a identificação visual de links para o leitor. |
+
+: Explicação dos parâmetros YAML específicos para documentos Typst no Quarto {#tbl-2}
+
+O sistema Typst é uma alternativa mais moderna e ágil ao LaTeX para 
+produção de PDFs, sendo particularmente útil para documentos acadêmicos 
+que exigem alta qualidade tipográfica. O formato Typst oferece um bom 
+equilíbrio entre a simplicidade do HTML e o poder de formatação do LaTeX.
+
+
+## Relatório no formato docx 
+
+Para criar um relatório com o sistema Quarto no formato docx do 
+MS Word, utilize o seguinte cabeçalho YAML:
+
+
+``` yaml
+---
+title: "Título do Relatório"
+lang: pt-BR
+author: Seu Nome
+date: today
+date-format: "DD/MM/YYYY"
+format:
+  docx:
+    number-sections: true
+execute:
+  echo: true
+  message: false
+  warning: false
+editor: source
+---
+```
+
+Este cabeçalho YAML configura a produção de um documento no formato 
+Microsoft Word (.docx). Todas as opções utilizadas já foram explicadas
+nas tabelas anteriores. 
+
+A única diferença é a especificação `format: docx:`, que indica ao 
+Quarto que o documento deve ser renderizado como um arquivo .docx. 
+Este formato pode ser útil quando for necessário compartilhar 
+documentos editáveis com pessoas que utilizam o Microsoft Office, 
+embora não seja o formato mais recomendado para trabalhos acadêmicos 
+devido às suas limitações de formatação consistente e controle tipográfico.
+
+
+
+
+
+# Glossário de Termos
+
+## A {.unnumbered}
+
+TO DO
+
+
+
+
+
+
+
+
+
+
+
