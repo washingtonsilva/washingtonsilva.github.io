@@ -25,12 +25,25 @@ denominado "*Aplicação de Modelos de Aprendizagem Estatística e de Máquina e
 vinculado ao Mestrado Profissional em Administração do IFMG - 
 Campus Formiga.
 
-Os materiais aqui disponibilizados são direcionados tanto para os alunos 
-do Bacharelado em Administração quanto para os do Mestrado Profissional em 
-Administração do IFMG - Campus Formiga, com foco nas ferramentas e 
-metodologias essenciais para análise de dados reproduzível e auditável. 
+Os materiais disponibilizados têm como objetivo principal fornecer 
+ferramentas e metodologias essenciais para a realização de análises 
+de dados reproduzíveis e auditáveis, seguindo as melhores práticas 
+recomendadas pela literatura científica. Eles são direcionados, em 
+primeiro lugar, aos alunos do Bacharelado em Administração e do 
+Mestrado Profissional em Administração do IFMG - Campus Formiga, mas 
+também podem ser úteis para profissionais como administradores, economistas, 
+contabilistas, auditores e outros que desejam adotar ferramentas 
+modernas no mundo corporativo e no setor público.
+
 Estes tutoriais são especialmente úteis para disciplinas como Introdução 
-à Ciência de Dados e projetos de pesquisa quantitativa.
+à Ciência de Dados, Econometria, entre outras, e podem ser utilizados 
+como material de treinamento para participantes de projetos de pesquisa 
+quantitativa. A abordagem proposta busca ensinar ferramentas que viabilizam a 
+adoção efetiva do princípio da reprodutibilidade, permitindo que os 
+resultados sejam replicados e verificados. Isso não apenas aumenta a 
+credibilidade do trabalho realizado, mas também contribui para a 
+adoção de práticas robustas e alinhadas com os padrões científicos 
+contemporâneos.
 :::
 
 
