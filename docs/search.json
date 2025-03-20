@@ -67,7 +67,7 @@
     "href": "tutorials/rstudio/index.html#painel-source",
     "title": "RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R",
     "section": "2.2 Painel: Source",
-    "text": "2.2 Painel: Source\n\nO painel Source permite que a visualização e edição de vários arquivos relacionados a diversas linguagens, tais como: .R, .qmd,.rmd .py, ou arquivos de texto gerais como .txt ou .md.\nPor padrão, é o painel superior esquerdo e pode ser iniciado abrindo qualquer arquivo editável no RStudio.\nCada arquivo adicional que for aberto será adicionado como uma nova guia no painel."
+    "text": "2.2 Painel: Source\n\nO painel Source permite a visualização e edição de vários arquivos relacionados a diversas linguagens, tais como: .R, .qmd,.py ou arquivos de texto gerais como .txt ou .md.\nPor padrão, é o painel superior esquerdo e pode ser iniciado abrindo qualquer arquivo editável no RStudio.\nCada arquivo adicional que for aberto será adicionado como uma nova guia no painel."
   },
   {
     "objectID": "tutorials/rstudio/index.html#painel-console",

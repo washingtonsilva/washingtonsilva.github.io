@@ -153,10 +153,10 @@ seria o painel de controles (*dashboard*)
 
 
 
-## Painel: Source
+## Painel: **Source**
 
-- O painel `Source` permite que a visualização e edição de vários arquivos 
-relacionados a diversas linguagens, tais como: `.R`, `.qmd`,`.rmd` `.py`, 
+- O painel `Source` permite a visualização e edição de vários arquivos 
+relacionados a diversas linguagens, tais como: `.R`, `.qmd`,`.py`
 ou arquivos de texto gerais como `.txt` ou `.md.` 
 
 - Por padrão, é o painel superior esquerdo e pode ser iniciado abrindo 
@@ -167,7 +167,7 @@ no painel.
 
 
 
-## Painel: Console
+## Painel: **Console**
 
 - Esse painel fornece uma área para executar o código interativamente, isto 
 é, você pode "conversar" diretamente com o interpretado da linguagem R.
@@ -177,7 +177,7 @@ console Python.
 
 
 
-## Painel: Environment
+## Painel: **Environment**
 
 **Guia `Environment`**
 
@@ -192,7 +192,7 @@ console Python.
 
 
 
-## Painel: Output
+## Painel: **Output**
 
 Por padrão, o painel `Output` é o painel inferior direito e 
 contém as seguintes guias: 
