@@ -204,10 +204,12 @@ cookieconsent.run({
   <ul class="collapse">
   <li><a href="#criando-projects-no-rstudio" id="toc-criando-projects-no-rstudio" class="nav-link" data-scroll-target="#criando-projects-no-rstudio"><span class="header-section-number">3.1</span> Criando Projects no RStudio</a></li>
   <li><a href="#projeto-criado" id="toc-projeto-criado" class="nav-link" data-scroll-target="#projeto-criado"><span class="header-section-number">3.2</span> Projeto Criado</a></li>
-  <li><a href="#gerenciamento-de-arquivos" id="toc-gerenciamento-de-arquivos" class="nav-link" data-scroll-target="#gerenciamento-de-arquivos"><span class="header-section-number">3.3</span> Gerenciamento de Arquivos</a></li>
-  <li><a href="#configurando-o-rstudio-para-usar-o-git-bash-como-terminal" id="toc-configurando-o-rstudio-para-usar-o-git-bash-como-terminal" class="nav-link" data-scroll-target="#configurando-o-rstudio-para-usar-o-git-bash-como-terminal"><span class="header-section-number">3.4</span> Configurando o RStudio para usar o Git Bash como Terminal</a></li>
+  <li><a href="#estrutura-recomendada-para-o-projeto-rstudio-criado" id="toc-estrutura-recomendada-para-o-projeto-rstudio-criado" class="nav-link" data-scroll-target="#estrutura-recomendada-para-o-projeto-rstudio-criado"><span class="header-section-number">3.3</span> Estrutura Recomendada para o Projeto RStudio Criado</a></li>
+  <li><a href="#gerenciamento-de-arquivos" id="toc-gerenciamento-de-arquivos" class="nav-link" data-scroll-target="#gerenciamento-de-arquivos"><span class="header-section-number">3.4</span> Gerenciamento de Arquivos</a></li>
+  <li><a href="#configurando-o-rstudio-para-usar-o-git-bash-como-terminal" id="toc-configurando-o-rstudio-para-usar-o-git-bash-como-terminal" class="nav-link" data-scroll-target="#configurando-o-rstudio-para-usar-o-git-bash-como-terminal"><span class="header-section-number">3.5</span> Configurando o RStudio para usar o Git Bash como Terminal</a></li>
   </ul></li>
-  <li><a href="#glossário-de-termos" id="toc-glossário-de-termos" class="nav-link" data-scroll-target="#glossário-de-termos"><span class="header-section-number">4</span> Glossário de Termos</a>
+  <li><a href="#atalhos-de-teclado-essenciais" id="toc-atalhos-de-teclado-essenciais" class="nav-link" data-scroll-target="#atalhos-de-teclado-essenciais"><span class="header-section-number">4</span> Atalhos de Teclado Essenciais</a></li>
+  <li><a href="#glossário-de-termos" id="toc-glossário-de-termos" class="nav-link" data-scroll-target="#glossário-de-termos"><span class="header-section-number">5</span> Glossário de Termos</a>
   <ul class="collapse">
   <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">A</a></li>
   <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
@@ -231,7 +233,9 @@ cookieconsent.run({
 <h1 class="title">RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Ambiente de Desenvolvimento Integrado</div>
+    <div class="quarto-category">Reprodutibilidade</div>
     <div class="quarto-category">RStudio</div>
+    <div class="quarto-category">Sistema Quarto</div>
   </div>
   </div>
 
@@ -419,14 +423,7 @@ RStudio IDE x Linguagem R
 <h2 data-number="2.3" class="anchored" data-anchor-id="painel-console"><span class="header-section-number">2.3</span> Painel: Console</h2>
 <ul>
 <li><p>Esse painel fornece uma área para executar o código interativamente, isto é, você pode “conversar” diretamente com o interpretado da linguagem R.</p></li>
-<li><p>Por padrão, está vinculado a linguagem R ele também pode fornecer um console Python.</p></li>
-</ul>
-<p><strong>Atalhos importantes:</strong></p>
-<ul>
-<li><code>Ctrl+1</code> : Move o cursor para o painel <code>Source</code></li>
-<li><code>Ctrl+2</code>: — Move o cursor para o <code>Console</code></li>
-<li><code>Ctrl+L</code>: Limpa o Console</li>
-<li><code>Esc</code>: Interrompe a execução de R</li>
+<li><p>Por padrão, está vinculado a linguagem R, mas ele também pode fornecer um console Python.</p></li>
 </ul>
 </section>
 <section id="painel-environment" class="level2" data-number="2.4">
@@ -499,7 +496,7 @@ RStudio IDE x Linguagem R
 <li><p>Você pode usar o seguinte comando diretamente no console, em um script, ou em um documento Quarto:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="st">"usethis"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"usethis"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -580,23 +577,7 @@ Visão Geral
 <li><p>Esta é uma prática tão sábia e comum que o RStudio tem suporte integrado para isso por meio dos <code>Projects</code>.</p></li>
 <li><p>Os <em>RStudio Projects</em> (em português, <em>Projetos RStudio</em>) tornam simples organizar seus projetos em vários contextos, cada um com sua própria pasta e documentos diversos.</p></li>
 <li><p>Seja com R ou Python, é fundamental criar um projeto do Editor ou IDE para organizar os arquivos de cada projeto.</p></li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Vantagens dos RStudio Projects
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>Vantagem 1</strong>: Você se livra dos problema dos caminhos de arquivos e pastas.</p></li>
-<li><p><strong>Vantagem 2</strong>: Navegação fácil entre projetos. Você pode facilmente ter dois projetos abertos ao mesmo tempo dentro de duas sessões diferentes do RStudio.</p></li>
-<li><p>Entre outras vantagens.</p></li>
+<li><p>Entre diversas outras, uma vantagem adicional importante do uso de projetos é que você se livra dos problemas com caminhos absolutos de arquivos e pastas, como veremos posteriormente.</p></li>
 </ul>
 </div>
 </div>
@@ -634,22 +615,98 @@ Vantagens dos RStudio Projects
 </figure>
 </div>
 <ol start="3" type="1">
-<li><p>Escolha a pasta dentro da qual você criará a subpasta <strong>seunome_icd2025</strong> (que será a pasta do projeto), clicando no botão <strong>Browse</strong>.</p></li>
-<li><p>Digite o nome do projeto (<strong>seunome_icd2025</strong>) no campo de texto abaixo de <em>Directory Name</em>.</p></li>
-<li><p>Clique em <strong>Create Project</strong> para criar o projeto.</p></li>
+<li>Escolha a pasta dentro da qual você criará a subpasta <strong>seunome_icd2025</strong> (que será a pasta do projeto), clicando no botão <strong>Browse</strong>.</li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante! Nome da Pasta e do Projeto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No caso de um aluno hipotético chamado João Silva, o nome da subpasta seria <code>joaosilva_icd2025</code>, tente seguir esse padrão e <strong>não</strong> utilize acentos, espaços e caracteres especiais para nomear pastas, projetos e arquivos.</p>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Digite o nome do projeto (por exemplo, <code>joaosilva_icd2025</code>) no campo de texto abaixo de <strong>Directory Name</strong> e clique na caixa <strong>Create a git repository</strong>:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/new_project04.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<ol start="5" type="1">
+<li>Clique em <strong>Create Project</strong> para criar o projeto. Em seguida, você verá algo similar a seguinte imagem no RStudio:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/projeto_criado.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
 </section>
 <section id="projeto-criado" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="projeto-criado"><span class="header-section-number">3.2</span> Projeto Criado</h2>
 <p>Quando um novo projeto é criado, o RStudio:</p>
 <ul>
-<li><p>Cria um arquivo de projeto (<code>seunome_icd2025.Rproj</code>) dentro da pasta do projeto.</p></li>
+<li><p>Cria um arquivo de projeto (<code>joaosilva_icd2025.Rproj</code>) dentro da pasta do projeto.</p></li>
 <li><p>Carrega o projeto no RStudio e exibe seu nome no menu <strong>Projects</strong>.</p></li>
 <li><p>Com um projeto criado, toda vez que abrir o RStudio, basta clicar em Project, logo abaixo irá aparecer o nome do projeto, clique no nome para abrir o projeto.</p></li>
 </ul>
 </section>
-<section id="gerenciamento-de-arquivos" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="gerenciamento-de-arquivos"><span class="header-section-number">3.3</span> Gerenciamento de Arquivos</h2>
+<section id="estrutura-recomendada-para-o-projeto-rstudio-criado" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="estrutura-recomendada-para-o-projeto-rstudio-criado"><span class="header-section-number">3.3</span> Estrutura Recomendada para o Projeto RStudio Criado</h2>
+<p>Para organizar adequadamente os arquivos de seus projetos envolvendo a análise de dados, recomendamos que você adote a seguinte estrutura inicial de pastas para seu projeto:</p>
+<ol type="1">
+<li>Primeiramente, vamos criar duas pastas principais:</li>
+</ol>
+<ul>
+<li><strong>dados</strong>: Para armazenar todos os conjuntos de dados do projeto.</li>
+<li><strong>relatorios</strong>: Para armazenar todos os documentos Quarto e relatórios.</li>
+</ul>
+<ol start="2" type="1">
+<li>Dentro da pasta <strong>dados</strong>, vamos criar duas subpastas:</li>
+</ol>
+<ul>
+<li><strong>dados_brutos</strong>: Para armazenar os dados originais, sem modificações.</li>
+<li><strong>dados_limpos</strong>: Para armazenar dados após limpeza e transformações.</li>
+</ul>
+<ol start="3" type="1">
+<li>Dentro da pasta <strong>relatorios</strong>, vamos criar a subpasta:</li>
+</ol>
+<ul>
+<li><strong>testes</strong>: Para armazenar documentos Quarto de teste e experimentos.</li>
+</ul>
+<p>Esta estrutura fornece uma organização clara que separa dados de documentos e também distingue entre dados brutos e processados (ou limpos, no jargão de Ciência de Dados), seguindo boas práticas de reprodutibilidade.</p>
+<p>Para criar esta estrutura usando o RStudio:</p>
+<ol type="1">
+<li>Na Guia <code>Files</code> do RStudio, clique no botão <code>New Folder</code> para criar as pastas principais <code>dados</code> e <code>relatorios</code>:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/criar_pastas.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<ol start="2" type="1">
+<li><p>Navegue para dentro da pasta <code>dados</code> e crie as subpastas <code>dados_brutos</code> e <code>dados_limpos</code>.</p></li>
+<li><p>Navegue para dentro da pasta <code>relatorios</code> e crie a subpasta <code>testes</code>.</p></li>
+</ol>
+<p>Considerando o caso do aluno hipotético chamado João Silva, a estrutura final do projeo ficaria assim:</p>
+<pre><code>joaosilva_icd2025/
+│
+├── dados/
+│   ├── dados_brutos
+│   └── dados_limpos
+|
+├── joaosilva_icd2025.Rproj
+|
+└── relatorios/
+    └── testes</code></pre>
+</section>
+<section id="gerenciamento-de-arquivos" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="gerenciamento-de-arquivos"><span class="header-section-number">3.4</span> Gerenciamento de Arquivos</h2>
 <p>O RStudio suporta realce de sintaxe e outros recursos especializados de edição de código para tipos de arquivos específicos:</p>
 <ul>
 <li><p>Scripts R, Python, SQL e outros.</p></li>
@@ -657,8 +714,8 @@ Vantagens dos RStudio Projects
 <li><p>Conteúdo da Web, como HTML, CSS</p></li>
 <li><p>E muitos mais.</p></li>
 </ul>
-<section id="menu-files" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="menu-files"><span class="header-section-number">3.3.1</span> Menu <code>Files</code></h3>
+<section id="menu-files" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="menu-files"><span class="header-section-number">3.4.1</span> Menu <code>Files</code></h3>
 <ul>
 <li>É possível criar um novo arquivo com <code>File -&gt; New File</code>:</li>
 </ul>
@@ -677,8 +734,8 @@ Vantagens dos RStudio Projects
 </div>
 </section>
 </section>
-<section id="configurando-o-rstudio-para-usar-o-git-bash-como-terminal" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="configurando-o-rstudio-para-usar-o-git-bash-como-terminal"><span class="header-section-number">3.4</span> Configurando o RStudio para usar o Git Bash como Terminal</h2>
+<section id="configurando-o-rstudio-para-usar-o-git-bash-como-terminal" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="configurando-o-rstudio-para-usar-o-git-bash-como-terminal"><span class="header-section-number">3.5</span> Configurando o RStudio para usar o Git Bash como Terminal</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -720,8 +777,48 @@ Configurando o Terminal do RStudio para Git Bash
 </div>
 </section>
 </section>
-<section id="glossário-de-termos" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Glossário de Termos</h1>
+<section id="atalhos-de-teclado-essenciais" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Atalhos de Teclado Essenciais</h1>
+<p>Dominar alguns atalhos de teclado básicos aumentará significativamente sua produtividade no RStudio, especialmente ao trabalhar com documentos Quarto:</p>
+<p><strong>Windows/Linux | macOS | Função</strong></p>
+<p><strong>Navegação entre painéis:</strong></p>
+<ul>
+<li><code>Ctrl+1</code> | <code>⌘+1</code> | Move o cursor para o painel Source</li>
+<li><code>Ctrl+2</code> | <code>⌘+2</code> | Move o cursor para o Console</li>
+<li><code>Ctrl+3</code> | <code>⌘+3</code> | Move o cursor para o painel Environment</li>
+<li><code>Ctrl+4</code> | <code>⌘+4</code> | Move o cursor para o painel Output</li>
+<li><code>Ctrl+Shift+0</code> | <code>⌘+Shift+0</code> | Restaura o layout padrão dos painéis</li>
+<li><code>Ctrl+.</code> | <code>⌘+.</code> | Navegação rápida para seções/funções/chunks</li>
+</ul>
+<p><strong>Trabalho com documentos Quarto:</strong></p>
+<ul>
+<li><code>Ctrl+Shift+K</code> | <code>⌘+Shift+K</code> | Renderiza o documento Quarto ativo</li>
+<li><code>Ctrl+Alt+I</code> | <code>⌘+Option+I</code> | Insere uma nova célula de código</li>
+<li><code>Ctrl+Enter</code> | <code>⌘+Enter</code> | Executa a célula de código atual ou a linha selecionada</li>
+<li><code>Ctrl+Shift+Enter</code> | <code>⌘+Shift+Enter</code> | Executa a célula de código atual completo</li>
+<li><code>Ctrl+Alt+C</code> | <code>⌘+Option+C</code> | Executa todas as células anteriores</li>
+<li><code>Ctrl+Alt+R</code> | <code>⌘+Option+R</code> | Executa todas as células no arquivo</li>
+<li><code>Ctrl+Alt+P</code> | <code>⌘+Option+P</code> | Abre o painel para navegar pelo arquivo</li>
+</ul>
+<p><strong>Edição:</strong></p>
+<ul>
+<li><code>Ctrl+Shift+M</code> | <code>⌘+Shift+M</code> | Insere o operador pipe do tidyverse (%&gt;%)</li>
+<li><code>Alt+-</code> | <code>Option+-</code> | Insere o operador de atribuição (&lt;-)</li>
+<li><code>Ctrl+Shift+.</code> | <code>⌘+Shift+.</code> | Insere o operador pipe nativo do R (|&gt;)</li>
+<li><code>Tab</code>: Autocompleta comandos ou nomes de variáveis</li>
+<li><code>Ctrl+Shift+C</code> | <code>⌘+Shift+C</code> | Comenta/descomenta a linha atual ou seleção</li>
+<li><code>F1</code>: Mostra ajuda para função sob o cursor</li>
+<li><code>Alt+Shift+K</code> | <code>Option+Shift+K</code> | Abre uma janela com todos os atalhos disponíveis</li>
+</ul>
+<p><strong>Console:</strong></p>
+<ul>
+<li><code>Ctrl+L</code> | <code>⌘+L</code> | Limpa o Console</li>
+<li><code>Esc</code>: Interrompe a execução de código no R</li>
+<li><code>Setas ↑/↓</code>: Navega pelo histórico de comandos no Console</li>
+</ul>
+</section>
+<section id="glossário-de-termos" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Glossário de Termos</h1>
 <section id="a" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="a">A</h2>
 <p><strong>Ambiente de Desenvolvimento Integrado (IDE)</strong>: Software que combina editor de código ou texto, console, gerenciamento de arquivos e outras ferramentas para facilitar o desenvolvimento de softwares.</p>

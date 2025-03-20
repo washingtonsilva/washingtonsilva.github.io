@@ -220,7 +220,8 @@ cookieconsent.run({
   <li><a href="#relatório-no-formato-pdf-com-typst" id="toc-relatório-no-formato-pdf-com-typst" class="nav-link" data-scroll-target="#relatório-no-formato-pdf-com-typst"><span class="header-section-number">7.2</span> Relatório no formato pdf com Typst</a></li>
   <li><a href="#relatório-no-formato-docx" id="toc-relatório-no-formato-docx" class="nav-link" data-scroll-target="#relatório-no-formato-docx"><span class="header-section-number">7.3</span> Relatório no formato docx</a></li>
   </ul></li>
-  <li><a href="#glossário-de-termos" id="toc-glossário-de-termos" class="nav-link" data-scroll-target="#glossário-de-termos"><span class="header-section-number">8</span> Glossário de Termos</a>
+  <li><a href="#atalhos-de-teclado-essenciais-para-o-sistema-quarto" id="toc-atalhos-de-teclado-essenciais-para-o-sistema-quarto" class="nav-link" data-scroll-target="#atalhos-de-teclado-essenciais-para-o-sistema-quarto"><span class="header-section-number">8</span> Atalhos de Teclado Essenciais para o Sistema Quarto</a></li>
+  <li><a href="#glossário-de-termos" id="toc-glossário-de-termos" class="nav-link" data-scroll-target="#glossário-de-termos"><span class="header-section-number">9</span> Glossário de Termos</a>
   <ul>
   <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
   <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">E</a></li>
@@ -476,7 +477,7 @@ Sempre Utilize Projetos RStudio
 </figure>
 </div>
 <ol start="6" type="1">
-<li>Agora, salve esse arquivo na subpasta <code>testes</code> da pasta <code>relatorios</code> do projeto Rstudio que você criou ao estudar o <a href="https://washingtonsilva.github.io/tutorials/rstudio/" target="_blank">tutorial sobre o RStudio</a>. Utilize o nome <code>01_teste.qmd</code> para este arquivo, este é apenas um nome sugerido, e você pode escolher outro nome, mas deve manter a extensão .qmd</li>
+<li>Agora, salve esse arquivo na subpasta <code>testes</code> da pasta <code>relatorios</code> do projeto Rstudio que você criou ao estudar o <a href="https://washingtonsilva.github.io/tutorials/rstudio/" target="_blank">tutorial sobre o RStudio</a>. Utilize o nome <code>01_teste.qmd</code> para este arquivo, este é apenas um nome sugerido, e você pode escolher outro nome, mas deve manter a extensão .qmd.</li>
 </ol>
 <p>Agora que você já criou seu primeiro arquivo Quarto, vamos entender melhor sua estrutura e componentes na próxima seção (<a href="#sec-anatomia" class="quarto-xref">Seção&nbsp;3</a>).</p>
 </section>
@@ -1159,8 +1160,46 @@ Sempre Utilize Projetos RStudio
 <p>A única diferença é a especificação <code>format: docx:</code>, que indica ao Quarto que o documento deve ser renderizado como um arquivo .docx. Este formato pode ser útil quando for necessário compartilhar documentos editáveis com pessoas que utilizam o Microsoft Office, embora não seja o formato mais recomendado para trabalhos acadêmicos devido às suas limitações de formatação consistente e controle tipográfico.</p>
 </section>
 </section>
-<section id="glossário-de-termos" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Glossário de Termos</h1>
+<section id="atalhos-de-teclado-essenciais-para-o-sistema-quarto" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Atalhos de Teclado Essenciais para o Sistema Quarto</h1>
+<p>Dominar alguns atalhos de teclado básicos aumentará significativamente sua produtividade no RStudio, especialmente ao trabalhar com documentos Quarto.</p>
+<p>Estes atalhos são particularmente úteis para o trabalho com arquivos Quarto (.qmd) e te ajudarão a desenvolver um fluxo de trabalho mais eficiente.</p>
+<p><strong>Windows/Linux | macOS | Função</strong></p>
+<p><strong>Criação e Renderização:</strong></p>
+<ul>
+<li><code>Ctrl+Shift+K</code> | <code>⌘+Shift+K</code> | Renderiza o documento Quarto ativo</li>
+<li><code>Ctrl+Alt+I</code> | <code>⌘+Option+I</code> | Insere uma nova célula de código R</li>
+</ul>
+<p><strong>Navegação em Documentos:</strong></p>
+<ul>
+<li><code>Ctrl+Alt+P</code> | <code>⌘+Option+P</code> | Abre o painel de navegação</li>
+<li><code>Ctrl+.</code> | <code>⌘+.</code> | Navega para seções/função/célula específicos</li>
+<li><code>Ctrl+F</code> | <code>⌘+F</code> | Busca texto no documento atual</li>
+</ul>
+<p><strong>Trabalho com Chunks de Código:</strong></p>
+<ul>
+<li><code>Ctrl+Enter</code> | <code>⌘+Enter</code> | Executa a linha atual ou seleção na célula</li>
+<li><code>Ctrl+Shift+Enter</code> | <code>⌘+Shift+Enter</code> | Executa a célula de código atual completa</li>
+<li><code>Ctrl+Alt+C</code> | <code>⌘+Option+C</code> | Executa todas as células anteriores</li>
+<li><code>Ctrl+Alt+R</code> | <code>⌘+Option+R</code> | Executa todas as células no documento</li>
+</ul>
+<p><strong>Edição:</strong></p>
+<ul>
+<li><code>Tab</code> | <code>Tab</code> | Autocompleta comandos ou nomes de variáveis</li>
+<li><code>Ctrl+Shift+C</code> | <code>⌘+Shift+C</code> | Comenta/descomenta a linha ou seleção</li>
+<li><code>Ctrl+Shift+/</code> | <code>⌘+Shift+/</code> | Reflow comentário ou texto</li>
+<li><code>Ctrl+Shift+M</code> | <code>⌘+Shift+M</code> | Insere operador pipe do tidyverse (<code>%&gt;%</code>)</li>
+<li><code>Ctrl+Shift+.</code> | <code>⌘+Shift+.</code> | Insere operador pipe nativo do R (<code>|&gt;</code>)</li>
+<li><code>Alt+-</code> | <code>Option+-</code> | Insere operador de atribuição (<code>&lt;-</code>)</li>
+</ul>
+<p><strong>Ajuda e Visualização:</strong></p>
+<ul>
+<li><code>F1</code> | <code>F1</code> | Mostra ajuda para função sob o cursor</li>
+<li><code>Alt+Shift+K</code> | <code>Option+Shift+K</code> | Mostra lista completa de atalhos de teclado</li>
+</ul>
+</section>
+<section id="glossário-de-termos" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Glossário de Termos</h1>
 <section id="c" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="c">C</h2>
 <p><strong>Células de Código</strong> (<em>Code Chunks</em>): Blocos de código em um documento Quarto que podem ser executados, gerando resultados que são incluídos no documento final.</p>

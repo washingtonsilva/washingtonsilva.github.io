@@ -191,7 +191,7 @@ o arquivo exibido na @fig-6.
 pasta `relatorios` do projeto Rstudio 
 que você criou ao estudar o [tutorial sobre o RStudio](https://washingtonsilva.github.io/tutorials/rstudio/){target="_blank"}. 
 Utilize o nome `01_teste.qmd` para este arquivo, este é apenas um nome 
-sugerido, e você pode escolher outro nome, mas deve manter a extensão .qmd
+sugerido, e você pode escolher outro nome, mas deve manter a extensão .qmd.
 
 
 Agora que você já criou seu primeiro arquivo Quarto, vamos 
@@ -801,6 +801,54 @@ Este formato pode ser útil quando for necessário compartilhar
 documentos editáveis com pessoas que utilizam o Microsoft Office, 
 embora não seja o formato mais recomendado para trabalhos acadêmicos 
 devido às suas limitações de formatação consistente e controle tipográfico.
+
+
+
+
+# Atalhos de Teclado Essenciais para o Sistema Quarto
+
+Dominar alguns atalhos de teclado básicos aumentará significativamente sua produtividade no RStudio, especialmente ao trabalhar com documentos Quarto.
+
+Estes atalhos são particularmente úteis para o trabalho com arquivos 
+Quarto (.qmd) e te ajudarão a desenvolver um fluxo de trabalho 
+mais eficiente. 
+
+
+**Windows/Linux | macOS | Função**
+
+**Criação e Renderização:**
+
+- `Ctrl+Shift+K` | `⌘+Shift+K` | Renderiza o documento Quarto ativo
+- `Ctrl+Alt+I` | `⌘+Option+I` | Insere uma nova célula de código R
+
+**Navegação em Documentos:**
+
+- `Ctrl+Alt+P` | `⌘+Option+P` | Abre o painel de navegação
+- `Ctrl+.` | `⌘+.` | Navega para seções/função/célula específicos
+- `Ctrl+F` | `⌘+F` | Busca texto no documento atual
+
+**Trabalho com Chunks de Código:**
+
+- `Ctrl+Enter` | `⌘+Enter` | Executa a linha atual ou seleção na célula
+- `Ctrl+Shift+Enter` | `⌘+Shift+Enter` | Executa a célula de código atual completa
+- `Ctrl+Alt+C` | `⌘+Option+C` | Executa todas as células anteriores
+- `Ctrl+Alt+R` | `⌘+Option+R` | Executa todas as células no documento
+
+**Edição:**
+
+- `Tab` | `Tab` | Autocompleta comandos ou nomes de variáveis
+- `Ctrl+Shift+C` | `⌘+Shift+C` | Comenta/descomenta a linha ou seleção
+- `Ctrl+Shift+/` | `⌘+Shift+/` | Reflow comentário ou texto
+- `Ctrl+Shift+M` | `⌘+Shift+M` | Insere operador pipe do tidyverse (`%>%`)
+- `Ctrl+Shift+.` | `⌘+Shift+.` | Insere operador pipe nativo do R (`|>`)
+- `Alt+-` | `Option+-` | Insere operador de atribuição (`<-`)
+
+**Ajuda e Visualização:**
+
+- `F1` | `F1` | Mostra ajuda para função sob o cursor
+- `Alt+Shift+K` | `Option+Shift+K` | Mostra lista completa de atalhos de teclado
+
+
 
 
 

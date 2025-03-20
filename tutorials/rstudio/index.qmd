@@ -18,7 +18,7 @@ crossref:
 execute: 
   warning: false
   message: false
-categories: [Ambiente de Desenvolvimento Integrado, RStudio]
+categories: [Ambiente de Desenvolvimento Integrado, Reprodutibilidade, RStudio, Sistema Quarto]
 ---
 
 ![](img/logo-rstudio.png){width=40% fig-align="center"}
@@ -172,16 +172,8 @@ no painel.
 - Esse painel fornece uma área para executar o código interativamente, isto 
 é, você pode "conversar" diretamente com o interpretado da linguagem R.
 
-- Por padrão, está vinculado a linguagem R ele também pode fornecer um 
+- Por padrão, está vinculado a linguagem R, mas ele também pode fornecer um 
 console Python.
-
-**Atalhos importantes:**
-
-- `Ctrl+1` : Move o cursor para o painel `Source` 
-- `Ctrl+2`: — Move o cursor para o `Console` 
-- `Ctrl+L`: Limpa o Console 
-- `Esc`: Interrompe a execução de R
-
 
 
 
@@ -255,7 +247,6 @@ exclusão imagem e um ícone de vassoura que limpará todos os gráficos.
 
 
 
-
 ## Instalando Pacotes R: 
 
 ### Usando a Guia Packages
@@ -293,7 +284,7 @@ ou em um documento Quarto:
 ```{r}
 #| eval: false
 
-install.packages("tidyverse", "usethis")
+install.packages(c("tidyverse", "usethis"))
 ```
 
 
@@ -374,21 +365,10 @@ pasta e documentos diversos.
 
 - Seja com R ou Python, é fundamental criar um projeto do 
 Editor ou IDE para organizar os arquivos de cada projeto.
-:::
 
-
-
-::: {.callout-note icon="false"}
-## Vantagens dos RStudio Projects
-
-- **Vantagem 1**: Você se livra dos problema dos caminhos de arquivos e 
-pastas.
-
-- **Vantagem 2**: Navegação fácil entre projetos. Você pode facilmente 
-ter dois projetos abertos ao mesmo tempo dentro de duas sessões diferentes 
-do RStudio.
-
-- Entre outras vantagens.
+- Entre diversas outras, uma vantagem adicional importante do uso de 
+projetos é que você se livra dos problemas com caminhos absolutos 
+de arquivos e pastas, como veremos posteriormente.
 :::
 
 
@@ -422,13 +402,30 @@ no canto superior direito do RStudio:
 
 
 3. Escolha a pasta dentro da qual você criará a subpasta 
-**seunome_icd2025** 
-(que será a pasta do projeto), clicando no botão **Browse**.
+**seunome_icd2025** (que será a pasta do projeto), 
+clicando no botão **Browse**. 
 
-4. Digite o nome do projeto (**seunome_icd2025**) no campo de texto abaixo de 
-*Directory Name*.
+::: {.callout-tip}
+## Importante! Nome da Pasta e do Projeto
 
-5. Clique em **Create Project** para criar o projeto.
+No caso de um aluno hipotético chamado João Silva, o nome da subpasta 
+seria `joaosilva_icd2025`, tente seguir esse padrão e **não** utilize 
+acentos, espaços e caracteres especiais para nomear pastas, projetos 
+e arquivos. 
+:::
+
+4. Digite o nome do projeto (por exemplo, `joaosilva_icd2025`) no campo 
+de texto abaixo de **Directory Name** e clique na caixa **Create a git repository**:
+
+![](img/new_project04.jpeg){fig-align="center" width="80%"}
+
+
+
+5. Clique em **Create Project** para criar o projeto. Em seguida, 
+você verá algo similar a seguinte imagem no RStudio:
+
+![](img/projeto_criado.jpeg){fig-align="center" width="80%"}
+
 
 
 
@@ -436,7 +433,7 @@ no canto superior direito do RStudio:
 
 Quando um novo projeto é criado, o RStudio:
 
-- Cria um arquivo de projeto (`seunome_icd2025.Rproj`) dentro 
+- Cria um arquivo de projeto (`joaosilva_icd2025.Rproj`) dentro 
 da pasta do projeto. 
 
 - Carrega o projeto no RStudio e exibe seu nome no menu 
@@ -445,6 +442,64 @@ da pasta do projeto.
 - Com um projeto criado, toda vez que abrir o RStudio, basta 
 clicar em Project, logo abaixo irá aparecer o nome do projeto, 
 clique no nome para abrir o projeto.
+
+
+
+
+## Estrutura Recomendada para o Projeto RStudio Criado
+
+Para organizar adequadamente os arquivos de seus projetos envolvendo a 
+análise de dados, recomendamos que você adote a seguinte estrutura inicial
+de pastas para seu projeto:
+
+1. Primeiramente, vamos criar duas pastas principais:
+
+- **dados**: Para armazenar todos os conjuntos de dados do projeto.
+- **relatorios**: Para armazenar todos os documentos Quarto e relatórios.
+
+2. Dentro da pasta **dados**, vamos criar duas subpastas:
+
+- **dados_brutos**: Para armazenar os dados originais, sem modificações.
+- **dados_limpos**: Para armazenar dados após limpeza e transformações.
+
+3. Dentro da pasta **relatorios**, vamos criar a subpasta:
+
+- **testes**: Para armazenar documentos Quarto de teste e experimentos.
+
+Esta estrutura fornece uma organização clara que separa dados de documentos 
+e também distingue entre dados brutos e processados (ou limpos, no 
+jargão de Ciência de Dados), seguindo boas práticas de reprodutibilidade.
+
+Para criar esta estrutura usando o RStudio:
+
+1. Na Guia `Files` do RStudio, clique no botão `New Folder` para criar 
+as pastas principais `dados` e `relatorios`:
+
+![](img/criar_pastas.jpeg){fig-align="center" width="100%"}
+
+
+2. Navegue para dentro da pasta `dados` e crie as subpastas `dados_brutos` e `dados_limpos`.
+
+
+3. Navegue para dentro da pasta `relatorios` e crie a subpasta `testes`.
+
+
+Considerando o caso do aluno hipotético chamado João Silva, a 
+estrutura final do projeo ficaria assim:
+
+```
+joaosilva_icd2025/
+│
+├── dados/
+│   ├── dados_brutos
+│   └── dados_limpos
+|
+├── joaosilva_icd2025.Rproj
+|
+└── relatorios/
+    └── testes
+```
+
 
 
 
@@ -519,6 +574,51 @@ menu suspenso.
 - Evita a necessidade de alternar entre aplicativos diferentes.
 :::
 
+
+
+
+# Atalhos de Teclado Essenciais
+
+Dominar alguns atalhos de teclado básicos aumentará significativamente 
+sua produtividade no RStudio, especialmente ao trabalhar com 
+documentos Quarto:
+
+**Windows/Linux | macOS | Função**
+
+**Navegação entre painéis:**
+
+- `Ctrl+1` | `⌘+1` | Move o cursor para o painel Source
+- `Ctrl+2` | `⌘+2` | Move o cursor para o Console
+- `Ctrl+3` | `⌘+3` | Move o cursor para o painel Environment
+- `Ctrl+4` | `⌘+4` | Move o cursor para o painel Output
+- `Ctrl+Shift+0` | `⌘+Shift+0` | Restaura o layout padrão dos painéis
+- `Ctrl+.` | `⌘+.` | Navegação rápida para seções/funções/chunks
+
+**Trabalho com documentos Quarto:**
+
+- `Ctrl+Shift+K` | `⌘+Shift+K` | Renderiza o documento Quarto ativo
+- `Ctrl+Alt+I` | `⌘+Option+I` | Insere uma nova célula de código
+- `Ctrl+Enter` | `⌘+Enter` | Executa a célula de código atual ou a linha selecionada
+- `Ctrl+Shift+Enter` | `⌘+Shift+Enter` | Executa a célula de código atual completo
+- `Ctrl+Alt+C` | `⌘+Option+C` | Executa todas as células anteriores
+- `Ctrl+Alt+R` | `⌘+Option+R` | Executa todas as células no arquivo
+- `Ctrl+Alt+P` | `⌘+Option+P` | Abre o painel para navegar pelo arquivo
+
+**Edição:**
+
+- `Ctrl+Shift+M` | `⌘+Shift+M` | Insere o operador pipe do tidyverse (%>%)
+- `Alt+-` | `Option+-` | Insere o operador de atribuição (<-)
+- `Ctrl+Shift+.` | `⌘+Shift+.` | Insere o operador pipe nativo do R (|>)
+- `Tab`: Autocompleta comandos ou nomes de variáveis
+- `Ctrl+Shift+C` | `⌘+Shift+C` | Comenta/descomenta a linha atual ou seleção
+- `F1`: Mostra ajuda para função sob o cursor
+- `Alt+Shift+K` | `Option+Shift+K` | Abre uma janela com todos os atalhos disponíveis
+
+**Console:**
+
+- `Ctrl+L` | `⌘+L` | Limpa o Console
+- `Esc`: Interrompe a execução de código no R
+- `Setas ↑/↓`: Navega pelo histórico de comandos no Console
 
 
 

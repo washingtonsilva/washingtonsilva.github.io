@@ -23,7 +23,7 @@ bibliography: referencias.bibtex
 csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 nocite: |
   @chacon2014progit, @blischak2016version, @oliveira2020git4noobs
-categories: [controle de versão, git, gitHub]
+categories: [Controle de versão, Git, GitHub, Reprodutibilidade]
 ---
 
 
