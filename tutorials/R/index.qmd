@@ -1,0 +1,451 @@
+---
+title: "Introdução à Linguagem R"
+description: | 
+  Um tutorial básico sobre a linguagem R para Ciência de Dados.
+lang: "pt"
+date: "2024-07-07"
+toc: true
+number-sections: true
+toc-depth: 2
+toc-location: left
+highlight-style: arrow
+author:
+  - name: Prof. Dr. Washington S. da Silva 
+    affiliation: IFMG - Campus Formiga - Mestrado Profissional em Administração.
+    affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
+crossref:
+  fig-title: '**Fig.**'
+  fig-labels: arabic
+execute: 
+  warning: false
+  message: false
+categories: [R, Reprodutibilidade]
+---
+
+![](img/Rlogo.png){width=30% fig-align="center"}
+
+
+# Introdução {#sec-introducao}
+
+
+::: {.callout-note icon="false"}
+## Objetivos
+
+- Este tutorial é destinado aos estudantes do bacharelado em Administração 
+e aos mestrandos do Mestrado Profissional em Administração do 
+IFMG - Campus Formiga.
+
+- Também é útil para administradores, economistas, contabilistas, 
+auditores e outros profissionais que desejam utilizar ferramentas 
+modernas para criar relatórios e outros produtos de forma reproduzível 
+e auditável.
+
+- O objetivo principal é proporcionar uma compreensão sólida da linguagem 
+R, desde seus fundamentos até aplicações em análise de dados, 
+permitindo que alunos de graduação, mestrandos e demais profissionais 
+e pesquisadores interessados desenvolvam habilidades para criar análises 
+reproduzíveis e auditáveis. Embora o foco inicial seja a Ciência de Dados 
+aplicada à Administração, o conteúdo foi elaborado para ser útil 
+em diversas áreas do conhecimento.
+:::
+
+
+
+
+::: {.callout-note icon="false"}
+## Instalando a Linguagem R 4.4.1
+
+1.  Acesse [https://cloud.r-project.org/](https://cloud.r-project.org/){target="_blank"}
+
+2.  Selecione o sistema operacional, clicando em **Download R for Windows** 
+por exemplo.
+
+3.  Na página seguinte clique em **base**.
+
+4.  Clique em **Download R-4.4.3 for Windows**. 
+
+5.  Feito o download basta ir clicando em próximo/next até a instalação 
+ser concluída.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## RStudio: Ambiente de Desenvolvimento para R
+
+- Para uma experiência de programação mais produtiva com R, recomenda-se 
+fortemente o uso do RStudio, um IDE (Ambiente de Desenvolvimento Integrado) 
+especialmente projetado para trabalhar com a linguagem R.
+
+- O RStudio oferece diversas funcionalidades que facilitam o aprendizado 
+e uso da linguagem, como editor de código com destaque de sintaxe, projetos 
+Rstudio, integração com Git e suporte nativo ao sistema Quarto.
+
+- Para instalar e configurar o RStudio, consulte nosso [Tutorial sobre RStudio](https://washingtonsilva.github.io/tutorials/rstudio/){target="_blank"}, 
+onde são apresentadas instruções detalhadas para iniciantes.
+
+- Embora seja perfeitamente possível utilizar R com outros IDEs, a 
+combinação (R + RStudio) facilita e potencializa significativamente a 
+experiência de aprendizado e desenvolvimento.
+:::
+
+
+
+
+::: {.callout-note icon="false"}
+## O que é R?
+
+- R é um ambiente ou sistema para computação estatística e gráfico. 
+
+- Este sistema é composto por duas partes: a própria **linguagem** R (que é o 
+que a maioria das pessoas querem dizer quando falam sobre R) e um 
+**ambiente de tempo de execução** (*runtime environment*).
+
+- R é uma linguagem **interpretada**, o que significa que os usuários acessam 
+suas funções por meio de um interpretador de linha de comando.
+
+- Ao contrário de linguagens como Python e Java, R não é uma linguagem 
+de programação de uso geral. 
+
+- Em vez disso, R é considerada uma linguagem de domínio específica (DSL), o 
+que significa que suas funções e uso foram projetados para uma área 
+específica de uso ou domínio.
+
+- No caso de R, o domínio e a computação estatística. Por extensão, R é 
+comumente usada para todos os tipos de tarefas de ciência de dados.
+
+- A linguagem R está equipada com um grande conjunto de funções internas 
+para a manipulação, análise e visualização de dados. 
+
+- Além das funções internas da linguagem, existem inúmeros pacotes (como os
+módulos de Python) que estendem as capacidades da linguagem.
+:::
+
+
+
+
+::: {.callout-note icon="false"}
+## Origens da Linguagem R
+
+**A linguagem S**
+
+- A linguagem S foi desenvolvida em meados da década de 1970 por John Chambers 
+no lendário Bell Labs. O objetivo era oferecer uma abordagem interativa 
+para a computação estatística, que fosse fácil de usar e tornasse as tarefas 
+de análise de dados mais fáceis e rápidas.
+
+- Em uma entrevista de 2013, Chambers observou que a equipe do Bell Labs 
+queria que as pessoas começassem em um ambiente interativo, onde não 
+pensassem em si como programadores. Então, à medida que 
+suas necessidades se tornaram mais claras e sua sofisticação aumentasse, 
+eles dseriam capazes de se orientar gradualmente para a programação 
+com a linguagem S.
+
+- A filosofia geral de S era muito semelhante à de R: oferecer um ambiente 
+de software que facilitasse a programação computacional e a análise 
+estatística, que qualquer um possa aprender a usar.
+
+- Como R, S também pode ser usada para escrever programas mais longos 
+centrados em tarefas estatísticas. Ao contrário de R, no entanto, S e 
+sua iteração posterior, *S-Plus*, eram produtos licenciados, o que 
+significa que tinham que ser comprados de uma empresa.
+
+- Portanto, é importante notar que a linguagem R é um dialeto da 
+linguagem S.
+
+**Sintáxe e Semântica**
+
+- Os linguistas usam os termos sintaxe e semântica para descrever elementos 
+de linguagens naturais, e os cientistas da computação também adotaram 
+esses termos para linguagens de programação.
+
+- Na programação de computadores, a sintaxe se refere às regras que ditam 
+a 'ortografia' e a 'gramática' de uma linguagem, enquanto a semântica 
+se refere a como os dados ou comandos de uma linguagem são apresentados.
+
+- A sintaxe de R era muito semelhante à de S em seus primeiros anos. Isso 
+tornou mais fácil para as pessoas que usavam *S-Plus* mudar para R, o que 
+desempenhou um papel fundamental na eventual popularidade de R na academia. 
+
+- A semântica de R, no entanto, está mais próxima da linguagem Scheme, 
+uma linguagem de programação funcional.
+
+**R é uma linguagem de baixo ou alto nível?**
+
+- R é considerada uma linguagem de programação de alto nível. Essa 
+classificação é baseada em seu nível de abstração da linguagem 
+de máquina. 
+
+- Ao contrário das linguagens de baixo nível que exigem conhecimento 
+aprofundado da memória e dos processos do computador, linguagens de 
+alto nível como R são projetadas para serem facilmente compreendidas 
+e escritas por humanos, tornando-as mais acessíveis para estatísticos, 
+analistas de dados e pesquisadores.
+:::
+
+
+
+
+::: {.callout-note icon="false"}
+## Um Breve Histórico da Linguagem R
+
+- **1991**: Os professores e estatísticos Ross Ihaka e Robert Gentleman 
+começam a trabalhar em um novo dialeto da linguagem S como um projeto de 
+pesquisa para o Departamento de Estatística da Universidade de Auckland 
+na Nova Zelândia.
+
+- **1993**: O primeiro anúncio de R chega ao público através do arquivo de 
+dados StatLib e da lista de discussão s-news.
+
+- **1995**: O estatístico Martin Mächler convence os criadodes de R a lançar 
+a linguagem sob uma licença pública geral GNU, tornando R gratuita e 
+de código aberto. Ihaka e Gentleman lançam seu artigo seminal apresentando 
+R ao mundo.
+
+- **1997**: O R Core Team foi formado, este grupo é o único com acesso ao 
+código-fonte R. No mesmo ano, foi criada a 
+*Comprehensive R Archive Network* (CRAN). Este repositório de pacotes R 
+ajuda os profissionais em inúmeras tarefas.
+
+- **2000**: R versão 1.0.0 foi lançada ao público.
+
+- **Março de 2024**: Estamos atualmente na versão R 4.3.3
+:::
+
+
+
+
+::: {.callout-note icon="false"}
+## Por que usar a linguagem R?
+
+- **Gratuito e de código aberto**: Diferentemente de softwares estatísticos 
+proprietários, R é completamente gratuito e seu código-fonte é aberto, 
+permitindo total transparência e personalização.
+
+- **Especialmente projetado para análise estatística e ciência de dados**: 
+Enquanto outras linguagens podem ser adaptadas para estas tarefas, R foi 
+concebida especificamente para computação estatística e visualização 
+de dados.
+
+- **Ampla comunidade acadêmica e profissional**: R possui uma comunidade 
+ativa de usuários que contribuem constantemente com novos pacotes, métodos e 
+soluções para problemas complexos.
+
+- **Integração com o sistema Quarto**: Perfeita compatibilidade com o 
+sistema de publicação Quarto, permitindo a criação de documentos, 
+apresentações e websites dinâmicos e reproduzíveis.
+
+- **Ecossistema Tidyverse**: O conjunto de pacotes Tidyverse fornece 
+uma gramática consistente para manipulação, visualização e modelagem 
+de dados, especialmente útil para iniciantes.
+
+- **Excelência em visualização de dados**: Pacotes como ggplot2 permitem 
+criar visualizações estatísticas sofisticadas e personalizáveis.
+
+- **Relevância no mercado**: Profissionais com conhecimento em R são 
+valorizados em setores como finanças, consultorias, pesquisa de mercado 
+e análise de negócios.
+
+- **Reprodutibilidade científica**: R facilita a implementação de 
+práticas de ciência reproduzível, essencial para pesquisas acadêmicas 
+e relatórios corporativos auditáveis.
+
+- **Versatilidade em tipos de análise**: Desde estatísticas descritivas 
+simples até modelos complexos de machine learning e econometria aplicada, 
+R oferece ferramentas para diversos níveis de análise.
+
+- **Documentação extensa**: Ampla disponibilidade de documentação, 
+tutoriais, livros e recursos online, facilitando o aprendizado contínuo.
+:::
+
+
+::: {.callout-note icon="false"}
+## Vídeo sobre R
+
+- Para finalizar esta introdução, assista o vídeo a seguir sobre a 
+linguagem R disponibilizado pelo 
+[R Consortium](https://r-consortium.org){target="_blank"}: 
+
+{{< video https://www.youtube.com/watch?v=XcBLEVknqvY
+    title="What is R?"
+    aspect-ratio="21x9" 
+>}}
+:::
+
+
+
+::: {.callout-note icon="false"}
+## Próximos Passos
+
+Nas próximas seções do tutorial vamos explorar os conceitos básicos 
+da linguagem R, que servirão como alicerce para os tópicos posteriores. 
+Compreender esses fundamentos é essencial antes de avançarmos para 
+análises mais complexas.
+:::
+
+
+
+
+
+# Variáveis e Atribuição de Valores
+
+Todas as instruções R com as quais criamos variáveis ou objetos 
+têm o mesmo formato:
+
+```{r}
+#| eval: false
+#| echo: true
+
+nome_do_objeto <- valor
+```
+
+Lemos esse código como: "*valor é atribuído a nome_objeto*"
+
+Em R, podemos atribuir informações às variáveis (ou objetos) 
+utilizando os seguintes operadores de atribuição:
+
+```{r}
+#| label: op-atribuicao
+#| echo: true
+
+# Diferentes formas de atribuição em R
+# Mesmo resultado, estilos diferentes
+
+# Operador recomendado (<-) 
+receita_mensal <- 850000
+receita_mensal
+
+# Alternativa (=), funciona, mas menos 
+# recomendado
+lucro_operacional = 320000
+lucro_operacional
+```
+
+Em R, como em todas as linguagens, fazemos muitas atribuições de 
+valores a variáveis, e não é agradável digitar o operador manualmente. 
+Assim, o RStudio oferece um atalho de teclado simples para inserir 
+o operador `<-`:
+
+- Atalho do RStudio: `Alt + -` (Windows/Linux) ou `Option + -` (Mac)
+
+- Observe que o RStudio automaticamente envolve `<-` com **espaços**, o 
+que é uma boa prática de formatação de código.
+
+- Códigos sem espaços são difíceis de ler compare: 
+
+`lucro<-receita-custos` versus 
+
+`lucro <- receita - custos`
+
+
+::: {.callout-note icon="false"}
+## Boas Práticas para Escrever Códigos R
+
+Nomes de variáveis devem começar com uma letra e podem 
+conter `letras`, `números`, `_` e `.`
+  
+É importante criar nomes de objetos **simples e descritivos** 
+que representem claramente seu conteúdo. É altamente recomendado 
+seguir um estilo consistente para nomenclatura desde o início:
+  
+```{r}
+#| eval: false
+#| echo: true
+# estilo snake_case (recomendado)
+margem_bruta <- 0.35
+fluxo_de_caixa_operacional <- receita - custos
+
+# estilo camelCase (comum em outras linguagens)
+MargemBruta <- 0.35
+fluxoDeCaixaOperacional <- receita - custos
+```
+
+Recomendamos usar o estilo **snake_case** (palavras separadas 
+por underscore) por ser um padrão mais comum no ecossistema R, 
+mas o importante é adotar um estilo e manter a consistência no 
+uso.
+:::
+
+
+::: {.callout-warning}
+## Práticas a evitar
+
+**Evite nomes muito genéricos**: 
+
+- `dados`, `resultado`, `x`, `y` não descrevem bem o conteúdo
+
+**Evite nomes muito longos**:
+
+- `calculo_da_margem_de_contribuicao_ajustada` é difícil 
+de digitar
+
+**Não use espaços nos nomes**: 
+
+- `margem bruta <- 0.35` resultará em erro
+
+**Não comece com número**: 
+
+`1trimestre <- "Janeiro-Março"` é inválido
+
+**Evite sobrescrever funções existentes**: 
+
+- nomes como `mean`, `sum`, `data` são nomes de funções internas de R.
+:::
+
+
+
+
+
+# Tipos atômicos de dados
+
+Em R, existem quatro tipos básicos (atômicos) de dados que você 
+encontrará frequentemente:
+
+
+Tipo          | Classe      | Descrição                          
+------------- | ----------- | ----------------------------------
+`double`      | `numeric`   | um vetor contendo valores reais (números com casas decimais)
+`integer`     | `numeric`   | um vetor contendo valores inteiros (números sem casas decimais)
+`character`   | `character` | um vetor contendo valores de texto (caracteres)
+`logical`     | `logical`   | um vetor contendo valores lógicos (`TRUE`/`FALSE`)
+
+: Principais Tipos {#tbl-1}
+
+
+
+Tipo       | Descrição    
+-----------|---------------------------------------------  
+`NA`       | `Not Available`: representa dados faltantes
+`NaN`      | `Not a Number`: Resultante de 0/0, por exemplo 
+`Inf`      | $+ \infty$ ou $- \infty$
+
+: Tipos Especiais {#tbl-2}
+
+
+
+## Números: `double` e `integer`
+
+
+## Caractereses: `character`
+
+
+## Lógicos: `logical`
+
+
+## Tipoos Especiais
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

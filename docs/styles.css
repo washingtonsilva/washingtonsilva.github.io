@@ -139,6 +139,11 @@ dd {
 
 /* =Code
 -----------------------------------------------------------------------------*/
+/* 
+ * NOTA: Esta seção foi modificada para melhorar o destaque de sintaxe
+ * para blocos de código, especialmente para código R e Python.
+ */
+
 /* Estilos comuns para todos os elementos relacionados a código */
 pre,
 code,
@@ -146,34 +151,137 @@ kbd,
 samp,
 var,
 output {
-  font-size: 125%;                     /* Aumentado para 130% para melhor legibilidade */
+  font-size: 90%;                      /* Tamanho adequado para legibilidade */
   font-style: normal;                  /* Estilo de fonte normal */
-  font-family: 'Source Code Pro', "Lucida Console", "Courier New", monospace;  /* Fontes monoespaçadas para código */
+  font-family: 'Source Code Pro', 'Hack', 'Fira Code', Consolas, 'Liberation Mono', monospace;  /* Fontes monoespaçadas otimizadas para código */
 }
 
 /* Melhorar a legibilidade de todos os blocos de código */
 pre {
-  padding: 0.8em;                      /* Preenchimento interno */
-  background-color: #f8f8f8;           /* Fundo cinza muito claro */
+  padding: 1em;                        /* Preenchimento interno mais generoso */
+  background-color: #ffffff;           /* Fundo branco em vez de cinza para melhor contraste */
   border: 1px solid #e1e1e8;           /* Borda cinza clara */
   border-radius: 4px;                  /* Cantos arredondados */
   overflow: auto;                      /* Adiciona barra de rolagem quando necessário */
   line-height: 1.45;                   /* Espaçamento entre linhas para código */
+  margin-bottom: 1.5em;                /* Espaço após o bloco de código */
+  word-wrap: normal;                   /* Evita quebra de palavras */
 }
 
-/* Estilo específico para blocos de código com linguagem (como bash) */
+/* Estilo específico para blocos de código com linguagem (como R, Python, etc.) */
 pre.sourceCode {
-  font-size: 115%;                     /* Tamanho de fonte um pouco maior */
-  padding: 1em;                        /* Mais preenchimento interno */
+  font-size: 110%;                      /* Tamanho de fonte consistente */
+  padding: 1em;                        /* Preenchimento interno */
   border-radius: 5px;                  /* Cantos mais arredondados */
-  background-color: #f5f5f5;           /* Fundo cinza claro */
-  border-left: 3px solid #36454f;      /* Borda esquerda na cor charcoal */
+  background-color: #ffffff;           /* Fundo branco para melhor legibilidade */
+  border-left: 3px solid #36454f;      /* Borda esquerda na cor charcoal por padrão */
+}
+
+/* Destaque para blocos de código R especificamente */
+pre.r, pre.sourceCode.r {
+  background-color: #fcfcfc;           /* Fundo levemente diferente para R */
+  border-left: 4px solid #2c9f42;      /* Borda verde para código R */
+}
+
+/* Destaque para blocos de código Python especificamente */
+pre.python, pre.sourceCode.python {
+  background-color: #fcfcfc;           /* Fundo levemente diferente para Python */
+  border-left: 4px solid #306998;      /* Borda azul para código Python */
 }
 
 /* Realce para blocos de código bash especificamente */
-pre.bash {
-  background-color: #f5f5f5;           /* Mesmo fundo cinza claro */
-  border-left: 4px solid #2c9f42;      /* Borda esquerda verde para código bash */
+pre.bash, pre.sourceCode.bash {
+  background-color: #f5f5f5;           /* Fundo cinza muito claro */
+  border-left: 4px solid #f0ad4e;      /* Borda amarela para código bash */
+}
+
+/* Estilo para código inline */
+code {
+  padding: 0.2em 0.4em;                /* Preenchimento pequeno para código inline */
+  margin: 0;                           /* Remove margens */
+  background-color: rgba(27, 31, 35, 0.05); /* Fundo cinza muito claro, quase imperceptível */
+  border-radius: 3px;                  /* Cantos arredondados suaves */
+  font-size: 100%;                      /* Tamanho ligeiramente menor que o texto normal */
+}
+
+/* Suporte para destaque de sintaxe - comentários */
+.hljs-comment, .hljs-quote, .co {
+  color: #032f62;                      /* Azul escuro para comentários */
+  font-style: italic;                  /* Itálico para comentários */
+}
+
+/* Suporte para destaque de sintaxe - palavras-chave */
+.hljs-keyword, .hljs-selector-tag, .kw, .fu {
+  color: #d73a49;                      /* Vermelho para palavras-chave */
+  font-weight: 600;                    /* Levemente mais negrito */
+}
+
+/* Suporte para destaque de sintaxe - strings */
+.hljs-string, .hljs-doctag, .st, .sc {
+  color: #032f62;                      /* Azul escuro para strings */
+}
+
+/* Suporte para destaque de sintaxe - números */
+.hljs-number, .hljs-literal, .dv, .fl {
+  color: #005cc5;                      /* Azul para números */
+}
+
+/* Suporte para destaque de sintaxe - funções */
+.hljs-title, .hljs-section, .hljs-name, .fu {
+  color: #6f42c1;                      /* Roxo para nomes de funções */
+}
+
+/* Suporte para destaque de sintaxe - operadores */
+.hljs-operator, .hljs-punctuation, .op {
+  color: #005cc5;                      /* Azul para operadores */
+}
+
+/* Suporte para destaque de sintaxe - valores especiais */
+.hljs-built_in, .hljs-builtin-name, .cn {
+  color: #e36209;                      /* Laranja para valores especiais (TRUE, FALSE, NULL, NA) */
+}
+
+/* Melhora a legibilidade do código na saída/output */
+pre.output, .sourceCode .output {
+  background-color: #f8f8f8;           /* Fundo cinza muito claro para saída */
+  color: #333333;                      /* Texto quase preto */
+  border-left: 4px solid #6a737d;      /* Borda cinza para saída */
+  font-style: normal;                  /* Não usa itálico */
+}
+
+/* Adiciona rótulos sutis para diferentes tipos de código */
+pre.r::before, pre.sourceCode.r::before {
+  content: "R";                        /* Rótulo "R" */
+  position: absolute;                  /* Posicionamento absoluto */
+  right: 10px;                         /* 10px da direita */
+  top: 5px;                            /* 5px do topo */
+  font-size: 0.8em;                    /* Tamanho pequeno */
+  color: #2c9f42;                      /* Verde para R */
+  font-weight: bold;                   /* Negrito */
+  opacity: 0.5;                        /* 50% de opacidade para não distrair */
+}
+
+pre.python::before, pre.sourceCode.python::before {
+  content: "Python";                   /* Rótulo "Python" */
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 0.8em;
+  color: #306998;                      /* Azul para Python */
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+/* Ajustes para integração com Quarto */
+div.sourceCode {
+  margin-bottom: 1.5em;                /* Espaço após blocos de código */
+  background-color: transparent;       /* Fundo transparente para o container */
+  border: none;                        /* Sem borda no container */
+}
+
+/* Remover o fundo do pré dentro de sourceCode para evitar duplicação */
+div.sourceCode pre {
+  background-color: #ffffff;           /* Fundo branco para código */
 }
 
 /* Estilos para elementos de navegação e rodapé */

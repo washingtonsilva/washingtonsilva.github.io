@@ -8,6 +8,7 @@ listing:
       - markdown
       - rstudio
       - quarto
+      - R
     sort: "date desc"
     type: default
     categories: false
