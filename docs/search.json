@@ -192,85 +192,64 @@
     "objectID": "tutorials/markdown/index.html#cabeçalhos",
     "href": "tutorials/markdown/index.html#cabeçalhos",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "3.1 Cabeçalhos",
-    "text": "3.1 Cabeçalhos\nOs cabeçalhos são criados usando o símbolo #:\n# Título Principal (H1)\n## Subtítulo (H2)\n### Seção (H3)\n#### Subseção (H4)\n##### Tópico (H5)\n###### Subtópico (H6)"
+    "section": "2.1 Cabeçalhos",
+    "text": "2.1 Cabeçalhos\nOs cabeçalhos são criados usando o símbolo #:\n# Título Principal (H1)\n## Subtítulo (H2)\n### Seção (H3)\n#### Subseção (H4)\n##### Tópico (H5)\n###### Subtópico (H6)"
   },
   {
     "objectID": "tutorials/markdown/index.html#parágrafos-e-formatação-de-texto",
     "href": "tutorials/markdown/index.html#parágrafos-e-formatação-de-texto",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "3.2 Parágrafos e Formatação de Texto",
-    "text": "3.2 Parágrafos e Formatação de Texto\nEm Markdown, os parágrafos são criados através de linhas em branco. Para iniciar um novo parágrafo, basta deixar uma linha vazia entre os blocos de texto.\nEste é o primeiro parágrafo.\n\nEste é o segundo parágrafo. Note a linha em branco entre eles.\nResultado:\nEste é o primeiro parágrafo.\nEste é o segundo parágrafo. Note a linha em branco entre eles.\nPara criar uma quebra de linha sem iniciar um novo parágrafo (quebra de linha simples), adicione dois espaços no final da linha ou use a tag HTML &lt;br&gt;.\nEsta linha termina com dois espaços  \ne continua aqui na próxima linha.\n\nEsta linha usa a tag HTML.&lt;br&gt;E continua aqui.\nResultado:\nEsta linha termina com dois espaços\ne continua aqui na próxima linha.\nEsta linha usa a tag HTML.E continua aqui."
+    "section": "2.2 Parágrafos e Formatação de Texto",
+    "text": "2.2 Parágrafos e Formatação de Texto\nEm Markdown, os parágrafos são criados através de linhas em branco. Para iniciar um novo parágrafo, basta deixar uma linha vazia entre os blocos de texto.\nEste é o primeiro parágrafo.\n\nEste é o segundo parágrafo. Note a linha em branco \nentre eles.\nResultado:\nEste é o primeiro parágrafo.\nEste é o segundo parágrafo. Note a linha em branco entre eles.\nPara criar uma quebra de linha sem iniciar um novo parágrafo (quebra de linha simples), adicione dois espaços no final da linha ou use a tag HTML &lt;br&gt;.\nEsta linha termina com dois espaços  \ne continua aqui na próxima linha.\n\nEsta linha usa a tag HTML.&lt;br&gt;E continua aqui.\nResultado:\nEsta linha termina com dois espaços\ne continua aqui na próxima linha.\nEsta linha usa a tag HTML.E continua aqui."
   },
   {
     "objectID": "tutorials/markdown/index.html#formatação-de-texto",
     "href": "tutorials/markdown/index.html#formatação-de-texto",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "3.3 Formatação de Texto",
-    "text": "3.3 Formatação de Texto\n*Este texto será em itálico* e _este também_\n\n**Este texto será em negrito** e __este também__\n\n***Este texto será em negrito e itálico***\n\n~~Este texto aparecerá riscado~~\n\n`código inline` (útil para comandos, variáveis ou termos técnicos)\nResultado:\nEste texto será em itálico e este também\nEste texto será em negrito e este também\nEste texto será em negrito e itálico\nEste texto aparecerá tachado\ncódigo inline (útil para comandos, variáveis ou termos técnicos)"
+    "section": "2.3 Formatação de Texto",
+    "text": "2.3 Formatação de Texto\n*Este texto será em itálico* e _este também_\n\n**Este texto será em negrito** e __este também__\n\n***Este texto será em negrito e itálico***\n\n~~Este texto aparecerá riscado~~\n\n`código inline` (útil para comandos, variáveis ou \ntermos técnicos)\nResultado:\nEste texto será em itálico e este também\nEste texto será em negrito e este também\nEste texto será em negrito e itálico\nEste texto aparecerá tachado\ncódigo inline (útil para comandos, variáveis ou termos técnicos)"
   },
   {
     "objectID": "tutorials/markdown/index.html#listas",
     "href": "tutorials/markdown/index.html#listas",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "3.4 Listas",
-    "text": "3.4 Listas\n\n3.4.1 Listas Não-Ordenadas\n- Primeiro item\n- Segundo item\n  - Subitem 2.1\n  - Subitem 2.2\n- Terceiro item\nResultado:\n\nPrimeiro item\nSegundo item\n\nSubitem 2.1\nSubitem 2.2\n\nTerceiro item\n\nAlternativas: asteriscos (*) e (+) também podem ser usados para criar listas não ordenadas.\n\n\n3.4.2 Listas Ordenadas\n1. Primeiro passo\n2. Segundo passo\n   1. Subtarefa 2.1\n   2. Subtarefa 2.2\n3. Terceiro passo\nResultado:\n\nPrimeiro passo\nSegundo passo\n\nSubtarefa 2.1\nSubtarefa 2.2\n\nTerceiro passo\n\n\n\n3.4.3 Listas de Tarefas\n- [x] Tarefa concluída\n- [ ] Tarefa pendente\n- [ ] Tarefa a fazer\nResultado:\n\nTarefa concluída\nTarefa pendente\nTarefa a fazer"
+    "section": "2.4 Listas",
+    "text": "2.4 Listas\n\n2.4.1 Listas Não-Ordenadas\n- Primeiro item\n- Segundo item\n  - Subitem 2.1\n  - Subitem 2.2\n- Terceiro item\nResultado:\n\nPrimeiro item\nSegundo item\n\nSubitem 2.1\nSubitem 2.2\n\nTerceiro item\n\nAlternativas: asteriscos (*) e (+) também podem ser usados para criar listas não ordenadas.\n\n\n2.4.2 Listas Ordenadas\n1. Primeiro passo\n2. Segundo passo\n   1. Subtarefa 2.1\n   2. Subtarefa 2.2\n3. Terceiro passo\nResultado:\n\nPrimeiro passo\nSegundo passo\n\nSubtarefa 2.1\nSubtarefa 2.2\n\nTerceiro passo\n\n\n\n2.4.3 Listas de Tarefas\n- [x] Tarefa concluída\n- [ ] Tarefa pendente\n- [ ] Tarefa a fazer\nResultado:\n\nTarefa concluída\nTarefa pendente\nTarefa a fazer"
   },
   {
     "objectID": "tutorials/markdown/index.html#links",
     "href": "tutorials/markdown/index.html#links",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "3.5 Links",
-    "text": "3.5 Links\n[Texto do link](https://www.exemplo.com)\nExemplo:\nIFMG - Campus Formiga"
+    "section": "2.5 Links",
+    "text": "2.5 Links\n[Texto do link](https://www.exemplo.com)\nExemplo:\nIFMG - Campus Formiga"
   },
   {
     "objectID": "tutorials/markdown/index.html#imagens",
     "href": "tutorials/markdown/index.html#imagens",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "3.6 Imagens",
-    "text": "3.6 Imagens\nPara incluir imagens externas em seus documentos:\n![Texto alternativo](img/imagem.jpg)\nNo Quarto, você pode adicionar atributos como largura e alinhamento:\n![](imagens/foto.jpg){width=60% fig-align=\"center\"}"
+    "section": "2.6 Imagens",
+    "text": "2.6 Imagens\nPara incluir imagens externas em seus documentos:\n![Texto alternativo](img/imagem.jpg)\nNo Quarto, você pode adicionar atributos como largura e alinhamento:\n![](imagens/foto.jpg){width=60% fig-align=\"center\"}"
   },
   {
-    "objectID": "tutorials/markdown/index.html#expressões-matemáticas-inline",
-    "href": "tutorials/markdown/index.html#expressões-matemáticas-inline",
+    "objectID": "tutorials/markdown/index.html#integração-com-markdown",
+    "href": "tutorials/markdown/index.html#integração-com-markdown",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "4.1 Expressões Matemáticas Inline",
-    "text": "4.1 Expressões Matemáticas Inline\nUse $...$ para inserir expressões matemáticas LaTeX em linha com o texto:\nA fórmula da área do círculo é $A = \\pi r^2$, onde $r$ é o raio.\nResultado:\nA fórmula da área do círculo é A = \\pi r^2, onde r é o raio."
-  },
-  {
-    "objectID": "tutorials/markdown/index.html#blocos-de-equações",
-    "href": "tutorials/markdown/index.html#blocos-de-equações",
-    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "4.2 Blocos de Equações",
-    "text": "4.2 Blocos de Equações\nUse $$...$$ para equações em destaque:\nA equação quadrática e sua solução:\n\n$$\nax^2 + bx + c = 0\n$$\n\n$$\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n$$\nResultado:\nA equação quadrática e sua solução:\n\nax^2 + bx + c = 0\n\n\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}"
-  },
-  {
-    "objectID": "tutorials/markdown/index.html#exemplos-de-expressões-matemáticas-úteis",
-    "href": "tutorials/markdown/index.html#exemplos-de-expressões-matemáticas-úteis",
-    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "4.3 Exemplos de Expressões Matemáticas Úteis",
-    "text": "4.3 Exemplos de Expressões Matemáticas Úteis\nFrações: \n\n$$\n\\frac{numerador}{denominador}$\n$$\n\nSomatório: \n\n$$\n\\sum_{i=1}^{n} x_i\n$$\n\nProdutório: \n\n$$\n\\prod_{i=1}^{n} x_i\n$$\n\nIntegral: \n\n$$\n\\int_{a}^{b} f(x) dx\n$$\n\nLimite: \n\n$$\n\\lim_{x \\to \\infty} f(x)\n$$\nResultado:\nFrações:\n\n\\frac{numerador}{denominador}\n\nSomatório:\n\n\\sum_{i=1}^{n} x_i\n\nProdutório:\n\n\\prod_{i=1}^{n} x_i\n\nIntegral:\n\n\\int_{a}^{b} f(x) dx\n\nLimite:\n\n\\lim_{x \\to \\infty} f(x)"
-  },
-  {
-    "objectID": "tutorials/markdown/index.html#tabelas",
-    "href": "tutorials/markdown/index.html#tabelas",
-    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "4.4 Tabelas",
-    "text": "4.4 Tabelas\nTabelas em Markdown são criadas usando barras verticais e hífens:\n| Produto   | Preço (R$) | Estoque |\n|-----------|------------|---------|\n| Produto A | 25,90      | 42      |\n| Produto B | 15,50      | 38      |\n| Produto C | 32,80      | 12      |\nResultado:\n\n\n\nProduto\nPreço (R$)\nEstoque\n\n\n\n\nProduto A\n25,90\n42\n\n\nProduto B\n15,50\n38\n\n\nProduto C\n32,80\n12\n\n\n\nAlinhamento nas colunas:\n| Produto   | Preço (R$) | Estoque |\n|:----------|:----------:|---------:|\n| Esquerda  | Centro     | Direita  |"
-  },
-  {
-    "objectID": "tutorials/markdown/index.html#citações-em-bloco",
-    "href": "tutorials/markdown/index.html#citações-em-bloco",
-    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "4.5 Citações em Bloco",
-    "text": "4.5 Citações em Bloco\n&gt; Esta é uma citação em bloco.\n&gt; Continua na próxima linha.\n&gt;\n&gt; Este é um novo parágrafo na mesma citação.\nResultado:\n\nEsta é uma citação em bloco. Continua na próxima linha.\nEste é um novo parágrafo na mesma citação."
+    "section": "3.1 Integração com Markdown:",
+    "text": "3.1 Integração com Markdown:\nMuitos sistemas baseados em Markdown, incluindo o sistema Quarto, permitem a incorporação de expressões LaTeX diretamente no texto. Esta integração é especialmente útil para incluir equações matemáticas em documentos:\n\n3.1.1 Expressões Matemáticas Inline\nUse $...$ para inserir expressões matemáticas LaTeX em linha com o texto:\nA fórmula da área do círculo é $A = \\pi r^2$, \nsendo $r$ o raio.\nResultado:\nA fórmula da área do círculo é A = \\pi r^2, onde r é o raio.\n\n\n3.1.2 Blocos de Equações\nUse $$...$$ para equações em destaque:\nA equação quadrática e sua solução:\n\n$$\nax^2 + bx + c = 0\n$$\n\n$$\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n$$\nResultado:\nA equação quadrática e sua solução:\n\nax^2 + bx + c = 0\n\n\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n\n\n\n3.1.3 Exemplos de Expressões Matemáticas Úteis\nFrações: \n\n$$\n\\frac{numerador}{denominador}$\n$$\n\nSomatório: \n\n$$\n\\sum_{i=1}^{n} x_i\n$$\n\nProdutório: \n\n$$\n\\prod_{i=1}^{n} x_i\n$$\n\nIntegral: \n\n$$\n\\int_{a}^{b} f(x) dx\n$$\n\nLimite: \n\n$$\n\\lim_{x \\to \\infty} f(x)\n$$\nResultado:\nFrações:\n\n\\frac{numerador}{denominador}\n\nSomatório:\n\n\\sum_{i=1}^{n} x_i\n\nProdutório:\n\n\\prod_{i=1}^{n} x_i\n\nIntegral:\n\n\\int_{a}^{b} f(x) dx\n\nLimite:\n\n\\lim_{x \\to \\infty} f(x)"
   },
   {
     "objectID": "tutorials/markdown/index.html#callouts-caixas-de-destaque",
     "href": "tutorials/markdown/index.html#callouts-caixas-de-destaque",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "5.1 Callouts (Caixas de Destaque)",
-    "text": "5.1 Callouts (Caixas de Destaque)\nO Quarto oferece caixas para destacar informações.\nEsses recursos funcionam perfeitamente para arquivos html e funcionam, mas não tão perfeitamente, em arquivos pdf produzidos pelo Typst.\n::: {.callout-note}\n## Nota\n\nUma informação importante a considerar.\n:::\n\n::: {.callout-tip}\n## Dica\n\nUma sugestão para melhorar seu documento.\n:::\n\n::: {.callout-warning}\n## Atenção\n\nUm aviso para tomar cuidado.\n:::\nResultado:\n\n\n\n\n\n\nNota\n\n\n\nUma informação importante a considerar.\n\n\n\n\n\n\n\n\nDica\n\n\n\nUma sugestão para melhorar seu documento.\n\n\n\n\n\n\n\n\nAtenção\n\n\n\nUm aviso para tomar cuidado."
+    "section": "6.1 Callouts (Caixas de Destaque)",
+    "text": "6.1 Callouts (Caixas de Destaque)\nO Quarto oferece caixas para destacar informações.\nEsses recursos funcionam perfeitamente para arquivos html e funcionam, mas não tão perfeitamente, em arquivos pdf produzidos pelo Typst.\n::: {.callout-note}\n## Nota\n\nUma informação importante a considerar.\n:::\n\n::: {.callout-tip}\n## Dica\n\nUma sugestão para melhorar seu documento.\n:::\n\n::: {.callout-warning}\n## Atenção\n\nUm aviso para tomar cuidado.\n:::\nResultado:\n\n\n\n\n\n\nNota\n\n\n\nUma informação importante a considerar.\n\n\n\n\n\n\n\n\nDica\n\n\n\nUma sugestão para melhorar seu documento.\n\n\n\n\n\n\n\n\nAtenção\n\n\n\nUm aviso para tomar cuidado."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#l",
+    "href": "tutorials/markdown/index.html#l",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "L",
+    "text": "L\nLinguagem de Marcação: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou comandos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto)."
   },
   {
     "objectID": "tutorials/git/index.html#instando-git-no-windows",
@@ -781,7 +760,7 @@
     "href": "tutorials/quarto/index.html#l",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
     "section": "L",
-    "text": "L\nLinguagem de Marcação: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou símbolos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto)."
+    "text": "L\nLinguagem de Marcação: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou comamdos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto)."
   },
   {
     "objectID": "tutorials/quarto/index.html#m",

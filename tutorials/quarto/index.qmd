@@ -912,7 +912,7 @@ intermediário (.md).
 **Linguagem de Marcação**: Sistema de anotações inseridas em um texto para 
 definir como ele deve ser estruturado, formatado ou apresentado. Ao 
 contrário das linguagens de programação que executam comandos, as 
-linguagens de marcação utilizam tags ou símbolos para identificar elementos 
+linguagens de marcação utilizam tags ou comamdos para identificar elementos 
 do documento (como títulos, parágrafos, listas) sem se preocupar com a 
 lógica computacional. Exemplos incluem HTML (para páginas web), XML 
 (para dados estruturados), LaTeX (para documentos científicos) e Markdown 

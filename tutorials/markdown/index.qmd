@@ -36,8 +36,7 @@ criação de documentos no sistema Quarto. Ao final, você será capaz de:
 
 
 
-
-
+::: {.callout-note icon="false"}
 # O que é Markdown?
 
 Markdown é uma linguagem de marcação leve, criada para converter texto 
@@ -46,8 +45,8 @@ simples em documentos formatados. Principais vantagens:
 - **Simplicidade**: Fácil de aprender e usar.
 - **Foco no conteúdo**: Concentre-se no que escreve, não em como formatar.
 - **Flexibilidade**: Funciona em diferentes plataformas.
-- **Conversão**: Gera documentos em diversos formatos (HTML, PDF, DOCX).
-
+- **Conversão**: Gera documentos em diversos formatos (html, pdf, docx).
+:::
 
 
 
@@ -79,7 +78,8 @@ os blocos de texto.
 ```markdown
 Este é o primeiro parágrafo.
 
-Este é o segundo parágrafo. Note a linha em branco entre eles.
+Este é o segundo parágrafo. Note a linha em branco 
+entre eles.
 ```
 
 **Resultado:** 
@@ -120,7 +120,8 @@ Esta linha usa a tag HTML.<br>E continua aqui.
 
 ~~Este texto aparecerá riscado~~
 
-`código inline` (útil para comandos, variáveis ou termos técnicos)
+`código inline` (útil para comandos, variáveis ou 
+termos técnicos)
 ```
 
 **Resultado:**
@@ -230,13 +231,60 @@ No Quarto, você pode adicionar atributos como largura e alinhamento:
 
 # Escrevendo matemática com LaTeX
 
-## Expressões Matemáticas Inline
+
+::: {.callout-note icon="false"}
+## LaTeX
+
+**LaTeX** (pronuncia-se "Lah-tech" ou "Lay-tech") é um sistema 
+de preparação de documentos de alta qualidade, amplamente 
+utilizado na academia, no mundo corporativo e em publicações científicas. 
+
+Desenvolvido por Leslie Lamport nos anos 1980, o LaTeX é uma extensão 
+do sistema de composição tipográfica **TeX**, criado por Donald Knuth.
+
+Diferentemente de processadores de texto tradicionais como 
+Microsoft Word, o LaTeX funciona como uma linguagem de marcação, 
+onde o autor escreve o conteúdo junto com comandos que definem a 
+estrutura lógica e a formatação do documento. O sistema então processa 
+esse código para gerar documentos com aparência profissional.
+:::
+
+
+::: {.callout-note icon="false"}
+## Características principais:
+
+- **Qualidade tipográfica superior**: Especialmente para fórmulas 
+matemáticas, equações e notações científicas complexas.
+
+- **Separação entre conteúdo e formatação**: Permite ao autor focar 
+no conteúdo enquanto o sistema gerencia a apresentação.
+
+- **Estabilidade e consistência**: Mantém formatação uniforme através 
+de documentos extensos.
+
+- **Referências cruzadas automatizadas**: Facilita a criação e 
+manutenção de citações, notas de rodapé e bibliografias.
+
+- **Extensibilidade**: Através de pacotes adicionais que expandem 
+suas funcionalidades
+:::
+
+
+## Integração com Markdown:
+
+Muitos sistemas baseados em Markdown, incluindo o sistema Quarto, permitem 
+a incorporação de expressões LaTeX diretamente no texto. Esta integração 
+é especialmente útil para incluir equações matemáticas em documentos:
+
+
+### Expressões Matemáticas Inline
 
 Use `$...$` para inserir expressões matemáticas LaTeX em linha 
 com o texto:
 
 ```markdown
-A fórmula da área do círculo é $A = \pi r^2$, onde $r$ é o raio.
+A fórmula da área do círculo é $A = \pi r^2$, 
+sendo $r$ o raio.
 ```
 
 Resultado:
@@ -244,7 +292,7 @@ Resultado:
 A fórmula da área do círculo é $A = \pi r^2$, onde $r$ é o raio.
 
 
-## Blocos de Equações
+### Blocos de Equações
 
 Use `$$...$$` para equações em destaque:
 
@@ -272,7 +320,8 @@ $$
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 $$
 
-## Exemplos de Expressões Matemáticas Úteis
+
+### Exemplos de Expressões Matemáticas Úteis
 
 ```markdown
 Frações: 
@@ -338,7 +387,9 @@ $$
 \lim_{x \to \infty} f(x)
 $$
 
-## Tabelas
+
+
+# Tabelas
 
 Tabelas em Markdown são criadas usando barras verticais e hífens:
 
@@ -367,7 +418,7 @@ Alinhamento nas colunas:
 ```
 
 
-## Citações em Bloco
+# Citações em Bloco
 
 ```markdown
 > Esta é uma citação em bloco.
@@ -457,3 +508,21 @@ no sistema Quarto. Com este tutorial básico, você já pode começar a
 escrever documentos bem formatados, adicionando posteriormente elementos 
 mais avançados conforme sua necessidade e familiaridade com a linguagem e 
 com o sistema Quarto.
+
+
+
+
+
+# Glossário de Termos
+
+
+## L {.unnumbered}
+
+**Linguagem de Marcação**: Sistema de anotações inseridas em um texto para 
+definir como ele deve ser estruturado, formatado ou apresentado. Ao 
+contrário das linguagens de programação que executam comandos, as 
+linguagens de marcação utilizam tags ou comandos para identificar elementos 
+do documento (como títulos, parágrafos, listas) sem se preocupar com a 
+lógica computacional. Exemplos incluem HTML (para páginas web), XML 
+(para dados estruturados), LaTeX (para documentos científicos) e Markdown 
+(usada no Quarto para formatação simplificada de texto).
