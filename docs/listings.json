@@ -2,9 +2,11 @@
   {
     "listing": "/tutorials/index.html",
     "items": [
+      "/tutorials/R/topicos_possiveis.html",
       "/tutorials/rstudio/index.html",
       "/tutorials/quarto/index.html",
       "/tutorials/markdown/index.html",
+      "/tutorials/R/index.html",
       "/tutorials/git/index.html"
     ]
   },
