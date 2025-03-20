@@ -27,7 +27,8 @@ categories: [Controle de versão, Git, GitHub, Reprodutibilidade]
 ---
 
 
-![](img/git-github.jpg){fig-align="center" width=80%}
+![](img/git-github-hexsticker.png){fig-align="center" width=40%}
+
 
 
 

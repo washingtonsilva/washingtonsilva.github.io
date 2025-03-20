@@ -15,7 +15,7 @@ author:
 categories: [Markdown, Linguagem de Marcação, Reprodutibilidade]
 ---
 
-![](img/markdown.png){width=80% fig-align="center"}
+![](img/markdown-hexsticker.png){width=40% fig-align="center"}
 
 
 
