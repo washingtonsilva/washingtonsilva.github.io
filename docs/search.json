@@ -472,50 +472,50 @@
     "objectID": "tutorials/R/index.html#tipos-double-e-integer",
     "href": "tutorials/R/index.html#tipos-double-e-integer",
     "title": "Introdução à Linguagem R",
-    "section": "3.1 Tipos double e integer",
-    "text": "3.1 Tipos double e integer\n\n# double (números com casas decimais)\nreceita &lt;- 850000.50  \n\n# integer (números inteiros)\ntotal_funcionarios &lt;- 50L   \n\n# verifica os tipos\ntypeof(receita)\n\n[1] \"double\"\n\ntypeof(total_funcionarios)\n\n[1] \"integer\"\n\n\n\n\n\n\n\n\nclasse numeric\n\n\n\nApesar dos tipos double e integer representarem números decimais e inteiros de forma diferente, ambos pertencem à classe numeric, assim, na maioria das situações, você não precisa se preocupar com a possível diferença.\n\nclass(receita)\n\n[1] \"numeric\"\n\nclass(total_funcionarios)\n\n[1] \"integer\"\n\n\nDiferença entre typeof e class\nEm R, as funções typeof e class fornecem informações diferentes sobre um objeto:\n\ntypeof: Retorna o tipo interno do objeto, ou seja, como R armazena o objeto na memória. Por exemplo:\n\n\ntypeof(receita)  # Retorna \"double\"\ntypeof(total_funcionarios)  # Retorna \"integer\"\n\n\nclass: Retorna a classe do objeto, que define como R trata o objeto em operações e funções. Por exemplo:\n\n\nclass(receita)  # Retorna \"numeric\"\nclass(total_funcionarios)  # Retorna \"numeric\"\n\nEm resumo:\n\nUse typeof para entender como R armazena o objeto internamente.\nUse class para entender como R trata o objeto em operações e funções."
+    "section": "4.1 Tipos double e integer",
+    "text": "4.1 Tipos double e integer\nEm R, existem dois tipos principais de dados numéricos:\n\ndouble: Armazena números com casas decimais (ponto flutuante), ideal para valores monetários, índices financeiros, taxas percentuais e outras medidas que exigem precisão decimal.\ninteger: Armazena números inteiros sem casas decimais, útil para contagens, quantidades discretas e índices em séries temporais.\n\nNa prática de Administração e Finanças, o tipo double é frequentemente utilizado para representar valores monetários, taxas de juros ou indicadores financeiros, enquanto integer é mais comum para representar quantidades como número de funcionários, produtos vendidos ou períodos de análise.\nO sufixo L após um número (como em 50L) indica explicitamente que se trata de um valor inteiro. Na maioria das operações, R utiliza automaticamente o tipo mais apropriado, o que simplifica a programação para análises financeiras e administrativas.\n\n# double (números com casas decimais)\nreceita &lt;- 850000.50  \n\n# integer (números inteiros)\ntotal_funcionarios &lt;- 50L   \n\n# verifica os tipos\ntypeof(receita)\n\n[1] \"double\"\n\ntypeof(total_funcionarios)\n\n[1] \"integer\"\n\n\n\n\n\n\n\n\nclasse numeric\n\n\n\nApesar dos tipos double e integer representarem números decimais e inteiros de forma diferente, ambos pertencem à classe numeric, assim, na maioria das situações, você não precisa se preocupar com a possível diferença.\n\nclass(receita)\n\n[1] \"numeric\"\n\nclass(total_funcionarios)\n\n[1] \"integer\"\n\n\nDiferença entre typeof e class\nEm R, as funções typeof e class fornecem informações diferentes sobre um objeto:\n\ntypeof: Retorna o tipo interno do objeto, ou seja, como R armazena o objeto na memória. Por exemplo:\n\n\ntypeof(receita)  # Retorna \"double\"\ntypeof(total_funcionarios)  # Retorna \"integer\"\n\n\nclass: Retorna a classe do objeto, que define como R trata o objeto em operações e funções. Por exemplo:\n\n\nclass(receita)  # Retorna \"numeric\"\nclass(total_funcionarios)  # Retorna \"numeric\"\n\nEm resumo:\n\nUse typeof para entender como R armazena o objeto internamente.\nUse class para entender como R trata o objeto em operações e funções."
   },
   {
     "objectID": "tutorials/R/index.html#tipo-character",
     "href": "tutorials/R/index.html#tipo-character",
     "title": "Introdução à Linguagem R",
-    "section": "3.2 Tipo character",
-    "text": "3.2 Tipo character\n\n# character (texto)\ninstituicao &lt;- \"IFMG Formiga\" \n\n# verifica o tipo \ntypeof(instituicao)\n\n[1] \"character\""
+    "section": "4.2 Tipo character",
+    "text": "4.2 Tipo character\nO tipo character é essencial para armazenar e manipular informações textuais. Este tipo de dado armazena sequências de caracteres (texto) e é indicado por aspas simples (') ou duplas (\").\nEm contextos de Administração, o tipo character é utilizado para armazenar:\n\nNomes de empresas, setores ou produtos\nCategorias em classificações de mercado\nPeríodos de tempo expressos como texto (Ex: “1° Trimestre 2024”)\nCódigos de identificação alfanuméricos\nObservações qualitativas\n\nA manipulação de dados textuais é particularmente importante em análises de mercado, pesquisas de satisfação, classificação de produtos e organização de relatórios gerenciais, onde a categorização textual precede análises quantitativas.\n\n# character (texto)\ninstituicao &lt;- \"IFMG - Campus Formiga\" \n\n# verifica o tipo \ntypeof(instituicao)\n\n[1] \"character\""
   },
   {
     "objectID": "tutorials/R/index.html#tipo-logical",
     "href": "tutorials/R/index.html#tipo-logical",
     "title": "Introdução à Linguagem R",
-    "section": "3.3 Tipo logical",
-    "text": "3.3 Tipo logical\n\n# logical (lógico, TRUE/FALSE)\nlucro_positivo &lt;- TRUE  \n\n# verifica o tipo \ntypeof(lucro_positivo)\n\n[1] \"logical\""
+    "section": "4.3 Tipo logical",
+    "text": "4.3 Tipo logical\nO tipo logical representa valores booleanos (TRUE ou FALSE) e é fundamental para operações condicionais e filtragem de dados.\nEm contextos práticos de gestão e finanças, o tipo logical é utilizado para:\n\nVerificar condições financeiras (Ex: lucro positivo, meta atingida)\nFiltrar dados que atendem a critérios específicos\nAutomatizar decisões baseadas em regras de negócio\nSinalizar eventos importantes (Ex: inadimplência, quebra de estoque)\nImplementar validações em modelos de previsão\n\nOs valores TRUE e FALSE devem ser escritos em maiúsculas em R, e podem ser abreviados como T e F, respectivamente, embora a forma completa seja recomendada para maior clareza do código.\n\n# logical (lógico, TRUE/FALSE)\nlucro_positivo &lt;- TRUE  \nlucro_negativo &lt;- FALSE\n\n# verifica o tipo \ntypeof(lucro_positivo)\n\n[1] \"logical\"\n\ntypeof(lucro_negativo)\n\n[1] \"logical\""
   },
   {
     "objectID": "tutorials/R/index.html#tipo-especial-na",
     "href": "tutorials/R/index.html#tipo-especial-na",
     "title": "Introdução à Linguagem R",
-    "section": "3.4 Tipo Especial NA",
-    "text": "3.4 Tipo Especial NA\nEm análises de dados reais, é comum alguns dados não estarem disponíveis, por alguma razão, assim, o tipo especial NA representa esse tipo de ocorrência.\n\n# cria uma variável com um valor ausente\ndados_faltantes &lt;- c(1, NA, 3)  \ndados_faltantes\n\n[1]  1 NA  3"
+    "section": "4.4 Tipo Especial NA",
+    "text": "4.4 Tipo Especial NA\nO tipo especial NA (Not Available) é comum em análises de dados reais, onde frequentemente nos deparamos com informações ausentes. Em contextos de Administração e Finanças, dados faltantes podem representar:\n\nVendas não realizadas em determinados períodos\nInformações contábeis pendentes\nValores não reportados em demonstrações financeiras\nRespostas omitidas em pesquisas de mercado\nMétricas não aplicáveis a certos departamentos ou produtos\n\nIdentificar e tratar corretamente os valores NA é essencial para evitar conclusões tendenciosas. R oferece funções específicas como is.na() para detectar valores ausentes e métodos estatísticos para lidar com eles de forma apropriada.\n\n# Exemplo: Detectando valores ausentes em dados de vendas \nvendas_trimestrais &lt;- c(150000, 165000, NA, 180000)\nis.na(vendas_trimestrais) \n\n[1] FALSE FALSE  TRUE FALSE\n\n# calculando a média excluindo valores ausentes\nmean(vendas_trimestrais, na.rm = TRUE)\n\n[1] 165000\n\n\nO tratamento adequado de dados falantes é uma habilidade fundamental em Ciência de Dados."
   },
   {
-    "objectID": "tutorials/R/index.html#tipo-especial-nan-not-a-number",
-    "href": "tutorials/R/index.html#tipo-especial-nan-not-a-number",
+    "objectID": "tutorials/R/index.html#tipo-especial-nan",
+    "href": "tutorials/R/index.html#tipo-especial-nan",
     "title": "Introdução à Linguagem R",
-    "section": "3.5 Tipo Especial NaN (Not a Number)",
-    "text": "3.5 Tipo Especial NaN (Not a Number)\n\n# operação inválida\nresultado_invalido &lt;- 0 / 0  \nresultado_invalido\n\n[1] NaN"
+    "section": "4.5 Tipo Especial NaN",
+    "text": "4.5 Tipo Especial NaN\nO valor NaN (Not a Number) ocorre quando uma operação matemática produz um resultado indefinido. Em contextos de gestão e finanças, este tipo especial pode surgir em:\n\nCálculos de indicadores financeiros com divisores zero\nOperações matemáticas inválidas em modelos preditivos\nTransformações logarítmicas de valores negativos ou zero\nRaízes quadradas de números negativos em análises estatísticas\n\nEnquanto NA representa dados ausentes, NaN indica especificamente um resultado numérico indefinido. Diferenciá-los é importante para diagnóstico de problemas em cálculos complexos, como em modelos de precificação de ativos ou simulações financeiras.\nA função is.nan() permite identificar estes valores em conjuntos de dados:\n\n# Exemplo: Identificando resultados indefinidos em cálculos financeiros\nresultados &lt;- c(25, 0/0, 10)\nis.nan(resultados)  \n\n[1] FALSE  TRUE FALSE"
   },
   {
     "objectID": "tutorials/R/index.html#tipo-especial-inf",
     "href": "tutorials/R/index.html#tipo-especial-inf",
     "title": "Introdução à Linguagem R",
-    "section": "3.6 Tipo Especial inf",
-    "text": "3.6 Tipo Especial inf\n\n# inf pode resultar da divisão por zero\ndivisao_por_zero &lt;- 1 / 0  \ndivisao_por_zero\n\n[1] Inf"
+    "section": "4.6 Tipo Especial inf",
+    "text": "4.6 Tipo Especial inf\nO valor especial Inf (e -Inf para infinito negativo) ocorre principalmente em divisões por zero e representa valores que excedem os limites computacionais. Em análises administrativas e financeiras, este tipo pode aparecer em:\n\nCálculos de taxas de crescimento a partir de valores base zero\nRazões financeiras com denominadores muito próximos a zero\nProjeções exponenciais sem restrições\nAnálises de retorno sobre investimento com investimentos mínimos\n\nDiferentemente de NA e NaN, valores Inf podem ser utilizados em operações aritméticas seguindo regras matemáticas de infinito:\n\n# Exemplo: Comportamento de infinito em operações\ninfinito_positivo &lt;- 1/0\ninfinito_positivo + 1000  # Continua sendo Inf\n\n[1] Inf\n\ninfinito_positivo / 2     # Continua sendo Inf\n\n[1] Inf\n\n\nIdentificar valores infinitos é importante, por exemplo, em modelos financeiros, pois podem indicar problemas estruturais nas fórmulas utilizadas ou divisões por zero que comprometem a validade das análises.\n\n\n\n\n\n\nSobre Conversão entre Tipos e Classes de Dados\n\n\n\n\nVocê pode estar se perguntando como converter um tipo ou classe de dados em outro(a) (por exemplo, transformar um texto em número ou vice-versa).\nEmbora R base ofereça funções como as.numeric(), as.character() e as.logical() para essas conversões, abordaremos este tópico mais adiante no tutorial, quando estudarmos a manipulação de dados com o pacote dplyr.\nEspecificamente, aprenderemos como usar as funções mutate() e transmute() para realizar conversões de tipos de maneira eficiente e legível em conjuntos de dados estruturados. Esta abordagem se alinha com as práticas modernas de ciência de dados e permite transformar múltiplas variáveis simultaneamente dentro de um fluxo de trabalho analítico coerente.\nPor enquanto, foque em compreender as características e comportamentos dos diferentes tipos de dados apresentados nesta seção, pois este conhecimento fundamentará toda sua jornada na análise de dados com R."
   },
   {
     "objectID": "tutorials/R/index.html#exercícios",
     "href": "tutorials/R/index.html#exercícios",
     "title": "Introdução à Linguagem R",
-    "section": "3.7 Exercícios",
-    "text": "3.7 Exercícios"
+    "section": "4.7 Exercícios",
+    "text": "4.7 Exercícios"
   },
   {
     "objectID": "publications/index.html",
