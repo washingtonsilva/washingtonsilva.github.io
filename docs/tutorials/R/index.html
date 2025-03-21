@@ -235,10 +235,13 @@ window.Quarto = {
   <li><a href="#variáveis-e-atribuição-de-valores" id="toc-variáveis-e-atribuição-de-valores" class="nav-link" data-scroll-target="#variáveis-e-atribuição-de-valores"><span class="header-section-number">2</span> Variáveis e Atribuição de Valores</a></li>
   <li><a href="#tipos-atômicos-de-dados" id="toc-tipos-atômicos-de-dados" class="nav-link" data-scroll-target="#tipos-atômicos-de-dados"><span class="header-section-number">3</span> Tipos atômicos de dados</a>
   <ul class="collapse">
-  <li><a href="#números-double-e-integer" id="toc-números-double-e-integer" class="nav-link" data-scroll-target="#números-double-e-integer"><span class="header-section-number">3.1</span> Números: <code>double</code> e <code>integer</code></a></li>
-  <li><a href="#caractereses-character" id="toc-caractereses-character" class="nav-link" data-scroll-target="#caractereses-character"><span class="header-section-number">3.2</span> Caractereses: <code>character</code></a></li>
-  <li><a href="#lógicos-logical" id="toc-lógicos-logical" class="nav-link" data-scroll-target="#lógicos-logical"><span class="header-section-number">3.3</span> Lógicos: <code>logical</code></a></li>
-  <li><a href="#tipoos-especiais" id="toc-tipoos-especiais" class="nav-link" data-scroll-target="#tipoos-especiais"><span class="header-section-number">3.4</span> Tipoos Especiais</a></li>
+  <li><a href="#tipos-double-e-integer" id="toc-tipos-double-e-integer" class="nav-link" data-scroll-target="#tipos-double-e-integer"><span class="header-section-number">3.1</span> Tipos <code>double</code> e <code>integer</code></a></li>
+  <li><a href="#tipo-character" id="toc-tipo-character" class="nav-link" data-scroll-target="#tipo-character"><span class="header-section-number">3.2</span> Tipo <code>character</code></a></li>
+  <li><a href="#tipo-logical" id="toc-tipo-logical" class="nav-link" data-scroll-target="#tipo-logical"><span class="header-section-number">3.3</span> Tipo <code>logical</code></a></li>
+  <li><a href="#tipo-especial-na" id="toc-tipo-especial-na" class="nav-link" data-scroll-target="#tipo-especial-na"><span class="header-section-number">3.4</span> Tipo Especial <code>NA</code></a></li>
+  <li><a href="#tipo-especial-nan-not-a-number" id="toc-tipo-especial-nan-not-a-number" class="nav-link" data-scroll-target="#tipo-especial-nan-not-a-number"><span class="header-section-number">3.5</span> Tipo Especial <code>NaN</code> (Not a Number)</a></li>
+  <li><a href="#tipo-especial-inf" id="toc-tipo-especial-inf" class="nav-link" data-scroll-target="#tipo-especial-inf"><span class="header-section-number">3.6</span> Tipo Especial <code>inf</code></a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">3.7</span> Exercícios</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -490,26 +493,39 @@ Próximos Passos
 </section>
 <section id="variáveis-e-atribuição-de-valores" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Variáveis e Atribuição de Valores</h1>
+<p>Em R, a atribuição de valores a variáveis é fundamental para armazenar e manipular dados. Por exemplo, podemos criar variáveis para armazenar informações financeiras, como receitas, custos e lucros, que são essenciais para análises em Administração.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo: Atribuição de valores a variáveis</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>receita_mensal <span class="ot">&lt;-</span> <span class="dv">850000</span>  <span class="co"># Receita mensal da empresa</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>custos_mensais <span class="ot">&lt;-</span> <span class="dv">500000</span>  <span class="co"># Custos mensais</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo do lucro</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lucro_mensal <span class="ot">&lt;-</span> receita_mensal <span class="sc">-</span> custos_mensais  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>lucro_mensal</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 350000</code></pre>
+</div>
+</div>
 <p>Todas as instruções R com as quais criamos variáveis ou objetos têm o mesmo formato:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nome_do_objeto <span class="ot">&lt;-</span> valor</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nome_do_objeto <span class="ot">&lt;-</span> valor</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Lemos esse código como: “<em>valor é atribuído a nome_objeto</em>”</p>
 <p>Em R, podemos atribuir informações às variáveis (ou objetos) utilizando os seguintes operadores de atribuição:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diferentes formas de atribuição em R</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Mesmo resultado, estilos diferentes</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Operador recomendado (&lt;-) </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>receita_mensal <span class="ot">&lt;-</span> <span class="dv">850000</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>receita_mensal</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diferentes formas de atribuição em R</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Mesmo resultado, estilos diferentes</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Operador recomendado (&lt;-) </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>receita_mensal <span class="ot">&lt;-</span> <span class="dv">850000</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>receita_mensal</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 850000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternativa (=), funciona, mas menos </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># recomendado</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>lucro_operacional <span class="ot">=</span> <span class="dv">320000</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>lucro_operacional</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternativa (=), funciona, mas menos </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># recomendado</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lucro_operacional <span class="ot">=</span> <span class="dv">320000</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>lucro_operacional</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 320000</code></pre>
 </div>
@@ -533,17 +549,21 @@ Boas Práticas para Escrever Códigos R
 </div>
 <div class="callout-body-container callout-body">
 <p>Nomes de variáveis devem começar com uma letra e podem conter <code>letras</code>, <code>números</code>, <code>_</code> e <code>.</code></p>
-<p>É importante criar nomes de objetos <strong>simples e descritivos</strong> que representem claramente seu conteúdo. É altamente recomendado seguir um estilo consistente para nomenclatura desde o início:</p>
+<p>É importante criar nomes de objetos <strong>simples e descritivos</strong> que representem claramente seu conteúdo. Em Administração, é comum trabalhar com dados financeiros, de desempenho ou de mercado, então use nomes que facilitem a compreensão do código.</p>
+<p><strong>Exemplos de boas práticas</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estilo snake_case (recomendado)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>margem_bruta <span class="ot">&lt;-</span> <span class="fl">0.35</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fluxo_de_caixa_operacional <span class="ot">&lt;-</span> receita <span class="sc">-</span> custos</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># estilo camelCase (comum em outras linguagens)</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>MargemBruta <span class="ot">&lt;-</span> <span class="fl">0.35</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>fluxoDeCaixaOperacional <span class="ot">&lt;-</span> receita <span class="sc">-</span> custos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Margem bruta da empresa</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>margem_bruta <span class="ot">&lt;-</span> <span class="fl">0.35</span>  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fluxo de caixa operacional</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>fluxo_caixa_operacional <span class="ot">&lt;-</span> receita <span class="sc">-</span> custos  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Recomendamos usar o estilo <strong>snake_case</strong> (palavras separadas por underscore) por ser um padrão mais comum no ecossistema R, mas o importante é adotar um estilo e manter a consistência no uso.</p>
+<p><strong>Estilos de nomenclatura</strong>:</p>
+<ul>
+<li><strong>snake_case</strong>: <code>margem_bruta</code>, <code>fluxo_caixa_operacional</code></li>
+<li><strong>camelCase</strong>: <code>MargemBruta</code>, <code>fluxoCaixaOperacional</code></li>
+</ul>
+<p>Escolha um estilo e mantenha a consistência em todo o código.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -556,30 +576,95 @@ Práticas a evitar
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Evite nomes muito genéricos</strong>:</p>
+<p>Evite os seguintes erros comuns:</p>
+<ol type="1">
+<li><strong>Nomes genéricos</strong>:</li>
+</ol>
 <ul>
-<li><code>dados</code>, <code>resultado</code>, <code>x</code>, <code>y</code> não descrevem bem o conteúdo</li>
+<li>Ruim: <code>dados</code>, <code>resultado</code>, <code>x</code></li>
+<li>Melhor: <code>receita_anual</code>, <code>lucro_liquido</code></li>
 </ul>
-<p><strong>Evite nomes muito longos</strong>:</p>
+<ol start="2" type="1">
+<li><strong>Nomes muito longos</strong>:</li>
+</ol>
 <ul>
-<li><code>calculo_da_margem_de_contribuicao_ajustada</code> é difícil de digitar</li>
+<li>Ruim: <code>calculo_da_margem_de_contribuicao_ajustada</code></li>
+<li>Melhor: <code>margem_contribuicao</code></li>
 </ul>
-<p><strong>Não use espaços nos nomes</strong>:</p>
+<ol start="3" type="1">
+<li><strong>Espaços nos nomes</strong>:</li>
+</ol>
 <ul>
-<li><code>margem bruta &lt;- 0.35</code> resultará em erro</li>
+<li>Ruim: <code>margem bruta &lt;- 0.35</code> (causa erro)</li>
+<li>Melhor: <code>margem_bruta &lt;- 0.35</code></li>
 </ul>
-<p><strong>Não comece com número</strong>:</p>
-<p><code>1trimestre &lt;- "Janeiro-Março"</code> é inválido</p>
-<p><strong>Evite sobrescrever funções existentes</strong>:</p>
+<ol start="4" type="1">
+<li><strong>Nomes começando com números</strong>:</li>
+</ol>
 <ul>
-<li>nomes como <code>mean</code>, <code>sum</code>, <code>data</code> são nomes de funções internas de R.</li>
+<li>Ruim: <code>1trimestre &lt;- "Janeiro-Março"</code> (inválido)</li>
+<li>Melhor: <code>trimestre1 &lt;- "Janeiro-Março"</code></li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Sobrescrever funções existentes</strong>:</li>
+</ol>
+<ul>
+<li>Ruim: <code>mean &lt;- 10</code> (sobrescreve a função <code>mean()</code>)</li>
+<li>Melhor: <code>media &lt;- 10</code></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Como Imprimir Informações sobre Objetos em R
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Em R, existem algumas formas simples e eficazes de exibir informações sobre objetos ou variáveis. Esses métodos são ideais para visualizar valores, depurar código ou criar saídas personalizadas. Abaixo estão as principais formas:</p>
+<p><strong>1. Usando</strong> <code>print()</code></p>
+<p>A função <code>print()</code> é a maneira mais básica de exibir o conteúdo de um objeto:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo: Usando print()</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>receita <span class="ot">&lt;-</span> <span class="fl">850000.50</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(receita)  <span class="co"># Exibe o valor da variável</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 850000.5</code></pre>
+</div>
+</div>
+<p><strong>2. Imprimindo diretamente no console</strong></p>
+<p>Em R, você pode exibir o conteúdo de um objeto simplesmente digitando seu nome no console. Isso chama automaticamente a função <code>print()</code> implicitamente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># digitar o nome do objeto exibe seu valor</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>receita  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 850000.5</code></pre>
+</div>
+</div>
+<p><strong>3. Usando a função</strong> <code>cat()</code></p>
+<p>A função <code>cat()</code> permite exibir informações de forma mais personalizada, combinando texto e valores. É útil para criar mensagens ou relatórios simples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a funçaão cat() combina texto e valor</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"A receita mensal é:"</span>, receita)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A receita mensal é: 850000.5</code></pre>
+</div>
+</div>
+<p><strong>Resumo</strong>:</p>
+<ul>
+<li><p>Use <code>print()</code> para exibir valores de forma explícita.</p></li>
+<li><p>Digite o nome do objeto diretamente no console para exibir seu valor de forma rápida.</p></li>
+<li><p>Use <code>cat()</code> para criar saídas personalizadas, combinando texto e valores.</p></li>
 </ul>
 </div>
 </div>
 </section>
 <section id="tipos-atômicos-de-dados" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Tipos atômicos de dados</h1>
-<p>Em R, existem quatro tipos básicos (atômicos) de dados que você encontrará frequentemente:</p>
+<p>Em R, os dados são armazenados em diferentes tipos atômicos (básicos), cada um com características específicas. A <a href="#tbl-1" class="quarto-xref">Tabela&nbsp;1</a> mostra os principais tipos.</p>
 <div id="tbl-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -625,6 +710,7 @@ Tabela&nbsp;1: Principais Tipos
 </div>
 </figure>
 </div>
+<p>A <a href="#tbl-2" class="quarto-xref">Tabela&nbsp;2</a> exibe alguns tipos especiais que podem aparecer em análises de dados.</p>
 <div id="tbl-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -645,28 +731,144 @@ Tabela&nbsp;2: Tipos Especiais
 </tr>
 <tr class="even">
 <td><code>NaN</code></td>
-<td><code>Not a Number</code>: Resultante de 0/0, por exemplo</td>
+<td><code>Not a Number</code>: (ex: <code>0 / 0</code>)</td>
 </tr>
 <tr class="odd">
 <td><code>Inf</code></td>
-<td><span class="math inline">+ \infty</span> ou <span class="math inline">- \infty</span></td>
+<td><span class="math inline">+ \infty</span> ou <span class="math inline">- \infty</span>: (ex: <code>1 / 0</code>)</td>
 </tr>
 </tbody>
 </table>
 </div>
 </figure>
 </div>
-<section id="números-double-e-integer" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="números-double-e-integer"><span class="header-section-number">3.1</span> Números: <code>double</code> e <code>integer</code></h2>
+<p>As subseções seguintes apresentam alguns exemplos simples de atribuição dos tipos principais a variáveis ou objetos e de ocorrência dos tipos especiais.</p>
+<section id="tipos-double-e-integer" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="tipos-double-e-integer"><span class="header-section-number">3.1</span> Tipos <code>double</code> e <code>integer</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># double (números com casas decimais)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>receita <span class="ot">&lt;-</span> <span class="fl">850000.50</span>  </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># integer (números inteiros)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>total_funcionarios <span class="ot">&lt;-</span> <span class="dv">50</span>L   </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica os tipos</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(receita)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(total_funcionarios)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+classe <code>numeric</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Apesar dos tipos <code>double</code> e <code>integer</code> representarem números decimais e inteiros de forma diferente, ambos pertencem à classe <code>numeric</code>, assim, na maioria das situações, você não precisa se preocupar com a possível diferença.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(receita)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(total_funcionarios)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+</div>
+<p><strong>Diferença entre</strong> <code>typeof</code> e <code>class</code></p>
+<p>Em R, as funções <code>typeof</code> e <code>class</code> fornecem informações diferentes sobre um objeto:</p>
+<ul>
+<li><strong><code>typeof</code></strong>: Retorna o <strong>tipo interno</strong> do objeto, ou seja, como R armazena o objeto na memória. Por exemplo:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(receita)  <span class="co"># Retorna "double"</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(total_funcionarios)  <span class="co"># Retorna "integer"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong><code>class</code></strong>: Retorna a <strong>classe</strong> do objeto, que define como R trata o objeto em operações e funções. Por exemplo:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(receita)  <span class="co"># Retorna "numeric"</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(total_funcionarios)  <span class="co"># Retorna "numeric"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Em resumo:</p>
+<ul>
+<li>Use <code>typeof</code> para entender como R armazena o objeto internamente.</li>
+<li>Use <code>class</code> para entender como R trata o objeto em operações e funções.</li>
+</ul>
+</div>
+</div>
 </section>
-<section id="caractereses-character" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="caractereses-character"><span class="header-section-number">3.2</span> Caractereses: <code>character</code></h2>
+<section id="tipo-character" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tipo-character"><span class="header-section-number">3.2</span> Tipo <code>character</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># character (texto)</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>instituicao <span class="ot">&lt;-</span> <span class="st">"IFMG Formiga"</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica o tipo </span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(instituicao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
 </section>
-<section id="lógicos-logical" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="lógicos-logical"><span class="header-section-number">3.3</span> Lógicos: <code>logical</code></h2>
+<section id="tipo-logical" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="tipo-logical"><span class="header-section-number">3.3</span> Tipo <code>logical</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># logical (lógico, TRUE/FALSE)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>lucro_positivo <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica o tipo </span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(lucro_positivo)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+</div>
 </section>
-<section id="tipoos-especiais" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="tipoos-especiais"><span class="header-section-number">3.4</span> Tipoos Especiais</h2>
+<section id="tipo-especial-na" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="tipo-especial-na"><span class="header-section-number">3.4</span> Tipo Especial <code>NA</code></h2>
+<p>Em análises de dados reais, é comum alguns dados não estarem disponíveis, por alguma razão, assim, o tipo especial <code>NA</code> representa esse tipo de ocorrência.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma variável com um valor ausente</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>dados_faltantes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>)  </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>dados_faltantes</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 NA  3</code></pre>
+</div>
+</div>
+</section>
+<section id="tipo-especial-nan-not-a-number" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="tipo-especial-nan-not-a-number"><span class="header-section-number">3.5</span> Tipo Especial <code>NaN</code> (Not a Number)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># operação inválida</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>resultado_invalido <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span>  </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>resultado_invalido</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+</section>
+<section id="tipo-especial-inf" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="tipo-especial-inf"><span class="header-section-number">3.6</span> Tipo Especial <code>inf</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inf pode resultar da divisão por zero</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>divisao_por_zero <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span>  </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>divisao_por_zero</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Inf</code></pre>
+</div>
+</div>
+</section>
+<section id="exercícios" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">3.7</span> Exercícios</h2>
 
 
 </section>

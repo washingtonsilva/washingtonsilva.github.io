@@ -469,32 +469,53 @@
     "text": "W\nWorking Directory: Diretório local onde os arquivos do projeto estão sendo editados ativamente."
   },
   {
-    "objectID": "tutorials/R/index.html#números-double-e-integer",
-    "href": "tutorials/R/index.html#números-double-e-integer",
+    "objectID": "tutorials/R/index.html#tipos-double-e-integer",
+    "href": "tutorials/R/index.html#tipos-double-e-integer",
     "title": "Introdução à Linguagem R",
-    "section": "3.1 Números: double e integer",
-    "text": "3.1 Números: double e integer"
+    "section": "3.1 Tipos double e integer",
+    "text": "3.1 Tipos double e integer\n\n# double (números com casas decimais)\nreceita &lt;- 850000.50  \n\n# integer (números inteiros)\ntotal_funcionarios &lt;- 50L   \n\n# verifica os tipos\ntypeof(receita)\n\n[1] \"double\"\n\ntypeof(total_funcionarios)\n\n[1] \"integer\"\n\n\n\n\n\n\n\n\nclasse numeric\n\n\n\nApesar dos tipos double e integer representarem números decimais e inteiros de forma diferente, ambos pertencem à classe numeric, assim, na maioria das situações, você não precisa se preocupar com a possível diferença.\n\nclass(receita)\n\n[1] \"numeric\"\n\nclass(total_funcionarios)\n\n[1] \"integer\"\n\n\nDiferença entre typeof e class\nEm R, as funções typeof e class fornecem informações diferentes sobre um objeto:\n\ntypeof: Retorna o tipo interno do objeto, ou seja, como R armazena o objeto na memória. Por exemplo:\n\n\ntypeof(receita)  # Retorna \"double\"\ntypeof(total_funcionarios)  # Retorna \"integer\"\n\n\nclass: Retorna a classe do objeto, que define como R trata o objeto em operações e funções. Por exemplo:\n\n\nclass(receita)  # Retorna \"numeric\"\nclass(total_funcionarios)  # Retorna \"numeric\"\n\nEm resumo:\n\nUse typeof para entender como R armazena o objeto internamente.\nUse class para entender como R trata o objeto em operações e funções."
   },
   {
-    "objectID": "tutorials/R/index.html#caractereses-character",
-    "href": "tutorials/R/index.html#caractereses-character",
+    "objectID": "tutorials/R/index.html#tipo-character",
+    "href": "tutorials/R/index.html#tipo-character",
     "title": "Introdução à Linguagem R",
-    "section": "3.2 Caractereses: character",
-    "text": "3.2 Caractereses: character"
+    "section": "3.2 Tipo character",
+    "text": "3.2 Tipo character\n\n# character (texto)\ninstituicao &lt;- \"IFMG Formiga\" \n\n# verifica o tipo \ntypeof(instituicao)\n\n[1] \"character\""
   },
   {
-    "objectID": "tutorials/R/index.html#lógicos-logical",
-    "href": "tutorials/R/index.html#lógicos-logical",
+    "objectID": "tutorials/R/index.html#tipo-logical",
+    "href": "tutorials/R/index.html#tipo-logical",
     "title": "Introdução à Linguagem R",
-    "section": "3.3 Lógicos: logical",
-    "text": "3.3 Lógicos: logical"
+    "section": "3.3 Tipo logical",
+    "text": "3.3 Tipo logical\n\n# logical (lógico, TRUE/FALSE)\nlucro_positivo &lt;- TRUE  \n\n# verifica o tipo \ntypeof(lucro_positivo)\n\n[1] \"logical\""
   },
   {
-    "objectID": "tutorials/R/index.html#tipoos-especiais",
-    "href": "tutorials/R/index.html#tipoos-especiais",
+    "objectID": "tutorials/R/index.html#tipo-especial-na",
+    "href": "tutorials/R/index.html#tipo-especial-na",
     "title": "Introdução à Linguagem R",
-    "section": "3.4 Tipoos Especiais",
-    "text": "3.4 Tipoos Especiais"
+    "section": "3.4 Tipo Especial NA",
+    "text": "3.4 Tipo Especial NA\nEm análises de dados reais, é comum alguns dados não estarem disponíveis, por alguma razão, assim, o tipo especial NA representa esse tipo de ocorrência.\n\n# cria uma variável com um valor ausente\ndados_faltantes &lt;- c(1, NA, 3)  \ndados_faltantes\n\n[1]  1 NA  3"
+  },
+  {
+    "objectID": "tutorials/R/index.html#tipo-especial-nan-not-a-number",
+    "href": "tutorials/R/index.html#tipo-especial-nan-not-a-number",
+    "title": "Introdução à Linguagem R",
+    "section": "3.5 Tipo Especial NaN (Not a Number)",
+    "text": "3.5 Tipo Especial NaN (Not a Number)\n\n# operação inválida\nresultado_invalido &lt;- 0 / 0  \nresultado_invalido\n\n[1] NaN"
+  },
+  {
+    "objectID": "tutorials/R/index.html#tipo-especial-inf",
+    "href": "tutorials/R/index.html#tipo-especial-inf",
+    "title": "Introdução à Linguagem R",
+    "section": "3.6 Tipo Especial inf",
+    "text": "3.6 Tipo Especial inf\n\n# inf pode resultar da divisão por zero\ndivisao_por_zero &lt;- 1 / 0  \ndivisao_por_zero\n\n[1] Inf"
+  },
+  {
+    "objectID": "tutorials/R/index.html#exercícios",
+    "href": "tutorials/R/index.html#exercícios",
+    "title": "Introdução à Linguagem R",
+    "section": "3.7 Exercícios",
+    "text": "3.7 Exercícios"
   },
   {
     "objectID": "publications/index.html",

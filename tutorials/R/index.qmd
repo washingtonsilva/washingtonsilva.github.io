@@ -17,6 +17,7 @@ crossref:
   fig-title: '**Fig.**'
   fig-labels: arabic
 execute: 
+  echo: true
   warning: false
   message: false
 categories: [R, Reprodutibilidade]
@@ -289,8 +290,23 @@ análises mais complexas.
 
 # Variáveis e Atribuição de Valores
 
-Todas as instruções R com as quais criamos variáveis ou objetos 
-têm o mesmo formato:
+Em R, a atribuição de valores a variáveis é fundamental para armazenar e 
+manipular dados. Por exemplo, podemos criar variáveis para armazenar 
+informações financeiras, como receitas, custos e lucros, que são 
+essenciais para análises em Administração.
+
+```{r}
+# Exemplo: Atribuição de valores a variáveis
+receita_mensal <- 850000  # Receita mensal da empresa
+custos_mensais <- 500000  # Custos mensais
+
+# Cálculo do lucro
+lucro_mensal <- receita_mensal - custos_mensais  
+lucro_mensal
+```
+
+Todas as instruções R com as quais criamos variáveis ou objetos têm 
+o mesmo formato:
 
 ```{r}
 #| eval: false
@@ -301,8 +317,8 @@ nome_do_objeto <- valor
 
 Lemos esse código como: "*valor é atribuído a nome_objeto*"
 
-Em R, podemos atribuir informações às variáveis (ou objetos) 
-utilizando os seguintes operadores de atribuição:
+Em R, podemos atribuir informações às variáveis (ou objetos) utilizando 
+os seguintes operadores de atribuição:
 
 ```{r}
 #| label: op-atribuicao
@@ -328,8 +344,8 @@ o operador `<-`:
 
 - Atalho do RStudio: `Alt + -` (Windows/Linux) ou `Option + -` (Mac)
 
-- Observe que o RStudio automaticamente envolve `<-` com **espaços**, o 
-que é uma boa prática de formatação de código.
+- Observe que o RStudio automaticamente envolve `<-` 
+com **espaços**, o que é uma boa prática de formatação de código.
 
 - Códigos sem espaços são difíceis de ler compare: 
 
@@ -341,66 +357,130 @@ que é uma boa prática de formatação de código.
 ::: {.callout-note icon="false"}
 ## Boas Práticas para Escrever Códigos R
 
-Nomes de variáveis devem começar com uma letra e podem 
-conter `letras`, `números`, `_` e `.`
-  
-É importante criar nomes de objetos **simples e descritivos** 
-que representem claramente seu conteúdo. É altamente recomendado 
-seguir um estilo consistente para nomenclatura desde o início:
-  
+Nomes de variáveis devem começar com uma letra e podem conter 
+`letras`, `números`, `_` e `.`
+
+É importante criar nomes de objetos **simples e descritivos** que 
+representem claramente seu conteúdo. Em Administração, é comum 
+trabalhar com dados financeiros, de desempenho ou de mercado, 
+então use nomes que facilitem a compreensão do código.
+
+**Exemplos de boas práticas**:
+
 ```{r}
 #| eval: false
-#| echo: true
-# estilo snake_case (recomendado)
-margem_bruta <- 0.35
-fluxo_de_caixa_operacional <- receita - custos
 
-# estilo camelCase (comum em outras linguagens)
-MargemBruta <- 0.35
-fluxoDeCaixaOperacional <- receita - custos
+# Margem bruta da empresa
+margem_bruta <- 0.35  
+
+# Fluxo de caixa operacional
+fluxo_caixa_operacional <- receita - custos  
 ```
 
-Recomendamos usar o estilo **snake_case** (palavras separadas 
-por underscore) por ser um padrão mais comum no ecossistema R, 
-mas o importante é adotar um estilo e manter a consistência no 
-uso.
+**Estilos de nomenclatura**:
+
+- **snake_case**: `margem_bruta`, `fluxo_caixa_operacional`
+- **camelCase**: `MargemBruta`, `fluxoCaixaOperacional`
+
+Escolha um estilo e mantenha a consistência em todo o código.
 :::
 
 
 ::: {.callout-warning}
 ## Práticas a evitar
 
-**Evite nomes muito genéricos**: 
+Evite os seguintes erros comuns:
 
-- `dados`, `resultado`, `x`, `y` não descrevem bem o conteúdo
+1. **Nomes genéricos**:
 
-**Evite nomes muito longos**:
+- Ruim: `dados`, `resultado`, `x`
+- Melhor: `receita_anual`, `lucro_liquido`
 
-- `calculo_da_margem_de_contribuicao_ajustada` é difícil 
-de digitar
 
-**Não use espaços nos nomes**: 
+2. **Nomes muito longos**:
 
-- `margem bruta <- 0.35` resultará em erro
+- Ruim: `calculo_da_margem_de_contribuicao_ajustada`
+- Melhor: `margem_contribuicao`
 
-**Não comece com número**: 
 
-`1trimestre <- "Janeiro-Março"` é inválido
+3. **Espaços nos nomes**:
 
-**Evite sobrescrever funções existentes**: 
+- Ruim: `margem bruta <- 0.35` (causa erro)
+- Melhor: `margem_bruta <- 0.35`
 
-- nomes como `mean`, `sum`, `data` são nomes de funções internas de R.
+
+4. **Nomes começando com números**:
+
+- Ruim: `1trimestre <- "Janeiro-Março"` (inválido)
+- Melhor: `trimestre1 <- "Janeiro-Março"`
+
+
+5. **Sobrescrever funções existentes**:
+
+- Ruim: `mean <- 10` (sobrescreve a função `mean()`)
+- Melhor: `media <- 10`
 :::
 
 
+::: {.callout-tip}
+## Como Imprimir Informações sobre Objetos em R
+
+Em R, existem algumas formas simples e eficazes de exibir 
+informações sobre objetos ou variáveis. Esses métodos são ideais 
+para visualizar valores, depurar código ou criar saídas personalizadas. 
+Abaixo estão as principais formas:
+
+**1. Usando** `print()`
+
+A função `print()` é a maneira mais básica de exibir o conteúdo de 
+um objeto:
+
+```{r}
+# Exemplo: Usando print()
+receita <- 850000.50
+print(receita)  # Exibe o valor da variável
+```
+
+**2. Imprimindo diretamente no console**
+
+Em R, você pode exibir o conteúdo de um objeto simplesmente 
+digitando seu nome no console. Isso chama automaticamente 
+a função `print()` implicitamente:
+
+```{r}
+# digitar o nome do objeto exibe seu valor
+receita  
+```
+
+**3. Usando a função** `cat()` 
+
+A função `cat()` permite exibir informações de forma mais 
+personalizada, combinando texto e valores. É útil para criar 
+mensagens ou relatórios simples.
+
+```{r}
+# a funçaão cat() combina texto e valor
+cat("A receita mensal é:", receita)  
+```
+
+**Resumo**:
+
+- Use `print()` para exibir valores de forma explícita.
+
+- Digite o nome do objeto diretamente no console para exibir 
+  seu valor de forma rápida.
+  
+- Use `cat()` para criar saídas personalizadas, combinando 
+  texto e valores.
+:::
 
 
 
 # Tipos atômicos de dados
 
-Em R, existem quatro tipos básicos (atômicos) de dados que você 
-encontrará frequentemente:
-
+Em R, os dados são armazenados em diferentes tipos atômicos (básicos), 
+cada um com características específicas. A @tbl-1 mostra os principais 
+tipos.
 
 Tipo          | Classe      | Descrição                          
 ------------- | ----------- | ----------------------------------
@@ -412,27 +492,142 @@ Tipo          | Classe      | Descrição
 : Principais Tipos {#tbl-1}
 
 
+A @tbl-2 exibe alguns tipos especiais que podem aparecer em análises de 
+dados. 
 
 Tipo       | Descrição    
 -----------|---------------------------------------------  
 `NA`       | `Not Available`: representa dados faltantes
-`NaN`      | `Not a Number`: Resultante de 0/0, por exemplo 
-`Inf`      | $+ \infty$ ou $- \infty$
+`NaN`      | `Not a Number`: (ex: `0 / 0`)
+`Inf`      | $+ \infty$ ou $- \infty$: (ex: `1 / 0`)
 
 : Tipos Especiais {#tbl-2}
 
 
 
-## Números: `double` e `integer`
+As subseções seguintes apresentam alguns exemplos simples de atribuição 
+dos tipos principais a variáveis ou objetos e de ocorrência dos 
+tipos especiais. 
 
 
-## Caractereses: `character`
+## Tipos `double` e `integer`
+
+```{r}
+# double (números com casas decimais)
+receita <- 850000.50  
+
+# integer (números inteiros)
+total_funcionarios <- 50L   
+
+# verifica os tipos
+typeof(receita)
+typeof(total_funcionarios)
+```
 
 
-## Lógicos: `logical`
+::: {.callout-tip}
+## classe `numeric`
+
+Apesar dos tipos `double` e `integer` representarem números decimais e 
+inteiros de forma diferente, ambos pertencem à classe `numeric`, assim, 
+na maioria das situações, você não precisa se preocupar com a possível 
+diferença.
+
+```{r}
+class(receita)
+class(total_funcionarios)
+```
+
+**Diferença entre** `typeof` e `class`
+
+Em R, as funções `typeof` e `class` fornecem informações diferentes 
+sobre um objeto:
+
+- **`typeof`**: Retorna o **tipo interno** do objeto, ou seja, 
+como R armazena o objeto na memória. Por exemplo:
+
+```{r}
+#| eval: false
+typeof(receita)  # Retorna "double"
+typeof(total_funcionarios)  # Retorna "integer"
+```
+
+- **`class`**: Retorna a **classe** do objeto, que define como R 
+trata o objeto em operações e funções. Por exemplo:
+
+```{r}
+#| eval: false
+class(receita)  # Retorna "numeric"
+class(total_funcionarios)  # Retorna "numeric"
+```
+
+Em resumo:
+
+- Use `typeof` para entender como R armazena o objeto internamente.
+- Use `class` para entender como R trata o objeto em operações e funções.
+:::
 
 
-## Tipoos Especiais
+
+## Tipo `character`
+
+```{r}
+# character (texto)
+instituicao <- "IFMG Formiga" 
+
+# verifica o tipo 
+typeof(instituicao)
+```
+
+
+
+## Tipo `logical` 
+
+```{r}
+# logical (lógico, TRUE/FALSE)
+lucro_positivo <- TRUE  
+
+# verifica o tipo 
+typeof(lucro_positivo)
+```
+
+
+
+## Tipo Especial `NA`
+
+Em análises de dados reais, é comum alguns dados não estarem disponíveis, por 
+alguma razão, assim, o tipo especial `NA` representa esse tipo de ocorrência.
+
+
+```{r}
+# cria uma variável com um valor ausente
+dados_faltantes <- c(1, NA, 3)  
+dados_faltantes
+```
+
+
+
+## Tipo Especial `NaN` (Not a Number)
+
+```{r}
+# operação inválida
+resultado_invalido <- 0 / 0  
+resultado_invalido
+```
+
+
+
+## Tipo Especial `inf`
+
+```{r}
+# inf pode resultar da divisão por zero
+divisao_por_zero <- 1 / 0  
+divisao_por_zero
+```
+
+
+## Exercícios 
+
 
 
 
