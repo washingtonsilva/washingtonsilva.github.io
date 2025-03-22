@@ -1,23 +1,32 @@
 ---
 page-layout: full
 ---
+
+::: {.container-fluid}
+::: {.row .justify-content-center}
+::: {.col-md-8 .col-lg-6}
+
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-4 .text-center}
 ![](wss.jpg){width="80%" style="border: 1px solid #ddd; padding: 3px;"}
 
 ::: {.mt-4}
-[<i class="fas fa-graduation-cap"></i> Curriculum Lattes](http://lattes.cnpq.br/7319553236390710 ){.btn .btn-outline-dark .btn-sm .me-2 .mb-2 style="display: inline-block;"}
-[<i class="fab fa-orcid"></i> ORCID](https://orcid.org/0000-0003-2396-3507){.btn .btn-outline-dark .btn-sm .me-2 .mb-2 style="display: inline-block;"}
-[<i class="fab fa-google"></i> Google Scholar](https://scholar.google.com.br/citations?user=hRQ0bCIAAAAJ&hl=pt-BR){.btn .btn-outline-dark .btn-sm .mb-2 style="display: inline-block;"}
+[<i class="fas fa-graduation-cap"></i> Curriculum Lattes](http://lattes.cnpq.br/7319553236390710){.btn .btn-outline-dark .btn-sm .me-2 .mb-2 style="display: inline-block;" target="_blank"}
+[<i class="fab fa-orcid"></i> ORCID](https://orcid.org/0000-0003-2396-3507){.btn .btn-outline-dark .btn-sm .me-2 .mb-2 style="display: inline-block;" target="_blank"}
+[<i class="fab fa-google"></i> Google Scholar](https://scholar.google.com.br/citations?user=hRQ0bCIAAAAJ&hl=pt-BR){.btn .btn-outline-dark .btn-sm .mb-2 style="display: inline-block;" target="_blank"}
 :::
 :::
 
 ::: {.g-col-12 .g-col-md-8}
-
-I am a Full Professor at [IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado){target="_blan"}. 
+I am a Full Professor and Researcher at the [Federal Institute of Education, Science and Technology of Minas Gerais](https://www.ifmg.edu.br/portal){target="_blank"} - [Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado-profissional-em-administracao/docentes-permanetes){target="_blank"}, Brazil. 
 My research interests include Applied Statistics and Econometrics, 
-Data Science, Reproducible Research, Time Series Analysis, 
-Statistical and Machine Learning Applied to Finance, 
-and Bayesian Econometrics.
+Data Science, Reproducible Research, Time Series Analysis, Statistical 
+and Machine Learning Applied to Finance, and Bayesian Econometrics.
 :::
 :::
+
+:::
+:::
+:::
+
+
