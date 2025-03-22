@@ -62,14 +62,14 @@ h6 {
 
 /* Estilo para links */
 a {
-  color: #36454f;                      /* Cor dos links igual aos cabeçalhos (charcoal) */
+  color: #4673B8;                      /* Changed from #36454f to a distinct blue */
   text-decoration: none;               /* Remove o sublinhado padrão dos links */
   border-bottom: dotted 1px #A1A3A1;   /* Adiciona linha pontilhada cinza abaixo dos links */
 }
 
 /* Estilo para links quando o mouse passa por cima */
 a:hover {
-  color: blue;                         /* Muda para azul ao passar o mouse */
+  color: blue;                         /* Slightly brighter blue for hover state */
   text-decoration: underline;          /* Adiciona sublinhado ao passar o mouse */
 }
 

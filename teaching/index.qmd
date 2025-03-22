@@ -1,7 +1,11 @@
+---
+title: "**Disciplinas Ministradas**"
+---
 
-# **Graduate Courses**
+# **Disciplinas de Pós-Graduação**
 
-## Introdução à Ciência dos Dados 
+## Introdução à Ciência de Dados
+
 
 ## Econometria Aplicada à Finanças 
 
@@ -10,9 +14,11 @@
 
 * * *
 
-# **Undergraduate Courses**
+# **Disciplinas de Graduação**
 
-## Introdução à Ciência dos Dados
+## [Introdução à Ciência de Dados - Bacharelado em Administração](https://washingtonsilva.github.io/site_bach_icd2025/){target="_blank"}
+
+*Período: 2025.1*
 
 ## Métodos Quantitativos Aplicados à Administração
 
