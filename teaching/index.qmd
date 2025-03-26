@@ -4,7 +4,9 @@ title: "**Disciplinas Ministradas**"
 
 # **Disciplinas de Pós-Graduação**
 
-## Introdução à Ciência de Dados
+## [Introdução à Ciência de Dados - Mestrado Profissional em Administração](https://washingtonsilva.github.io/site_mpa_icd2025/){target="_blank"}
+
+*Período: 2025.1*
 
 
 ## Econometria Aplicada à Finanças 
