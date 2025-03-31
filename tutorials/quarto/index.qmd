@@ -474,13 +474,12 @@ integram o código com seus resultados e explicações textuais.
 
 Você pode adicionar uma célula de código de três maneiras:
 
-1. Digitando manualmente os delimitadores de célula: ````{r}` e `````.
-
-2. Usando o atalho de teclado: `Ctrl+Alt+I` (Windows/Linux) ou `Cmd+Option+I` 
+1. Usando o atalho de teclado: `Ctrl+Alt+I` (Windows/Linux) ou `Cmd+Option+I` 
   (Mac).
   
-3. Clicando no botão "Insert" na barra de ferramentas do RStudio e 
-  selecionando "Code Chunk".
+2. Clicando no ícone <span class="code-chunk-icon">C</span> "**Insert a new code chunk**" na barra superior de ferramentas do RStudio e selecionando "**R**".
+
+3. Digitando manualmente os delimitadores de célula: ````{r}` e `````.
   
 
 ## Exemplo de uma Célula de Código Básica

@@ -711,7 +711,7 @@
     "href": "tutorials/quarto/index.html#criando-uma-célula-de-código",
     "title": "Quarto: Um Sistema de Publicação Técnica e Científica",
     "section": "5.1 Criando uma Célula de Código",
-    "text": "5.1 Criando uma Célula de Código\nVocê pode adicionar uma célula de código de três maneiras:\n\nDigitando manualmente os delimitadores de célula: ```{r} e `````.\nUsando o atalho de teclado: Ctrl+Alt+I (Windows/Linux) ou Cmd+Option+I (Mac).\nClicando no botão “Insert” na barra de ferramentas do RStudio e selecionando “Code Chunk”."
+    "text": "5.1 Criando uma Célula de Código\nVocê pode adicionar uma célula de código de três maneiras:\n\nUsando o atalho de teclado: Ctrl+Alt+I (Windows/Linux) ou Cmd+Option+I (Mac).\nClicando no ícone C “Insert a new code chunk” na barra superior de ferramentas do RStudio e selecionando “R”.\nDigitando manualmente os delimitadores de célula: ```{r} e `````."
   },
   {
     "objectID": "tutorials/quarto/index.html#exemplo-de-uma-célula-de-código-básica",

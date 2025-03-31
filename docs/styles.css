@@ -500,3 +500,34 @@ div.quarto-about-trestles .about-entity .about-link:hover {
 #mlb2-4240669.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
   padding: 0px;                        /* Remove o preenchimento interno */
 }
+
+
+/* 
+ * Estilo para ícones de chunks de código
+ * Cria um elemento visual que indica onde há blocos de código no documento
+ */
+.code-chunk-icon {
+  display: inline-block;          /* Faz o elemento se comportar como inline-block para ter dimensões próprias */
+  background-color: #5cb85c;      /* Cor de fundo verde */
+  color: white;                   /* Cor do texto em branco para contraste */
+  font-weight: bold;              /* Texto em negrito */
+  padding: 2px 4px;               /* Espaçamento interno (superior/inferior e esquerda/direita) */
+  border-radius: 3px;             /* Arredondamento dos cantos */
+  position: relative;             /* Posicionamento relativo para o pseudo-elemento */
+  font-family: monospace;         /* Fonte monoespaçada, ideal para código */
+  font-size: 0.9em;               /* Tamanho da fonte ligeiramente menor */
+}
+
+/* 
+ * Pseudo-elemento que adiciona o símbolo "+" ao ícone
+ * Cria um pequeno indicador visual de adição no canto superior esquerdo
+ */
+.code-chunk-icon::before {
+  content: "+";                   /* Conteúdo a ser exibido (símbolo de adição) */
+  position: absolute;             /* Posicionamento absoluto em relação ao elemento pai */
+  top: -5px;                      /* Desloca 5px para cima */
+  left: -2px;                     /* Desloca 2px para a esquerda */
+  font-size: 70%;                 /* Tamanho da fonte reduzido para 70% */
+  color: white;                   /* Cor branca para o símbolo */
+  font-weight: bold;              /* Estilo negrito para o símbolo */
+}
