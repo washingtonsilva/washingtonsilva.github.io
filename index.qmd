@@ -18,7 +18,7 @@ page-layout: full
 :::
 
 ::: {.g-col-12 .g-col-md-8}
-I am a Full Professor and Researcher at the [Federal Institute of Education, Science and Technology of Minas Gerais](https://www.ifmg.edu.br/portal){target="_blank"} - [Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado-profissional-em-administracao/docentes-permanetes){target="_blank"}, Brazil. 
+I am a Full Professor and Researcher at the [Federal Institute of Education, Science and Technology of Minas Gerais - Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado-profissional-em-administracao/docentes-permanetes#:~:text=Prof.%20Dr.%20Washington-,Santos,-Silva){target="_blank"}, Minas Gerais, Brazil. 
 :::
 :::
 
