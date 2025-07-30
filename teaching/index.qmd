@@ -14,9 +14,8 @@ format:
 - **[Introdução à Ciência de Dados – MPA](https://washingtonsilva.github.io/site_mpa_icd2025/){target=_blank}**  
   _Período: 2025.1_
 
-- **Econometria Aplicada à Finanças** 
-
-  _Período: 2025.2
+- **Econometria Aplicada à Finanças** <br>
+  _Período: 2025.2_
 
 ---
 
