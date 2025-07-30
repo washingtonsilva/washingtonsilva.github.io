@@ -22,7 +22,7 @@ listing:
 ## Ciência de Dados Reproduzível e Auditável
 
 Esta página reúne tutoriais desenvolvidos no âmbito do projeto de pesquisa 
-denominado "*Aplicação de Modelos de Aprendizagem Estatística e de Máquina em Finanças: Desenvolvimento de Soluções Reproduzíveis e Auditáveis*", 
+denominado "*Modelos de Aprendizagem Estatística em Finanças: Aplicações e Desenvolvimento de Soluções Reproduzíveis e Auditáveis*", 
 vinculado ao Mestrado Profissional em Administração do IFMG - 
 Campus Formiga.
 
