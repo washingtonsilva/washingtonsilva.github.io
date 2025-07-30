@@ -20,8 +20,23 @@ execute:
   echo: true
   warning: false
   message: false
+bibliography: referencias.bib
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 categories: [R, Reprodutibilidade]
 ---
+
+```{r}
+#| label: setup
+#| echo: false
+
+# carrega pacotes
+library(here)
+library(tidyverse)
+library(gapminder)
+library(kableExtra)
+library(PerformanceAnalytics)
+```
+
 
 ![](img/Rlogo.png){width=30% fig-align="center"}
 
@@ -873,7 +888,3632 @@ conhecimento fundamentará toda sua jornada na análise de dados com R.
 
 
 
-## Exercícios 
+
+# Vetores em R {#sec-vetores}
+
+::: {.callout-note icon="false"}
+## Por que começar pelos vetores?
+
+- Vetores são a **estrutura de dados mais básica e fundamental** da linguagem R.
+- Toda variável simples em R — como um número, texto ou valor lógico — **é um vetor de comprimento 1**.
+- Vetores armazenam sequências de **valores homogêneos**, ou seja, todos os elementos têm o **mesmo tipo**: numérico, lógico ou texto.
+- Compreender vetores é **pré-requisito para manipular dados em estruturas mais avançadas**, como *data frames*, *tibbles* e listas.
+:::
+
+
+::: {.callout-tip}
+## Analogia
+
+Imagine que você está lidando com uma **planilha do Excel** onde cada coluna contém apenas um tipo de dado:
+
+- A coluna "Receitas Mensais" possui apenas números → vetor `numeric`
+- A coluna "Nome da Empresa" possui apenas textos → vetor `character`
+- A coluna "Meta Atingida?" possui apenas `TRUE` ou `FALSE` → vetor `logical`
+
+Cada coluna é, conceitualmente, **um vetor em R**: uma sequência ordenada, homogênea e indexada.
+:::
+
+
+
+
+## Criando vetores
+
+A função mais básica para criar vetores é `c()`, que significa "concatenar" ou "combinar".
+
+```{r}
+#| label: vet-criacao
+#| echo: true
+
+# Vetor de retornos mensais (%)
+retornos <- c(0.012, -0.005, 0.007, 0.013)
+
+# Sequência de inteiros de 1 a 4
+dias <- 1:4                 
+
+# Sequência trimestral: 1, 4, 7, 10
+meses <- seq(1, 12, by = 3) 
+
+# Vetor lógico repetido quatro vezes
+flags <- rep(TRUE, 4)       
+```
+
+
+
+::: {.callout-tip}
+## Sobre a função `c()`
+
+A função `c()` combina valores **do mesmo tipo** em um vetor.
+
+```{r}
+#| label: vet-cfunc
+#| echo: true
+c("IFMG", "UFV", "USP")      # vetor de textos
+c(TRUE, FALSE, TRUE)         # vetor lógico
+c(1.2, 2.5, 3.8)             # vetor numérico (double)
+```
+
+Se os elementos tiverem **tipos diferentes**, R fará *coerção implícita* para um tipo comum. Por exemplo:
+
+```{r}
+c(1, "texto", TRUE)  # Todos convertidos para texto (character)
+```
+:::
+
+
+
+
+## Indexação: selecionando elementos
+
+Vetores são indexados com colchetes `[]`. A indexação começa em **1** (não em zero, como em Python ou C).
+
+```{r}
+#| label: vet-index
+#| echo: true
+
+# Primeiro e último retorno
+retornos[1]                  
+retornos[length(retornos)]   
+
+# Excluindo o segundo elemento
+retornos[-2]                 
+
+# Selecionando apenas valores positivos
+retornos[retornos > 0]       
+```
+
+
+
+::: {.callout-note}
+## Filtro condicional em vetores
+
+Expressões como `retornos > 0` retornam um vetor lógico com `TRUE`/`FALSE`, que pode ser usado para **filtrar elementos**:
+
+```{r}
+#| echo: true
+retornos > 0  # vetor lógico
+retornos[retornos > 0]  # filtragem condicional
+```
+
+Este comportamento é fundamental para manipulação de dados no `dplyr`.
+:::
+
+
+
+
+## Operações vetorizadas e reciclagem
+
+Em R, você pode aplicar operações matemáticas diretamente sobre vetores.
+
+```{r}
+#| label: vet-ops
+#| echo: true
+
+# Aplicando desconto de IR (15%)
+ret_liq <- retornos * (1 - 0.15)  
+
+# Reciclagem de vetor: IR de 15% e 20% aplicados alternadamente
+taxas <- c(0.15, 0.20)
+ret_liq2 <- retornos * (1 - taxas)  
+```
+
+
+::: {.callout-warning}
+## Cuidado com a reciclagem automática
+
+Se os vetores tiverem **comprimentos incompatíveis**, R ainda assim executará a operação com uma **mensagem de aviso**, podendo gerar **resultados incorretos**.
+
+```{r}
+#| echo: true
+c(1, 2, 3) + c(10, 20)  # comprimento 3 e 2 => erro sutil
+```
+:::
+
+
+## Testando tipos e classes
+
+Vetores devem ter **elementos do mesmo tipo**, mas podemos verificar isso com:
+
+```{r}
+# Verifica o tipo atômico (typeof) e a classe do objeto
+typeof(retornos)  # double
+class(retornos)   # numeric
+```
+
+
+
+## Comprimento dos vetores
+
+Use `length()` para saber quantos elementos um vetor possui:
+
+```{r}
+length(retornos)
+```
+
+
+
+
+## Vetores de texto (character) e lógicos
+
+```{r}
+#| label: vet-text
+#| echo: true
+
+# Vetor de nomes de empresas
+empresas <- c("Empresa A", "Empresa B", "Empresa C")
+
+# Vetor lógico: metas atingidas?
+metas_atingidas <- c(TRUE, TRUE, FALSE)
+
+# Combinação com `cat()`
+cat("Metas atingidas:", metas_atingidas, "\n")
+```
+
+
+## Boas práticas com vetores
+
+- Prefira vetores **homogêneos e bem nomeados**
+- Use `typeof()` para detectar coerções indesejadas
+- Evite misturar tipos dentro de `c()` sem intenção
+
+
+::: {.callout-note icon="false"}
+## Próximos passos
+
+Vetores são a espinha dorsal de todas as estruturas de dados em R.
+Compreender seu comportamento é essencial para trabalhar com tabelas
+(`data.frames`, `tibbles`), realizar filtros, aplicar transformações
+e construir visualizações.
+
+Na próxima seção, vamos abordar os **data frames e tibbles**, que
+correspondem às tabelas que usamos no dia a dia — mas com todo o poder
+do R por trás.
+:::
+
+
+
+
+# Data Frames e Tibbles {#sec-dataframes}
+
+::: {.callout-note icon="false"}
+## Por que aprender sobre `data frames` e `tibbles`?
+
+- Em R, **data frames** e **tibbles** são as principais estruturas usadas para armazenar e analisar dados tabulares (como planilhas do Excel).
+
+- Eles representam **conjuntos de dados organizados em colunas e linhas**, onde cada coluna é um vetor.
+
+- Compreender o funcionamento dessas estruturas é essencial para importar, limpar, transformar, visualizar e modelar dados.
+:::
+
+
+
+::: {.callout-tip}
+## Analogia
+
+Pense em um **data frame** como uma **planilha**:
+
+- Cada **coluna** é uma variável (vetor).
+- Cada **linha** representa uma observação ou caso.
+- Um **tibble** é como uma **planilha moderna**: mantém as mesmas funcionalidades, mas com melhorias que evitam erros e facilitam o uso com dados reais.
+:::
+
+
+
+## Criando uma `data frame` simples
+
+```{r}
+#| label: df-criar
+#| echo: true
+
+# Dados hipotéticos de empresas
+empresa  <- c("A", "B", "C")
+receita  <- c(3.5, 5.2, 4.1)     # em R$ milhões
+metas    <- c(TRUE, TRUE, FALSE)
+
+emp_df <- data.frame(empresa, receita, metas)
+```
+
+```{r}
+#| label: df-print
+#| echo: true
+
+# Visualizando o data frame
+emp_df
+```
+
+
+::: {.callout-note}
+## Estrutura interna
+
+Cada **coluna de um `data.frame` é um vetor**, e todos os vetores **devem ter o mesmo comprimento**. As colunas podem ter **tipos diferentes**, mas devem ser **homogêneas internamente**.
+:::
+
+
+
+## Convertendo para tibble
+
+```{r}
+#| label: df-tibble
+#| echo: true
+library(tibble)
+
+emp_tb <- as_tibble(emp_df)
+emp_tb
+```
+
+
+::: {.callout-tip}
+## Por que usar tibbles?
+
+- **Exibição inteligente**: Mostra apenas as primeiras linhas e colunas.
+- **Evita conversões automáticas perigosas** (como `stringsAsFactors`).
+- **Integra-se perfeitamente ao tidyverse (`dplyr`, `ggplot2`, `tidyr`)**.
+- **Mais leve para trabalhar com dados grandes ou listas aninhadas**.
+:::
+
+
+
+## Inspeção da estrutura
+
+```{r}
+#| label: df-inspecao
+#| echo: true
+
+# visão detalhada da tibble
+str(emp_tb)
+
+# visão geral da tibble
+glimpse(emp_tb)    
+
+# resumo estatístico das colunas numéricas
+summary(emp_tb)    
+```
+
+
+
+## Nomes e tipos das colunas
+
+```{r}
+#| label: df-nomes-tipos
+#| echo: true
+
+# nomes das colunas
+names(emp_tb)     
+
+# classe de cada coluna
+sapply(emp_tb, class) 
+```
+
+
+
+
+## Acessando colunas
+
+```{r}
+#| label: df-acesso
+#| echo: true
+
+# usando o operador $
+emp_tb$receita         
+```
+
+
+
+
+## Exemplo com dados financeiros reais
+
+Vamos utilizar o pacote `PerformanceAnalytics`, amplamente usado em finanças, para ilustrar o uso de `tibbles` com séries temporais reais.
+
+```{r}
+#| label: df-managers
+#| echo: true
+
+
+library(PerformanceAnalytics) # para obter a df `managers`
+library(tidyverse)  # carrega dplyr, tidyr, ggplot2, tibble etc.
+
+# Carrega os dados de performance de carteiras
+data(managers, package = "PerformanceAnalytics")  
+
+# Converte objeto xts -> tibble, salvando datas na coluna "date"
+managers_tb <- as_tibble(managers, rownames = "date")
+
+# Visão geral da tibble
+glimpse(managers_tb)
+```
+
+
+
+::: {.callout-note}
+## O que aprendemos aqui?
+
+- O objeto `managers_tb` contém **retornos mensais de carteiras e benchmarks**.
+
+- As colunas contêm séries de retornos como `ManagerA`, `SP500`, `Russell2000`, etc.
+
+- A coluna `date` foi criada a partir dos nomes das linhas do objeto 
+original xts.
+:::
+
+
+
+## Verificando tipos e valores ausentes
+
+```{r}
+#| label: df-validacao
+#| echo: true
+
+# Verificando tipos atômicos e classes
+sapply(managers_tb, typeof)     
+
+# Verifica a presença dados faltantes
+colSums(is.na(managers_tb))     
+```
+
+::: {.callout-warning}
+## Importância de entender a estrutura
+
+Antes de aplicar qualquer modelo econométrico ou visualização, **é essencial garantir que os dados estão em um formato apropriado**:
+
+- Verificar tipos (`character`, `numeric`, `logical`)
+- Detectar valores ausentes (`NA`)
+- Garantir que as colunas estejam nomeadas corretamente
+:::
+
+
+::: {.callout-tip}
+## Trabalhar com dados reais
+
+- Os dados do `PerformanceAnalytics` são amplamente utilizados para análise de performance de carteiras, avaliação de risco, regressões CAPM e outros modelos em finanças quantitativas.
+
+- Utilizaremos este conjunto como **base para as próximas seções**: tidyverse, visualização e modelagem.
+:::
+
+
+
+::: {.callout-note icon="false"}
+## Próximos passos
+
+Agora que sabemos como criar, inspecionar e acessar `data frames` e `tibbles`, estamos prontos para trabalhar com **os pacotes do tidyverse**, que permitem manipular e transformar dados de forma elegante, eficiente e auditável.
+:::
+
+
+
+
+# Metapacote tidyverse
+
+::: {.callout-note icon=false}
+## Descrição
+
+- O [tidyverse](https://www.tidyverse.org){target="_blank"} é um 
+ecossistema coerente de pacotes R para ciência de dados que compartilham 
+uma filosofia de design e gramática comuns.
+
+- Desenvolvido por Hadley Wickham e mantido pela Posit, o tidyverse 
+facilita todo o fluxo de trabalho de análise de dados através de 
+pacotes integrados.
+
+##### Alguns dos Principais Pacotes do tidyverse {.unnumbered}
+
+- **readr/readxl**: Importação eficiente de dados retangulares
+- **tidyr**: Estruturação de dados no formato "tidy" (`pivot_longer`, `pivot_wider`)
+- **dplyr**: Manipulação de dados com verbos intuitivos (`filter`, `select`, `mutate`)
+- **ggplot2/gt**: Visualização de dados baseada na gramática dos gráficos
+
+- O tidyverse implementa o princípio de "tidy data", criando um fluxo 
+de trabalho coeso através do operador pipe (`%>%` ou `|>`).
+
+
+#### Integração entre os Pacotes {.unnumbered}
+
+O grande poder do tidyverse está na **integração entre seus pacotes**. 
+Exemplo: um fluxo completo que:
+
+1. **Transforma** os dados (`mutate`)
+2. **Agrupa e resume** estatísticas (`group_by`, `summarise`)
+3. **Converte** em formato longo (`pivot_longer`)
+4. **Visualiza** os dados (`ggplot2`)
+
+
+#### Princípios do tidyverse {.unnumbered}
+
+- **Consistência**: funções com sintaxe similar.
+- **Composição**: código encadeado com `%>%` ou `|>`.
+- **Clareza sem ambiguidade**: nomes expressivos e argumentos explícitos.
+- **Reprodutibilidade**: fácil de entender, refatorar e auditar.
+
+A filosofia do tidyverse está alinhada com os princípios modernos 
+de ciência de dados transparente, auditável e reproduzível.
+:::
+
+
+
+
+## Dados Organizados
+
+- O conceito de **Tidy Data** (Dados Organizados) foi formalizado por
+Hadley Wickham.
+
+- Um arquivo de dados organizado possui a seguinte estrutura:
+
+    - Cada **linha** representa **uma** observação individual
+    - Cada **coluna** representa **uma** variável específica
+    - Cada **célula** contém **um** valor de **uma** variável para 
+      **uma** observação específica
+  
+- A @fig-2 ilustra o conceito de dados organizados visualmente.
+
+![Dados Organizados](img/tidy_data.jpeg){#fig-2}
+
+
+
+::: {.callout-note icon=false}
+## Benefícios de Dados Organizados
+
+- **Adequação para Ferramentas**: Formato de armazenamento de dados 
+adequado para análise em linguagens (R/Python) e softwares de 
+análise de dados.
+
+- **Consistência**: Estrutura uniforme para todos os conjuntos de dados
+
+- **Facilidade para operações comuns**:
+
+  - Filtragem de observações
+  - Seleção de variáveis
+  - Criação de novas variáveis
+  - Agregação de dados
+  - Junção de múltiplas tabelas
+:::
+
+
+
+::: {.callout-note icon=false}
+## Dados Financeiros Desorganizados Típicos
+
+**Colunas contendo valores**: Nomes de colunas contendo valores 
+de uma ou mais variáveis.
+
+   - Ex: Colunas nomeadas com anos (2020, 2021, 2022)
+
+```{.markdown style="font-size: 1em;"}
+| Empresa   | 2020    | 2021    | 2022    |
+|-----------|---------|---------|---------|
+| Empresa A | 350.000 | 425.000 | 510.000 |
+| Empresa B | 780.000 | 815.000 | 840.000 |
+| Empresa C | 540.000 | 490.000 | 620.000 |
+```
+:::
+
+
+
+
+::: {.callout-note icon=false}
+## Versão Organizada dos Dados Anteriores:
+
+```{.markdown style="font-size: 1em;"}
+| Empresa   | Ano  | Valor   |
+|-----------|------|---------|
+| Empresa A | 2020 | 350.000 |
+| Empresa A | 2021 | 425.000 |
+| Empresa A | 2022 | 510.000 |
+| Empresa B | 2020 | 780.000 |
+| Empresa B | 2021 | 815.000 |
+| Empresa B | 2022 | 840.000 |
+| Empresa C | 2020 | 540.000 |
+| Empresa C | 2021 | 490.000 |
+| Empresa C | 2022 | 620.000 |
+```
+
+**Características:**
+
+- Cada variável está em uma coluna separada
+- Cada observação está em uma linha
+- Cada célula contém um valor único
+:::
+
+
+
+
+::: {.callout-note icon=false}
+## Tipos de "Desorganização" Comuns em Administração
+
+**Múltiplas variáveis em uma coluna**: Uma coluna contendo mais 
+de uma variável
+
+   - Ex: "Nome_Empresa (Ano)" combinando empresa e ano
+
+```{.markdown style="font-size: 1em;"}
+| Nome_Empresa (Ano) | Receita       | Despesa       |
+|--------------------|---------------|---------------|
+| Empresa A (2020)   | R$ 350.000,00 | R$ 290.000,00 |
+| Empresa A (2021)   | R$ 425.000,00 | R$ 320.000,00 |
+| Empresa B (2020)   | R$ 780.000,00 | R$ 710.000,00 |
+| Empresa B (2021)   | R$ 815.000,00 | R$ 735.000,00 |
+```
+
+- **Não** se deve usar unidades (R$ no caso) em arquivos 
+para armazenamento de dados para análise.
+:::
+
+
+
+::: {.callout-note icon=false}
+## **Versão Organizada dos Dados**:
+
+```{.markdown style="font-size: 1em;"}
+| Empresa    | Ano  | Receita  | Despesa  |
+|------------|------|----------|----------|
+| Empresa A  | 2020 | 350000   | 290000   |
+| Empresa A  | 2021 | 425000   | 320000   |
+| Empresa B  | 2020 | 780000   | 710000   |
+| Empresa B  | 2021 | 815000   | 735000   |
+```
+:::
+
+
+
+
+::: {.callout-note icon=false}
+## Múltiplas variáveis em uma coluna:
+
+- Os números referem-se ao lucro líquido trimestral das 
+empresas em milhões de reais:
+
+```{.markdown style="font-size: 1em;"}
+| Empresa    | T1 2023 | T2 2023 | T3 2023 | T4 2023 |
+|------------|---------|---------|---------|---------|
+| TechSoft   | 25.3    | 31.7    | 28.4    | 35.2    |
+| VarejoMax  | 12.8    | 15.4    | 19.3    | 22.7    |
+| FinGroup   | 41.6    | 38.9    | 45.2    | 51.8    |
+```
+
+- **Problemas:**
+
+    - Valores de uma variável (trimestre) estão nas colunas
+    - Não segue o princípio "uma coluna, uma variável"
+    - Dificulta análises temporais e comparativas
+:::
+
+
+
+::: {.callout-note icon=false}
+## **Versão Organizada dos Dados**:
+
+```{.markdown style="font-size: 1em;"}
+| Empresa   | Trimestre | Ano  | Lucro_Liquido |
+|-----------|-----------|------|---------------|
+| TechSoft  | T1        | 2023 | 25.3          |
+| TechSoft  | T2        | 2023 | 31.7          |
+| TechSoft  | T3        | 2023 | 28.4          |
+| TechSoft  | T4        | 2023 | 35.2          |
+| VarejoMax | T1        | 2023 | 12.8          |
+| VarejoMax | T2        | 2023 | 15.4          |
+| VarejoMax | T3        | 2023 | 19.3          |
+| VarejoMax | T4        | 2023 | 22.7          |
+| FinGroup  | T1        | 2023 | 41.6          |
+| FinGroup  | T2        | 2023 | 38.9          |
+| FinGroup  | T3        | 2023 | 45.2          |
+| FinGroup  | T4        | 2023 | 51.8          |
+```
+:::
+
+
+
+
+
+::: {.callout-note icon=false}
+## Tipos de "Desorganização" Comuns em Administração
+
+**Variáveis em linhas e colunas**
+
+   - Ex: Planilha de desempenho onde ROE aparece como coluna, mas 
+   Lucro Líquido e outras variáveis aparecem nas linhas
+
+```{.markdown style="font-size: 1em;"}
+| Empresa            | ROE (%)       | Liquidez Corrente |
+|--------------------|---------------|-------------------|
+| Empresa XYZ        | 15,2          | 1,8               |
+| Lucro Líquido      | R$ 2.500.000  | -                 |
+| Patrimônio Líquido | R$ 16.400.000 | -                 |
+| Ativo Circulante   | -             | R$ 3.600.000      |
+| Passivo Circulante | -             | R$ 2.000.000      |
+```
+:::
+
+
+
+::: {.callout-note icon=false}
+## **Versão Organizada dos Dados**:
+
+```{.markdown style="font-size: 1em;"}
+| Empresa    | Indicador           | Valor       |
+|------------|---------------------|-------------|
+| Empresa XYZ| ROE                 | 0.152       |
+| Empresa XYZ| Liquidez Corrente   | 1.8         |
+| Empresa XYZ| Lucro Líquido       | 2500000     |
+| Empresa XYZ| Patrimônio Líquido  | 16400000    |
+| Empresa XYZ| Ativo Circulante    | 3600000     |
+| Empresa XYZ| Passivo Circulante  | 2000000     |
+```
+:::
+
+
+  
+::: {.callout-tip}  
+## Por que a absoluta maioria dos arquivos de dados são desorganizados?
+
+- Por que a maioria das pessoas que trabalham na área de negócios 
+**não está** familiarizada com os **princípios** da organização 
+de dados para análise e utilizam **planilhas eletrônicas** para 
+trabalhar com dados.
+
+- Planilhas de dados são frequentemente organizadas pensando em 
+**apresentar** os dados ou para tornar a **entrada** de dados mais 
+simples, não em um formato adequado para armazenamento e análise.
+
+- Isso significa que, para a maioria das análises reais, cientistas e 
+analistas de dados **dispendem muito tempo e esforço** organizando e 
+preparando dados elaborados por terceiros.
+
+- A **primeira etapa** é sempre descobrir quais são as **observações** 
+e as **variáveis** associadas a cada observação.
+:::
+
+
+
+::: {.callout-note icon=false}
+## Benefícios para Dissertações e Artigos Científicos
+
+Dados organizados viabilizam e facilitam a:
+
+- **Reprodutibilidade**: Formato padronizado que outros pesquisadores 
+podem entender e utilizar
+
+- **Visualizações avançadas**: Estrutura ideal para a criação de diversos 
+tipos de tabelas e gráficos.
+
+- **Análise econométrica**: Adequação imediata para estudos e 
+modelos econométricos em  (regressão linear, painel, logit, probit etc.)
+:::
+
+
+
+
+## Planilhas Eletrônicas
+
+
+::: {.callout-warning}
+## @broman2018: Riscos para Armazenamento de Dados
+
+- Planilhas eletrônicas têm **alto risco de erros**: Em 13 auditorias de 
+planilhas reais, uma média de **88%** continham erros [@broman2018].
+
+- Problemas comuns incluem: 
+
+  - Conversão automática de formatos (ex: nomes de genes 
+    interpretados como datas)
+  
+  - Armazenamento de datas de forma diferente entre sistemas operacionais
+  
+  - Cálculos incorporados que podem corromper dados originais
+
+  - A mistura de análise, visualização e armazenamento no mesmo arquivo 
+    aumenta o risco de comprometer os dados brutos e os resultados.
+
+- Mas dada a ubiquidade de planilhas nas organizações, caso precise usar 
+planilhas para armazenar dados, siga as seguintes boas práticas:
+:::
+
+
+
+::: {.callout-tip}
+## Recomendações práticas para organizar dados em planilhas.
+
+- Artigo de @broman2018
+
+- Crie planilhas **organizadas** (uma linha = uma observação, uma 
+coluna = uma variável, uma célula = um valor)
+
+- Seja **consistente** e escolha **bons nomes** para as variáveis: 
+
+    - use `snake_case` ou `CamelCase`
+    - `Lucro Líquido (R$)` 😱
+    - `lucro_liquido` ou `LucroLiquido` 😃
+    - **NUNCA use** acentos, caracteres especiais e espaços vaziso para nomes ou 
+      valores.
+   
+
+- Escreva **datas** conforme a [Norma ISO 8601](https://pt.wikipedia.org/wiki/ISO_8601){target="_blank}: 
+
+    - `YYYY-MM-DD`, exemplo: `2025-05-07`
+
+- **Sem** células vazias: use hífen (`-`) e no caso de usar R, use `NA` 
+
+- Crie um **dicionário dos dados**
+
+- **NUNCA faça cálculos** na planilha dos dados originais/brutos
+
+- **NUNCA use** unidades de medida (R$), cor ou realce como um dado.
+
+    - `R$ 50.000,00` 😱
+    - `50000` 😃
+    - `10 %` 😱 
+    - `O.1` 😃
+
+- **Faça backups**
+
+- Use **validação** dos dados para evitar erros
+
+- **Salve** os dados em **arquivos de texto simples** (`.csv`): 
+
+    - todas as linguagens (R/Python) e softwares de análises de dados 
+      reconhecem facilmente esse formato.
+:::
+
+
+::: {.callout-tip}  
+## Pacote tidyr
+
+Na próxima seção, vamos aprender sobre como o pacote tidyr do 
+tidyverse pode ser usado para tornar alguns tipos de dados 
+desorganizados em dados organizados para análise.
+:::
+
+
+
+
+## Introdução ao Pacote tidyr 
+
+![](https://tidyr.tidyverse.org/logo.png){fig-align="center" width="30%"}
+
+::: {.callout-note icon=false}
+## O pacote tidyr no ecossistema tidyverse
+
+- O [tidyr](https://tidyr.tidyverse.org){target="_blank"} é um pacote do 
+  tidyverse para **organizar dados desorganizados**
+
+- Seu nome vem de "*tidy*" (organizado) + "r" (R)
+
+- Foi criado para facilitar a transformação de dados desorganizados em 
+dados organizados (*tidy data*) para análise
+
+- É muito útil para a preparação de dados na fase 3 do CRISP-DM (Preparação dos Dados)
+
+- Permite que dados em formatos comuns de planilhas e relatórios sejam 
+  transformados em formatos adequados para análise e visualização
+:::
+
+
+
+
+::: {.callout-note icon=false}
+## A Principal função do pacote tidyr para nós
+
+- `pivot_longer()`: Converte dados do formato amplo 
+(onde valores de uma ou mais variáveis são espalhadas por colunas) em 
+um formato longo (onde cada variável está em uma única coluna).
+
+  - Útil quando você precisa de de dados para análise ou visualização
+  
+  - **Ex**: Transformar colunas de trimestres (Q1, Q2, Q3, Q4) em uma 
+    única coluna "trimestre"
+
+- Iremos estudar **somente** a função `pivot_longer()`, porque 
+o foco deste módulo é a preparação de dados para análise.
+
+- Mas há diversas outras funções úteis para a organização de dados:
+:::
+
+
+
+
+### Quando usar o tidyr?
+
+::: {.callout-note icon=false}
+## Situações comuns em Administração
+
+- Quando você tem **planilhas financeiras** com colunas para diferentes 
+períodos (meses, trimestres, anos)
+  
+- Quando você recebe **planilhas Excel** organizadas para visualização 
+humana, mas não para análise de dados.
+  
+- Quando precisa **combinar dados** de diferentes fontes que estão em 
+formatos incompatíveis.
+  
+- Quando precisa **preparar dados** para visualizações específicas com 
+ggplot2 (gráficos de linhas, facetas, etc.)
+  
+- Quando realiza **análises temporais** e precisa converter entre 
+formatos de data/hora.
+:::
+
+
+
+
+### A Função tidyr::pivot_longer 
+
+
+::: {.callout-note icon=false}
+## Ao final desta seção, você será capaz de:
+
+- **Aplicar** a função pivot_longer() com seus parâmetros essenciais:
+  `cols`, `names_to` e `values_to`
+  
+- **Organizar/Transformar** dados complexos extraindo múltiplas 
+informações de colunas
+  
+- **Integrar** pivot_longer() em pipelines de análise com dplyr
+  
+- **Implementar** soluções para casos reais de análise de dados 
+administrativos
+:::
+
+
+::: {.callout-note icon=false}
+## Transformando dados de formato amplo para longo
+
+- A função `pivot_longer()` converte dados do formato **amplo** (wide) 
+para o formato **longo** (long)
+
+- É muito útil quando as colunas contêm **valores** em vez de **variáveis**
+  
+- Geralmente, é o primeiro passo para transformar planilhas de negócios em 
+  dados organizados para análise (*tidy data*)
+  
+- A @fig-3 ilustra o uso desta função
+:::
+
+
+![Aplicando a função pivot_longer()](img/pivot_longer.jpeg){#fig-3}
+
+
+
+### Sintaxe da função pivot_longer()
+
+::: {.callout-tip}
+## Como usar pivot_longer() na prática
+
+```{r}
+#| eval: false
+
+# Formato básico
+dados %>%
+  pivot_longer(
+    cols = "valores_de_uma_nova_coluna",
+    names_to = "nome_nova_coluna",
+    values_to = "nome_outra_nova_coluna"
+  )
+```
+
+- **valores_de_uma_nova_coluna**: as <u>colunas</u> que contêm valores de 
+uma variável e serão transformadas.
+
+- **nome_nova_coluna**: <u>nome</u> da nova coluna/variável que conterá os 
+nomes das colunas originais.
+
+- **nome_outra_nova_coluna**: <u>nome</u> da nova coluna/variável que 
+conterá os valores originais.
+:::
+
+
+
+
+### Função pivot_longer 
+
+::: {.callout-tip}
+## Descrição
+
+| Característica         | pivot_longer()                                    | 
+|------------------------|---------------------------------------------------|
+| **Transforma**         | Colunas → Linhas                                  | 
+| **Formato resultante** | Longo (mais linhas)                               |
+| **Quando usar**        | Para análise e visualização                       | 
+| **Exemplo típico**     | Transformar colunas de anos em uma variável "ano" | 
+:::
+
+
+
+
+
+### A Função tribble()
+
+::: {.callout-note icon=false}
+## Descrição
+
+A função `tribble()` (abreviação de "*transposed tibble*") é uma forma 
+elegante de criar pequenas tibbles/data frames para exemplos ou testes:
+
+```{r}
+# Criando uma data frame com tribble() - "tibble transposta"
+produtos <- tribble(
+  ~codigo, ~produto, ~preco, # Nomes das colunas começam com ~
+  "A123", "Notebook", 3500, # Cada linha é um registro
+  "B456", "Smartphone", 1800, # Os valores são separados por vírgulas
+  "C789", "Monitor", 950 # A formatação facilita a leitura
+)
+
+# Visualizando a data frame criada
+produtos
+```
+
+**Vantagens da função tribble():**
+
+- **Layout Visual**: Cada linha do código corresponde a uma linha da data 
+  frame, tornando o código mais legível
+  
+- **Especificação direta**: Os nomes das colunas são definidos com ~ (til)
+
+- **Flexibilidade de tipos**: Cada coluna pode conter diferentes tipos de dados
+
+- **Ideal para exemplos**: Perfeita para criar pequenas data frames para 
+demonstrações ou testes.
+
+Esta função faz parte do pacote `tibble`, que é carregado automaticamente 
+quando você carrega o `tidyverse`.
+:::
+
+
+
+
+### Exemplo Básico de pivot_longer()
+
+::: {.callout-note icon=false}
+## Dados de receita trimestral (formato amplo/wide)
+
+```{r}
+# Criando a data frame de exemplo
+receitas <- tribble(
+  ~produto, ~T1, ~T2, ~T3, ~T4,
+  "Produto A", 50000, 55000, 60000, 65000,
+  "Produto B", 30000, 32000, 35000, 37000,
+  "Produto C", 20000, 22000, 25000, 27000
+)
+
+# Visualizando a data frame original (formato amplo/wide)
+receitas
+```
+
+Este formato é para apresentação, não para armazenamento e 
+análise.
+:::
+
+
+
+::: {.callout-note icon=false}
+## Transformando para o formato longo
+
+```{r}
+#| eval: true
+
+# Transformando para o formato longo usando pivot_longer
+receitas_longas <- receitas %>%
+  pivot_longer(
+    cols = c("T1", "T2", "T3", "T4"), # colunas que serão valores da nova coluna
+    names_to = "trimestre", # nome da nova coluna
+    values_to = "receita" # nome de outra nova coluna
+  )
+
+# Visualizando o resultado (formato longo/long)
+receitas_longas
+```
+
+Agora os dados estão organizados:
+
+- Cada linha é uma observação (um produto em um trimestre)
+- Cada coluna é uma variável (produto, trimestre, receita)
+- Cada célula contém um único valor
+:::
+
+
+
+
+### Exemplo Intermediário: Várias Colunas
+
+::: {.callout-note icon=false}
+## Dados de desempenho financeiro 
+
+```{r}
+# Criando a data frame com múltiplas métricas por trimestre
+desempenho <- tribble(
+  ~empresa, ~receita_T1, ~receita_T2, ~despesa_T1, ~despesa_T2,
+  "Empresa A", 150000, 175000, 120000, 130000,
+  "Empresa B", 250000, 270000, 200000, 220000,
+  "Empresa C", 100000, 115000, 80000, 95000
+)
+
+# Visualizando a data frame original
+desempenho
+```
+
+Este formato é ainda mais desorganizado, pois mistura três variáveis 
+(receita, despesa e trimestre) nos nomes das colunas.
+:::
+
+
+
+::: {.callout-note icon=false}
+## Transformando para o formato longo com dois níveis
+
+```{r}
+# Transformando para o formato longo usando pivot_longer com nomes separados
+desempenho_longo <- desempenho %>%
+  pivot_longer(
+    cols = -empresa, # todas as colunas exceto "empresa"
+    names_to = c("indicador", "trimestre"), # nomes das duas novas colunas
+    names_sep = "_", # separador nos nomes das colunas
+    values_to = "valor" # nome de nova coluna para receber os valores
+  )
+
+# Visualizando o resultado
+desempenho_longo
+```
+
+**Observação importante:** 
+
+- Os nomes das colunas originais (`receita_T1`, `receita_T2`, etc.) são 
+divididos pelo separador "_" em exatamente duas partes. 
+
+- A primeira parte ("receita" ou "despesa") vai para a coluna "indicador" 
+e a segunda parte ("T1" ou "T2") vai para a coluna "trimestre". 
+
+- Este é um padrão comum em dados financeiros: quando os nomes de colunas 
+seguem um formato consistente com separadores, podemos extrair as informações 
+contidas neles para criar novas variáveis.
+:::
+
+
+
+
+### Exemplo Avançado 
+
+::: {.callout-note icon=false}
+## Indicadores financeiros por trimestre
+
+```{r}
+# Exemplo mais gerenciável para slides
+receita_trimestral <- tribble(
+  ~empresa, ~`2022_T1_Receita`, ~`2022_T2_Receita`, ~`2023_T1_Receita`, ~`2023_T2_Receita`,
+  "ABC Ltda", 1200000, 1350000, 1500000, 1620000,
+  "XYZ S.A.", 2500000, 2700000, 2900000, 3100000
+)
+
+# Visualizando a data frame original
+receita_trimestral
+```
+
+- Temos informações de ano e trimestre nos nomes das colunas
+:::
+
+
+
+::: {.callout-note icon=false}
+## Organizando dados financeiros complexos
+
+```{r}
+# Transformando para o formato longo usando pivot_longer com três níveis
+receita_trimestral_organizada <- receita_trimestral %>%
+  pivot_longer(
+    cols = -empresa, # todas as colunas exceto "empresa"
+    names_to = c("ano", "trimestre"), # nomes de duas novas colunas
+    names_sep = "_", # separador nos nomes das colunas
+    values_to = "receita" # nome de nova coluna para receber os valores da receita
+  )
+
+# Visualizando o resultado
+receita_trimestral_organizada
+```
+:::
+
+
+
+
+### Resumo: Função pivot_longer()
+
+::: {.callout-tip}
+## O que você precisa lembrar
+
+1. **Finalidade**: Transformar dados do formato amplo (wide) para o 
+formato longo (long), organizando-os conforme o princípio tidy data
+
+2. **Sintaxe básica**:
+
+```{r}
+#| eval: false
+dados %>%
+  pivot_longer(
+    cols = colunas_a_transformar,
+    names_to = "nome_nova_coluna_para_nomes",
+    values_to = "nome_nova_coluna_para_valores"
+  )
+```
+
+3. **Parâmetros principais**:
+
+- `cols`: Quais colunas serão transformadas em pares nome-valor
+- `names_to`: Nome da nova coluna que receberá os nomes das colunas originais
+- `values_to`: Nome da nova coluna que receberá os valores
+
+<br>
+4. **Caso avançado**:
+
+- Quando os nomes de colunas contêm múltiplas informações, use:
+
+    - `names_to = c("variavel1", "variavel2", ...)`
+    - `names_sep = "_"` (ou outro separador presente nos nomes)
+
+<br>
+5. **Benefícios**:
+
+- Padroniza o formato de dados conforme princípios da ciência de dados
+- Facilita análises com dplyr (group_by, summarize, etc.)
+- Prepara dados para visualizações eficientes
+:::
+
+
+
+
+### Dicas para Trabalhar com tidyr
+
+::: {.callout-tip}
+## Recomendações práticas
+
+1. **Identifique as variáveis**: Antes de transformar, identifique 
+claramente quais são as observações e variáveis reais nos seus dados
+
+2. **Comece com subconjuntos**: Para dados complexos, comece testando 
+com um pequeno subconjunto de dados
+
+3. **Use nomes descritivos**: Escolha bons nomes para as novas colunas 
+criadas por `pivot_longer()` 
+
+4. **Combine com dplyr**: As transformações com tidyr geralmente são 
+seguidas por operações com dplyr para análise
+
+5. **Verifique os resultados**: Sempre confira se os dados transformados 
+mantêm as mesmas informações dos dados originais
+:::
+
+
+
+
+
+### Resumo: Pacote tidyr
+
+::: {.callout-tip}
+## O que você precisa lembrar
+
+1. **O que faz**: O pacote tidyr transforma dados entre os formatos 
+amplo (wide) e longo (long)
+
+2. **Principal função**:
+
+   - `pivot_longer()`: Converte de amplo (*wide*) para longo (*long*) 
+   (colunas para linhas)
+
+3. **Quando usar**:
+
+   - Use `pivot_longer()` quando colunas contiverem valores em vez de 
+     variáveis
+
+4. **Importância na análise de dados**:
+
+   - É essencial para a preparação de dados (fase 3 do CRISP-DM)
+   
+   - Permite transformar dados comuns de negócios em formatos adequados 
+     para análise
+
+   - Facilita a aplicação de funções do dplyr e criação de visualizações
+
+5. **Lembre-se sempre**:
+
+   - Dados organizados (tidy) têm uma variável por coluna, uma observação 
+     por linha.
+:::
+
+
+
+
+
+## Introdução ao Pacote dplyr
+
+![](https://dplyr.tidyverse.org/logo.png){fig-align="center"}
+
+::: {.callout-note icon=false}
+## O pacote dplyr no ecossistema tidyverse
+
+- O [dplyr](https://dplyr.tidyverse.org/index.html){target="_blank"} é um 
+dos pacotes principais do [tidyverse](https://www.tidyverse.org){target="_blank"}, 
+criado por Hadley Wickham
+
+- Seu nome vem de "*data plier*" (alicate para dados) - uma ferramenta 
+para manipular dados
+
+- Foi projetado seguindo a filosofia "*tidy data*" (dados 
+organizados) - cada variável é uma coluna, cada observação é uma linha
+
+- É escrito em C++ para performance otimizada
+
+- Permite manipulação de dados de forma consistente, clara e encadeada
+:::
+
+
+
+
+::: {.callout-note icon=false}
+## O dplyr no Ecossistema R
+
+- O pacote dplyr é parte do **tidyverse**
+  
+- Enquanto os pacotes **readr** e **readxl** ajudam 
+  na importação de dados, o dplyr é especializado na **manipulação** 
+  de dados
+  
+- O dplyr foi otimizado para manipular sobre **dados organizados**, 
+longos ou *tidy data*
+  
+- O dplyr trabalha com uma estrutura de dados de R que já 
+  conhecemos: **data frames/tibbles**
+  
+- As funções do dplyr foram projetadas para serem usadas com o 
+  operador pipe (`%>%`), que já vimos brevemente no relatório Junglivet
+:::
+
+
+
+
+::: {.callout-tip}
+## O dplyr como uma "linha de produção"
+
+Imagine o processo de análise de dados como uma linha de produção:
+
+- Os **dados brutos** são sua "matéria-prima"
+
+- Cada função do dplyr é uma "estação de trabalho" que realiza 
+  uma operação específica:
+  
+  - `filter()` seleciona apenas os materiais que atendem a certos critérios
+  - `select()` separa apenas as partes que você precisa
+  - `mutate()` transforma ou cria novos componentes
+  - `group_by()` + `summarize()` agrupam e calculam estatísticas
+  - `arrange()` organiza o resultado final
+  
+- O operador pipe (`%>%`) é a "esteira" que move os dados de uma estação 
+para outra
+:::
+
+
+
+::: {.callout-note icon=false}
+## Operações Comuns em Análise de Dados
+
+- Muitas vezes precisamos **filtrar** somente certas linhas 
+(**observações** ) de uma data frame. 
+
+- Muitas vezes precisamos **selecionar** somente certas colunas 
+(**variáveis**) de uma data frame.
+
+- Muitas vezes precisamos **agrupar** os dados por uma determinada(s)
+variável(s) categórica.
+
+- Muitas vezes precisamos **calcular estatísticas descritivas** para 
+esses subconjuntos de dados (função `summarize`). 
+:::
+
+
+
+
+### Por que usar o dplyr?
+
+- **Exemplo 1:** Usando R base
+
+```{r}
+# pib per capita médio dos países do continente americano
+mean(gapminder$gdpPercap[gapminder$continent == "Americas"])
+```
+
+- **Exemplo 1:** Usando o pacote dplyr
+
+```{r}
+# pib per capita médio dos países do continente americano
+gapminder %>%
+  filter(continent == "Americas") %>%
+  summarize(mean(gdpPercap))
+```
+
+
+
+- **Exemplo 2:** R base (aninhado)
+
+```{r}
+#| eval: true
+
+# Calcular a média de PIB per capita para 
+# países asiáticos com população > 50 milhões 
+# em 2007
+mean(gapminder$gdpPercap[
+  gapminder$continent == "Asia" & 
+  gapminder$pop > 50000000 & 
+  gapminder$year == 2007
+])
+```
+
+- Difícil de ler e entender
+- Propenso a erros
+- Difícil de modificar
+
+
+- **Exemplo 2:** Com dplyr e o operador pipe
+
+```{r}
+#| eval: true
+
+# O mesmo cálculo com dplyr
+gapminder %>%
+  filter(
+    continent == "Asia",
+    pop > 50000000,
+    year == 2007
+  ) %>%
+  summarize(mean(gdpPercap))
+```
+
+- Leitura sequencial, mais natural
+- Cada etapa claramente separada
+- Fácil de modificar ou expandir
+
+
+
+
+### Comparando Abordagens
+
+::: {.callout-note icon=false}
+## Vantagens e Desvantagens
+
+**Base R: Funções aninhadas**
+
+- **Vantagens**: Não requer pacotes adicionais, disponível em qualquer 
+   instalação do R
+   
+- **Desvantagens**: 
+
+  - Código difícil de ler com funções aninhadas
+  - Difícil de depurar quando há erros
+  - Funções com sintaxes inconsistentes
+
+**dplyr: Gramática da manipulação de dados**
+
+- **Vantagens**:
+
+  - Código mais legível e expressivo
+  - Funções com nomes intuitivos e consistentes
+  - Ideal para análises sequenciais com pipes
+  
+- **Desvantagens**:
+
+  - Requer aprender uma nova sintaxe (para usuários experientes)
+  - Dependência de pacotes externos
+  - Algumas operações podem ser mais lentas que o R base em casos específicos
+:::
+
+
+
+
+### Fluxo de trabalho com tidyvese 
+
+::: {.callout-note icon=false}
+## Gramática da manipulação de dados
+
+O fluxo típico de uma análise de dados com tidyverse segue 
+este padrão:
+
+1. **Importar** dados (com pacotes here, readr, readxl,...)
+2. **Organizar** dados para análise (pacote tidyr)
+3. **Unir** arquivos/tabelas se necessário (funções para `joins`)
+4. **Filtrar** observações (função `filter`)
+5. **Selecionar** variáveis (função `select`)
+6. **Transformar** dados (função `mutate`)
+7. **Agrupar** dados (função `group_by`)
+8. **Resumir** informações (função `summarize`)
+9. **Ordenar** resultados (função `arrange`)
+:::
+
+
+
+
+### Um Pipeline de Análise com dplyr
+
+::: {.callout-note icon=false}
+## Informações sobre expectativa de vida por continente
+
+```{r}
+#| eval: true
+
+# Um pipeline de análise com dplyr
+relatorio_expectativa <- gapminder %>%
+  # Filtra apenas os dados de 2007
+  filter(year == 2007) %>%
+  # Agrupa por continente
+  group_by(continent) %>%
+  # Calcula estatísticas resumidas
+  summarize(
+    expectativa_media = mean(lifeExp),
+    expectativa_minima = min(lifeExp),
+    expectativa_maxima = max(lifeExp),
+    num_paises = n()
+  ) %>%
+  # Ordena do maior para o menor
+  arrange(desc(expectativa_media))
+
+# Visualiza o resultado final
+relatorio_expectativa
+```
+
+Este exemplo demonstra como um conjunto de funções do dplyr pode 
+ser combinado para transformar dados brutos **organizados** em um relatório 
+informativo com apenas algumas linhas de código.
+:::
+
+
+
+::: {.callout-note icon=false}
+## **Pacote dplyr: Vantagens**
+
+O pacote dplyr fornece uma série de funções muito úteis para 
+manipular data frames de uma maneira que: 
+
+- reduz a probabilidade de cometer erros 
+- economiza digitação 
+- o código é mais legível e compreensível
+:::
+
+
+
+::: {.callout-note icon=false}
+## Objetivos de Aprendizagem
+
+Vamos aprender 5 das funções mais usadas do pacote dplyr, 
+
+::: {style="font-size: 90%;"}
+| Função              | Descrição                                           |
+|---------------------|-----------------------------------------------------|
+| `dplyr::filter()`   | para filtrar linhas (observações)                   | 
+| `dplyr::select()`   | para selecionar colunas (variáveis )                |
+| `dplyr::mutate()`   | para criar novas variáveis                          |
+| `dplyr::group_by()` | para operações "por grupo"                          |
+| `dplyr::summarize()`| para calcular estatísticas                          |
+| `dplyr::arrange()`  | para ordenar resultados                             |
+:::
+
+Além disso, veremos como como usar o operador pipe (`%>%`) para 
+combiná-las.
+:::
+
+
+
+
+### Boas Práticas com dplyr
+
+::: {.callout-tip}
+## Recomendações para código eficiente e legível
+
+1. **Indentação consistente**: 
+
+   - Um nível de identação para cada função
+   - Parâmetros adicionais alinhados
+
+2. **Nomeie seu código**: 
+
+   - Use nomes descritivos para variáveis intermediárias e finais
+   - Ex: `dados_filtrados`, `relatorio_vendas_por_regiao`
+
+3. **Comente seu código**:
+
+   - Explique o "por quê", não apenas o "o quê"
+   - Útil para você mesmo no futuro e para colegas
+
+4. **Dividir análises complexas em etapas**:
+
+   - Para análises muito complexas, divida em objetos intermediários
+   - Facilita a depuração e compreensão
+
+5. **Consistência de estilo**:
+
+   - Seja consistente com o estilo de nomeação (snake_case ou CamelCase)
+   - Seja consistente com o uso de aspas (simples ou duplas)
+:::
+
+
+
+
+### Pacote gapminder - Dados 
+
+::: {.callout-note icon=false}
+## Descrição 
+
+- O pacote gapminder da linguagem R contém uma data frame também chamada 
+gapminder. 
+
+- A df gapminder fornece informações detalhadas sobre indicadores 
+socioeconômicos reais de vários países ao longo do tempo. 
+
+- Este conjunto de dados é muito utilizado no ensino da linguagem R e 
+de métodos estatísticos.
+
+- Vamos utilizar a df `gapminder` para ilustrar as funções do 
+pacote dplyr.
+
+- Para acessar os dados gapminder, basta instalar e carregar o 
+pacote gapminder:
+
+```{r}
+# carrega os pacotes
+library(tidyverse)
+library(gapminder)
+```
+:::
+
+
+
+
+### Data Frame gapminder
+
+::: {.callout-note icon=false}
+## Fase 1 (CRISP-DM): Entendimento dos Dados
+
+Para obter uma visão geral da estrutura da df gapminder, podemos usar 
+a função glimpse do pacote dplyr:
+
+```{r}
+# visualizando a estrutura dos dados
+dplyr::glimpse(gapminder)
+```
+
+Podemos também inspecionar as primeiras 6 linhas da data frame com a 
+função head:
+
+```{r}
+head(gapminder)
+```
+
+:::
+
+
+
+
+### Boa Prática 
+
+::: {.callout-note icon=false}
+## Dicionário dos dados
+
+A data frame gapminder contida no pacote de mesmo nome, possui 
+1704 linhas (observações) e 6 colunas (variáveis).
+
+| Variável    | Classe/Tipo | Descrição                                                      |
+|-------------|-------------|----------------------------------------------------------------|
+| `country`   | `factor`    | Nome do país (142 níveis/países)                                      |
+| `continent` | `factor`    | Continente ao qual o país pertence (5 níveis/continentes)                  |
+| `year`      | `integer`   | Ano da observação (1952 a 2007 em incrementos de 5 anos)       |
+| `lifeExp`   | `double`    | Expectativa de vida ao nascer, em anos                         |
+| `pop`       | `integer`   | População total do país                                        |
+| `gdpPercap` | `double`    | PIB per capita em US$, ajustado pela inflação                  |
+:::
+
+
+
+## Função select() 
+
+
+### O que é a função select()?
+
+::: {.callout-note icon=false}
+## Selecionando variáveis (colunas) de uma data frame
+
+- A função `select()` permite escolher quais **variáveis** 
+(colunas) você quer manter ou remover de uma data frame
+
+- Enquanto `select()` trabalha com **colunas** (variáveis), 
+`filter()` trabalha com **linhas** (observações), 
+  
+- É essencial para simplificar seus dados, focando apenas nas variáveis relevantes para sua análise
+:::
+
+
+![](img/select.jpeg){fig-align="center"}
+
+
+
+
+### Sintaxe da função select()
+
+::: {.callout-tip}
+## Sintaxe básica
+
+```{r}
+#| eval: false
+
+# Estrutura básica
+select(df, var1, var2, var3)
+
+# Com operador pipe
+df %>% select(var1, var2, var3)
+```
+
+- **df**: A data frame da qual você quer selecionar variáveis
+- **var1, var2, var3**: Nomes das variáveis que você quer manter
+- Todas as variáveis não listadas serão removidas do resultado
+:::
+
+
+
+
+### Exemplo: Análise Financeira Simplificada
+
+::: {.callout-note icon=false}
+## Cenário: Análise financeira de países
+
+Imagine que você é um analista financeiro internacional e precisa 
+preparar um relatório sobre PIB:
+
+```{r}
+# Seleciona apenas as variáveis relevantes para análise financeira
+dados_financeiros <- gapminder %>%
+  select(country, year, gdpPercap)
+
+# Visualiza as primeiras linhas do resultado
+head(dados_financeiros)
+```
+
+**Interpretação:** Este código seria equivalente a extrair apenas os 
+dados financeiros relevantes (país, ano e PIB per capita) de uma 
+grande base de dados para uma análise específica de desempenho 
+econômico.
+:::
+
+
+
+
+### Técnicas de Seleção Avançadas
+
+::: {.callout-note icon=false}
+## Diversas formas de selecionar variáveis
+
+```{r}
+#| eval: false
+
+# Selecionar variáveis por inclusão
+gapminder %>% select(country, year, gdpPercap)
+
+# Selecionar variáveis por exclusão (com sinal de menos)
+gapminder %>% select(-continent, -lifeExp)
+
+# Selecionar variáveis em sequência
+gapminder %>% select(country:pop)
+
+# Selecionar variáveis que começam com determinado texto
+gapminder %>% select(starts_with("c"))
+
+# Selecionar variáveis que terminam com determinado texto
+gapminder %>% select(ends_with("p"))
+
+# Selecionar variáveis que contêm determinado texto
+gapminder %>% select(contains("exp"))
+```
+:::
+
+
+
+::: {.callout-tip}
+## Aplicações práticas em negócios
+
+Estas técnicas são muito úteis quando você trabalha com:
+
+- Grandes conjuntos de dados com dezenas ou centenas de variáveis
+- Planilhas de dados financeiros onde precisa focar em determinadas métricas
+- Relatórios onde precisa apresentar apenas informações específicas
+:::
+
+
+
+
+### Erros Comuns e Como Evitá-los
+
+
+::: {.callout-caution}
+## Os erros mais comuns com select()
+
+| Erro | Errado | Correto |
+|------|-------------------|-----------------|
+| Nomes de variáveis com aspas | `select(gapminder, "country")` | `select(gapminder, country)` |
+| Tentar condições como em filter | `select(gapminder, gdpPercap > 1000)` | Use `filter()` para isso, não `select()` |
+| Não salvar o resultado | `gapminder %>% select(country, year)` | `dados_novos <- gapminder %>% select(country, year)` |
+| Remover variáveis necessárias | `select(country)` e depois tentar usar `continent` | Verifique se manteve todas as variáveis necessárias |
+:::
+
+
+::: {.callout-tip}
+## Dica importante:
+
+Lembre-se: `select()` é para escolher **colunas (variáveis)** e `filter()` é para escolher **linhas (observações)**!
+:::
+
+
+
+
+### Exemplo: Salvando o resultado
+
+::: {.callout-note icon=false}
+## Seleção por Exclusão
+
+- Se quisermos remover apenas a variável **continent**, podemos usar 
+a sintáxe abaixo e salvar o resultado em outro objeto:
+
+```{r}
+variaveis_selecionadas <- select(gapminder, -continent)
+variaveis_selecionadas
+```
+:::
+
+
+
+
+### Pacote dplyr e o operador pipe ( `|>` ou `%>%`)
+
+::: {.callout-note icon=false}
+## Combinação de Operações com `|>` ou `%>%`
+
+- Nos slides anteriores, usamos a sintáxe 'normal' da linguagem R. 
+
+- Mas o ponto forte do dplyr está na **combinação** de várias funções 
+usando o **operador pipe** `%>%`. 
+
+- Vamos analisar a gramática do uso de funções do dplyr combinadas 
+com o operador `%>%`. 
+
+- Atalho para inserir o operador pipe: **Ctrl + shift + M**
+:::
+
+
+
+::: {.callout-note icon=false}
+## Significado conceitual do pipe %>%
+
+- O operador pipe pode ser lido como "então" ou "em seguida"
+
+- Fluxo da esquerda para a direita, similar à leitura natural
+
+- Transforma: 
+
+`funcao(dados, arg1, arg2)` 
+
+em 
+
+`dados %>% funcao(arg1, arg2)`
+
+:::
+
+
+
+::: {.callout-note icon=false}
+## Analogia
+
+Uma linha de montagem onde cada função faz uma operação nos dados
+
+```{r}
+#| eval: true
+#| code-line-numbers: "1|2|3|4-7"
+
+gapminder %>% # Pegue os dados gapminder, então...
+  filter(year == 2007) %>% # Filtre para apenas o ano 2007, então...
+  group_by(continent) %>% # Agrupe por continente, então...
+  summarize( # Calcule resumos:
+    mean(lifeExp), # expectativa de vida média
+    sum(pop) # população total 
+  )
+```
+:::
+
+
+
+
+::: {.callout-tip}
+## Nomeie os resumos calculados com summarize
+
+```{r}
+#| eval: true
+#| 
+#| code-line-numbers: "4-7"
+gapminder %>% # Pegue os dados gapminder, então...
+  filter(year == 2007) %>% # Filtre para apenas o ano 2007, então...
+  group_by(continent) %>% # Agrupe por continente, então...
+  summarize( # Calcule resumos:
+    exp_vida_media = mean(lifeExp), # expectativa de vida média
+    populacao_total = sum(pop) # população total
+  )
+```
+:::
+
+
+
+
+### Função select() e o Operador Pipe
+
+
+::: {.callout-tip}
+## Selecionando Variáveis com o Pipe
+
+```{r}
+variaveis_selecionadas <- gapminder %>%
+  dplyr::select(year, country, gdpPercap)
+```
+
+Vamos entender o código:
+
+1. Primeiro invocamos a df gapminder e a passamos, usando o operador
+pipe `%>%`, para a próxima etapa, que é a função select(). 
+
+2. Neste caso, não especificamos qual df usamos na 
+função select(), porque que ela obtém essa informação do pipe 
+anterior. 
+
+3. Salvamos o resultado no objeto `variaveis_selecionadas`
+:::
+
+
+
+
+### Resumo: Função select() 
+
+::: {.callout-tip}
+## O que você precisa lembrar
+
+1. **Para que serve:** Selecionar apenas as colunas (variáveis) que você deseja manter ou remover
+
+2. **Sintaxe básica:** 
+
+```{r}
+#| eval: false
+dados %>% select(var1, var2, var3)  # Mantém apenas var1, var2 e var3
+dados %>% select(-var4, -var5)      # Remove var4 e var5, mantém o resto
+```
+
+3. **Técnicas úteis:**
+   - Seleção por inclusão: `select(país, ano, vendas)`
+   - Seleção po exclusão: `select(-observações, -notas)`
+   - Seleção por padrão de texto: `select(starts_with("venda"))`
+
+4. **Lembre-se sempre:**
+   - `select()` trabalha com COLUNAS
+   - `filter()` trabalha com LINHAS
+   - Sempre salve o resultado em um novo objeto!
+
+```{r}
+#| eval: false
+novo_df <- dados %>% select(...)
+```
+:::
+
+
+
+
+
+
+## Função filter() 
+
+
+### O que é a função filter()?
+
+::: {.callout-note icon=false}
+## Filtrando observações (linhas) de uma data frame
+
+- A função `filter()` permite **filtrar subconjuntos de observações** 
+(linhas) que atendem determinadas condições ou critérios.
+
+- É uma das funções mais utilizadas na análise de dados para criar 
+  subconjuntos específicos dos dados
+  
+- Pense nela como um "filtro" que deixa passar apenas as observações 
+  que atendem aos critérios que você definir
+:::
+
+
+![Neste caso, duas linhas atendem às condições](img/filter.jpeg){fig-align="center"}
+
+
+
+
+### O que é a função filter()?
+
+::: {.callout-note icon=false}
+## Filtrando observações (linhas) de uma data frame
+
+- Imagine que você tem uma planilha de vendas e quer analisar apenas 
+as vendas:
+
+  - de um produto específico
+  - acima de determinado valor
+  - em uma região específica
+  - em um período específico
+
+- A função `filter()` permite fazer essa filtragem de forma rápida e precisa
+:::
+
+
+
+
+### Sintaxe da função filter()
+
+::: {.callout-tip}
+## Sintaxe básica
+
+```{r}
+#| eval: false
+
+# Estrutura básica
+filter(df, condição)
+
+# Com operador pipe
+df %>% filter(condição)
+```
+
+- **df**: A data frame a ser filtrada
+- **condição**: Expressão lógica que retorna TRUE/FALSE para cada linha
+- Somente as linhas que resultam em TRUE são mantidas no resultado
+:::
+
+
+
+
+### Operadores para construir condições
+
+::: {.callout-tip}
+## Operadores na linguagem dos negócios
+
+| Operador | Exemplo em Linguagem Natural | Código em R |
+|----------|--------------------------|----------|
+| ==  | Apenas os países europeus | continent == "Europe" |
+| != | Todos, exceto os países europeus | continent != "Europe" |
+| > | Países com PIB per capita maior que 10.000 | gdpPercap > 10000 |
+| < | Países com menos de 1 milhão de habitantes | pop < 1000000 |
+| >= | Países a partir do ano 2000 | year >= 2000 |
+| &  | Países europeus a partir de 2000 | continent == "Europe" & year >= 2000 |
+| `|` | Países da Europa ou da Ásia | continent == "Europe" &#124; continent == "Asia"</code> |
+
+:::
+
+
+::: {.callout-tip}
+## Dicas
+
+- Use `==` para igualdade (lembre-se: dois sinais de igual, não apenas um)
+- Use `&` para "E" (quero este critério **E** aquele também)
+- Use `|` para "OU" (quero este critério **OU** aquele)
+:::
+
+
+
+
+### Exemplo básico
+
+::: {.callout-note icon=false}
+## Cenário: Análise de vendas por continente
+
+Imagine que a data frame `gapminder` representa dados de filiais de uma 
+empresa multinacional:
+
+```{r}
+# Filtra apenas países das Américas
+# como se fossem filiais da região Américas
+
+filiais_americas <- gapminder %>%
+  filter(continent == "Americas")
+
+# Visualiza as primeiras 6 linhas do resultado
+head(filiais_americas)
+```
+
+**Interpretação:** Este filtro seria equivalente a selecionar 
+apenas dados de filiais localizadas nas Américas para uma análise 
+regional de desempenho.
+:::
+
+
+
+
+### Pensando como um Analista de Negócios
+
+::: {.callout-note icon=false}
+## Perguntas de negócios traduzidas para filter()
+
+| Pergunta de Negócio | Código com filter() |
+|---------------------|---------------------|
+| Quais países tiveram PIB per capita acima de $20.000 em 2007? | `filter(year == 2007 & gdpPercap > 20000)` |
+| Quais países da Ásia tiveram expectativa de vida acima de 75 anos? | `filter(continent == "Asia" & lifeExp > 75)` |
+| Quais países tiveram população superior a 100 milhões em 2007? | `filter(year == 2007 & pop > 100000000)` |
+| Quais países não são da Europa nem da América? | `filter(continent != "Europe" & continent != "Americas")` |
+
+
+**Dica:** Comece sempre pensando na pergunta de negócio, depois 
+traduza para o código
+:::
+
+
+
+
+### Múltiplas condições com filter()
+
+::: {.callout-note icon=false}
+## Combinando condições
+
+Há duas maneiras principais de combinar condições:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Método 1: Usando o operador & (E lógico) - equivalente ao método 1
+europeus_2007_alt <- gapminder %>%
+  filter(continent == "Europe" & year == 2007)
+
+# Método 2: Usando o operador | (OU lógico)
+europa_ou_asia <- gapminder %>%
+  filter(continent == "Europe" | continent == "Asia")
+```
+
+Dica importante:
+
+- Com `&` ("E") ambas as condições precisam ser `TRUE` para que
+a linha seja mantida
+
+- Com `|` ("OU"), apenas uma das condições precisa ser `TRUE`
+:::
+
+
+
+
+### Filtrando com operadores relacionais
+
+::: {.callout-note icon=false}
+## Exemplos com diferentes operadores
+
+```{r}
+#| eval: true
+
+# Países com alta expectativa de vida (maior que 80 anos)
+alta_exp_vida <- gapminder %>%
+  filter(lifeExp > 80)
+
+# Países com PIB per capita abaixo de 500 dólares
+baixo_pib <- gapminder %>%
+  filter(gdpPercap < 500)
+
+# Anos diferentes de 2002
+nao_2002 <- gapminder %>%
+  filter(year != 2002)
+```
+
+Utilize operadores relacionais para:
+
+- Encontrar valores acima/abaixo de limites importantes
+- Excluir períodos ou categorias específicas
+- Identificar casos extremos ou outliers
+:::
+
+
+
+
+### Combinando filter() com outras funções
+
+::: {.callout-note icon=false}
+## A importância da ordem das operações
+
+```{r}
+#| eval: true
+
+# Países europeus em 2007, mostrando apenas país e expectativa de vida
+europeus_lifeExp_2007 <- gapminder %>%
+  filter(continent == "Europe" & year == 2007) %>%
+  select(country, lifeExp)
+
+# Ordenando o resultado por expectativa de vida (decrescente)
+europeus_lifeExp_2007_ordenado <- gapminder %>%
+  filter(continent == "Europe" & year == 2007) %>%
+  select(country, lifeExp) %>%
+  arrange(desc(lifeExp))
+
+head(europeus_lifeExp_2007_ordenado)
+```
+
+**Ordem correta** das operações:
+
+1. Comece com **filter()** 
+2. Use **select()** depois de filter
+3. Se inverter a ordem, a função filter() pode falhar se você removeu 
+colunas necessárias
+
+Lembre-se: primeiro **filter()**, depois **select()**!
+:::
+
+
+
+
+### Erros Comuns e Como Evitá-los
+
+::: {.callout-caution}
+## Os 4 erros mais comuns com filter()
+
+| Erro | Errado | Correto |
+|------|-------------------|-----------------|
+| Usar = em vez de == | `filter(continent = "Europe")` | `filter(continent == "Europe")` |
+| Esquecer as aspas em nomes | `filter(continent == Europe)` | `filter(continent == "Europe")` |
+| Não salvar o resultado | `gapminder %>% filter(year == 2007)` | `dados_2007 <- gapminder %>% filter(year == 2007)` |
+:::
+
+
+
+
+### Exemplo Completo Comum
+
+::: {.callout-note icon=false}
+## Países europeus com alta expectativa de vida em 2007?
+
+```{r}
+#| eval: true
+
+# Países europeus com expectativa de vida acima de 78 anos em 2007
+resultado_final <- gapminder %>%
+  # Filtrar por continente, ano e expectativa de vida
+  filter(continent == "Europe" & year == 2007 & lifeExp > 78) %>%
+  # Selecionar variáveis de interesse
+  select(country, lifeExp, gdpPercap) %>%
+  # Ordenar por expectativa de vida (decrescente)
+  arrange(desc(lifeExp))
+
+# Mostrar resultados
+resultado_final
+```
+
+Observe o fluxo de análise:
+
+1. Filtramos os dados com critérios específicos
+2. Selecionamos apenas as variáveis de interesse
+3. Ordenamos os resultados para facilitar a interpretação
+4. Todo o processo forma um "pipeline" de análise limpo e legível
+:::
+
+
+
+
+### Resumo: Função filter() 
+
+::: {.callout-tip}
+## O que você precisa lembrar
+
+1. **Para que serve:** Selecionar apenas as linhas (observações) 
+que atendem a determinadas condições
+
+2. **Sintaxe básica:** 
+
+```{r}
+#| eval: false
+
+dados %>% filter(condição1, condição2, ...)
+```
+
+3. **Comparações mais usadas:**
+
+   - Igual: == (dois sinais de igual!)
+   - Diferente: !=
+   - Maior/Menor: >, <, >=, <=
+
+4. **Múltiplas condições:**
+   - Todas as condições (E): `filter(condição1 & condição2)`
+   - Qualquer condição (OU): `filter(condição1 | condição2)`
+
+5. **Lembre-se sempre de salvar o resultado:**
+
+```{r}
+#| eval: false
+
+nova_df <- dados %>% filter(...)
+```
+:::
+
+
+
+
+## Função mutate() 
+
+
+::: {.callout-note icon=false}
+## O que é a função mutate()?
+
+- A função `mutate()` permite **criar novas variáveis** ou 
+  **modificar variáveis existentes**
+
+- Enquanto `filter()` seleciona linhas e `select()` seleciona colunas, 
+  `mutate()` **adiciona ou modifica colunas**
+
+- É como ter uma "calculadora" que cria novas informações a partir dos 
+  dados existentes
+
+- Ideal para cálculos como: percentuais, totais, médias, categorias, etc.
+:::
+
+
+![Cria novas variáveis a partir das variáveis existentes](img/mutate.jpeg){fig-align="center"}
+
+
+
+::: {.callout-tip}
+## Sintaxe da função mutate()
+
+```{r style="font-size: 1em;"}
+#| eval: false
+
+# Formato básico
+dados %>% mutate(nova_coluna = expressão)
+
+# Exemplos práticos
+dados %>% mutate(valor_total = preco * quantidade)
+dados %>% mutate(valor_com_desconto = preco * 0.9)
+```
+
+**O que cada parte significa:**
+
+- **nova_coluna**: Nome da nova variável que você está criando
+- **expressão**: Fórmula que calcula os valores da nova variável
+- A expressão é aplicada a cada linha individualmente
+:::
+
+
+
+::: {.callout-note icon=false}
+## Aplicação: Análise de Vendas
+
+Imagine que a data frame `gapminder` contém dados de vendas 
+globais da sua empresa:
+
+```{r style="font-size: 1em;"}
+#| eval: false
+
+# Criando variáveis para análise de vendas
+vendas_analise <- gapminder %>%
+  filter(year == 2007) %>%  # Filtra dados somente de 2007
+  mutate(
+    # PIB total representa a receita total da região
+    receita_total = gdpPercap * pop,
+    # Receita em milhões (para facilitar a leitura)
+    receita_milhoes = receita_total / 1000000,
+    # Indicador de destaque (regiões com alta receita por pessoa)
+    destaque = gdpPercap > 20000
+  ) %>%
+  # Vamos visualizar apenas algumas colunas e 5 linhas
+  select(country, receita_milhoes, gdpPercap, destaque) %>%
+  head(5)
+
+vendas_analise
+```
+
+**Interpretação administrativa:** Este tipo de transformação é usado 
+diariamente nas empresas para converter dados brutos em métricas de 
+negócios úteis para tomada de decisão.
+:::
+
+
+
+::: {.callout-note icon=false}
+## Transformações mais comuns: Operações aritméticas básicas
+
+```{r style="font-size: 1em;"}
+#| eval: false
+# Operações aritméticas básicas com mutate()
+gapminder %>%
+  filter(country == "Brazil", year >= 2000) %>%
+  mutate(
+    # Adição: adiciona um valor fixo
+    pop_ajustada = pop + 1000000,
+    # Multiplicação: multiplica por um fator
+    gdp_reais = gdpPercap * 5.2,  # Convertendo para reais
+    # Divisão: divide para mudar a escala 
+    pop_milhoes = pop / 1000000   # População em milhões
+  ) %>%
+  select(year, pop, pop_ajustada, pop_milhoes, gdpPercap, gdp_reais)
+```
+
+**Dica:** As operações mais utilizadas em análises de negócios são 
+multiplicação (para fatores, taxas, conversões) e divisão (para mudar 
+escalas e calcular proporções).
+:::
+
+
+
+
+### Criando categorias com ifelse()
+
+::: {.callout-note icon=false}
+## O que é a função ifelse()?
+
+A função `ifelse()` permite criar novas variáveis categóricas baseadas 
+em condições:
+
+**Como funciona:** `ifelse(condição, valor_se_verdadeiro, valor_se_falso)`
+
+```{r style="font-size: 1em;"}
+#| eval: false
+# Criando categorias com ifelse
+paises_categorizados <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(
+    nivel_desenvolvimento = ifelse(gdpPercap > 10000, 
+                                   "Desenvolvimento Alto", 
+                                   "Desenvolvimento Baixo")
+  ) %>%
+  select(country, gdpPercap, nivel_desenvolvimento) %>%
+  head(6)
+
+paises_categorizados
+```
+
+- É como dizer: "SE o PIB per capita for maior que 10.000, então 
+classifique como 'Desenvolvimento Alto', SENÃO classifique como 
+'Desenvolvimento Baixo'"
+:::
+
+
+
+::: {.callout-note icon=false}
+## Criando KPIs com mutate() e ifelse() 
+
+```{r style="font-size: 1em;"}
+#| eval: false
+gapminder %>%
+ filter(year == 2007) %>%
+ mutate(
+   pib_total = gdpPercap * pop,  # PIB total
+   pib_percentual_global = (pib_total/sum(pib_total))*100, # % do PIB global
+   performance = ifelse(gdpPercap > mean(gdpPercap), 
+                       "Acima da média", 
+                       "Abaixo da média")
+ ) %>% 
+ select(country, pib_total, pib_percentual_global, performance)
+```
+
+Isso mostra como transformar dados brutos em informações gerenciais.
+:::
+
+
+
+
+### Criando Múltiplas Categorias com case_when()
+
+::: {.callout-note icon=false}
+## Quando precisamos de mais de duas categorias
+
+`case_when()` é como um "sistema de classificação" para criar 
+categorias mais complexas:
+
+```{r style="font-size: 1em;"}
+#| eval: false
+
+# Exemplo de múltiplas categorias
+paises_classificados <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(
+    classe_desenvolvimento = case_when(
+      gdpPercap < 2000 ~ "Baixo",
+      gdpPercap < 10000 ~ "Médio",
+      gdpPercap >= 10000 ~ "Alto"
+    )
+  ) %>%
+  select(country, gdpPercap, classe_desenvolvimento) %>%
+  head(6)
+
+paises_classificados
+```
+
+**Como funciona:**
+
+- Cada linha representa uma condição: `condição ~ "valor a atribuir"`
+- As condições são verificadas em ordem (de cima para baixo)
+- Quando uma condição é verdadeira, o valor correspondente é atribuído
+:::
+
+
+
+::: {.callout-tip}
+## Quando usar ifelse() vs. case_when()?
+
+| Função | Quando usar | Exemplo |
+|--------|-------------|---------|
+| `ifelse()` | Para divisões simples em duas categorias | `ifelse(vendas > meta, "Meta atingida", "Meta não atingida")` |
+| `case_when()` | Para múltiplas categorias ou condições complexas | Classificar clientes em "Bronze", "Prata", "Ouro" e "Platina" baseado em diferentes critérios |
+
+**Analogia de negócios:**
+
+- `ifelse()` é como uma decisão "sim/não" (aprovação de crédito simples)
+
+- `case_when()` é como um sistema de classificação de clientes com 
+várias categorias
+:::
+
+
+
+
+
+### Erros Comuns e Como Evitá-los
+
+::: {.callout-caution}
+## Os erros que todos cometem no início
+
+1. **Usar o operador de atribuição errado**
+
+   - ERRADO: `mutate(nova_var <- expressão)` ❌ 
+   - CORRETO: `mutate(nova_var = expressão)` ✅
+
+2. **Esquecer de salvar o resultado**
+
+   - ERRADO: `dados %>% mutate(nova_var = x * 2)` ❌ (resultado não salvo)
+   - CORRETO: `dados_novos <- dados %>% mutate(nova_var = x * 2)` ✅
+
+3. **Tentar usar variáveis que acabou de criar sem manter os resultados**
+
+ERRADO: 
+
+```{r style="font-size: 1.2em;"}
+#| eval: false
+# Executando dois comandos separados:
+dados %>% mutate(nova_var = x * 2)  # Resultado não salvo em lugar nenhum
+dados %>% filter(nova_var > 10)     # ❌ Erro! nova_var não existe em 'dados'
+```
+
+CORRETO (Pipeline único):
+
+```{r style="font-size: 1.2em;"}
+#| eval: false
+dados_novos <- dados %>%
+  mutate(nova_var = x * 2) %>%
+  filter(nova_var > 10) # ✅ Funciona porque tudo está no mesmo pipeline
+```
+:::
+
+
+
+
+### Resumo: Função mutate()
+
+::: {.callout-tip}
+## O que você precisa lembrar
+
+1. **O que faz:** `mutate()` cria novas variáveis ou modifica existentes
+   
+2. **Usos comuns no mundo dos negócios:**
+
+   - Calcular totais, médias, porcentagens
+   - Converter unidades (dólares para reais, unidades para milhares)
+   - Criar categorias e classificações
+
+3. **Como usar na prática:**
+
+```{r style="font-size: 1em;"}
+#| eval: false
+dados %>% mutate(nova_variavel = expressão)
+```
+
+4. **Ferramentas complementares:**
+
+   - `ifelse()` para classificações simples (sim/não)
+   - `case_when()` para classificações múltiplas
+
+5. **Lembre-se de salvar o resultado em um novo objeto:**
+
+```{r style="font-size: 1em;"}
+#| eval: false
+novo_df <- dados %>% mutate(...)
+```
+:::
+
+
+
+
+
+# Funções group_by() + summarize() 
+
+::: {.callout-note icon=false}
+## O que são as funções group_by() e summarize()?
+
+- A função `group_by()` permite **agrupar dados** por uma ou mais 
+variáveis categóricas
+  
+- A função `summarize()` (ou `summarise()`) permite **calcular 
+estatísticas resumidas** para cada grupo
+
+- Estas funções geralmente trabalham juntas como uma ferramenta 
+poderosa para análise
+
+- É como criar "subtotais" ou "relatórios consolidados" por 
+categorias (ex: vendas por região, despesas por departamento)
+:::
+
+
+![Funções group_by() e summarize()?](img/groupby.jpeg){fig-align="center" width="40%"}
+
+
+
+::: {.callout-tip}
+## Sintaxe das funções group_by() e summarize()
+
+```{r style="font-size: 1em;"}
+#| eval: false
+
+# Estrutura básica
+df %>% 
+  group_by(variavel_de_agrupamento) %>%
+  summarize(nome_do_resumo = funcao(variavel))
+
+# Exemplo prático
+df %>%
+  group_by(departamento) %>%
+  summarize(media_vendas = mean(vendas))
+```
+
+- **df**: A data frame que contém os dados
+- **variavel_de_agrupamento**: Variável **categórica** pela qual agrupar 
+   (ex: região, produto)
+- **nome_do_resumo**: Nome que você escolhe para o resultado calculado
+- **funcao**: Função estatística (ex: mean, sum, max, min, sd, n)
+- **variavel**: Variável para calcular a estatística
+:::
+
+
+
+
+::: {.callout-note icon=false}
+## Exemplo: Análise Financeira por Continente
+
+Imagine que você é um analista financeiro e precisa preparar 
+um relatório executivo comparando regiões:
+
+```{r}
+# Cria um relatório de PIB médio por continente
+relatorio_continentes <- gapminder %>%
+  filter(year == 2007) %>%  # Filtra para dados mais recentes
+  group_by(continent) %>%   # Agrupa por continente
+  summarize(
+    PIB_medio = mean(gdpPercap),         # Média do PIB per capita
+    Total_populacao = sum(pop),          # População total
+    Paises_analisados = n(),             # Número de países
+    PIB_minimo = min(gdpPercap),         # PIB mínimo
+    PIB_maximo = max(gdpPercap)          # PIB máximo
+  ) %>%
+  arrange(desc(PIB_medio))  # Ordena do maior para o menor PIB médio
+
+# Visualiza o resultado
+relatorio_continentes
+```
+
+**Interpretação** Este tipo de relatório consolidado por 
+região é crítico para análises comparativas entre mercados e para 
+apresentações executivas. Mostra claramente as estatísticas-chave 
+para cada grupo (continente), facilitando comparações e decisões 
+estratégicas.
+:::
+
+
+
+::: {.callout-tip}
+## Funções Estatísticas Mais Usadas com summarize()
+
+| Função | O que calcula | Exemplo em R | Uso em Negócios |
+|--------|---------------|-------------|-----------------|
+| `mean()`| Média | `mean(vendas)` | Valor médio de vendas por região |
+| `sum()` | Soma total | `sum(receita)` | Receita total por categoria |
+| `min()` | Valor mínimo | `min(preco)` | Menor preço praticado |
+| `max()` | Valor máximo | `max(despesa)` | Maior despesa do período |
+| `sd()` | Desvio padrão | `sd(producao)` | Variabilidade da produção |
+| `n()` | Contagem de linhas | `n()` | Número de transações |
+| `n_distinct()`| Contagem de valores únicos | `n_distinct(cliente)` | Número de clientes únicos |
+| `median()` | Mediana | `median(vendas)` | Valor típico de vendas |
+
+**Dica para gestores:** Sempre inclua tanto medidas de "tendência central" 
+(média, mediana) quanto de "variação" (desvio padrão) para ter uma 
+visão mais completa dos dados.
+:::
+
+
+
+
+### Agrupando por Múltiplas Variáveis
+
+::: {.callout-note icon=false}
+## Análises mais detalhadas
+
+```{r style="font-size: 1em;"}
+# Análise de expectativa de vida por continente e ano
+tendencias_por_continente <- gapminder %>%
+  group_by(continent, year) %>%  # Agrupa por DUAS variáveis
+  summarize(
+    expectativa_vida_media = mean(lifeExp),
+    paises_analisados = n()
+  ) %>%
+  arrange(continent, year)
+
+# Mostra resultados parciais
+tendencias_por_continente %>% 
+  filter(continent == "Americas") %>%
+  head(3)
+```
+
+**Contexto empresarial:** Este tipo de análise é comum em:
+
+- Relatórios de vendas por região e trimestre
+- Análise de desempenho por departamento e mês
+- Monitoramento de métricas por produto e canal de vendas
+:::
+
+
+
+
+### Erros Comuns e Como Evitá-los
+
+::: {.callout-caution}
+## Os erros que todos cometem no início
+
+| Erro | Errado | Correto |
+|------|-------------------|-----------------|
+| Não usar summarize após group_by | `dados %>% group_by(regiao)` | `dados %>% group_by(regiao) %>% summarize(...)` |
+| Tentar agrupar antes de filtrar | `group_by(regiao) %>% filter(mean(vendas) > 1000)` | Usar `filter()` ANTES de `group_by()` |
+| Esquecer de desagrupar | Continuar usando dados agrupados | Usar `ungroup()` quando terminar com análises agrupadas |
+
+**Dica:** `group_by` por si não produz nenhum resultado.
+:::
+
+
+
+
+### Resumo: Funções group_by() e summarize()
+
+::: {.callout-tip}
+## O que você precisa lembrar
+
+1. **Para que servem:**
+
+   - `group_by()`: Agrupa dados por categorias (como agrupar linhas em 
+     uma planilha)
+     
+   - `summarize()`: Calcula estatísticas para cada grupo 
+      (como criar subtotais)
+
+2. **Sintaxe básica:**
+
+```{r}
+#| eval: false
+
+dados %>% 
+  group_by(categoria) %>%
+  summarize(resumo = funcao(variavel))
+```
+
+3. **Funções estatísticas básicas:**
+
+   - Para totais: `sum()`
+   - Para médias: `mean()`
+   - Para contagens: `n()`
+   - Para mínimos/máximos: `min()`, `max()`
+
+4. **Fluxo de trabalho típico:**
+
+   - Primeiro filtre os dados (`filter()`)
+   - Depois agrupe (`group_by()`)
+   - Em seguida calcule estatísticas (`summarize()`)
+   - Por fim, ordene os resultados (`arrange()`)
+
+5. **Lembre-se sempre de salvar o resultado:**
+
+```{r}
+#| eval: false
+
+relatorio_final <- dados %>% group_by(...) %>% summarize(...)
+```
+:::
+
+
+
+
+## Função arrange()
+
+::: {.callout-note icon=false}
+## Descrição
+
+- A função `arrange()` ordena as linhas (observações) de uma data frame 
+com base nos valores de uma ou mais colunas (variáveis)
+   
+- Por padrão, organiza em ordem **crescente** (do menor para o maior)
+
+- Use `desc()` para ordenar em ordem decrescente (do maior para o menor)
+:::
+
+
+![Reordena as linhas de uma data frame segundo uma variável, por padrão em ordem crescente, com desc() em ordem decrescente](img/arrange.jpeg){fig-align="center"}
+
+
+
+::: {.callout-tip}
+## Sintaxe da função arrange()
+
+```{r}
+#| eval: false
+
+# Formato básico
+df %>% arrange(variavel)         # ordem crescente
+df %>% arrange(desc(variavel))   # ordem decrescente
+
+# Ordenar por múltiplas variáveis
+dados %>% arrange(var1, var2)       # Ordenar primeiro por var1, depois var2
+```
+
+- **df**: A data frame que contém os dados
+- **variavel**: Nome da coluna pela qual você quer ordenar as observações
+- Use `desc()` para ordem descrescente (do maior para o menor)
+- Quando ordenando por múltiplas variáveis, a primeira tem prioridade
+:::
+
+
+
+::: {.callout-note icon=false}
+## Aplicação: Análise de Desempenho
+
+Imagine que você é um analista de mercado e precisa identificar 
+rapidamente os países mais promissores para expansão:
+
+```{r}
+# Criando um ranking de países por PIB per capita em 2007
+ranking_paises <- gapminder %>%
+  filter(year == 2007) %>%                # Filtra dados apenas de 2007
+  select(country, continent, gdpPercap) %>% # Seleciona colunas relevantes
+  arrange(desc(gdpPercap)) %>%            # Ordena do maior para o menor PIB
+  head(6)                                # Mostra os 10 primeiros resultados
+
+# Visualiza o resultado
+ranking_paises
+```
+
+**Interpretação** Este tipo de ordenação é relevante em 
+análises de mercado para identificar rapidamente os países mais ricos 
+(potenciais mercados premium) ou para encontrar as regiões que precisam 
+de mais atenção (ordenando do menor para o maior).
+:::
+
+
+
+
+### Erros Comuns e Como Evitá-los
+
+::: {.callout-caution}
+## Cuidados ao usar arrange()
+
+| Erro | Problema | Solução |
+|------|----------|---------|
+| Ordem incorreta | `arrange(dados, desc())` sem especificar a variável | `arrange(dados, desc(variavel))` |
+| Tentar ordenar por variável não existente | `arrange(vendas_por_regiao)` quando a coluna não existe | Verificar primeiro os nomes das colunas com `names()` |
+| Não salvar o resultado ordenado | Ordenar mas não atribuir a um objeto | `dados_ordenados <- dados %>% arrange(...)` |
+
+**Lembre-se:** A ordenação é temporária se você não salvar o resultado 
+em um novo objeto!
+:::
+
+
+
+
+### Resumo: Função arrange()
+
+::: {.callout-tip}
+## O que você precisa lembrar
+
+1. **Para que serve:** Ordenar as linhas (observações) com base nos 
+valores de uma ou mais colunas
+
+2. **Sintaxe básica:** 
+
+```{r style="font-size: 1em;"}
+#| eval: false
+dados %>% arrange(variavel)         # ordem crescente 
+dados %>% arrange(desc(variavel))   # ordem decrescente 
+```
+
+3. **Usos comuns em negócios:**
+
+   - Criar rankings de vendedores, produtos ou regiões
+   - Identificar os maiores clientes (Top 10)
+   - Encontrar problemas (itens com menor desempenho)
+   - Preparar dados para relatórios e apresentações
+
+4. **Lembre-se sempre:**
+
+   - Use `desc()` para ordem decrescente
+   - Para ordenar por múltiplas colunas: `arrange(var1, var2)`
+   - Salve o resultado em um novo objeto!
+
+```{r style="font-size: 1em;"}
+#| eval: false
+dados_ordenados <- dados %>% arrange(...)
+```
+:::
+
+
+
+
+## Resumo das Funções dplyr
+
+::: {.callout-tip icon=true}
+## Resumo das seis funções principais
+
+| Função        | Propósito                              |
+|---------------|----------------------------------------|
+| `dplyr::filter()`    | Seleciona linhas baseadas em condições | 
+| `dplyr::select()`    | Seleciona colunas específicas          | 
+| `dplyr::mutate()`    | Cria ou modifica colunas               |
+| `dplyr::group_by()`  | Agrupa dados por categorias            |
+| `dplyr::summarize()` | Calcula estatísticas resumidas         | 
+| `dplyr::arrange()`   | Ordena linhas                          |
+
+**Lembre-se**: O poder do dplyr está em combinar estas funções com o 
+operador pipe `%>%`
+:::
+
+
+
+
+## Pacote dplyr: Bibliografia Recomendada
+
+- [R para Ciência de Dados - Cap. 3](http://pt.r4ds.hadley.nz/data-transform.html){target="_blank"}
+
+- [Introdução à Linguagem R - Cap. 5](https://pedropark99.github.io/Introducao_R/Capítulos/04-transformacao.html){target="_blank"}
+
+- [Resumo](https://rstudio.github.io/cheatsheets/translations/portuguese/data-transformation_pt_br.pdf){target="_blank"}
+
+
+
+
+
+# Dados Organizados: Potencializando Análises de Dados
+
+
+::: {.callout-tip}
+## Dados Longos = Dados Organizados
+
+Com os dados organizados (formato longo), podemos facilmente, 
+por exemplo:
+
+- Calcular indicadores de desempenho por categoria e período
+- Calcular indicadores de desempenho por produto e período
+- Analisar tendências mensais para decisões de estoque e marketing
+- etc.
+:::
+
+
+
+
+## Aplicações 
+
+::: {.callout-note icon=false}
+## Dados organizados permitem:
+
+- **Finanças e Controladoria**: Análise de tendências financeiras entre 
+períodos, detecção de anomalias em despesas, comparação de desempenho entre 
+unidades de negócio
+
+- **Marketing**: Avaliação de ROI por canal e campanha, análise de 
+comportamento do consumidor, segmentação de clientes baseada em 
+múltiplas variáveis
+
+- **Operações e Cadeia de Suprimentos**: Otimização de estoques baseada em 
+tendências sazonais, previsão de demanda, monitoramento da cadeia de 
+suprimentos
+
+- **Recursos Humanos**: Análise de desempenho ao longo do tempo, identificação 
+de fatores de turnover, planejamento de capacitação
+
+- **Estratégia de Negócios**: Consolidação de KPIs de diversas áreas para 
+tomada de decisão, identificação de correlações entre variáveis de negócio
+
+- **Na prática**: Administradores frequentemente recebem dados em formatos 
+inadequados para análise (relatórios estáticos, planilhas "bonitas"). 
+A capacidade de reorganizar esses dados rapidamente para análise 
+representa uma vantagem competitiva significativa.
+:::
+
+
+
+
+
+## Um Pipeline Completo com dplyr
+
+
+```{r}
+# inicia com a df (gapminder) e salva o resultado final
+relatorio_expectativa <- gapminder %>%
+  # Filtra apenas os dados de 2007
+  filter(year == 2007) %>%
+  # Agrupa por continente
+  group_by(continent) %>%
+  # Calcula estatísticas por continente
+  summarize(
+    expectativa_media = mean(lifeExp),
+    expectativa_minima = min(lifeExp),
+    expectativa_maxima = max(lifeExp),
+  ) %>%
+  # Ordena do maior para o menor
+  arrange(desc(expectativa_media))
+
+# Visualiza o resultado final
+relatorio_expectativa
+```
+
+
+
+
+
+## Tabelas Profissionais 
+
+::: {.callout-note icon=false}
+## Limitações das Data Frames Brutas em Relatórios Profissionais
+
+- As data frames produzidas pelos pipelines do dplyr são excelentes 
+para **análise**, mas não são adequadas para **apresentação** em 
+relatórios profissionais.
+
+- A linguagem R oferece várias soluções para esta limitação:
+
+    - O pacote **kableExtra** (que veremos a seguir) para relatórios HTML e PDF
+    - O pacote **gt** para tabelas altamente personalizáveis
+
+- Estes pacotes permitem transformar dados analíticos em tabelas com 
+qualidade profissional, incluindo:
+
+    - título, nomes das colunas e notas formatadas
+    - destaque visual para informações importantes  
+    - personalização de cores, bordas e estilos de texto
+    - entre outras.
+
+:::
+
+
+
+
+
+## O Pacote kableExtra
+
+::: {.callout-note icon=false}
+## Transformando tabelas básicas em apresentações profissionais
+
+- O pacote `kableExtra` estende as funcionalidades da função básica 
+`kable` do R, permitindo a criação de tabelas com qualidade de publicação.
+
+- Foi desenvolvido para trabalhar com tabelas em documentos HTML e 
+PDF (LaTeX).
+
+- Permite formatar tabelas para relatórios profissionais, artigos 
+acadêmicos e apresentações.
+
+- É extremamente útil na Fase 6 do CRISP-DM (Implantação), quando
+precisamos comunicar resultados de forma clara e atrativa.
+:::
+
+
+
+
+
+## Sintaxe Básica do kableExtra
+
+::: {.callout-tip}
+## Fluxo básico com kableExtra 
+
+```{r}
+#| eval: false
+
+#  inicie com uma data frame
+tabela_formatada <- dados %>%
+  # Transforme a data frame em tabela básica
+  kable(
+    caption = "Título da Tabela",
+    col.names = c("Nome1", "Nome2"), # Renomear colunas
+    digits = 2,                      # Casas decimais
+    format.args = list(decimal.mark = ",", big.mark = ".") # Define vírgula como separador decimal e ponto como separador de milhares
+  ) %>%
+  # Adicionar estilos
+  kable_styling(
+    bootstrap_options = c("striped", "hover"),
+    full_width = FALSE,
+    position = "center"
+  )
+```
+
+- **kable()**: Converte a data frame em tabela básica
+- **kable_styling()**: Aplica estilos visuais à tabela
+- Outros elementos podem ser adicionados em sequência com o pipe (`%>%`)
+:::
+
+
+
+::: {.callout-tip}
+## Pipeline para relatórios profissionais
+
+Em projetos de análise de dados completos, o fluxo geralmente é:
+
+1. **Preparar dados** com  `tidyr` e `dplyr`
+2. **Analisar dados** com `dplyr` (filter, select, group_by, etc.)
+3. **Visualizar resultados** com `ggplot2` (gráficos) e `kableExtra` (tabelas)
+
+Um pipeline completo pode é similar com:
+
+```{r}
+#| eval: false
+
+# Pipeline completo de análise até apresentação
+dados_brutos %>%
+  # Fase de limpeza e preparação
+  filter(...) %>%
+  select(...) %>%
+  mutate(...) %>%
+  
+  # Fase de análise e agregação
+  group_by(...) %>%
+  summarize(...) %>%
+  
+  # Fase de apresentação em tabela
+  kable(...) %>%
+  kable_styling(...) %>%
+  column_spec(...)
+```
+
+Este fluxo integrado representa as fases 3, 4 e 6 do CRISP-DM.
+:::
+
+
+
+
+## Resumo
+
+::: {.callout-tip}
+## Pacote kableExtra
+
+1. **Para que serve**: Transformar tabelas de dados simples em 
+tabelas profissionais para relatórios, apresentações e publicações.
+
+2. **Sintaxe básica**:
+
+```{r style="font-size: 1em;"}
+#| eval: false
+dados %>%
+  kable(...) %>%
+  kable_styling(...) %>%
+  ... outras personalizações ...
+```
+
+3. **Funções principais**:
+
+   - `kable()`: Converte data frame em tabela base
+   - `kable_styling()`: Aplica estilos gerais à tabela
+   - `column_spec()` e `row_spec()`: Personalizações específicas
+   - `footnote()`: Adiciona notas de rodapé
+
+4. **Integrações estratégicas**:
+
+   - Ideal no final de pipelines dplyr para apresentar resultados
+   - Complementar aos gráficos do ggplot2 em relatórios
+
+5. **Benefícios em Administração**:
+
+   - Eleva a qualidade visual de relatórios gerenciais
+   - Facilita a comunicação de insights de dados para gestores
+   - Permite destacar KPIs e métricas críticas para tomada de decisão
+:::
+
+
+
+
+
+## Tabela com o Pacote KableExtra
+
+
+```{r}
+#| label: tbl-1
+#| tbl-cap: "Expectativa de Vida (em anos) por Continente (2007)"
+#| echo: true
+
+# inicia com a df contendo o resultado do pipeline
+relatorio_expectativa %>%
+  # Converte a df em uma tabela kable (tabela básica HTML/LaTeX)
+  kable(
+    # Renomeia as colunas para português
+    col.names = c(
+      "Continente", "Expectativa Média", "Expectativa Mínima", "Expectativa Máxima"
+    ),
+    # Formata os números com 1 casa decimal
+    digits = 1,
+    # vírgula como separador decimal
+    format.args = list(decimal.mark = ",")
+  ) %>%
+  # Adiciona estilo à tabela para melhorar o visual
+  kable_classic(
+    # tamanho da fonte
+    font_size = 25,
+    # Impede que a tabela ocupe toda a largura disponível
+    full_width = FALSE,
+    # # Centraliza a tabela
+    position = "center"
+  ) %>%
+  # Aplica formatação específica à coluna da expectativa média
+  column_spec(
+    # Aplica a formatação à segunda coluna (Expectativa Média)
+    2,
+    # Coloca o texto em negrito para melhor destaque
+    bold = TRUE,
+    # Define a cor dos números como branco
+    color = "white",
+    # Aplica um gradiente de cores ao fundo das células
+    background = spec_color(
+      # A expectativa_media determinar a intensidade das cores
+      relatorio_expectativa$expectativa_media,
+      # início do gradiente com intensidade alta
+      begin = 0.9,
+      # fim do gradiente com intensidade baixa
+      end = 0.1,
+      # paleta de cores "viridis" (azul-verde-amarelo)
+      option = "viridis",
+      # 1 = valores mais altos recebem cores mais intensas
+      direction = 1
+    )
+  )
+```
+
+
+
+
+## Exemplo Típico em Administração (Wide)
+
+::: {.callout-note icon=false}
+## Dados de Vendas Mensais por Categoria e Produto
+
+```{r}
+# formato típico de planilhas gerenciais
+dados_vendas_wide <- tribble(
+  ~produto, ~categoria, ~Jan, ~Fev, ~Mar, ~Abr, ~Mai, ~Jun,
+  "Notebook Pro", "Eletrônicos", 45000, 38000, 42000, 47000, 52000, 49000,
+  "Smartphone X", "Eletrônicos", 38000, 41000, 40000, 39000, 45000, 50000,
+  "Monitor 24pol", "Informática", 22000, 19000, 23000, 25000, 24000, 26000,
+  "Mouse Gamer", "Informática", 12000, 14000, 13500, 15000, 16000, 17500,
+  "Mesa Office", "Mobiliário", 28000, 25000, 24000, 26500, 27000, 29000,
+  "Cadeira Ergo", "Mobiliário", 35000, 32000, 38000, 36000, 39000, 42000
+)
+
+# Visualizando os dados no formato amplo (wide)
+dados_vendas_wide
+```
+:::
+
+
+
+
+## Transformando para Analise de Dados
+
+::: {.callout-note icon=false}
+## Aplicando pivot_longer para organizar os dados
+
+```{r}
+# Transformando os dados para o formato longo (tidy)
+dados_vendas_longo <- dados_vendas_wide %>%
+  pivot_longer(
+    cols = Jan:Jun, # colunas que serão transformadas em valores de mes
+    names_to = "mes", # nome da nova coluna
+    values_to = "valor_vendas" # nome de outra nova coluna para as vendas
+  )
+
+# Visualizando o resultado
+dados_vendas_longo
+```
+
+**Agora os dados estão organizados para análise**:
+
+- Cada linha representa uma combinação única de produto, categoria e mês
+- As vendas mensais estão em uma única coluna (valor_vendas)
+- A informação do mês está em uma coluna própria (mes)
+:::
+
+
+
+
+## Análise 1 - Nível Básico
+
+::: {.callout-note icon=false}
+## Análise da Receita Bruta Mensa de Vendas
+
+```{r}
+# pipeline de análise
+receita_bruta_mes <- dados_vendas_longo %>%
+  group_by(mes) %>%
+  summarize(vendas_total = sum(valor_vendas)) %>%
+  arrange(desc(vendas_total))
+
+# visualiza o resultado
+receita_bruta_mes
+```
+:::
+
+
+
+
+## Análise 2 - Nível Básico
+
+::: {.callout-note icon=false}
+## Análise das Vendas Mensais de um Produto Específico
+
+```{r}
+# pipeline de análise
+vendas_mensais_notebookpro <- dados_vendas_longo %>%
+  filter(produto == "Notebook Pro") %>%
+  select(produto, mes, valor_vendas) %>%
+  arrange(mes)
+
+# visualiza o resultado
+vendas_mensais_notebookpro
+```
+:::
+
+
+
+
+## Análise 3 - Nível Básico
+
+::: {.callout-note icon=false}
+## Análise das Vendas Totais por Categoria e Mês
+
+```{r}
+# pipeline de análise
+vendas_totais_categoria_mes <- dados_vendas_longo %>%
+  group_by(categoria, mes) %>%
+  summarize(vendas_totais = sum(valor_vendas)) %>%
+  arrange(desc(vendas_totais))
+
+# visualiza o resultado
+vendas_totais_categoria_mes
+```
+:::
+
+
+
+
+## Análise 4 - Nível Intermediário
+
+::: {.callout-note icon=false}
+## Análise do Desempenho mensal por produto
+
+```{r}
+# pipeline
+desempenho_mensal_produto <- dados_vendas_longo %>%
+  group_by(produto) %>%
+  summarize(
+    vendas_total = sum(valor_vendas),
+    vendas_media = mean(valor_vendas),
+    vendas_min = min(valor_vendas),
+    vendas_max = max(valor_vendas)
+  ) %>%
+  arrange(desc(vendas_total))
+
+# visualiza o resultado
+desempenho_mensal_produto
+```
+:::
+
+
+
+
+## Análise 4 - Tabela para Apresentação
+
+
+```{r}
+#| label: tbl-4
+#| tbl-cap: "Desempenho mensal de Vendas por produto"
+#| echo: true
+
+# Formata a tabela de desempenho por produto com kableExtra
+desempenho_mensal_produto %>%
+  kable(
+    # Renomeia as colunas para melhor apresentação
+    col.names = c(
+      "Produto", 
+      "Vendas Totais (R$)", 
+      "Média Mensal (R$)", 
+      "Venda Mínima (R$)", 
+      "Venda Máxima (R$)"
+    ),
+    # Formata números com 2 casas decimais
+    digits = 2,
+    # Define vírgula como separador decimal e ponto como separador de milhares
+    format.args = list(decimal.mark = ",", big.mark = ".", nsmall = 2)
+  ) %>%
+  # Aplica um estilo clássico e limpo
+  kable_classic_2(
+    # Ajusta o tamanho da fonte
+    font_size = 18,
+    # Define largura para se ajustar melhor ao slide
+    full_width = TRUE,
+    # Centraliza a tabela
+    position = "center"
+  ) %>%
+  # Destaca as colunas de valores em negrito
+  column_spec(2:5, bold = TRUE) %>% 
+  # Destaca as 3 primeiras linha da tabela
+  row_spec(1:3, bold = T, color = "white", background = "#011f4b")
+```
+
+
+
+
+## Análise 5 - Nível Intermediário
+
+::: {.callout-note icon=false}
+## Identificando meses de pico de vendas para cada categoria
+
+```{r}
+# Pipeline para identificar mês de melhor desempenho por categoria
+meses_pico_categoria <- dados_vendas_longo %>%
+  # Agrupa por categoria e mês
+  group_by(categoria, mes) %>%
+  # Calcula as vendas totais
+  summarize(vendas_totais = sum(valor_vendas)) %>%
+  # Filtra para o mês de maior venda
+  filter(vendas_totais == max(vendas_totais)) %>%
+  # Ordena o resultado pelas vendas totais
+  arrange(desc(vendas_totais))
+
+# visualiza o resultado 
+meses_pico_categoria
+```
+:::
+
+
+
+
+
+## Análise 6 - Nível Intermediário
+
+::: {.callout-note icon=false}
+## Identificando meses de pior venda para cada categoria
+
+```{r}
+# Pipeline para identificar mês de pior desempenho por categoria
+meses_pior_categoria <- dados_vendas_longo %>%
+  # Agrupa por categoria e mês
+  group_by(categoria, mes) %>%
+  # Calcula as vendas totais
+  summarize(vendas_totais = sum(valor_vendas)) %>%
+  # Filtra para o mês de menor venda
+  filter(vendas_totais == min(vendas_totais)) %>%
+  # Ordena o resultado pelas vendas totais
+  arrange(desc(vendas_totais))
+
+# visualiza o resultado 
+meses_pior_categoria
+```
+:::
+
+
+
+
+
+### Funções which.max() e which.min()
+
+::: {.callout-note icon=false}
+## Localizando posições de valores máximos e mínimos
+
+As funções `which.max()` e `which.min()` são extremamente úteis em 
+análise de dados:
+
+- `which.max(x)`: Retorna a **posição** (índice) do valor máximo no vetor `x`
+- `which.min(x)`: Retorna a **posição** (índice) do valor mínimo no vetor `x`
+
+**Exemplo simples:**
+
+```{r}
+# Vetor de valores
+vendas_mensais <- c(120, 150, 140, 160, 110, 130)
+
+# Qual a posição do valor máximo?
+posicao_max <- which.max(vendas_mensais)
+posicao_max
+
+# Qual o valor máximo?
+vendas_mensais[posicao_max]
+
+# Supondo que temos nomes para os meses
+nomes_meses <- c("Jan", "Fev", "Mar", "Abr", "Mai", "Jun")
+
+# Em qual mês ocorreu a venda máxima?
+mes_maior_venda <- nomes_meses[which.max(vendas_mensais)]
+mes_maior_venda
+```
+
+Estas funções são perfeitas para encontrar **quando** ocorreram eventos 
+importantes nos seus dados (máximos, mínimos, picos) em vez de apenas 
+quais foram os valores.
+:::
+
+
+
+
+## Análise 7 - Nível Avançado
+
+::: {.callout-note icon=false}
+## Identificando os Meses de Maior e Menor Venda por Produto
+
+```{r}
+# Pipeline de análise para identificar os meses de pico e vale por produto
+resumo_comparativo_produto <- dados_vendas_longo %>%
+  # Agrupa os dados por produto para analisar cada um separadamente
+  group_by(produto) %>%
+  # Para cada produto, calculamos:
+  summarize(
+    # 1. Qual o mês da maior venda:
+    # - which.max(valor_vendas) encontra a POSIÇÃO da maior venda
+    # - mes[which.max(valor_vendas)] seleciona o nome do mês de maior venda
+    melhor_mes = mes[which.max(valor_vendas)],
+
+    # 2. Qual foi o valor da maior venda
+    maior_venda = max(valor_vendas),
+
+    # 3. Qual o mês da menor venda (mesma lógica do melhor mês)
+    pior_mes = mes[which.min(valor_vendas)],
+
+    # 4. Qual foi o valor da menor venda
+    menor_venda = min(valor_vendas)
+  )
+
+# Visualiza o resultado
+resumo_comparativo_produto
+```
+
+**Explicação do código:**
+
+1. Primeiro agrupamos por produto para realizar a análise para 
+   cada item
+   
+2. A função `which.max(valor_vendas)` retorna a posição (índice) do 
+  valor máximo
+  
+3. Ao usar `mes[which.max(valor_vendas)]`, extraímos o nome do mês na 
+   posição com valor máximo
+   
+4. Este tipo de análise é essencial para identificar padrões sazonais 
+de produtos
+
+Este relatório permite identificar rapidamente quais meses foram melhores 
+e piores para cada produto - informação valiosa para planejamento de 
+estoque e promoções.
+
+Assim, esta análise permite otimizar o planejamento de estoque e 
+ações promocionais sazonais.
+:::
+
+
+
+
+
+## Análise 7 - Tabela para Apresentação
+
+
+```{r}
+#| label: tbl-7
+#| tbl-cap: "Meses de Maior e Menor Venda por Produto"
+#| echo: false
+#| eval: true
+#| html-table-processing: none
+
+# Formata a tabela comparativa com kableExtra
+resumo_comparativo_produto %>%
+  kable(
+    # Renomeia as colunas para melhor apresentação
+    col.names = c(
+      "Produto", 
+      "Melhor Mês", 
+      "Maior Venda (R$)", 
+      "Pior Mês", 
+      "Menor Venda (R$)"
+    ),
+    # Formata números com 2 casas decimais
+    digits = 2,
+    # Define vírgula como separador decimal e ponto como separador de milhares
+    format.args = list(decimal.mark = ",", big.mark = ".", nsmall = 2)
+  ) %>%
+  # Aplica um estilo clássico e limpo
+  kable_paper(
+    # Ajusta o tamanho da fonte
+    font_size = 22,
+    # Define largura para se ajustar melhor ao slide
+    full_width = FALSE,
+    # Centraliza a tabela
+    position = "center"
+  ) %>%
+  # Destaca as colunas de valores monetários em negrito
+  column_spec(c(3, 5), bold = TRUE) %>% 
+  # Destaca a quarta linha da tabela
+  row_spec(4, bold = T, color = "white", background = "#D7261E")
+```
+
+
+
+
+## Dados em Seu Ambiente de Trabalho
+
+::: {.callout-tip}
+## Reflexão
+
+Considere os dados com os quais você já trabalha ou espera trabalhar 
+em sua carreira:
+
+1. **Que tipos** de dados desorganizados você encontra ou espera encontrar?
+
+   - Relatórios gerenciais? 
+   - Planilhas financeiras?
+   - Arquivos de sistemas ERP/CRM?
+
+2. **Como** esses dados poderiam ser melhor organizados para análise?
+
+   - Quais são as verdadeiras "observações" nesses dados?
+   - Quais são as verdadeiras "variáveis"?
+
+3. **Quais insights de negócio** você poderia extrair se esses dados 
+estivessem organizados adequadamente?
+
+   - Padrões temporais?
+   - Comparações entre unidades/produtos/regiões?
+   - Correlações entre diferentes métricas?
+
+4. **Como você aplicaria** o conhecimento desta aula em um exemplo 
+concreto do seu interesse profissional?
+
+- **Dica para sua carreira**: Manter um repositório pessoal de códigos R 
+para transformações comuns que você encontra no seu trabalho pode 
+economizar horas de trabalho repetitivo no futuro.
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
