@@ -1,31 +1,34 @@
 ---
-title: "**Disciplinas Ministradas**"
+title: "Disciplinas Ministradas"
+page-layout: full
+format:
+  html:
+    theme: cosmo
+    toc: false
 ---
 
-# **Disciplinas de Pós-Graduação**
-
-## [Introdução à Ciência de Dados - Mestrado Profissional em Administração](https://washingtonsilva.github.io/site_mpa_icd2025/){target="_blank"}
-
-*Período: 2025.1*
 
 
-## Econometria Aplicada à Finanças 
+## Pós-Graduação
 
+- **[Introdução à Ciência de Dados – MPA](https://washingtonsilva.github.io/site_mpa_icd2025/){target=_blank}**  
+  _Período: 2025.1_
 
+- **Econometria Aplicada à Finanças** 
 
+  _Período: 2025.2
 
-* * *
+---
 
-# **Disciplinas de Graduação**
+## Graduação
 
-## [Introdução à Ciência de Dados - Bacharelado em Administração](https://washingtonsilva.github.io/site_bach_icd2025/){target="_blank"}
+- **[Introdução à Ciência de Dados – Bacharelado](https://washingtonsilva.github.io/site_bach_icd2025/){target=_blank}**  
+  _Período: 2025.1_
 
-*Período: 2025.1*
+- **Métodos Quantitativos Aplicados à Administração**
 
-## Métodos Quantitativos Aplicados à Administração
+- **Visualização de Dados**
 
-## Visualização de Dados
+- **Análise Multivariada**
 
-## Análise Multivariada
-
-## Previsão de Séries Temporais
+- **Previsão de Séries Temporais**
