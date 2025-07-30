@@ -325,6 +325,40 @@ window.Quarto = {
   <li><a href="#análise-7---tabela-para-apresentação" id="toc-análise-7---tabela-para-apresentação" class="nav-link" data-scroll-target="#análise-7---tabela-para-apresentação"><span class="header-section-number">9.18</span> Análise 7 - Tabela para Apresentação</a></li>
   <li><a href="#dados-em-seu-ambiente-de-trabalho" id="toc-dados-em-seu-ambiente-de-trabalho" class="nav-link" data-scroll-target="#dados-em-seu-ambiente-de-trabalho"><span class="header-section-number">9.19</span> Dados em Seu Ambiente de Trabalho</a></li>
   </ul></li>
+  <li><a href="#dplyr-tipos-básicos-de-joins" id="toc-dplyr-tipos-básicos-de-joins" class="nav-link" data-scroll-target="#dplyr-tipos-básicos-de-joins"><span class="header-section-number">10</span> dplyr: Tipos Básicos de <em>joins</em></a>
+  <ul class="collapse">
+  <li><a href="#desafios-específicos-de-dados-em-finanças" id="toc-desafios-específicos-de-dados-em-finanças" class="nav-link" data-scroll-target="#desafios-específicos-de-dados-em-finanças"><span class="header-section-number">10.1</span> Desafios Específicos de Dados em Finanças</a></li>
+  <li><a href="#aplicações-práticas-de-joins-na-pesquisa-em-finanças" id="toc-aplicações-práticas-de-joins-na-pesquisa-em-finanças" class="nav-link" data-scroll-target="#aplicações-práticas-de-joins-na-pesquisa-em-finanças"><span class="header-section-number">10.2</span> Aplicações Práticas de Joins na Pesquisa em Finanças</a></li>
+  <li><a href="#crisp-dm-e-joins" id="toc-crisp-dm-e-joins" class="nav-link" data-scroll-target="#crisp-dm-e-joins"><span class="header-section-number">10.3</span> CRISP-DM e Joins</a></li>
+  <li><a href="#joins-no-dplyr" id="toc-joins-no-dplyr" class="nav-link" data-scroll-target="#joins-no-dplyr"><span class="header-section-number">10.4</span> Joins no dplyr</a></li>
+  <li><a href="#criando-tabelas-de-exemplo" id="toc-criando-tabelas-de-exemplo" class="nav-link" data-scroll-target="#criando-tabelas-de-exemplo"><span class="header-section-number">10.5</span> Criando Tabelas de Exemplo</a></li>
+  <li><a href="#chaves-em-joins" id="toc-chaves-em-joins" class="nav-link" data-scroll-target="#chaves-em-joins"><span class="header-section-number">10.6</span> Chaves em Joins</a></li>
+  <li><a href="#tipos-de-chaves-em-bancos-de-dados-relacionais" id="toc-tipos-de-chaves-em-bancos-de-dados-relacionais" class="nav-link" data-scroll-target="#tipos-de-chaves-em-bancos-de-dados-relacionais"><span class="header-section-number">10.7</span> Tipos de Chaves em Bancos de Dados Relacionais</a></li>
+  <li><a href="#diagrama-de-relações-com-chaves" id="toc-diagrama-de-relações-com-chaves" class="nav-link" data-scroll-target="#diagrama-de-relações-com-chaves"><span class="header-section-number">10.8</span> Diagrama de Relações com Chaves</a></li>
+  <li><a href="#exemplos-comuns-de-chaves" id="toc-exemplos-comuns-de-chaves" class="nav-link" data-scroll-target="#exemplos-comuns-de-chaves"><span class="header-section-number">10.9</span> Exemplos Comuns de Chaves</a></li>
+  <li><a href="#desafios-com-chaves-em-joins" id="toc-desafios-com-chaves-em-joins" class="nav-link" data-scroll-target="#desafios-com-chaves-em-joins"><span class="header-section-number">10.10</span> Desafios com Chaves em Joins</a></li>
+  <li><a href="#sintaxe-básica-de-joins-no-dplyr" id="toc-sintaxe-básica-de-joins-no-dplyr" class="nav-link" data-scroll-target="#sintaxe-básica-de-joins-no-dplyr"><span class="header-section-number">10.11</span> Sintaxe Básica de Joins no dplyr</a></li>
+  <li><a href="#visão-geral-dos-joins" id="toc-visão-geral-dos-joins" class="nav-link" data-scroll-target="#visão-geral-dos-joins"><span class="header-section-number">10.12</span> Visão Geral dos Joins</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">10.13</span> Left Join</a></li>
+  <li><a href="#exemplo-left-join-em-pesquisa" id="toc-exemplo-left-join-em-pesquisa" class="nav-link" data-scroll-target="#exemplo-left-join-em-pesquisa"><span class="header-section-number">10.14</span> Exemplo: Left Join em Pesquisa</a></li>
+  <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join"><span class="header-section-number">10.15</span> Inner Join</a></li>
+  <li><a href="#exemplo-inner-join-em-pesquisa" id="toc-exemplo-inner-join-em-pesquisa" class="nav-link" data-scroll-target="#exemplo-inner-join-em-pesquisa"><span class="header-section-number">10.16</span> Exemplo: Inner Join em Pesquisa</a></li>
+  <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join"><span class="header-section-number">10.17</span> Full Join</a></li>
+  <li><a href="#exemplo-full-join" id="toc-exemplo-full-join" class="nav-link" data-scroll-target="#exemplo-full-join"><span class="header-section-number">10.18</span> Exemplo: Full Join</a></li>
+  <li><a href="#right-join" id="toc-right-join" class="nav-link" data-scroll-target="#right-join"><span class="header-section-number">10.19</span> Right Join</a></li>
+  <li><a href="#exemplo-right-join" id="toc-exemplo-right-join" class="nav-link" data-scroll-target="#exemplo-right-join"><span class="header-section-number">10.20</span> Exemplo: Right Join</a></li>
+  <li><a href="#exemplo-combinando-múltiplas-tabelas" id="toc-exemplo-combinando-múltiplas-tabelas" class="nav-link" data-scroll-target="#exemplo-combinando-múltiplas-tabelas"><span class="header-section-number">10.21</span> Exemplo: Combinando Múltiplas Tabelas</a></li>
+  <li><a href="#exemplo-análise-de-demonstrações-financeiras" id="toc-exemplo-análise-de-demonstrações-financeiras" class="nav-link" data-scroll-target="#exemplo-análise-de-demonstrações-financeiras"><span class="header-section-number">10.22</span> Exemplo: Análise de Demonstrações Financeiras</a></li>
+  <li><a href="#exemplo-análise-de-retornos-anormais" id="toc-exemplo-análise-de-retornos-anormais" class="nav-link" data-scroll-target="#exemplo-análise-de-retornos-anormais"><span class="header-section-number">10.23</span> Exemplo: Análise de Retornos Anormais</a></li>
+  <li><a href="#fontes-comuns-de-dados-em-pesquisa-financeira" id="toc-fontes-comuns-de-dados-em-pesquisa-financeira" class="nav-link" data-scroll-target="#fontes-comuns-de-dados-em-pesquisa-financeira"><span class="header-section-number">10.24</span> Fontes Comuns de Dados em Pesquisa Financeira</a></li>
+  <li><a href="#dicas-para-uso-eficiente-de-joins" id="toc-dicas-para-uso-eficiente-de-joins" class="nav-link" data-scroll-target="#dicas-para-uso-eficiente-de-joins"><span class="header-section-number">10.25</span> Dicas para Uso Eficiente de Joins</a></li>
+  <li><a href="#o-desafio-dos-sistemas-reais" id="toc-o-desafio-dos-sistemas-reais" class="nav-link" data-scroll-target="#o-desafio-dos-sistemas-reais"><span class="header-section-number">10.26</span> O Desafio dos Sistemas Reais</a></li>
+  <li><a href="#a-solução" id="toc-a-solução" class="nav-link" data-scroll-target="#a-solução"><span class="header-section-number">10.27</span> A Solução</a></li>
+  <li><a href="#resumo-joins" id="toc-resumo-joins" class="nav-link" data-scroll-target="#resumo-joins"><span class="header-section-number">10.28</span> Resumo: Joins</a></li>
+  <li><a href="#sintaxe-comparativa" id="toc-sintaxe-comparativa" class="nav-link" data-scroll-target="#sintaxe-comparativa"><span class="header-section-number">10.29</span> Sintaxe Comparativa</a></li>
+  <li><a href="#onde-aplicar-joins-em-pesquisa-financeira" id="toc-onde-aplicar-joins-em-pesquisa-financeira" class="nav-link" data-scroll-target="#onde-aplicar-joins-em-pesquisa-financeira"><span class="header-section-number">10.30</span> Onde Aplicar Joins em Pesquisa Financeira</a></li>
+  <li><a href="#joins-bibliografia-recomendada" id="toc-joins-bibliografia-recomendada" class="nav-link" data-scroll-target="#joins-bibliografia-recomendada"><span class="header-section-number">10.31</span> Joins: Bibliografia Recomendada</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -5941,6 +5975,1789 @@ Reflexão
 </ul>
 </div>
 </div>
+</section>
+</section>
+<section id="dplyr-tipos-básicos-de-joins" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> dplyr: Tipos Básicos de <em>joins</em></h1>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O Problema da Fragmentação de Dados
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Dados financeiros raramente estão concentrados em uma única base ou sistema:</p>
+<ul>
+<li><strong>Dados de Mercado</strong>: Preços de ativos, volumes, volatilidade em sistemas como Bloomberg ou Economática</li>
+<li><strong>Demonstrações Financeiras</strong>: Balanços patrimoniais, DREs e fluxos de caixa em bases como CVM ou Capital IQ</li>
+<li><strong>Informações de Governança</strong>: Composição de conselhos, estrutura de propriedade em formulários de referência</li>
+<li><strong>Dados Macroeconômicos</strong>: Indicadores como juros, inflação e PIB em bases do Banco Central ou IBGE</li>
+</ul></li>
+<li><p>Análises de dados muitas vezes exigem a <strong>integração</strong> dessas múltiplas fontes</p></li>
+<li><p><strong>Exemplo:</strong> Para estudar a relação entre governança e retorno ajustado ao risco, precisamos combinar:</p>
+<ul>
+<li>Histórico de preços das ações (base de mercado)</li>
+<li>Indicadores contábeis como ROE e alavancagem (demonstrações financeiras)</li>
+<li>Estrutura de propriedade e composição do conselho (dados de governança)</li>
+<li>Fatores de risco sistemático (dados macroeconômicos)</li>
+</ul></li>
+<li><p><strong>Joins</strong> (<strong>Uniões</strong>) são operações fundamentais para esta integração em pesquisas financeiras empíricas</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Joins na Pesquisa Empírica em Finanças
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Dados Multidimensionais</strong>: Pesquisas financeiras tipicamente requerem a integração de:</p>
+<ul>
+<li>Dados de mercado (preços, retornos, volume)</li>
+<li>Informações contábeis (balanços, DREs)</li>
+<li>Indicadores macroeconômicos (PIB, taxas de juros, inflação)</li>
+<li>Dados de governança corporativa</li>
+</ul></li>
+<li><p><strong>Estudos de Evento</strong>: Análises que combinam séries temporais de preços de ativos com datas específicas de eventos corporativos (fusões, aquisições, distribuição de dividendos)</p></li>
+<li><p><strong>Análises de Dados em Painel</strong>: Pesquisas que acompanham múltiplas empresas ao longo do tempo, exigindo combinação de dados transversais e longitudinais</p></li>
+<li><p><strong>Reprodutibilidade Científica</strong>: Joins documentados garantem que outros pesquisadores possam reproduzir exatamente o mesmo conjunto de dados da análise</p></li>
+</ul>
+</div>
+</div>
+<section id="desafios-específicos-de-dados-em-finanças" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="desafios-específicos-de-dados-em-finanças"><span class="header-section-number">10.1</span> Desafios Específicos de Dados em Finanças</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problemas Comuns em Bases Financeiras
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Códigos de Identificação Inconsistentes</strong>:
+<ul>
+<li>Empresas podem ter múltiplos identificadores (ticker, CNPJ, código CVM)</li>
+<li>Mesma empresa pode aparecer com nomes diferentes em bases distintas</li>
+<li>Subsidiárias e controladoras podem ter tratamentos diferentes</li>
+</ul></li>
+<li><strong>Periodicidades Divergentes</strong>:
+<ul>
+<li>Dados de mercado (geralmente diários ou intradiários)</li>
+<li>Dados contábeis (trimestrais ou anuais)</li>
+<li>Dados macroeconômicos (mensais, trimestrais)</li>
+</ul></li>
+<li><strong>Sobrevivência das Empresas</strong>:
+<ul>
+<li>Empresas que entram/saem da bolsa (IPOs, delisting)</li>
+<li>Processos de fusão e aquisição alterando a estrutura dos dados</li>
+<li>Viés de sobrevivência em estudos longitudinais</li>
+</ul></li>
+<li><strong>Tratamento Especial para Eventos Financeiros</strong>:
+<ul>
+<li>Splits, bonificações e outros eventos corporativos</li>
+<li>Reorganizações societárias</li>
+<li>Mudanças em práticas contábeis (IFRS)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="aplicações-práticas-de-joins-na-pesquisa-em-finanças" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="aplicações-práticas-de-joins-na-pesquisa-em-finanças"><span class="header-section-number">10.2</span> Aplicações Práticas de Joins na Pesquisa em Finanças</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemplos de Estudos que podem Aplicar Joins
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Estudos de Retornos Anormais</strong>:</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinar dados de mercado com anúncios de eventos</span></span>
+<span id="cb212-2"><a href="#cb212-2" aria-hidden="true" tabindex="-1"></a>estudo_evento <span class="ot">&lt;-</span> dados_retornos <span class="sc">%&gt;%</span></span>
+<span id="cb212-3"><a href="#cb212-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(anuncios_dividendos, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"codigo_empresa"</span>, <span class="st">"data"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Estudos sobre Governança e Valor</strong>:</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Integrar dados de governança corporativa com desempenho contábil</span></span>
+<span id="cb213-2"><a href="#cb213-2" aria-hidden="true" tabindex="-1"></a>analise_governanca <span class="ot">&lt;-</span> empresas_dados_contabeis <span class="sc">%&gt;%</span></span>
+<span id="cb213-3"><a href="#cb213-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(indices_governanca, <span class="at">by =</span> <span class="st">"codigo_cvm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb213-4"><a href="#cb213-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(composicao_conselhos, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"codigo_cvm"</span>, <span class="st">"ano_fiscal"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Modelos de Precificação de Ativos</strong>:</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb214-1"><a href="#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinar fatores de risco com características das empresas</span></span>
+<span id="cb214-2"><a href="#cb214-2" aria-hidden="true" tabindex="-1"></a>modelo_multifatorial <span class="ot">&lt;-</span> retornos_ativos <span class="sc">%&gt;%</span></span>
+<span id="cb214-3"><a href="#cb214-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(fatores_mercado, <span class="at">by =</span> <span class="st">"data"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb214-4"><a href="#cb214-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(caracteristicas_empresas, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"codigo_empresa"</span>, <span class="st">"ano"</span>, <span class="st">"trimestre"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Mercado de Crédito e Ratings</strong>:</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analisar impacto de mudanças de rating no custo de capital</span></span>
+<span id="cb215-2"><a href="#cb215-2" aria-hidden="true" tabindex="-1"></a>analise_credito <span class="ot">&lt;-</span> custos_captacao <span class="sc">%&gt;%</span></span>
+<span id="cb215-3"><a href="#cb215-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(historico_ratings, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"codigo_empresa"</span>, <span class="st">"data_emissao"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="crisp-dm-e-joins" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="crisp-dm-e-joins"><span class="header-section-number">10.3</span> CRISP-DM e Joins</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Joins na Fase 3 (Preparação dos Dados) do CRISP-DM
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Joins são operações fundamentais na <strong>Fase 3 (Preparação dos Dados)</strong> de CRISP-DM, permitindo:</p></li>
+<li><p><strong>Integrar dados fragmentados</strong> que estão distribuídos em múltiplas tabelas relacionadas entre si</p></li>
+<li><p><strong>Consolidar informações</strong> de diferentes fontes ou sistemas para análise (vendas + produtos + clientes)</p></li>
+<li><p><strong>Enriquecer dados principais</strong> com informações contextuais adicionais (ex: adicionar categoria de produto aos dados de vendas)</p></li>
+<li><p><strong>Completar o ciclo de preparação</strong> iniciado com:</p>
+<ul>
+<li>Importação de dados (<code>read_csv()</code>, <code>read_xlsx()</code>)</li>
+<li>Organização de dados (<code>pivot_longer()</code>) para análise</li>
+<li>Limpeza de dados (<code>rename()``,</code>as.___()`)</li>
+<li>Filtragem (<code>filter()</code>) e seleção (<code>select()</code>) de dados relevantes</li>
+<li>Transformação de dados (<code>mutate()</code>) para criar novas variáveis</li>
+<li>Manipulação de dados ( <code>group_by()</code>, <code>summarize()</code> e <code>arrange()</code>)</li>
+<li><strong>Joins</strong>: integrando múltiplas fontes em um arquivo de dados coeso</li>
+</ul></li>
+<li><p>Dados bem integrados facilitam as <strong>Fases 4 e 5</strong> (Modelagem e Avaliação) por fornecerem uma visão completa do problema</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="joins-no-dplyr" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="joins-no-dplyr"><span class="header-section-number">10.4</span> Joins no dplyr</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que são joins?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Joins</strong> são operações que combinam duas tabelas de dados</p></li>
+<li><p>Em termos simples, joins são como “colar” duas tabelas lado a lado, combinando linhas que têm valores em comum, como um “código de cliente” ou “código de produto”</p></li>
+<li><p>No pacote dplyr, temos funções específicas para cada tipo de join:</p>
+<ul>
+<li><code>left_join()</code>: Mantém todas as linhas da tabela da esquerda</li>
+<li><code>inner_join()</code>: Mantém apenas correspondências entre as tabelas</li>
+<li><code>full_join()</code>: Mantém todas as linhas de ambas as tabelas</li>
+<li><code>right_join()</code>: Mantém todas as linhas da tabela da direita</li>
+</ul></li>
+<li><p>São essenciais quando precisamos combinar informações que estão separadas</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="criando-tabelas-de-exemplo" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="criando-tabelas-de-exemplo"><span class="header-section-number">10.5</span> Criando Tabelas de Exemplo</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tabela produtos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb216"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cria a tabela de produtos</span></span>
+<span id="cb216-2"><a href="#cb216-2" aria-hidden="true" tabindex="-1"></a>produtos <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb216-3"><a href="#cb216-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_produto, <span class="sc">~</span>nome_produto,      <span class="sc">~</span>preco_unitario, <span class="sc">~</span>categoria,</span>
+<span id="cb216-4"><a href="#cb216-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P001"</span>,         <span class="st">"Notebook Pro"</span>,      <span class="dv">4500</span>,           <span class="st">"Eletrônicos"</span>,</span>
+<span id="cb216-5"><a href="#cb216-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P002"</span>,         <span class="st">"Smartphone X"</span>,      <span class="dv">2800</span>,           <span class="st">"Eletrônicos"</span>,</span>
+<span id="cb216-6"><a href="#cb216-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P003"</span>,         <span class="st">"Monitor 24pol"</span>,     <span class="dv">1200</span>,           <span class="st">"Informática"</span>,</span>
+<span id="cb216-7"><a href="#cb216-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P004"</span>,         <span class="st">"Mouse Gamer"</span>,       <span class="dv">250</span>,            <span class="st">"Informática"</span>,</span>
+<span id="cb216-8"><a href="#cb216-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P005"</span>,         <span class="st">"Cadeira Ergonômica"</span>, <span class="dv">950</span>,           <span class="st">"Mobiliário"</span></span>
+<span id="cb216-9"><a href="#cb216-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb216-10"><a href="#cb216-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-11"><a href="#cb216-11" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe a tabela</span></span>
+<span id="cb216-12"><a href="#cb216-12" aria-hidden="true" tabindex="-1"></a>produtos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  codigo_produto nome_produto       preco_unitario categoria  
+  &lt;chr&gt;          &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;      
+1 P001           Notebook Pro                 4500 Eletrônicos
+2 P002           Smartphone X                 2800 Eletrônicos
+3 P003           Monitor 24pol                1200 Informática
+4 P004           Mouse Gamer                   250 Informática
+5 P005           Cadeira Ergonômica            950 Mobiliário </code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tabela vendas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb218"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cria a tabela de vendas</span></span>
+<span id="cb218-2"><a href="#cb218-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>id_venda, <span class="sc">~</span>codigo_produto, <span class="sc">~</span>id_cliente, <span class="sc">~</span>data_venda,  <span class="sc">~</span>quantidade,</span>
+<span id="cb218-4"><a href="#cb218-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>,         <span class="st">"P001"</span>,          <span class="st">"C001"</span>,      <span class="st">"2025-04-15"</span>, <span class="dv">1</span>,</span>
+<span id="cb218-5"><a href="#cb218-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>,         <span class="st">"P002"</span>,          <span class="st">"C002"</span>,      <span class="st">"2025-04-16"</span>, <span class="dv">2</span>,</span>
+<span id="cb218-6"><a href="#cb218-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>,         <span class="st">"P003"</span>,          <span class="st">"C001"</span>,      <span class="st">"2025-04-18"</span>, <span class="dv">2</span>,</span>
+<span id="cb218-7"><a href="#cb218-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>,         <span class="st">"P002"</span>,          <span class="st">"C003"</span>,      <span class="st">"2025-04-20"</span>, <span class="dv">1</span>,</span>
+<span id="cb218-8"><a href="#cb218-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">5</span>,         <span class="st">"P006"</span>,          <span class="st">"C002"</span>,      <span class="st">"2025-04-22"</span>, <span class="dv">3</span>,</span>
+<span id="cb218-9"><a href="#cb218-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">6</span>,         <span class="st">"P004"</span>,          <span class="st">"C004"</span>,      <span class="st">"2025-04-23"</span>, <span class="dv">4</span></span>
+<span id="cb218-10"><a href="#cb218-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb218-11"><a href="#cb218-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-12"><a href="#cb218-12" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe a tabela</span></span>
+<span id="cb218-13"><a href="#cb218-13" aria-hidden="true" tabindex="-1"></a>vendas</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  id_venda codigo_produto id_cliente data_venda quantidade
+     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;
+1        1 P001           C001       2025-04-15          1
+2        2 P002           C002       2025-04-16          2
+3        3 P003           C001       2025-04-18          2
+4        4 P002           C003       2025-04-20          1
+5        5 P006           C002       2025-04-22          3
+6        6 P004           C004       2025-04-23          4</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tabela Clientes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell" style="font-size: 1em;">
+<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crian a tabela de clientes </span></span>
+<span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a>clientes <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb220-3"><a href="#cb220-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>id_cliente, <span class="sc">~</span>nome_cliente,     <span class="sc">~</span>cidade,</span>
+<span id="cb220-4"><a href="#cb220-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C001"</span>,      <span class="st">"Empresa Alpha"</span>,   <span class="st">"São Paulo"</span>,</span>
+<span id="cb220-5"><a href="#cb220-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C002"</span>,      <span class="st">"Empresa Beta"</span>,    <span class="st">"Rio de Janeiro"</span>,</span>
+<span id="cb220-6"><a href="#cb220-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C003"</span>,      <span class="st">"João Silva"</span>,      <span class="st">"Belo Horizonte"</span>,</span>
+<span id="cb220-7"><a href="#cb220-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"C005"</span>,      <span class="st">"Maria Oliveira"</span>,  <span class="st">"Recife"</span></span>
+<span id="cb220-8"><a href="#cb220-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb220-9"><a href="#cb220-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-10"><a href="#cb220-10" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe a tabela</span></span>
+<span id="cb220-11"><a href="#cb220-11" aria-hidden="true" tabindex="-1"></a>clientes</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  id_cliente nome_cliente   cidade        
+  &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;         
+1 C001       Empresa Alpha  São Paulo     
+2 C002       Empresa Beta   Rio de Janeiro
+3 C003       João Silva     Belo Horizonte
+4 C005       Maria Oliveira Recife        </code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dados dos Exemlos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell" style="font-size: 1em;">
+<div class="sourceCode cell-code" id="cb222"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb222-1"><a href="#cb222-1" aria-hidden="true" tabindex="-1"></a>produtos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  codigo_produto nome_produto       preco_unitario categoria  
+  &lt;chr&gt;          &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;      
+1 P001           Notebook Pro                 4500 Eletrônicos
+2 P002           Smartphone X                 2800 Eletrônicos
+3 P003           Monitor 24pol                1200 Informática
+4 P004           Mouse Gamer                   250 Informática
+5 P005           Cadeira Ergonômica            950 Mobiliário </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb224"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a>vendas</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  id_venda codigo_produto id_cliente data_venda quantidade
+     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;
+1        1 P001           C001       2025-04-15          1
+2        2 P002           C002       2025-04-16          2
+3        3 P003           C001       2025-04-18          2
+4        4 P002           C003       2025-04-20          1
+5        5 P006           C002       2025-04-22          3
+6        6 P004           C004       2025-04-23          4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb226"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a>clientes</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  id_cliente nome_cliente   cidade        
+  &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;         
+1 C001       Empresa Alpha  São Paulo     
+2 C002       Empresa Beta   Rio de Janeiro
+3 C003       João Silva     Belo Horizonte
+4 C005       Maria Oliveira Recife        </code></pre>
+</div>
+</div>
+<p><strong>Observe que há dados “imperfeitos”</strong>:</p>
+<ul>
+<li>Produto “P006” está nas vendas, mas não na tabela de produtos</li>
+<li>Cliente “C004” está nas vendas, mas não na tabela de clientes</li>
+<li>Cliente “C005” está na tabela de clientes, mas não tem vendas</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="chaves-em-joins" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="chaves-em-joins"><span class="header-section-number">10.6</span> Chaves em Joins</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Como tabelas se relacionam
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Chaves</strong> são as colunas usadas para combinar as tabelas</p></li>
+<li><p>Na prática:</p>
+<ul>
+<li><p>A tabela de clientes tem um “codigo_cliente” único para cada cliente</p></li>
+<li><p>A tabela de vendas usa esse mesmo “codigo_cliente” para indicar qual cliente fez cada compra</p></li>
+<li><p>O “codigo_cliente” é a “chave” que permite combinar as informações das duas tabelas</p></li>
+</ul></li>
+<li><p>Nas funções de join do dplyr, as chaves são especificadas pelo argumento <code>by</code></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="tipos-de-chaves-em-bancos-de-dados-relacionais" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="tipos-de-chaves-em-bancos-de-dados-relacionais"><span class="header-section-number">10.7</span> Tipos de Chaves em Bancos de Dados Relacionais</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Chaves Primárias e Estrangeiras
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Chave primária</strong>: Identificador único para cada registro em uma tabela</p>
+<ul>
+<li>Ex: <code>codigo_cliente</code> na tabela de clientes identifica unicamente cada cliente</li>
+<li>Não pode conter valores duplicados ou nulos</li>
+</ul></li>
+<li><p><strong>Chave estrangeira</strong>: Coluna que referencia a chave primária de outra tabela</p>
+<ul>
+<li>Ex: <code>codigo_cliente</code> na tabela de vendas é uma chave estrangeira</li>
+<li>Estabelece relações entre tabelas e mantém a integridade referencial</li>
+</ul></li>
+<li><p><strong>Analogia</strong>: Pense em chaves como um sistema de CPF</p>
+<ul>
+<li>A chave primária é como o CPF único de cada pessoa</li>
+<li>A chave estrangeira é como mencionar o CPF de alguém em um documento</li>
+<li>Os joins são como reunir documentos diferentes sobre a mesma pessoa usando seu CPF</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="diagrama-de-relações-com-chaves" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="diagrama-de-relações-com-chaves"><span class="header-section-number">10.8</span> Diagrama de Relações com Chaves</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Visualizando a relação entre tabelas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb228"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb228-1"><a href="#cb228-1" aria-hidden="true" tabindex="-1"></a>Tabela CLIENTES                 Tabela VENDAS</span>
+<span id="cb228-2"><a href="#cb228-2" aria-hidden="true" tabindex="-1"></a>+--------------+            +---------------+</span>
+<span id="cb228-3"><a href="#cb228-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> codigo_cliente<span class="pp">|</span> &lt;--------- <span class="pp">|</span>codigo_cliente <span class="pp">|</span>  </span>
+<span id="cb228-4"><a href="#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> nome_cliente  <span class="pp">|</span>            <span class="pp">|</span> id_venda      <span class="pp">|</span></span>
+<span id="cb228-5"><a href="#cb228-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> cidade        <span class="pp">|</span>            <span class="pp">|</span> data_venda    <span class="pp">|</span></span>
+<span id="cb228-6"><a href="#cb228-6" aria-hidden="true" tabindex="-1"></a>+--------------+            +---------------+</span>
+<span id="cb228-7"><a href="#cb228-7" aria-hidden="true" tabindex="-1"></a>   Chave Primária             Chave Estrangeira</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Integridade referencial</strong>: Garante que relações entre tabelas permaneçam válidas
+<ul>
+<li>Impede a criação de vendas para clientes inexistentes</li>
+<li>Fundamental para a confiabilidade dos dados em sistemas empresariais</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplos-comuns-de-chaves" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="exemplos-comuns-de-chaves"><span class="header-section-number">10.9</span> Exemplos Comuns de Chaves</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Chaves em sistemas empresariais
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Exemplos comuns de chaves em sistemas de informação empresariais:</p>
+<ul>
+<li><strong>“codigo_produto”</strong> para relacionar produtos e vendas</li>
+<li><strong>“codigo_funcionario”</strong> para relacionar funcionários e departamentos</li>
+<li><strong>“numero_pedido”</strong> para relacionar pedidos e itens de pedido</li>
+<li><strong>“codigo_fiscal”</strong> para relacionar notas fiscais e itens fiscais</li>
+<li><strong>“matricula_aluno”</strong> em sistemas educacionais</li>
+<li><strong>“numero_prontuario”</strong> em sistemas de saúde</li>
+</ul>
+<p>A identificação correta das chaves é fundamental para o sucesso de joins e para garantir a integridade das análises de dados.</p>
+</div>
+</div>
+</section>
+<section id="desafios-com-chaves-em-joins" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="desafios-com-chaves-em-joins"><span class="header-section-number">10.10</span> Desafios com Chaves em Joins</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problemas comuns ao trabalhar com chaves
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Chaves duplicadas</strong>:</p>
+<ul>
+<li>Podem gerar múltiplas linhas no resultado (multiplicação de dados)</li>
+<li>Exemplo: Um cliente vinculado a várias vendas resulta em múltiplas linhas</li>
+</ul></li>
+<li><p><strong>Chaves ausentes</strong>:</p>
+<ul>
+<li>Resultam em valores NA quando usando left, right ou full joins</li>
+<li>Exemplo: Vendas sem cliente cadastrado ou produtos sem vendas</li>
+</ul></li>
+<li><p><strong>Inconsistência de tipos</strong>:</p>
+<ul>
+<li>Problemas quando a mesma chave tem tipos diferentes em tabelas distintas</li>
+<li>Exemplo: código armazenado como texto em uma tabela e número em outra</li>
+</ul></li>
+<li><p><strong>Diferenças de nomenclatura</strong>:</p>
+<ul>
+<li>Quando a mesma informação tem nomes diferentes em sistemas distintos</li>
+<li>Requer especificação explícita: <code>by = c("codigo_produto" = "codigo")</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sintaxe-básica-de-joins-no-dplyr" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="sintaxe-básica-de-joins-no-dplyr"><span class="header-section-number">10.11</span> Sintaxe Básica de Joins no dplyr</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Como usar joins no dplyr (simplificado)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb229"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Formato básico (simples)</span></span>
+<span id="cb229-2"><a href="#cb229-2" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> </span>
+<span id="cb229-3"><a href="#cb229-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tipo_join</span>(y, <span class="at">by =</span> <span class="st">"coluna_comum"</span>)</span>
+<span id="cb229-4"><a href="#cb229-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-5"><a href="#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo com nossas tabelas</span></span>
+<span id="cb229-6"><a href="#cb229-6" aria-hidden="true" tabindex="-1"></a>vendas_com_produtos <span class="ot">&lt;-</span> vendas <span class="sc">%&gt;%</span></span>
+<span id="cb229-7"><a href="#cb229-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(produtos, <span class="at">by =</span> <span class="st">"codigo_produto"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>O que cada parte significa:</strong></p>
+<ul>
+<li><code>vendas</code>: A primeira tabela (tabela da esquerda)</li>
+<li><code>produtos</code>: A segunda tabela (tabela da direita)</li>
+<li><code>by = "codigo_produto"</code>: A coluna comum que existe em ambas as tabelas</li>
+<li><code>left_join</code>: O tipo de join que queremos usar</li>
+<li><code>vendas_com_produtos</code>: O resultado da combinação que salvaremos</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="visão-geral-dos-joins" class="level2" data-number="10.12">
+<h2 data-number="10.12" class="anchored" data-anchor-id="visão-geral-dos-joins"><span class="header-section-number">10.12</span> Visão Geral dos Joins</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Em resumo:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo de Join</th>
+<th>Função no dplyr</th>
+<th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Left join</td>
+<td><code>left_join()</code></td>
+<td>Quando você precisa manter todos os registros da tabela principal (à esquerda)</td>
+</tr>
+<tr class="even">
+<td>Inner join</td>
+<td><code>inner_join()</code></td>
+<td>Quando você precisa apenas dos registros que existem em ambas as tabelas</td>
+</tr>
+<tr class="odd">
+<td>Full join</td>
+<td><code>full_join()</code></td>
+<td>Quando você precisa de todos os dados, independentemente de correspondências</td>
+</tr>
+<tr class="even">
+<td>Right join</td>
+<td><code>right_join()</code></td>
+<td>Quando você precisa manter todos os registros da tabela secundária (à direita)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="left-join" class="level2" data-number="10.13">
+<h2 data-number="10.13" class="anchored" data-anchor-id="left-join"><span class="header-section-number">10.13</span> Left Join</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Função left_join()
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb230-1"><a href="#cb230-1" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> </span>
+<span id="cb230-2"><a href="#cb230-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(y, <span class="at">by =</span> <span class="st">"chave"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/left-join.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Características do Left Join
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Mantém <strong>todos</strong> os registros da tabela da esquerda (primeira tabela)</p></li>
+<li><p>Para registros sem correspondência na tabela da direita, preenche com NA</p></li>
+<li><p><strong>Quando usar</strong>:</p>
+<ul>
+<li>Quando a primeira tabela é sua tabela principal</li>
+<li>Quando você precisa preservar todos os registros da primeira tabela</li>
+<li>Quando você quer adicionar informações extras à sua tabela principal</li>
+</ul></li>
+<li><p><strong>Exemplo</strong>: Manter todas as vendas e adicionar dados dos produtos</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplo-left-join-em-pesquisa" class="level2" data-number="10.14">
+<h2 data-number="10.14" class="anchored" data-anchor-id="exemplo-left-join-em-pesquisa"><span class="header-section-number">10.14</span> Exemplo: Left Join em Pesquisa</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Left Join: Análise de Empresas e seus Indicadores Contábeis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb231"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb231-1"><a href="#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de empresas listadas</span></span>
+<span id="cb231-2"><a href="#cb231-2" aria-hidden="true" tabindex="-1"></a>empresas_listadas <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb231-3"><a href="#cb231-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_cvm, <span class="sc">~</span>empresa,            <span class="sc">~</span>setor,              <span class="sc">~</span>segmento_listagem,</span>
+<span id="cb231-4"><a href="#cb231-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"11592"</span>,     <span class="st">"Petrobras"</span>,         <span class="st">"Petróleo e Gás"</span>,    <span class="st">"Nível 2"</span>,</span>
+<span id="cb231-5"><a href="#cb231-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"19615"</span>,     <span class="st">"Vale"</span>,              <span class="st">"Mineração"</span>,         <span class="st">"Novo Mercado"</span>,</span>
+<span id="cb231-6"><a href="#cb231-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"14311"</span>,     <span class="st">"Itaú Unibanco"</span>,     <span class="st">"Financeiro"</span>,        <span class="st">"Nível 1"</span>,</span>
+<span id="cb231-7"><a href="#cb231-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"18112"</span>,     <span class="st">"Natura"</span>,            <span class="st">"Bens de Consumo"</span>,   <span class="st">"Novo Mercado"</span>,</span>
+<span id="cb231-8"><a href="#cb231-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"22691"</span>,     <span class="st">"Magazine Luiza"</span>,    <span class="st">"Varejo"</span>,            <span class="st">"Novo Mercado"</span></span>
+<span id="cb231-9"><a href="#cb231-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb231-10"><a href="#cb231-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-11"><a href="#cb231-11" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb231-12"><a href="#cb231-12" aria-hidden="true" tabindex="-1"></a>empresas_listadas </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  codigo_cvm empresa        setor           segmento_listagem
+  &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;           &lt;chr&gt;            
+1 11592      Petrobras      Petróleo e Gás  Nível 2          
+2 19615      Vale           Mineração       Novo Mercado     
+3 14311      Itaú Unibanco  Financeiro      Nível 1          
+4 18112      Natura         Bens de Consumo Novo Mercado     
+5 22691      Magazine Luiza Varejo          Novo Mercado     </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de indicadores contábeis</span></span>
+<span id="cb233-2"><a href="#cb233-2" aria-hidden="true" tabindex="-1"></a>indicadores_contabeis <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb233-3"><a href="#cb233-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_cvm, <span class="sc">~</span>ano_fiscal, <span class="sc">~</span>roa,    <span class="sc">~</span>roe,    <span class="sc">~</span>ebitda_margem,  <span class="sc">~</span>divida_liquida,</span>
+<span id="cb233-4"><a href="#cb233-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"11592"</span>,     <span class="dv">2023</span>,         <span class="fl">0.089</span>,   <span class="fl">0.235</span>,   <span class="fl">0.392</span>,           <span class="dv">315780000</span>,</span>
+<span id="cb233-5"><a href="#cb233-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"19615"</span>,     <span class="dv">2023</span>,         <span class="fl">0.112</span>,   <span class="fl">0.268</span>,   <span class="fl">0.468</span>,           <span class="dv">185230000</span>,</span>
+<span id="cb233-6"><a href="#cb233-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"14311"</span>,     <span class="dv">2023</span>,         <span class="fl">0.064</span>,   <span class="fl">0.195</span>,   <span class="fl">0.412</span>,           <span class="cn">NULL</span>,</span>
+<span id="cb233-7"><a href="#cb233-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"22691"</span>,     <span class="dv">2023</span>,         <span class="fl">0.052</span>,   <span class="fl">0.148</span>,   <span class="fl">0.185</span>,           <span class="dv">12450000</span></span>
+<span id="cb233-8"><a href="#cb233-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb233-9"><a href="#cb233-9" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb233-10"><a href="#cb233-10" aria-hidden="true" tabindex="-1"></a>indicadores_contabeis </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+  codigo_cvm ano_fiscal   roa   roe ebitda_margem divida_liquida
+  &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt; &lt;list&gt;        
+1 11592            2023 0.089 0.235         0.392 &lt;dbl [1]&gt;     
+2 19615            2023 0.112 0.268         0.468 &lt;dbl [1]&gt;     
+3 14311            2023 0.064 0.195         0.412 &lt;NULL&gt;        
+4 22691            2023 0.052 0.148         0.185 &lt;dbl [1]&gt;     </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb235"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb235-1"><a href="#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Left join: todas as empresas, mesmo sem indicadores contábeis disponíveis</span></span>
+<span id="cb235-2"><a href="#cb235-2" aria-hidden="true" tabindex="-1"></a>analise_empresas <span class="ot">&lt;-</span> empresas_listadas <span class="sc">%&gt;%</span></span>
+<span id="cb235-3"><a href="#cb235-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(indicadores_contabeis, <span class="at">by =</span> <span class="st">"codigo_cvm"</span>)</span>
+<span id="cb235-4"><a href="#cb235-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-5"><a href="#cb235-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o resultado</span></span>
+<span id="cb235-6"><a href="#cb235-6" aria-hidden="true" tabindex="-1"></a>analise_empresas</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 9
+  codigo_cvm empresa        setor     segmento_listagem ano_fiscal    roa    roe
+  &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;                  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 11592      Petrobras      Petróleo… Nível 2                 2023  0.089  0.235
+2 19615      Vale           Mineração Novo Mercado            2023  0.112  0.268
+3 14311      Itaú Unibanco  Financei… Nível 1                 2023  0.064  0.195
+4 18112      Natura         Bens de … Novo Mercado              NA NA     NA    
+5 22691      Magazine Luiza Varejo    Novo Mercado            2023  0.052  0.148
+# ℹ 2 more variables: ebitda_margem &lt;dbl&gt;, divida_liquida &lt;list&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observe que</strong>:</p>
+<ul>
+<li><p>A empresa “Natura” (código CVM “18112”) <strong>aparece</strong> no resultado</p></li>
+<li><p>Como não há dados contábeis disponíveis para esta empresa, as colunas de indicadores aparecem com NA</p></li>
+<li><p>O left_join é muito utilizado em pesquisas quando queremos manter todas as empresas da amostra, mesmo aquelas com dados incompletos - decisão metodológica comum em estudos com amostras pequenas</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="inner-join" class="level2 smaller" data-number="10.15">
+<h2 class="smaller anchored" data-number="10.15" data-anchor-id="inner-join"><span class="header-section-number">10.15</span> Inner Join</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Função inner_join()
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb237"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb237-1"><a href="#cb237-1" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> </span>
+<span id="cb237-2"><a href="#cb237-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(y, <span class="at">by =</span> <span class="st">"chave"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/inner-join.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Características do Inner Join
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Mantém <strong>apenas</strong> os registros que possuem correspondência em <strong>ambas</strong> as tabelas</p></li>
+<li><p>Descarta linhas que não têm correspondência</p></li>
+<li><p><strong>Quando usar</strong>:</p>
+<ul>
+<li><p>Quando você precisa garantir que todos os registros tenham informações completas</p></li>
+<li><p>Quando registros sem correspondência não são relevantes para sua análise</p></li>
+</ul></li>
+<li><p><strong>Exemplo</strong>: Relatório de vendas que precisa mostrar dados do produto</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplo-inner-join-em-pesquisa" class="level2" data-number="10.16">
+<h2 data-number="10.16" class="anchored" data-anchor-id="exemplo-inner-join-em-pesquisa"><span class="header-section-number">10.16</span> Exemplo: Inner Join em Pesquisa</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Inner Join: Analisando Eventos de Rating e Performance de Bonds
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb238"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb238-1"><a href="#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de títulos de dívida corporativa (bonds)</span></span>
+<span id="cb238-2"><a href="#cb238-2" aria-hidden="true" tabindex="-1"></a>titulos_divida <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb238-3"><a href="#cb238-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>isin,          <span class="sc">~</span>emissor,        <span class="sc">~</span>valor_emissao, <span class="sc">~</span>yield_to_maturity, <span class="sc">~</span>vencimento,</span>
+<span id="cb238-4"><a href="#cb238-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRPETRDBS036"</span>, <span class="st">"Petrobras"</span>,     <span class="dv">1000000000</span>,     <span class="fl">0.0785</span>,             <span class="st">"2030-03-15"</span>,</span>
+<span id="cb238-5"><a href="#cb238-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRVALEDBF009"</span>, <span class="st">"Vale"</span>,           <span class="dv">750000000</span>,     <span class="fl">0.0652</span>,             <span class="st">"2032-10-08"</span>,</span>
+<span id="cb238-6"><a href="#cb238-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRITAUDB0025"</span>, <span class="st">"Itaú Unibanco"</span>,  <span class="dv">500000000</span>,     <span class="fl">0.0723</span>,             <span class="st">"2028-05-22"</span>,</span>
+<span id="cb238-7"><a href="#cb238-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRBTGPDB0017"</span>, <span class="st">"BTG Pactual"</span>,    <span class="dv">650000000</span>,     <span class="fl">0.0798</span>,             <span class="st">"2029-08-30"</span>,</span>
+<span id="cb238-8"><a href="#cb238-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRCVCODB0032"</span>, <span class="st">"Cielo"</span>,          <span class="dv">350000000</span>,     <span class="fl">0.0815</span>,             <span class="st">"2027-11-12"</span></span>
+<span id="cb238-9"><a href="#cb238-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb238-10"><a href="#cb238-10" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb238-11"><a href="#cb238-11" aria-hidden="true" tabindex="-1"></a>titulos_divida</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  isin         emissor       valor_emissao yield_to_maturity vencimento
+  &lt;chr&gt;        &lt;chr&gt;                 &lt;dbl&gt;             &lt;dbl&gt; &lt;chr&gt;     
+1 BRPETRDBS036 Petrobras        1000000000            0.0785 2030-03-15
+2 BRVALEDBF009 Vale              750000000            0.0652 2032-10-08
+3 BRITAUDB0025 Itaú Unibanco     500000000            0.0723 2028-05-22
+4 BRBTGPDB0017 BTG Pactual       650000000            0.0798 2029-08-30
+5 BRCVCODB0032 Cielo             350000000            0.0815 2027-11-12</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb240"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb240-1"><a href="#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de mudanças de rating</span></span>
+<span id="cb240-2"><a href="#cb240-2" aria-hidden="true" tabindex="-1"></a>mudancas_rating <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb240-3"><a href="#cb240-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>isin,          <span class="sc">~</span>data_evento,  <span class="sc">~</span>agencia,   <span class="sc">~</span>rating_anterior, <span class="sc">~</span>novo_rating, <span class="sc">~</span>perspectiva,</span>
+<span id="cb240-4"><a href="#cb240-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRPETRDBS036"</span>, <span class="st">"2023-05-10"</span>,  <span class="st">"Moody's"</span>,  <span class="st">"Ba2"</span>,            <span class="st">"Ba1"</span>,        <span class="st">"Positiva"</span>,</span>
+<span id="cb240-5"><a href="#cb240-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRVALEDBF009"</span>, <span class="st">"2023-06-22"</span>,  <span class="st">"S&amp;P"</span>,      <span class="st">"BBB"</span>,            <span class="st">"BBB+"</span>,       <span class="st">"Estável"</span>,</span>
+<span id="cb240-6"><a href="#cb240-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRVALEDBF009"</span>, <span class="st">"2023-08-15"</span>,  <span class="st">"Fitch"</span>,    <span class="st">"BBB"</span>,            <span class="st">"BBB+"</span>,       <span class="st">"Estável"</span>,</span>
+<span id="cb240-7"><a href="#cb240-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRITAUDB0025"</span>, <span class="st">"2023-07-08"</span>,  <span class="st">"Moody's"</span>,  <span class="st">"Ba1"</span>,            <span class="st">"Baa3"</span>,       <span class="st">"Estável"</span>,</span>
+<span id="cb240-8"><a href="#cb240-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BRECOPDB0016"</span>, <span class="st">"2023-09-14"</span>,  <span class="st">"S&amp;P"</span>,      <span class="st">"BB-"</span>,            <span class="st">"BB"</span>,         <span class="st">"Positiva"</span></span>
+<span id="cb240-9"><a href="#cb240-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb240-10"><a href="#cb240-10" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb240-11"><a href="#cb240-11" aria-hidden="true" tabindex="-1"></a>mudancas_rating</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 6
+  isin         data_evento agencia rating_anterior novo_rating perspectiva
+  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;       &lt;chr&gt;      
+1 BRPETRDBS036 2023-05-10  Moody's Ba2             Ba1         Positiva   
+2 BRVALEDBF009 2023-06-22  S&amp;P     BBB             BBB+        Estável    
+3 BRVALEDBF009 2023-08-15  Fitch   BBB             BBB+        Estável    
+4 BRITAUDB0025 2023-07-08  Moody's Ba1             Baa3        Estável    
+5 BRECOPDB0016 2023-09-14  S&amp;P     BB-             BB          Positiva   </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb242"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb242-1"><a href="#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inner join: apenas títulos de dívida que tiveram mudanças de rating</span></span>
+<span id="cb242-2"><a href="#cb242-2" aria-hidden="true" tabindex="-1"></a>analise_rating_impacto <span class="ot">&lt;-</span> titulos_divida <span class="sc">%&gt;%</span></span>
+<span id="cb242-3"><a href="#cb242-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(mudancas_rating, <span class="at">by =</span> <span class="st">"isin"</span>)</span>
+<span id="cb242-4"><a href="#cb242-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-5"><a href="#cb242-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o resultado</span></span>
+<span id="cb242-6"><a href="#cb242-6" aria-hidden="true" tabindex="-1"></a>analise_rating_impacto</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 10
+  isin    emissor valor_emissao yield_to_maturity vencimento data_evento agencia
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;             &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;  
+1 BRPETR… Petrob…    1000000000            0.0785 2030-03-15 2023-05-10  Moody's
+2 BRVALE… Vale        750000000            0.0652 2032-10-08 2023-06-22  S&amp;P    
+3 BRVALE… Vale        750000000            0.0652 2032-10-08 2023-08-15  Fitch  
+4 BRITAU… Itaú U…     500000000            0.0723 2028-05-22 2023-07-08  Moody's
+# ℹ 3 more variables: rating_anterior &lt;chr&gt;, novo_rating &lt;chr&gt;,
+#   perspectiva &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observe que</strong>:</p>
+<ul>
+<li><p>O título da “Cielo” (ISIN “BRCVCODB0032”) <strong>não aparece</strong> no resultado pois não teve mudança de rating no período analisado</p></li>
+<li><p>A mudança de rating do título “BRECOPDB0016” também <strong>não aparece</strong> no resultado pois este título não está na nossa base de títulos monitorados</p></li>
+<li><p>O inner_join é apropriado para estudos de evento onde queremos analisar apenas os casos onde ocorreu o evento específico (neste caso, mudança de rating)</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="full-join" class="level2" data-number="10.17">
+<h2 data-number="10.17" class="anchored" data-anchor-id="full-join"><span class="header-section-number">10.17</span> Full Join</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Função full_join()
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb244"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> </span>
+<span id="cb244-2"><a href="#cb244-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(y, <span class="at">by =</span> <span class="st">"chave"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/full-join.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Características do Full Join
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Mantém <strong>todos</strong> os registros de <strong>ambas</strong> as tabelas</p></li>
+<li><p>Para registros sem correspondência em qualquer tabela, preenche com NA</p></li>
+<li><p><strong>Quando usar</strong>:</p>
+<ul>
+<li>Quando você precisa de uma visão completa de todos os dados</li>
+<li>Quando quer identificar inconsistências entre tabelas</li>
+<li>Quando é importante não perder nenhum registro de nenhuma tabela</li>
+</ul></li>
+<li><p><strong>Exemplo</strong>: Relatório completo de produtos e vendas</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplo-full-join" class="level2" data-number="10.18">
+<h2 data-number="10.18" class="anchored" data-anchor-id="exemplo-full-join"><span class="header-section-number">10.18</span> Exemplo: Full Join</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Full Join entre Vendas e Produtos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb245-1"><a href="#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full join: todas as vendas e todos os produtos</span></span>
+<span id="cb245-2"><a href="#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Passo 1: Pegamos a tabela 'vendas'</span></span>
+<span id="cb245-3"><a href="#cb245-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Passo 2: Combinamos com produtos mantendo TUDO de ambas as tabelas</span></span>
+<span id="cb245-4"><a href="#cb245-4" aria-hidden="true" tabindex="-1"></a>completo_vendas_produtos <span class="ot">&lt;-</span> vendas <span class="sc">%&gt;%</span></span>
+<span id="cb245-5"><a href="#cb245-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(produtos, <span class="at">by =</span> <span class="st">"codigo_produto"</span>)</span>
+<span id="cb245-6"><a href="#cb245-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-7"><a href="#cb245-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o resultado</span></span>
+<span id="cb245-8"><a href="#cb245-8" aria-hidden="true" tabindex="-1"></a>completo_vendas_produtos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 8
+  id_venda codigo_produto id_cliente data_venda quantidade nome_produto      
+     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;             
+1        1 P001           C001       2025-04-15          1 Notebook Pro      
+2        2 P002           C002       2025-04-16          2 Smartphone X      
+3        3 P003           C001       2025-04-18          2 Monitor 24pol     
+4        4 P002           C003       2025-04-20          1 Smartphone X      
+5        5 P006           C002       2025-04-22          3 &lt;NA&gt;              
+6        6 P004           C004       2025-04-23          4 Mouse Gamer       
+7       NA P005           &lt;NA&gt;       &lt;NA&gt;               NA Cadeira Ergonômica
+# ℹ 2 more variables: preco_unitario &lt;dbl&gt;, categoria &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observe que</strong>:</p>
+<ul>
+<li><p>A venda do produto “P006” que não existe na tabela de produtos aparece com NAs</p></li>
+<li><p>O produto “P005” que não tem vendas também aparece com NAs</p></li>
+<li><p>O full_join é útil para ver “tudo junto” e identificar inconsistências</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="right-join" class="level2" data-number="10.19">
+<h2 data-number="10.19" class="anchored" data-anchor-id="right-join"><span class="header-section-number">10.19</span> Right Join</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Função right_join()
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb247-1"><a href="#cb247-1" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> </span>
+<span id="cb247-2"><a href="#cb247-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(y, <span class="at">by =</span> <span class="st">"chave"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/right-join.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Características do Right Join
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Mantém <strong>todos</strong> os registros da tabela da direita (segunda tabela)</p></li>
+<li><p>Para registros sem correspondência na tabela da esquerda, preenche com NA</p></li>
+<li><p><strong>Quando usar</strong>:</p>
+<ul>
+<li><p>Quando a segunda tabela é sua tabela principal</p></li>
+<li><p>Quando você precisa garantir que todos os registros da segunda tabela estejam presentes</p></li>
+<li><p>Na prática, muitas vezes é mais fácil usar left_join invertendo a ordem das tabelas</p></li>
+</ul></li>
+<li><p><strong>Exemplo</strong>: Ver todos os produtos, mesmo os que não foram vendidos</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplo-right-join" class="level2" data-number="10.20">
+<h2 data-number="10.20" class="anchored" data-anchor-id="exemplo-right-join"><span class="header-section-number">10.20</span> Exemplo: Right Join</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Right Join entre Vendas e Produtos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb248"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb248-1"><a href="#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Right join: todos os produtos, mesmo sem vendas</span></span>
+<span id="cb248-2"><a href="#cb248-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Passo 1: Pegamos a tabela 'vendas'</span></span>
+<span id="cb248-3"><a href="#cb248-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Passo 2: Combinamos com TODOS os produtos, mesmo os sem vendas</span></span>
+<span id="cb248-4"><a href="#cb248-4" aria-hidden="true" tabindex="-1"></a>produtos_vendas_right <span class="ot">&lt;-</span> vendas <span class="sc">%&gt;%</span></span>
+<span id="cb248-5"><a href="#cb248-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(produtos, <span class="at">by =</span> <span class="st">"codigo_produto"</span>)</span>
+<span id="cb248-6"><a href="#cb248-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-7"><a href="#cb248-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o resultado</span></span>
+<span id="cb248-8"><a href="#cb248-8" aria-hidden="true" tabindex="-1"></a>produtos_vendas_right</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  id_venda codigo_produto id_cliente data_venda quantidade nome_produto      
+     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;             
+1        1 P001           C001       2025-04-15          1 Notebook Pro      
+2        2 P002           C002       2025-04-16          2 Smartphone X      
+3        3 P003           C001       2025-04-18          2 Monitor 24pol     
+4        4 P002           C003       2025-04-20          1 Smartphone X      
+5        6 P004           C004       2025-04-23          4 Mouse Gamer       
+6       NA P005           &lt;NA&gt;       &lt;NA&gt;               NA Cadeira Ergonômica
+# ℹ 2 more variables: preco_unitario &lt;dbl&gt;, categoria &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observe que</strong>:</p>
+<ul>
+<li>Agora o produto “P005” (Cadeira Ergonômica) <strong>aparece</strong> no resultado</li>
+<li>Como esse produto não tem vendas, as colunas de vendas aparecem com NA</li>
+<li>O right_join é útil para identificar produtos sem movimento</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplo-combinando-múltiplas-tabelas" class="level2" data-number="10.21">
+<h2 data-number="10.21" class="anchored" data-anchor-id="exemplo-combinando-múltiplas-tabelas"><span class="header-section-number">10.21</span> Exemplo: Combinando Múltiplas Tabelas</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estudo integrado de Governança, Retorno e Risco Sistêmico
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb250"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb250-1"><a href="#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de empresas e características de governança</span></span>
+<span id="cb250-2"><a href="#cb250-2" aria-hidden="true" tabindex="-1"></a>governanca <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb250-3"><a href="#cb250-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_negociacao, <span class="sc">~</span>empresa,         <span class="sc">~</span>indice_governanca, <span class="sc">~</span>tipo_controlador, <span class="sc">~</span>comite_auditoria,</span>
+<span id="cb250-4"><a href="#cb250-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,            <span class="st">"Petrobras"</span>,      <span class="fl">6.8</span>,                <span class="st">"Estatal"</span>,         <span class="cn">TRUE</span>,</span>
+<span id="cb250-5"><a href="#cb250-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,            <span class="st">"Vale"</span>,           <span class="fl">8.2</span>,                <span class="st">"Pulverizado"</span>,     <span class="cn">TRUE</span>,</span>
+<span id="cb250-6"><a href="#cb250-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ITUB4"</span>,            <span class="st">"Itaú Unibanco"</span>,  <span class="fl">7.9</span>,                <span class="st">"Familiar"</span>,        <span class="cn">TRUE</span>,</span>
+<span id="cb250-7"><a href="#cb250-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BBDC4"</span>,            <span class="st">"Bradesco"</span>,       <span class="fl">7.6</span>,                <span class="st">"Familiar"</span>,        <span class="cn">TRUE</span>,</span>
+<span id="cb250-8"><a href="#cb250-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"MGLU3"</span>,            <span class="st">"Magazine Luiza"</span>, <span class="fl">7.1</span>,                <span class="st">"Familiar"</span>,        <span class="cn">FALSE</span></span>
+<span id="cb250-9"><a href="#cb250-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb250-10"><a href="#cb250-10" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb250-11"><a href="#cb250-11" aria-hidden="true" tabindex="-1"></a>governanca</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  codigo_negociacao empresa  indice_governanca tipo_controlador comite_auditoria
+  &lt;chr&gt;             &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;            &lt;lgl&gt;           
+1 PETR4             Petrobr…               6.8 Estatal          TRUE            
+2 VALE3             Vale                   8.2 Pulverizado      TRUE            
+3 ITUB4             Itaú Un…               7.9 Familiar         TRUE            
+4 BBDC4             Bradesco               7.6 Familiar         TRUE            
+5 MGLU3             Magazin…               7.1 Familiar         FALSE           </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb252"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb252-1"><a href="#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de retornos anuais ajustados</span></span>
+<span id="cb252-2"><a href="#cb252-2" aria-hidden="true" tabindex="-1"></a>retornos <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb252-3"><a href="#cb252-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_negociacao, <span class="sc">~</span>ano,  <span class="sc">~</span>retorno_anual, <span class="sc">~</span>volatilidade, <span class="sc">~</span>beta,</span>
+<span id="cb252-4"><a href="#cb252-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,            <span class="dv">2023</span>,   <span class="fl">0.125</span>,          <span class="fl">0.285</span>,        <span class="fl">1.32</span>,</span>
+<span id="cb252-5"><a href="#cb252-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,            <span class="dv">2023</span>,   <span class="fl">0.084</span>,          <span class="fl">0.215</span>,        <span class="fl">1.18</span>,</span>
+<span id="cb252-6"><a href="#cb252-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ITUB4"</span>,            <span class="dv">2023</span>,   <span class="fl">0.152</span>,          <span class="fl">0.195</span>,        <span class="fl">0.87</span>,</span>
+<span id="cb252-7"><a href="#cb252-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BBDC4"</span>,            <span class="dv">2023</span>,   <span class="fl">0.138</span>,          <span class="fl">0.205</span>,        <span class="fl">0.92</span>,</span>
+<span id="cb252-8"><a href="#cb252-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ABEV3"</span>,            <span class="dv">2023</span>,   <span class="fl">0.062</span>,          <span class="fl">0.165</span>,        <span class="fl">0.72</span></span>
+<span id="cb252-9"><a href="#cb252-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb252-10"><a href="#cb252-10" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb252-11"><a href="#cb252-11" aria-hidden="true" tabindex="-1"></a>retornos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  codigo_negociacao   ano retorno_anual volatilidade  beta
+  &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;
+1 PETR4              2023         0.125        0.285  1.32
+2 VALE3              2023         0.084        0.215  1.18
+3 ITUB4              2023         0.152        0.195  0.87
+4 BBDC4              2023         0.138        0.205  0.92
+5 ABEV3              2023         0.062        0.165  0.72</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb254"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb254-1"><a href="#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de indicadores contábeis</span></span>
+<span id="cb254-2"><a href="#cb254-2" aria-hidden="true" tabindex="-1"></a>indicadores <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb254-3"><a href="#cb254-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_negociacao, <span class="sc">~</span>ano,  <span class="sc">~</span>roa,    <span class="sc">~</span>alavancagem, <span class="sc">~</span>tamanho_ativo,</span>
+<span id="cb254-4"><a href="#cb254-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,            <span class="dv">2023</span>,   <span class="fl">0.089</span>,   <span class="fl">0.325</span>,        <span class="dv">395120000</span>,</span>
+<span id="cb254-5"><a href="#cb254-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,            <span class="dv">2023</span>,   <span class="fl">0.112</span>,   <span class="fl">0.285</span>,        <span class="dv">312450000</span>,</span>
+<span id="cb254-6"><a href="#cb254-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ITUB4"</span>,            <span class="dv">2023</span>,   <span class="fl">0.064</span>,   <span class="fl">0.852</span>,        <span class="dv">2185620000</span>,</span>
+<span id="cb254-7"><a href="#cb254-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BBDC4"</span>,            <span class="dv">2023</span>,   <span class="fl">0.058</span>,   <span class="fl">0.815</span>,        <span class="dv">1924380000</span>,</span>
+<span id="cb254-8"><a href="#cb254-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"MGLU3"</span>,            <span class="dv">2023</span>,   <span class="fl">0.052</span>,   <span class="fl">0.368</span>,         <span class="dv">28540000</span></span>
+<span id="cb254-9"><a href="#cb254-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb254-10"><a href="#cb254-10" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb254-11"><a href="#cb254-11" aria-hidden="true" tabindex="-1"></a>indicadores</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  codigo_negociacao   ano   roa alavancagem tamanho_ativo
+  &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+1 PETR4              2023 0.089       0.325     395120000
+2 VALE3              2023 0.112       0.285     312450000
+3 ITUB4              2023 0.064       0.852    2185620000
+4 BBDC4              2023 0.058       0.815    1924380000
+5 MGLU3              2023 0.052       0.368      28540000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb256"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb256-1"><a href="#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline de análise integrada</span></span>
+<span id="cb256-2"><a href="#cb256-2" aria-hidden="true" tabindex="-1"></a>analise_integrada <span class="ot">&lt;-</span> governanca <span class="sc">%&gt;%</span></span>
+<span id="cb256-3"><a href="#cb256-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Primeiro, adicionamos dados de retorno e risco</span></span>
+<span id="cb256-4"><a href="#cb256-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(retornos, <span class="at">by =</span> <span class="st">"codigo_negociacao"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb256-5"><a href="#cb256-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Depois, adicionamos indicadores contábeis</span></span>
+<span id="cb256-6"><a href="#cb256-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(indicadores, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"codigo_negociacao"</span>, <span class="st">"ano"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb256-7"><a href="#cb256-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Selecionamos apenas as variáveis relevantes para o estudo</span></span>
+<span id="cb256-8"><a href="#cb256-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb256-9"><a href="#cb256-9" aria-hidden="true" tabindex="-1"></a>    empresa, codigo_negociacao, ano, indice_governanca, tipo_controlador,</span>
+<span id="cb256-10"><a href="#cb256-10" aria-hidden="true" tabindex="-1"></a>    retorno_anual, volatilidade, beta, </span>
+<span id="cb256-11"><a href="#cb256-11" aria-hidden="true" tabindex="-1"></a>    roa, alavancagem, tamanho_ativo</span>
+<span id="cb256-12"><a href="#cb256-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb256-13"><a href="#cb256-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-14"><a href="#cb256-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o resultado</span></span>
+<span id="cb256-15"><a href="#cb256-15" aria-hidden="true" tabindex="-1"></a>analise_integrada</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 11
+  empresa        codigo_negociacao   ano indice_governanca tipo_controlador
+  &lt;chr&gt;          &lt;chr&gt;             &lt;dbl&gt;             &lt;dbl&gt; &lt;chr&gt;           
+1 Petrobras      PETR4              2023               6.8 Estatal         
+2 Vale           VALE3              2023               8.2 Pulverizado     
+3 Itaú Unibanco  ITUB4              2023               7.9 Familiar        
+4 Bradesco       BBDC4              2023               7.6 Familiar        
+5 Magazine Luiza MGLU3                NA               7.1 Familiar        
+# ℹ 6 more variables: retorno_anual &lt;dbl&gt;, volatilidade &lt;dbl&gt;, beta &lt;dbl&gt;,
+#   roa &lt;dbl&gt;, alavancagem &lt;dbl&gt;, tamanho_ativo &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p><strong>Observe como</strong>:</p>
+<ul>
+<li>Este pipeline combina três conjuntos de dados distintos (governança, mercado e contábil)</li>
+<li>Empresas como “Magazine Luiza” (MGLU3) aparecem sem dados de retorno (NA)</li>
+<li>“ABEV3” aparece nos dados de retorno, mas não nas outras tabelas</li>
+</ul>
+<p><strong>Implicações metodológicas</strong>:</p>
+<ul>
+<li>O uso de left_join manteve todas as empresas com dados de governança, revelando lacunas nos dados</li>
+<li>A definição desta amostra de estudo (firmas com dados de governança) é uma escolha metodológica explícita</li>
+<li>Este tipo de construção de amostra é muito útil em estudos empíricos que analisam relações entre diferentes conjuntos de observações e variáveis.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplo-análise-de-demonstrações-financeiras" class="level2" data-number="10.22">
+<h2 data-number="10.22" class="anchored" data-anchor-id="exemplo-análise-de-demonstrações-financeiras"><span class="header-section-number">10.22</span> Exemplo: Análise de Demonstrações Financeiras</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cenário: Pesquisa em Desempenho Financeiro Setorial
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb258"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb258-1"><a href="#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela com informações básicas das empresas</span></span>
+<span id="cb258-2"><a href="#cb258-2" aria-hidden="true" tabindex="-1"></a>empresas <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb258-3"><a href="#cb258-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_cvm, <span class="sc">~</span>nome_empresa,      <span class="sc">~</span>setor,              <span class="sc">~</span>tamanho,  <span class="sc">~</span>governanca,</span>
+<span id="cb258-4"><a href="#cb258-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"11592"</span>,    <span class="st">"Petrobras S.A."</span>,    <span class="st">"Petróleo e Gás"</span>,    <span class="st">"Grande"</span>,  <span class="st">"Nível 2"</span>,</span>
+<span id="cb258-5"><a href="#cb258-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"19615"</span>,    <span class="st">"Vale S.A."</span>,         <span class="st">"Mineração"</span>,         <span class="st">"Grande"</span>,  <span class="st">"Novo Mercado"</span>,</span>
+<span id="cb258-6"><a href="#cb258-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"14311"</span>,    <span class="st">"Itaú Unibanco S.A."</span>, <span class="st">"Financeiro"</span>,       <span class="st">"Grande"</span>,  <span class="st">"Nível 1"</span>,</span>
+<span id="cb258-7"><a href="#cb258-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"18112"</span>,    <span class="st">"Natura Cosméticos"</span>, <span class="st">"Bens de Consumo"</span>,   <span class="st">"Médio"</span>,   <span class="st">"Novo Mercado"</span>,</span>
+<span id="cb258-8"><a href="#cb258-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"22691"</span>,    <span class="st">"Magazine Luiza"</span>,    <span class="st">"Varejo"</span>,            <span class="st">"Médio"</span>,   <span class="st">"Novo Mercado"</span></span>
+<span id="cb258-9"><a href="#cb258-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb258-10"><a href="#cb258-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb258-11"><a href="#cb258-11" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb258-12"><a href="#cb258-12" aria-hidden="true" tabindex="-1"></a>empresas</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  codigo_cvm nome_empresa       setor           tamanho governanca  
+  &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;       
+1 11592      Petrobras S.A.     Petróleo e Gás  Grande  Nível 2     
+2 19615      Vale S.A.          Mineração       Grande  Novo Mercado
+3 14311      Itaú Unibanco S.A. Financeiro      Grande  Nível 1     
+4 18112      Natura Cosméticos  Bens de Consumo Médio   Novo Mercado
+5 22691      Magazine Luiza     Varejo          Médio   Novo Mercado</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb260"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb260-1"><a href="#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de indicadores financeiros trimestrais</span></span>
+<span id="cb260-2"><a href="#cb260-2" aria-hidden="true" tabindex="-1"></a>indicadores_financeiros <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb260-3"><a href="#cb260-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo_cvm, <span class="sc">~</span>ano, <span class="sc">~</span>trimestre, <span class="sc">~</span>roa,  <span class="sc">~</span>alavancagem, <span class="sc">~</span>liquidez_corrente, <span class="sc">~</span>margem_ebitda,</span>
+<span id="cb260-4"><a href="#cb260-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"11592"</span>,     <span class="dv">2024</span>,  <span class="dv">1</span>,          <span class="fl">0.032</span>,  <span class="fl">0.58</span>,         <span class="fl">1.45</span>,              <span class="fl">0.28</span>,</span>
+<span id="cb260-5"><a href="#cb260-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"11592"</span>,     <span class="dv">2024</span>,  <span class="dv">2</span>,          <span class="fl">0.041</span>,  <span class="fl">0.56</span>,         <span class="fl">1.52</span>,              <span class="fl">0.31</span>,</span>
+<span id="cb260-6"><a href="#cb260-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"19615"</span>,     <span class="dv">2024</span>,  <span class="dv">1</span>,          <span class="fl">0.045</span>,  <span class="fl">0.32</span>,         <span class="fl">2.10</span>,              <span class="fl">0.34</span>,</span>
+<span id="cb260-7"><a href="#cb260-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"19615"</span>,     <span class="dv">2024</span>,  <span class="dv">2</span>,          <span class="fl">0.048</span>,  <span class="fl">0.31</span>,         <span class="fl">2.15</span>,              <span class="fl">0.36</span>,</span>
+<span id="cb260-8"><a href="#cb260-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"14311"</span>,     <span class="dv">2024</span>,  <span class="dv">1</span>,          <span class="fl">0.018</span>,  <span class="fl">0.82</span>,         <span class="fl">1.28</span>,              <span class="fl">0.42</span>,</span>
+<span id="cb260-9"><a href="#cb260-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"14311"</span>,     <span class="dv">2024</span>,  <span class="dv">2</span>,          <span class="fl">0.019</span>,  <span class="fl">0.81</span>,         <span class="fl">1.31</span>,              <span class="fl">0.41</span>,</span>
+<span id="cb260-10"><a href="#cb260-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"22691"</span>,     <span class="dv">2024</span>,  <span class="dv">1</span>,          <span class="fl">0.028</span>,  <span class="fl">0.62</span>,         <span class="fl">1.18</span>,              <span class="fl">0.12</span>,</span>
+<span id="cb260-11"><a href="#cb260-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"22691"</span>,     <span class="dv">2024</span>,  <span class="dv">2</span>,          <span class="fl">0.025</span>,  <span class="fl">0.68</span>,         <span class="fl">1.12</span>,              <span class="fl">0.10</span></span>
+<span id="cb260-12"><a href="#cb260-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb260-13"><a href="#cb260-13" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb260-14"><a href="#cb260-14" aria-hidden="true" tabindex="-1"></a>indicadores_financeiros</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 7
+  codigo_cvm   ano trimestre   roa alavancagem liquidez_corrente margem_ebitda
+  &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;         &lt;dbl&gt;
+1 11592       2024         1 0.032        0.58              1.45          0.28
+2 11592       2024         2 0.041        0.56              1.52          0.31
+3 19615       2024         1 0.045        0.32              2.1           0.34
+4 19615       2024         2 0.048        0.31              2.15          0.36
+5 14311       2024         1 0.018        0.82              1.28          0.42
+6 14311       2024         2 0.019        0.81              1.31          0.41
+7 22691       2024         1 0.028        0.62              1.18          0.12
+8 22691       2024         2 0.025        0.68              1.12          0.1 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb262"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb262-1"><a href="#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinando dados para análise de desempenho por setor</span></span>
+<span id="cb262-2"><a href="#cb262-2" aria-hidden="true" tabindex="-1"></a>analise_setorial <span class="ot">&lt;-</span> empresas <span class="sc">%&gt;%</span></span>
+<span id="cb262-3"><a href="#cb262-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(indicadores_financeiros, <span class="at">by =</span> <span class="st">"codigo_cvm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb262-4"><a href="#cb262-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(nome_empresa, setor, ano, trimestre, roa, alavancagem, margem_ebitda)</span>
+<span id="cb262-5"><a href="#cb262-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb262-6"><a href="#cb262-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o resultado</span></span>
+<span id="cb262-7"><a href="#cb262-7" aria-hidden="true" tabindex="-1"></a>analise_setorial</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 7
+  nome_empresa       setor        ano trimestre    roa alavancagem margem_ebitda
+  &lt;chr&gt;              &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+1 Petrobras S.A.     Petróleo …  2024         1  0.032        0.58          0.28
+2 Petrobras S.A.     Petróleo …  2024         2  0.041        0.56          0.31
+3 Vale S.A.          Mineração   2024         1  0.045        0.32          0.34
+4 Vale S.A.          Mineração   2024         2  0.048        0.31          0.36
+5 Itaú Unibanco S.A. Financeiro  2024         1  0.018        0.82          0.42
+6 Itaú Unibanco S.A. Financeiro  2024         2  0.019        0.81          0.41
+7 Natura Cosméticos  Bens de C…    NA        NA NA           NA            NA   
+8 Magazine Luiza     Varejo      2024         1  0.028        0.62          0.12
+9 Magazine Luiza     Varejo      2024         2  0.025        0.68          0.1 </code></pre>
+</div>
+</div>
+<p><strong>Aplicação em Pesquisa</strong>:</p>
+<ul>
+<li><p>Este tipo de join permite analisar desempenho financeiro controlando por características específicas das empresas</p></li>
+<li><p>Útil para estudos que investigam:</p>
+<ul>
+<li>Impacto de governança corporativa nos indicadores contábeis</li>
+<li>Diferenças de desempenho entre setores</li>
+<li>Efeito do tamanho da empresa na performance financeira</li>
+</ul></li>
+<li><p><strong>Nota</strong>: Observem que “Natura Cosméticos” (código 18112) não aparece nos resultados porque não há dados financeiros correspondentes - situação comum em pesquisas empíricas</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exemplo-análise-de-retornos-anormais" class="level2" data-number="10.23">
+<h2 data-number="10.23" class="anchored" data-anchor-id="exemplo-análise-de-retornos-anormais"><span class="header-section-number">10.23</span> Exemplo: Análise de Retornos Anormais</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cenário: Estudo de Evento sobre Anúncios de Dividendos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell" style="font-size: 1em;">
+<div class="sourceCode cell-code" id="cb264"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb264-1"><a href="#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de preços diários de ações</span></span>
+<span id="cb264-2"><a href="#cb264-2" aria-hidden="true" tabindex="-1"></a>precos_acoes <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb264-3"><a href="#cb264-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>ticker,   <span class="sc">~</span>data,          <span class="sc">~</span>preco_fechamento, <span class="sc">~</span>retorno_diario, <span class="sc">~</span>volume,</span>
+<span id="cb264-4"><a href="#cb264-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,   <span class="st">"2024-04-01"</span>,   <span class="fl">36.75</span>,             <span class="fl">0.0125</span>,          <span class="dv">15200000</span>,</span>
+<span id="cb264-5"><a href="#cb264-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,   <span class="st">"2024-04-02"</span>,   <span class="fl">37.30</span>,             <span class="fl">0.0150</span>,          <span class="dv">18500000</span>,</span>
+<span id="cb264-6"><a href="#cb264-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,   <span class="st">"2024-04-03"</span>,   <span class="fl">37.05</span>,            <span class="sc">-</span><span class="fl">0.0067</span>,          <span class="dv">14800000</span>,</span>
+<span id="cb264-7"><a href="#cb264-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,   <span class="st">"2024-04-04"</span>,   <span class="fl">37.82</span>,             <span class="fl">0.0208</span>,          <span class="dv">21300000</span>,</span>
+<span id="cb264-8"><a href="#cb264-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,   <span class="st">"2024-04-05"</span>,   <span class="fl">37.60</span>,            <span class="sc">-</span><span class="fl">0.0058</span>,          <span class="dv">16900000</span>,</span>
+<span id="cb264-9"><a href="#cb264-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,   <span class="st">"2024-04-01"</span>,   <span class="fl">68.45</span>,             <span class="fl">0.0087</span>,          <span class="dv">22400000</span>,</span>
+<span id="cb264-10"><a href="#cb264-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,   <span class="st">"2024-04-02"</span>,   <span class="fl">68.92</span>,             <span class="fl">0.0069</span>,          <span class="dv">19800000</span>,</span>
+<span id="cb264-11"><a href="#cb264-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,   <span class="st">"2024-04-03"</span>,   <span class="fl">70.15</span>,             <span class="fl">0.0178</span>,          <span class="dv">25600000</span>,</span>
+<span id="cb264-12"><a href="#cb264-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,   <span class="st">"2024-04-04"</span>,   <span class="fl">71.20</span>,             <span class="fl">0.0150</span>,          <span class="dv">28300000</span>,</span>
+<span id="cb264-13"><a href="#cb264-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,   <span class="st">"2024-04-05"</span>,   <span class="fl">70.85</span>,            <span class="sc">-</span><span class="fl">0.0049</span>,          <span class="dv">23100000</span></span>
+<span id="cb264-14"><a href="#cb264-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb264-15"><a href="#cb264-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb264-16"><a href="#cb264-16" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb264-17"><a href="#cb264-17" aria-hidden="true" tabindex="-1"></a>precos_acoes</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+   ticker data       preco_fechamento retorno_diario   volume
+   &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+ 1 PETR4  2024-04-01             36.8         0.0125 15200000
+ 2 PETR4  2024-04-02             37.3         0.015  18500000
+ 3 PETR4  2024-04-03             37.0        -0.0067 14800000
+ 4 PETR4  2024-04-04             37.8         0.0208 21300000
+ 5 PETR4  2024-04-05             37.6        -0.0058 16900000
+ 6 VALE3  2024-04-01             68.4         0.0087 22400000
+ 7 VALE3  2024-04-02             68.9         0.0069 19800000
+ 8 VALE3  2024-04-03             70.2         0.0178 25600000
+ 9 VALE3  2024-04-04             71.2         0.015  28300000
+10 VALE3  2024-04-05             70.8        -0.0049 23100000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb266"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb266-1"><a href="#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela de anúncios de eventos corporativos</span></span>
+<span id="cb266-2"><a href="#cb266-2" aria-hidden="true" tabindex="-1"></a>eventos_corporativos <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb266-3"><a href="#cb266-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>ticker,   <span class="sc">~</span>data_anuncio,   <span class="sc">~</span>tipo_evento,        <span class="sc">~</span>valor,</span>
+<span id="cb266-4"><a href="#cb266-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PETR4"</span>,   <span class="st">"2024-04-03"</span>,    <span class="st">"Dividendo Extra"</span>,   <span class="fl">2.85</span>,</span>
+<span id="cb266-5"><a href="#cb266-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"VALE3"</span>,   <span class="st">"2024-04-04"</span>,    <span class="st">"JCP"</span>,               <span class="fl">1.75</span></span>
+<span id="cb266-6"><a href="#cb266-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb266-7"><a href="#cb266-7" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb266-8"><a href="#cb266-8" aria-hidden="true" tabindex="-1"></a>eventos_corporativos</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  ticker data_anuncio tipo_evento     valor
+  &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt;
+1 PETR4  2024-04-03   Dividendo Extra  2.85
+2 VALE3  2024-04-04   JCP              1.75</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb268"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb268-1"><a href="#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizando análise de retornos nos dias de evento</span></span>
+<span id="cb268-2"><a href="#cb268-2" aria-hidden="true" tabindex="-1"></a>estudo_evento <span class="ot">&lt;-</span> precos_acoes <span class="sc">%&gt;%</span></span>
+<span id="cb268-3"><a href="#cb268-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(eventos_corporativos, </span>
+<span id="cb268-4"><a href="#cb268-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"ticker"</span>, <span class="st">"data"</span> <span class="ot">=</span> <span class="st">"data_anuncio"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb268-5"><a href="#cb268-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ticker, data, tipo_evento, valor, retorno_diario, volume)</span>
+<span id="cb268-6"><a href="#cb268-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb268-7"><a href="#cb268-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando o resultado</span></span>
+<span id="cb268-8"><a href="#cb268-8" aria-hidden="true" tabindex="-1"></a>estudo_evento</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  ticker data       tipo_evento     valor retorno_diario   volume
+  &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+1 PETR4  2024-04-03 Dividendo Extra  2.85        -0.0067 14800000
+2 VALE3  2024-04-04 JCP              1.75         0.015  28300000</code></pre>
+</div>
+</div>
+<p><strong>Aplicação em Pesquisa</strong>:</p>
+<ul>
+<li><p>Este tipo de join é relevante para estudos de evento que analisam o impacto de anúncios corporativos sobre o preço das ações</p></li>
+<li><p>Aplicações em pesquisas financeiras incluem:</p>
+<ul>
+<li>Reação do mercado a anúncios de distribuição de proventos</li>
+<li>Avaliação da eficiência informacional em mercados emergentes</li>
+<li>Impacto de divulgações contábeis e eventos não-recorrentes</li>
+</ul></li>
+<li><p>O <code>inner_join</code> utilizado garante que apenas os dias com eventos são considerados para a análise de retornos anormais</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="fontes-comuns-de-dados-em-pesquisa-financeira" class="level2" data-number="10.24">
+<h2 data-number="10.24" class="anchored" data-anchor-id="fontes-comuns-de-dados-em-pesquisa-financeira"><span class="header-section-number">10.24</span> Fontes Comuns de Dados em Pesquisa Financeira</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bases que Frequentemente Requerem Joins
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Bases Estruturadas para Pesquisa Acadêmica</strong>:
+<ul>
+<li><strong>Economática</strong>: Dados contábeis e de mercado de empresas brasileiras</li>
+<li><strong>Bloomberg</strong>: Dados financeiros globais de alta frequência</li>
+</ul></li>
+<li><strong>Fontes Públicas no Brasil</strong>:
+<ul>
+<li><strong>B3</strong>: Dados de negociação, índices e eventos corporativos</li>
+<li><strong>CVM</strong>: Demonstrações financeiras padronizadas (DFPs) e formulários de referência</li>
+<li><strong>Banco Central</strong>: Indicadores macroeconômicos e financeiros</li>
+<li><strong>IBGE</strong>: Dados econômicos setoriais e regionais</li>
+</ul></li>
+<li><strong>Desafios na Integração</strong>:
+<ul>
+<li>Identificadores divergentes entre bases (códigos CVM vs.&nbsp;tickers vs.&nbsp;CNPJ)</li>
+<li>Periodicidades diferentes (diária, mensal, trimestral, anual)</li>
+<li>Diferenças metodológicas na compilação dos dados</li>
+<li>Tratamento de eventos corporativos (fusões, aquisições, cisões)</li>
+</ul></li>
+<li><strong>Estratégias para Joins Eficientes</strong>:
+<ul>
+<li>Criar tabelas de correspondência entre diferentes identificadores</li>
+<li>Padronizar datas para permitir joins temporais precisos</li>
+<li>Documentar critérios de exclusão e tratamento de valores ausentes</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="dicas-para-uso-eficiente-de-joins" class="level2" data-number="10.25">
+<h2 data-number="10.25" class="anchored" data-anchor-id="dicas-para-uso-eficiente-de-joins"><span class="header-section-number">10.25</span> Dicas para Uso Eficiente de Joins</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dicas práticas para iniciantes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Conheça seus dados antes de combinar</strong>:</p>
+<ul>
+<li>Verifique se as tabelas têm as “chaves” correspondentes</li>
+<li>Entenda o que significam valores ausentes (NAs)</li>
+</ul></li>
+<li><p><strong>Filtre antes de combinar</strong>:</p>
+<ul>
+<li>Se você só precisa de alguns dados, filtre-os antes de fazer joins</li>
+<li>Isso torna a análise mais rápida e clara</li>
+</ul></li>
+<li><p><strong>Verifique o resultado</strong>:</p>
+<ul>
+<li>O número de linhas faz sentido?</li>
+<li>Há valores NA inesperados?</li>
+<li>Os totais parecem corretos?</li>
+</ul></li>
+<li><p><strong>Na dúvida, use left_join</strong>:</p>
+<ul>
+<li>É o mais comum e seguro para iniciantes</li>
+<li>Mantém todos os registros da tabela principal</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="o-desafio-dos-sistemas-reais" class="level2" data-number="10.26">
+<h2 data-number="10.26" class="anchored" data-anchor-id="o-desafio-dos-sistemas-reais"><span class="header-section-number">10.26</span> O Desafio dos Sistemas Reais</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Situação Comum em Ambientes Empresariais
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No mundo ideal, todos os sistemas usariam os mesmos nomes para as mesmas informações…</p>
+<p>Mas na prática:</p>
+<ul>
+<li>O sistema de Vendas pode usar <code>codigo_produto</code></li>
+<li>O Cadastro de Produtos pode usar <code>codigo</code></li>
+<li>O ERP pode usar <code>cod_prod</code></li>
+<li>O sistema legado pode usar <code>id_produto</code></li>
+</ul>
+<p><strong>Resultado</strong>: Tentar unir estas tabelas com a sintaxe básica falha:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb270"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb270-1"><a href="#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esta tentativa falha:</span></span>
+<span id="cb270-2"><a href="#cb270-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">%&gt;%</span> </span>
+<span id="cb270-3"><a href="#cb270-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(produtos, <span class="at">by =</span> <span class="st">"codigo_produto"</span>) </span>
+<span id="cb270-4"><a href="#cb270-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb270-5"><a href="#cb270-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ERRO: 'codigo_produto' não encontrado em 'produtos'</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Como resolver este problema comum?</p>
+</div>
+</div>
+</section>
+<section id="a-solução" class="level2" data-number="10.27">
+<h2 data-number="10.27" class="anchored" data-anchor-id="a-solução"><span class="header-section-number">10.27</span> A Solução</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sintaxe para Colunas com Nomes Diferentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O dplyr permite especificar explicitamente quais colunas devem ser correspondidas:</p>
+<div class="cell" style="font-size: 1em;">
+<div class="sourceCode cell-code" id="cb271"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb271-1"><a href="#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sintaxe para colunas com nomes diferentes</span></span>
+<span id="cb271-2"><a href="#cb271-2" aria-hidden="true" tabindex="-1"></a>tabela1 <span class="sc">%&gt;%</span></span>
+<span id="cb271-3"><a href="#cb271-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(tabela2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"nome_na_tabela1"</span> <span class="ot">=</span> <span class="st">"nome_na_tabela2"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Como interpretar:</strong></p>
+<ul>
+<li><code>"nome_na_tabela1"</code>: Nome da coluna na primeira tabela (esquerda)</li>
+<li><code>"nome_na_tabela2"</code>: Nome da coluna na segunda tabela (direita)</li>
+<li>O operador <code>=</code> estabelece a correspondência entre as colunas</li>
+</ul>
+<p><strong>Analogia</strong>: Você está criando um “dicionário de tradução” entre os sistemas:</p>
+<ul>
+<li>“Quando eu digo <code>codigo_produto</code>, você entende <code>codigo</code>”</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cenário: Relatório de Vendas Integrado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb272"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb272-1"><a href="#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sistema de Cadastro de Produtos (departamento de Compras)</span></span>
+<span id="cb272-2"><a href="#cb272-2" aria-hidden="true" tabindex="-1"></a>produtos_cadastro <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb272-3"><a href="#cb272-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>codigo,       <span class="sc">~</span>descricao,        <span class="sc">~</span>valor_unitario, <span class="sc">~</span>categoria,</span>
+<span id="cb272-4"><a href="#cb272-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P001"</span>,        <span class="st">"Notebook Pro"</span>,     <span class="dv">4500</span>,           <span class="st">"Eletrônicos"</span>,</span>
+<span id="cb272-5"><a href="#cb272-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P002"</span>,        <span class="st">"Smartphone X"</span>,     <span class="dv">2800</span>,           <span class="st">"Eletrônicos"</span>,</span>
+<span id="cb272-6"><a href="#cb272-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"P003"</span>,        <span class="st">"Monitor 24pol"</span>,    <span class="dv">1200</span>,           <span class="st">"Informática"</span></span>
+<span id="cb272-7"><a href="#cb272-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb272-8"><a href="#cb272-8" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb272-9"><a href="#cb272-9" aria-hidden="true" tabindex="-1"></a>produtos_cadastro</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  codigo descricao     valor_unitario categoria  
+  &lt;chr&gt;  &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;      
+1 P001   Notebook Pro            4500 Eletrônicos
+2 P002   Smartphone X            2800 Eletrônicos
+3 P003   Monitor 24pol           1200 Informática</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb274"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb274-1"><a href="#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sistema de Vendas (departamento Comercial)</span></span>
+<span id="cb274-2"><a href="#cb274-2" aria-hidden="true" tabindex="-1"></a>vendas_sistema <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb274-3"><a href="#cb274-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>id_venda, <span class="sc">~</span>cod_produto, <span class="sc">~</span>data_venda,  <span class="sc">~</span>qtd,</span>
+<span id="cb274-4"><a href="#cb274-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>,         <span class="st">"P001"</span>,       <span class="st">"2025-04-15"</span>, <span class="dv">1</span>,</span>
+<span id="cb274-5"><a href="#cb274-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>,         <span class="st">"P002"</span>,       <span class="st">"2025-04-16"</span>, <span class="dv">2</span>,</span>
+<span id="cb274-6"><a href="#cb274-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>,         <span class="st">"P003"</span>,       <span class="st">"2025-04-18"</span>, <span class="dv">2</span></span>
+<span id="cb274-7"><a href="#cb274-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb274-8"><a href="#cb274-8" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza o resultado</span></span>
+<span id="cb274-9"><a href="#cb274-9" aria-hidden="true" tabindex="-1"></a>vendas_sistema</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  id_venda cod_produto data_venda   qtd
+     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;
+1        1 P001        2025-04-15     1
+2        2 P002        2025-04-16     2
+3        3 P003        2025-04-18     2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb276"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb276-1"><a href="#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Integrando os sistemas com diferentes nomenclaturas</span></span>
+<span id="cb276-2"><a href="#cb276-2" aria-hidden="true" tabindex="-1"></a>relatorio_vendas <span class="ot">&lt;-</span> vendas_sistema <span class="sc">%&gt;%</span></span>
+<span id="cb276-3"><a href="#cb276-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(produtos_cadastro, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"cod_produto"</span> <span class="ot">=</span> <span class="st">"codigo"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb276-4"><a href="#cb276-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id_venda, data_venda, cod_produto, descricao, qtd, valor_unitario) <span class="sc">%&gt;%</span></span>
+<span id="cb276-5"><a href="#cb276-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">valor_total =</span> qtd <span class="sc">*</span> valor_unitario) <span class="sc">%&gt;%</span></span>
+<span id="cb276-6"><a href="#cb276-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(data_venda)</span>
+<span id="cb276-7"><a href="#cb276-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-8"><a href="#cb276-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado: um relatório integrado</span></span>
+<span id="cb276-9"><a href="#cb276-9" aria-hidden="true" tabindex="-1"></a>relatorio_vendas</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  id_venda data_venda cod_produto descricao       qtd valor_unitario valor_total
+     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt;
+1        1 2025-04-15 P001        Notebook Pro      1           4500        4500
+2        2 2025-04-16 P002        Smartphone X      2           2800        5600
+3        3 2025-04-18 P003        Monitor 24pol     2           1200        2400</code></pre>
+</div>
+</div>
+<p><strong>Observação</strong>: Esta situação é extremamente comum.</p>
+</div>
+</div>
+</section>
+<section id="resumo-joins" class="level2" data-number="10.28">
+<h2 data-number="10.28" class="anchored" data-anchor-id="resumo-joins"><span class="header-section-number">10.28</span> Resumo: Joins</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pontos-chave para lembrar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Joins unem tabelas que estão separadas</strong></p>
+<ul>
+<li>Combinam dados de clientes, produtos, vendas, etc.</li>
+<li>Permitem análises mais completas e informativas</li>
+</ul></li>
+<li><p><strong>Os tipos mais importantes são</strong>:</p>
+<ul>
+<li><code>left_join()</code>: Mantém todos os registros da tabela principal (o mais usado)</li>
+<li><code>inner_join()</code>: Mantém apenas registros com correspondência em ambas tabelas</li>
+<li><code>full_join()</code>: Mantém todos os registros de ambas as tabelas</li>
+</ul></li>
+<li><p><strong>Na prática, left_join é o mais comum</strong>:</p>
+<ul>
+<li>Mantém todos os registros da tabela principal</li>
+<li>Adiciona informações complementares quando disponíveis</li>
+<li>Evita a perda de registros importantes</li>
+</ul></li>
+<li><p><strong>Comece simples e avance gradualmente</strong>:</p>
+<ul>
+<li>Primeiro faça joins entre duas tabelas</li>
+<li>Depois adicione mais tabelas conforme necessário</li>
+<li>Verifique os resultados a cada passo</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Guia Rápido de Joins no dplyr
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo de Join</th>
+<th>Função</th>
+<th>Resultado</th>
+<th>Quando Usar</th>
+<th>Analogia de Negócios</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Inner Join</strong></td>
+<td><code>inner_join()</code></td>
+<td>Apenas registros com correspondência</td>
+<td>Análises que exigem dados completos</td>
+<td>Relatório com apenas vendas confirmadas</td>
+</tr>
+<tr class="even">
+<td><strong>Left Join</strong></td>
+<td><code>left_join()</code></td>
+<td>Todos os registros da tabela esquerda</td>
+<td>Manter a tabela principal intacta</td>
+<td>Relatório de todas as vendas (com ou sem produto cadastrado)</td>
+</tr>
+<tr class="odd">
+<td><strong>Right Join</strong></td>
+<td><code>right_join()</code></td>
+<td>Todos os registros da tabela direita</td>
+<td>Quando a 2ª tabela é a principal</td>
+<td>Catálogo com todos os produtos (vendidos ou não)</td>
+</tr>
+<tr class="even">
+<td><strong>Full Join</strong></td>
+<td><code>full_join()</code></td>
+<td>Todos os registros de ambas as tabelas</td>
+<td>Análises completas e auditorias</td>
+<td>Verificação de inconsistências no sistema</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dica para lembrar</strong>: Pense no “lado” que você quer preservar:</p>
+<ul>
+<li><strong>Left</strong> = Tudo do <strong>lado esquerdo</strong> (1ª tabela)</li>
+<li><strong>Inner</strong> = Só o que está nos <strong>dois lados</strong></li>
+<li><strong>Full</strong> = <strong>Tudo</strong> de <strong>ambos os lados</strong></li>
+<li><strong>Right</strong> = Tudo do <strong>lado direito</strong> (2ª tabela)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sintaxe-comparativa" class="level2" data-number="10.29">
+<h2 data-number="10.29" class="anchored" data-anchor-id="sintaxe-comparativa"><span class="header-section-number">10.29</span> Sintaxe Comparativa</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estrutura comum dos diferentes tipos de joins
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb278"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb278-1"><a href="#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LEFT JOIN: todos os registros da tabela1</span></span>
+<span id="cb278-2"><a href="#cb278-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-3"><a href="#cb278-3" aria-hidden="true" tabindex="-1"></a>tabela1 <span class="sc">%&gt;%</span> </span>
+<span id="cb278-4"><a href="#cb278-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(tabela2, <span class="at">by =</span> <span class="st">"coluna_comum"</span>)</span>
+<span id="cb278-5"><a href="#cb278-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-6"><a href="#cb278-6" aria-hidden="true" tabindex="-1"></a><span class="co"># INNER JOIN: apenas registros com correspondência</span></span>
+<span id="cb278-7"><a href="#cb278-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-8"><a href="#cb278-8" aria-hidden="true" tabindex="-1"></a>tabela1 <span class="sc">%&gt;%</span> </span>
+<span id="cb278-9"><a href="#cb278-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(tabela2, <span class="at">by =</span> <span class="st">"coluna_comum"</span>)</span>
+<span id="cb278-10"><a href="#cb278-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-11"><a href="#cb278-11" aria-hidden="true" tabindex="-1"></a><span class="co"># FULL JOIN: todos os registros de ambas as tabelas</span></span>
+<span id="cb278-12"><a href="#cb278-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-13"><a href="#cb278-13" aria-hidden="true" tabindex="-1"></a>tabela1 <span class="sc">%&gt;%</span> </span>
+<span id="cb278-14"><a href="#cb278-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(tabela2, <span class="at">by =</span> <span class="st">"coluna_comum"</span>)</span>
+<span id="cb278-15"><a href="#cb278-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-16"><a href="#cb278-16" aria-hidden="true" tabindex="-1"></a><span class="co"># RIGHT JOIN: todos os registros da tabela2</span></span>
+<span id="cb278-17"><a href="#cb278-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-18"><a href="#cb278-18" aria-hidden="true" tabindex="-1"></a>tabela1 <span class="sc">%&gt;%</span> </span>
+<span id="cb278-19"><a href="#cb278-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(tabela2, <span class="at">by =</span> <span class="st">"coluna_comum"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Observe que:</strong></p>
+<ol type="1">
+<li><p><strong>A estrutura básica é idêntica</strong> para todos os joins:</p>
+<ul>
+<li>Comece com a primeira tabela</li>
+<li>Use o operador pipe <code>%&gt;%</code></li>
+<li>Aplique a função de join</li>
+<li>Adicione a segunda tabela e a coluna comum</li>
+</ul></li>
+<li><p><strong>Só muda o nome da função</strong>, que indica qual tipo de join realizar:</p>
+<ul>
+<li><code>inner_join</code>, <code>left_join</code>, <code>right_join</code> ou <code>full_join</code></li>
+</ul></li>
+<li><p><strong>Quando as colunas têm nomes diferentes</strong>, use esta sintaxe:</p></li>
+</ol>
+<div class="cell" style="font-size: 1em;">
+<div class="sourceCode cell-code" id="cb279"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb279-1"><a href="#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quando colunas têm nomes diferentes nas tabelas</span></span>
+<span id="cb279-2"><a href="#cb279-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">%&gt;%</span> </span>
+<span id="cb279-3"><a href="#cb279-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(produtos, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"codigo_produto"</span> <span class="ot">=</span> <span class="st">"codigo"</span>))</span>
+<span id="cb279-4"><a href="#cb279-4" aria-hidden="true" tabindex="-1"></a><span class="co">#            ^ coluna na tabela vendas   ^ coluna na tabela produtos</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="onde-aplicar-joins-em-pesquisa-financeira" class="level2" data-number="10.30">
+<h2 data-number="10.30" class="anchored" data-anchor-id="onde-aplicar-joins-em-pesquisa-financeira"><span class="header-section-number">10.30</span> Onde Aplicar Joins em Pesquisa Financeira</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aplicações práticas em Pesquisa e Análise Financeira
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Finanças Corporativas</strong>:</p>
+<ul>
+<li>Combinar dados de estrutura de capital com métricas de desempenho para análise de trade-offs</li>
+<li>Unir séries históricas de dividendos com indicadores de estrutura de propriedade</li>
+<li>Integrar dados de fusões e aquisições com características específicas das empresas</li>
+<li>Analisar relações entre estrutura de governança corporativa e custo de capital</li>
+</ul></li>
+<li><p><strong>Mercado de Capitais</strong>:</p>
+<ul>
+<li>Relacionar retornos anormais a eventos corporativos específicos (estudos de evento)</li>
+<li>Combinar fatores de risco sistemático com características específicas das empresas</li>
+<li>Unir dados de negociação de alta frequência com anúncios macroeconômicos</li>
+<li>Integrar preços de ativos com métricas de liquidez e volatilidade implícita</li>
+</ul></li>
+<li><p><strong>Finanças Comportamentais</strong>:</p>
+<ul>
+<li>Integrar dados de transações de investidores individuais com características socioeconômicas</li>
+<li>Combinar sentiment analysis de notícias financeiras com movimentos de preços</li>
+<li>Unir dados de pesquisas de percepção de risco com comportamento real de investimento</li>
+<li>Relacionar características psicométricas com decisões de portfólio</li>
+</ul></li>
+<li><p><strong>Econometria Financeira</strong>:</p>
+<ul>
+<li>Construir painéis de dados balanceados para estimação de modelos longitudinais</li>
+<li>Combinar séries temporais financeiras com variáveis instrumentais para análises causais</li>
+<li>Integrar dados de diferentes frequências (diários, mensais, trimestrais) para modelos misto-frequência</li>
+<li>Unir dados micro e macroeconômicos para análises multiníveis</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="joins-bibliografia-recomendada" class="level2" data-number="10.31">
+<h2 data-number="10.31" class="anchored" data-anchor-id="joins-bibliografia-recomendada"><span class="header-section-number">10.31</span> Joins: Bibliografia Recomendada</h2>
+<ul>
+<li><p><a href="http://pt.r4ds.hadley.nz/joins.html" target="_blank">R para Ciência de Dados - Cap. 19</a></p></li>
+<li><p><a href="https://pedropark99.github.io/Introducao_R/Capítulos/06-dados-relacionais.html#introduzindo-joins" target="_blank">Introdução à Linguagem R - Cap. 6</a></p></li>
+</ul>
 
 
 
