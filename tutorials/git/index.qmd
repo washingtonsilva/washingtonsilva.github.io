@@ -761,6 +761,102 @@ de dados ou capítulos de dissertação.
 
 
 
+## git restore
+
+::: {.callout-note icon="false"}
+## O que é `git restore`?
+
+- O comando `git restore` é usado para desfazer mudanças em arquivos, 
+  funcionando como um "ctrl+z" mais poderoso e específico.
+
+- É um comando moderno (introduzido no Git 2.23) que substitui alguns 
+  usos do antigo `git checkout`, sendo mais claro e intuitivo.
+
+- **Quando usar?**:
+
+    - Quando você fez alterações em um arquivo mas quer descartar essas mudanças.
+    - Para remover arquivos da área de preparação (staging area) sem perder as alterações.
+    - Quando quer voltar um arquivo ao estado do último commit.
+
+- **Principais casos de uso:**
+
+**1. Descartar mudanças não salvas em um arquivo:**
+
+```bash
+git restore relatorio.qmd
+```
+
+Este comando descarta todas as alterações feitas no arquivo `relatorio.qmd` 
+desde o último commit, voltando-o ao estado anterior.
+
+**2. Remover arquivo da área de preparação (unstage):**
+
+```bash
+git restore --staged relatorio.qmd
+```
+
+Se você usou `git add relatorio.qmd` mas mudou de ideia e não quer mais 
+incluir esse arquivo no próximo commit, este comando remove o arquivo 
+da staging area, mas mantém suas alterações no arquivo.
+
+**3. Descartar mudanças em todos os arquivos:**
+
+```bash
+git restore .
+```
+
+**⚠️ CUIDADO:** Este comando descarta TODAS as alterações não commitadas 
+em todos os arquivos do projeto!
+
+- **Analogia:** Pense no `git restore` como um "desfazer" específico:
+
+  - É como ter um botão "desfazer" que funciona por arquivo individual
+  - Diferente do Ctrl+Z do editor, que desfaz uma alteração por vez, 
+    o `git restore` pode voltar o arquivo inteiro ao estado anterior
+  - Você pode escolher desfazer apenas a "preparação para salvamento" 
+    (unstage) sem perder o trabalho
+
+- **Fluxo de trabalho típico:**
+
+1. Você modifica um arquivo (`relatorio.qmd`)
+2. Visualiza as mudanças: `git diff relatorio.qmd`
+3. Decide que não gosta das alterações
+4. Descarta as mudanças: `git restore relatorio.qmd`
+
+**Ou:**
+
+1. Você adiciona um arquivo: `git add relatorio.qmd`
+2. Muda de ideia sobre incluí-lo no commit
+3. Remove da staging area: `git restore --staged relatorio.qmd`
+4. O arquivo continua modificado, mas não será incluído no próximo commit
+
+- **Dica importante:** Sempre use `git status` antes de usar `git restore` 
+  para entender exatamente quais arquivos serão afetados.
+
+- **Diferença entre `git restore` e `git checkout`:**
+
+  - `git restore` é mais específico: serve apenas para restaurar arquivos
+  - `git checkout` tem múltiplas funções (mudar branches, restaurar arquivos, etc.)
+  - Para iniciantes, `git restore` é mais claro e menos confuso
+
+**Exemplo prático para o contexto acadêmico:**
+
+Imagine que você está escrevendo sua dissertação e fez várias alterações 
+em um capítulo, mas percebeu que a versão anterior estava melhor:
+
+```bash
+# Veja o que mudou
+git diff capitulo2.qmd
+
+# Se não gostar das mudanças, descarte-as
+git restore capitulo2.qmd
+
+# O arquivo volta ao estado do último commit
+```
+:::
+
+
+
 
 # Workflow para Trabalhar Colaborativamente
 
