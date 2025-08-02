@@ -700,6 +700,89 @@ comando `git diff`.
 
 
 
+## git fetch
+
+::: {.callout-note icon="false"}
+## O que é `git fetch`?
+
+- O comando `git fetch` baixa as mudanças do repositório remoto (GitHub) 
+  para seu computador, mas **não** aplica essas mudanças automaticamente 
+  aos seus arquivos.
+
+- É diferente do `git pull`, que baixa E aplica as mudanças imediatamente.
+
+- **Quando usar?**:
+
+    - Quando quiser verificar se há mudanças no GitHub antes de aplicá-las
+    - Para colaboração segura: ver o que seu orientador mudou antes de mesclar
+    - Quando quiser evitar conflitos inesperados
+
+- **Como funciona na prática:**
+
+1. **Verificar se há mudanças no GitHub**:
+
+```bash
+git fetch origin main
+```
+
+2. **Ver se existem mudanças para baixar**:
+
+```bash
+git status
+```
+
+Se houver mudanças, você verá algo como:
+```
+Your branch is behind 'origin/main' by 2 commits
+```
+
+3. **Ver quais mudanças foram feitas (opcional)**:
+
+```bash
+git log HEAD..origin/main --oneline
+```
+
+Isso mostra os commits que estão no GitHub mas ainda não no seu computador.
+
+4. **Aplicar as mudanças quando estiver pronto**:
+
+```bash
+git merge origin/main
+```
+
+Ou simplesmente:
+
+```bash
+git pull origin main
+```
+
+**Analogia**: Se `git pull` é como pedir uma pizza e já começar a comer, 
+`git fetch` é como pedir a pizza, ela chegar, mas você primeiro olhar 
+o que veio antes de decidir se quer comer.
+
+**Vantagem para colaboração**: Com `git fetch`, você pode ver exatamente 
+o que seu orientador mudou antes de aplicar as alterações, evitando 
+surpresas e conflitos inesperados.
+
+**Exemplo prático**:
+
+```bash
+# Verificar se orientador fez mudanças
+git fetch origin main
+
+# Ver o que mudou
+git log HEAD..origin/main --oneline
+
+# Se estiver tudo ok, aplicar as mudanças
+git merge origin/main
+
+# Ou fazer tudo de uma vez com pull
+git pull origin main
+```
+:::
+
+
+
 ## git diff
 
 ::: {.callout-note icon="false"}
@@ -990,6 +1073,67 @@ repositório do template quarto
 
 
 
+## Configuração Inicial - Orientador
+
+::: {.callout-note icon="false"}
+## Configuração do Ambiente do Orientador
+
+Após receber o convite de colaboração do orientando, o orientador deve 
+configurar seu ambiente para trabalhar no projeto:
+
+1. **Aceitar o convite de colaboração**:
+
+- Verifique seu email para o convite do GitHub enviado pelo orientando
+- Clique no link do convite para aceitar a colaboração
+- Isso dará acesso ao repositório do orientando
+
+2. **Verificar/configurar credenciais Git locais**:
+
+- Abra o Git Bash (Windows) ou Terminal (Mac/Linux)
+- Verifique se suas credenciais estão configuradas:
+
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+- Se não estiverem configuradas ou precisarem ser atualizadas:
+
+```bash
+git config --global user.name "Nome do Orientador"
+git config --global user.email "orientador@email.com"
+```
+
+**Importante**: Use o mesmo email cadastrado no GitHub.
+
+3. **Clonar o repositório do orientando**:
+
+- No repositório do GitHub, clique no botão verde "*Code*"
+- Copie a URL HTTPS mostrada
+- No RStudio, clique em *Project* -> *New Project* -> *Version Control* -> *Git*
+- Cole a URL do repositório
+- Escolha uma pasta para salvar o projeto localmente
+- Clique em "*Create*"
+
+4. **Verificar configuração do terminal RStudio** (se aplicável):
+
+- Siga os mesmos passos de configuração do Git Bash no RStudio 
+  explicados anteriormente na seção de configuração
+
+5. **Teste inicial**:
+
+- Abra o terminal no RStudio
+- Execute `git status` para confirmar que está no repositório correto
+- Execute `git pull origin main` para garantir que tem a versão mais recente
+
+**Dica para orientadores**: Mantenha uma rotina de sempre executar 
+`git pull origin main` antes de começar a revisar o trabalho, para ter 
+certeza de que está vendo a versão mais atualizada.
+:::
+
+
+
+
 ## Ciclo de Desenvolvimento
 
 ::: {.callout-note icon="false"}
@@ -1107,6 +1251,61 @@ Volte ao passo 2 (Ciclo de Desenvolvimento) e continue seu trabalho.
 
 
 
+## Boas Práticas de Comunicação e Convenções
+
+::: {.callout-note icon="false"}
+## Estabelecendo Convenções de Trabalho
+
+Para minimizar conflitos e maximizar a eficiência na colaboração, é importante 
+estabelecer algumas convenções e práticas de comunicação:
+
+**1. Convenções para mensagens de commit:**
+
+Estabeleça um padrão claro para as mensagens. Sugestões:
+
+```bash
+# Para o orientando:
+git commit -m "Adiciona: análise descritiva do capítulo 2"
+git commit -m "Corrige: formatação das tabelas na seção 3.1"
+git commit -m "Finaliza: primeira versão da metodologia"
+
+# Para o orientador:
+git commit -m "Revisão: sugestões para o capítulo 2"
+git commit -m "Correção: ajustes na análise estatística"
+git commit -m "Comentário: questões sobre a metodologia"
+```
+
+**2. Comunicação sobre trabalho em andamento:**
+
+- **Antes de trabalhar em uma seção**: Comunique via email ou issue 
+  do GitHub qual seção você planeja trabalhar
+- **Frequência de commits**: Orientando deve fazer push pelo menos diariamente; 
+  orientador deve revisar semanalmente ou conforme acordado
+- **Mudanças significativas**: Sempre avise antes de fazer alterações estruturais grandes
+
+**3. Uso de Issues para organização:**
+
+Crie issues no GitHub para:
+- Tarefas específicas: "Adicionar análise de regressão"
+- Dúvidas: "Questão sobre interpretação dos resultados"
+- Revisões: "Revisar capítulo 3 - metodologia"
+
+**4. Estratégia para evitar conflitos:**
+
+- **Regra dos horários**: Orientando trabalha durante o dia, orientador revisa à noite/fim de semana
+- **Seções específicas**: Evite que ambos trabalhem na mesma seção simultaneamente
+- **Comunicação rápida**: Use mensagens instantâneas para coordenar trabalho urgente
+
+**5. Backup e segurança:**
+
+- **Sempre faça commit antes de grandes mudanças**: Use `git commit -m "backup antes de reestruturação"`
+- **Pull antes de push**: Sempre execute `git pull origin main` antes de `git push origin main`
+- **Verifique mudanças**: Use `git status` e `git diff` antes de cada commit
+:::
+
+
+
+
 ## Lidando com Conflitos
 
 ::: {.callout-note icon="false"}
@@ -1164,6 +1363,43 @@ git push origin main
 
 **Dica**: Comunique-se com seu orientador quando encontrar conflitos. 
 Às vezes, uma conversa rápida pode esclarecer qual versão deve ser mantida.
+
+**Estratégias para Prevenir Conflitos:**
+
+1. **Use `git fetch` antes de começar a trabalhar**:
+
+```bash
+# Verificar se há mudanças antes de começar
+git fetch origin main
+git status
+
+# Se houver mudanças, aplicá-las primeiro
+git pull origin main
+```
+
+2. **Faça backup antes de operações arriscadas**:
+
+```bash
+# Fazer commit do trabalho atual antes de pull
+git add .
+git commit -m "Backup antes de aplicar mudanças do orientador"
+git pull origin main
+```
+
+3. **Para conflitos complexos, considere usar uma ferramenta visual**:
+
+O RStudio possui um merge tool integrado que pode ser acessado através 
+da interface Git do RStudio quando há conflitos.
+
+4. **Em caso de emergência (quando há muitos conflitos)**:
+
+```bash
+# Voltar ao estado anterior (use com cuidado!)
+git merge --abort
+
+# Isso cancela o merge e volta ao estado antes do pull
+# Depois você pode tentar novamente ou pedir ajuda
+```
 :::
 
 
@@ -1203,6 +1439,83 @@ git commit -m "Adiciona análise de correlação solicitada na issue #5"
 
 Isso cria uma referência cruzada que facilita acompanhar o histórico 
 de mudanças e discussões.
+
+**Exemplos práticos de Issues para mestrado:**
+
+1. **Issue de tarefa (orientando cria)**:
+   - Título: "Adicionar análise de regressão logística"
+   - Descrição: "Incluir análise de regressão logística conforme discutido na reunião de 15/08. Variáveis: idade, renda, escolaridade."
+
+2. **Issue de dúvida (orientando cria)**:
+   - Título: "Dúvida sobre interpretação dos coeficientes"
+   - Descrição: "Como interpretar o coeficiente negativo da variável 'idade' no modelo? Verificar se faz sentido teórico."
+
+3. **Issue de revisão (orientador cria)**:
+   - Título: "Revisar fundamentação teórica - Capítulo 2"
+   - Descrição: "Ampliar discussão sobre teoria X. Adicionar autores Y e Z. Prioridade: alta."
+
+4. **Labels úteis**:
+   - `urgente`: para tarefas com prazo apertado
+   - `revisão`: para correções do orientador
+   - `dúvida`: para questões técnicas
+   - `dados`: para questões relacionadas aos dados
+   - `metodologia`: para questões metodológicas
+:::
+
+
+
+
+## Workflow para Diferentes Tipos de Revisão
+
+::: {.callout-note icon="false"}
+## Adaptando o Workflow para Diferentes Situações
+
+**1. Revisão rápida (correções pontuais)**:
+
+Orientador:
+```bash
+git pull origin main
+# Fazer pequenas correções diretamente
+git add .
+git commit -m "Correções pontuais: ortografia e formatação"
+git push origin main
+```
+
+**2. Revisão substancial (quando há muitas mudanças)**:
+
+Para evitar conflitos em revisões grandes, considere usar um workflow alternativo:
+
+Orientador:
+```bash
+git pull origin main
+git checkout -b revisao-capitulo2  # Criar branch temporário
+# Fazer todas as mudanças
+git add .
+git commit -m "Revisão completa do capítulo 2"
+git push origin revisao-capitulo2
+```
+
+Depois, o orientando pode:
+```bash
+git fetch origin
+git checkout revisao-capitulo2
+# Revisar as mudanças
+git checkout main
+git merge revisao-capitulo2
+git push origin main
+```
+
+**3. Trabalho simultâneo em seções diferentes**:
+
+- Orientando trabalha nos capítulos 3-4
+- Orientador revisa capítulos 1-2
+- Comunicação clara sobre quem está trabalhando onde
+
+**Quando usar branches**:
+- Revisões muito grandes
+- Trabalho simultâneo intenso
+- Experimentação com estruturas diferentes
+- Preparação para defesa (versão estável vs versão de trabalho)
 :::
 
 
@@ -1259,8 +1572,125 @@ O ciclo de trabalho com seu orientador segue este padrão:
    
 5. **Repita** diariamente ou quando concluir uma parte significativa
 
-**Lembre-se**: a comunicação clara com seu orientador sobre qual parte 
-cada um está trabalhando pode evitar conflitos e retrabalho.
+## Resumo do Workflow
+
+::: {.callout-note icon="false"}
+## Resumindo: Checklist Diário
+
+### **Para o Orientando:** {.unnumbered}
+
+**Início do dia:**
+
+1. **Verificar atualizações**: `git fetch origin main` seguido de `git status`
+
+2. **Aplicar mudanças**: `git pull origin main` (se houver atualizações)
+
+3. **Verificar estado**: `git status` (deve estar "clean")
+
+**Durante o trabalho:**
+
+4. **Trabalhar normalmente** nos arquivos
+
+5. **Verificar mudanças periodicamente**: `git status` e `git diff`
+
+**Fim do dia ou após completar uma tarefa:**
+
+6. **Revisar mudanças**: `git diff` para conferir o que mudou
+
+7. **Adicionar arquivos**: `git add .` (ou especificar arquivos individuais)
+
+8. **Fazer commit**: `git commit -m "Mensagem descritiva e clara"`
+
+9. **Enviar para GitHub**: `git push origin main`
+
+### **Para o Orientador:** {.unnumbered}
+
+**Antes de revisar:**
+
+1. **Baixar atualizações**: `git pull origin main`
+
+2. **Verificar o que mudou**: `git log --oneline -5` (últimos 5 commits)
+
+**Após revisar:**
+
+3. **Fazer mudanças** necessárias
+
+4. **Commit das revisões**: `git commit -m "Revisão: [descrição das mudanças]"`
+
+5. **Enviar feedback**: `git push origin main`
+
+**Verificações de Segurança:**
+
+- **Sempre fazer backup**: `git status` deve estar limpo antes de pull
+
+- **Verificar conflitos**: Se aparecer mensagem de conflito, resolver antes de continuar
+
+- **Comunicar mudanças grandes**: Avisar o colaborador antes de reestruturações
+
+- **Usar Issues**: Para mudanças complexas ou discussões importantes
+
+**Lembre-se**: a comunicação clara e frequente é mais importante que o 
+conhecimento técnico avançado. Em caso de dúvida, sempre pergunte!
+:::
+
+
+
+
+## Solução de Problemas Comuns
+
+::: {.callout-note icon="false"}
+## Problemas Frequentes e Soluções
+
+**1. "Esqueci de fazer pull antes de começar a trabalhar"**
+
+Solução:
+```bash
+# Fazer backup do trabalho atual
+git add .
+git commit -m "Backup antes de sincronizar"
+
+# Buscar mudanças do GitHub
+git pull origin main
+
+# Se houver conflitos, resolvê-los como explicado anteriormente
+```
+
+**2. "Fiz push mas o orientador não vê minhas mudanças"**
+
+Verificações:
+- Confirme que o push foi bem-sucedido (não houve mensagens de erro)
+- Peça ao orientador para fazer `git pull origin main`
+- Verifique se ambos estão no mesmo branch (main)
+
+**3. "Perdi trabalho após fazer pull"**
+
+Recuperação:
+```bash
+# Ver histórico recente
+git log --oneline -10
+
+# Encontrar o commit antes do problema
+git show hash-do-commit
+
+# Se necessário, recuperar versão anterior
+git checkout hash-do-commit -- arquivo.qmd
+```
+
+**4. "Muitos conflitos, não sei como resolver"**
+
+Estratégia:
+1. Conversar com o orientador sobre qual versão manter
+2. Se for muito complexo: `git merge --abort`
+3. Trabalhar em horários diferentes até resolver o conflito
+4. Considerar usar branches para trabalho simultâneo
+
+**5. "RStudio não reconhece que estou em um repositório Git"**
+
+Soluções:
+- Verificar se está abrindo o projeto correto (.Rproj)
+- Verificar se a pasta contém a pasta `.git`
+- Reiniciar o RStudio
+- No terminal: `git status` deve funcionar
 :::
 
 
@@ -1303,24 +1733,50 @@ git add -p
 4. **Revertendo mudanças quando necessário**:
 
 ```bash
-# Descartar mudanças em um arquivo específico (cuidado!)
-git checkout -- nome-do-arquivo.qmd
+# Usar git restore (comando moderno) em vez de checkout
+git restore nome-do-arquivo.qmd
+
+# Remover arquivo da staging area
+git restore --staged nome-do-arquivo.qmd
 
 # Desfazer o último commit (mantendo as mudanças)
 git reset --soft HEAD~1
 ```
 
-5. **Visualizando o histórico**:
+5. **Visualizando o histórico e colaboração**:
 
 ```bash
-# Ver histórico resumido
-git log --oneline
+# Ver histórico resumido com autor
+git log --oneline --graph --decorate
 
-# Ver histórico com detalhes das mudanças
-git log -p
+# Ver apenas os commits do orientador
+git log --author="nome_do_orientador"
+
+# Ver mudanças entre commits
+git diff HEAD~1 HEAD
+
+# Ver quem modificou cada linha de um arquivo
+git blame arquivo.qmd
 
 # Ver histórico de um arquivo específico
 git log -p nome-do-arquivo.qmd
+```
+
+6. **Comandos úteis para colaboração**:
+
+```bash
+# Verificar diferenças com o repositório remoto
+git fetch origin main
+git diff HEAD origin/main
+
+# Ver arquivos modificados nos últimos commits
+git diff --name-only HEAD~3
+
+# Criar um backup rápido
+git tag backup-$(date +%Y%m%d)
+
+# Ver status de forma compacta
+git status -s
 ```
 
 6. **Mantendo o terminal aberto**:
