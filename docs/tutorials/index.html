@@ -81,9 +81,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-description','listing-date','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -223,20 +223,20 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categorias</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Todos <span class="quarto-category-count">(5)</span></div><div class="category" data-category="QW1iaWVudGUlMjBkZSUyMERlc2Vudm9sdmltZW50byUyMEludGVncmFkbw==">Ambiente de Desenvolvimento Integrado <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29udHJvbGUlMjBkZSUyMHZlcnMlQzMlQTNv">Controle de versão <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2l0">Git <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2l0SHVi">GitHub <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZ3VhZ2VtJTIwZGUlMjBNYXJjYSVDMyVBNyVDMyVBM28=">Linguagem de Marcação <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFya2Rvd24=">Markdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVwcm9kdXRpYmlsaWRhZGU=">Reprodutibilidade <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UlN0dWRpbw==">RStudio <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U2lzdGVtYSUyMFF1YXJ0bw==">Sistema Quarto <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Tutoriais</h1>
+<p class="subtitle lead">Ferramentas para Ciência de Dados Reproduzível</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -248,35 +248,108 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="hero-banner">
+<section id="ciência-de-dados-reproduzível-e-auditável" class="level2">
+<h2 class="anchored" data-anchor-id="ciência-de-dados-reproduzível-e-auditável">Ciência de Dados Reproduzível e Auditável</h2>
+<div class="lead">
+<p>Tutoriais desenvolvidos no âmbito do projeto “<em>Modelos de Aprendizagem Estatística em Finanças: Aplicações e Desenvolvimento de Soluções Reproduzíveis e Auditáveis</em>”</p>
+</div>
+<hr>
+<section id="sobre-os-materiais" class="level3">
+<h3 class="anchored" data-anchor-id="sobre-os-materiais"><strong>Sobre os Materiais</strong></h3>
+<p>Estes tutoriais fornecem <strong>ferramentas e metodologias essenciais</strong> para análises de dados reproduzíveis e auditáveis, seguindo as melhores práticas científicas.</p>
+</section>
+<section id="público-alvo" class="level3">
+<h3 class="anchored" data-anchor-id="público-alvo"><strong>Público-Alvo</strong></h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Estudantes</strong></p>
+<ul>
+<li>Bacharelado em Administração</li>
+<li>Mestrado Profissional em Administração<br>
+</li>
+<li>Disciplinas de Ciência de Dados e Econometria</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Profissionais</strong></p>
+<ul>
+<li>Administradores e Economistas</li>
+<li>Contabilistas e Auditores</li>
+<li>Analistas de dados corporativos</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="benefícios" class="level3">
+<h3 class="anchored" data-anchor-id="benefícios"><strong>Benefícios</strong></h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Ciência de Dados Reproduzível e Auditável
+<div class="callout-body-container">
+<p><strong>Reprodutibilidade</strong>: Resultados que podem ser replicados e verificados</p>
+<p><strong>Credibilidade</strong>: Aumento da confiabilidade do trabalho realizado</p>
+<p><strong>Padrões Modernos</strong>: Práticas alinhadas com os padrões científicos contemporâneos</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Esta página reúne tutoriais desenvolvidos no âmbito do projeto de pesquisa denominado “<em>Modelos de Aprendizagem Estatística em Finanças: Aplicações e Desenvolvimento de Soluções Reproduzíveis e Auditáveis</em>”, vinculado ao Mestrado Profissional em Administração do IFMG - Campus Formiga.</p>
-<p>Os materiais disponibilizados têm como objetivo principal fornecer ferramentas e metodologias essenciais para a realização de análises de dados reproduzíveis e auditáveis, seguindo as melhores práticas recomendadas pela literatura científica. Eles são direcionados, em primeiro lugar, aos alunos do Bacharelado em Administração e do Mestrado Profissional em Administração do IFMG - Campus Formiga, mas também podem ser úteis para profissionais como administradores, economistas, contabilistas, auditores e outros que desejam adotar ferramentas modernas no mundo corporativo e no setor público.</p>
-<p>Estes tutoriais são especialmente úteis para disciplinas como Introdução à Ciência de Dados, Econometria, entre outras, e podem ser utilizados como material de treinamento para participantes de projetos de pesquisa quantitativa. A abordagem proposta busca ensinar ferramentas que viabilizam a adoção efetiva do princípio da reprodutibilidade, permitindo que os resultados sejam replicados e verificados. Isso não apenas aumenta a credibilidade do trabalho realizado, mas também contribui para a adoção de práticas robustas e alinhadas com os padrões científicos contemporâneos.</p>
 </div>
-</div>
+</section>
+</section>
+<section id="tutoriais-disponíveis" class="level2">
+<h2 class="anchored" data-anchor-id="tutoriais-disponíveis">Tutoriais Disponíveis</h2>
 <div id="tutorials">
 
 </div>
+<hr>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Dica</strong>: Use os filtros acima para encontrar rapidamente o tutorial que procura. Todos os materiais são constantemente atualizados para refletir as melhores práticas atuais.</p>
+</div>
+</div>
+</div>
 
 
 
+</section>
+</div>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QW1iaWVudGUlMjBkZSUyMERlc2Vudm9sdmltZW50byUyMEludGVncmFkbyUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbyUyQ1Npc3RlbWElMjBRdWFydG8=" data-listing-date-sort="1733540400000" data-listing-file-modified-sort="1742476879804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2429">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../tutorials/rstudio/index.html" class="no-external">RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R</a>
-</h3>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Ordenar por</option>
+      <option value="index" data-direction="asc">Padrão</option>
+      <option value="listing-title" data-direction="asc">
+        Tutorial
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Atualizado em - Mais antigo
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Atualizado em - O mais novo
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-2">
+<div class="g-col-1" data-index="0" data-categories="QW1iaWVudGUlMjBkZSUyMERlc2Vudm9sdmltZW50byUyMEludGVncmFkbyUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbyUyQ1Npc3RlbWElMjBRdWFydG8=" data-listing-date-sort="1733540400000" data-listing-file-modified-sort="1742476879804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2429">
+<a href="../tutorials/rstudio/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="rstudio/img/logo-rstudio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R
+</h5>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QW1iaWVudGUlMjBkZSUyMERlc2Vudm9sdmltZW50byUyMEludGVncmFkbw=='); return false;">Ambiente de Desenvolvimento Integrado</div>
@@ -288,23 +361,25 @@ Ciência de Dados Reproduzível e Auditável
 <div class="listing-category" onclick="window.quartoListingCategory('U2lzdGVtYSUyMFF1YXJ0bw=='); return false;">Sistema Quarto</div>
 
 </div>
-<div class="delink listing-description"><a href="../tutorials/rstudio/index.html" class="no-external">
+<div class="card-text listing-description delink">
 <p>Um tutorial básico sobre o RStudio, um ambiente de desenvolvimento integrado simples e eficiente para a linguagem R.</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="../tutorials/rstudio/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 7 dezembro 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="U2lzdGVtYSUyMFF1YXJ0byUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbw==" data-listing-date-sort="1728270000000" data-listing-file-modified-sort="1743446270421" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4138">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../tutorials/quarto/index.html" class="no-external">Quarto: Um Sistema de Publicação Técnica e Científica</a>
-</h3>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="U2lzdGVtYSUyMFF1YXJ0byUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbw==" data-listing-date-sort="1728270000000" data-listing-file-modified-sort="1743446270421" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4138">
+<a href="../tutorials/quarto/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="quarto/img/logo-quarto.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Quarto: Um Sistema de Publicação Técnica e Científica
+</h5>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('U2lzdGVtYSUyMFF1YXJ0bw=='); return false;">Sistema Quarto</div>
@@ -314,23 +389,25 @@ Ciência de Dados Reproduzível e Auditável
 <div class="listing-category" onclick="window.quartoListingCategory('UlN0dWRpbw=='); return false;">RStudio</div>
 
 </div>
-<div class="delink listing-description"><a href="../tutorials/quarto/index.html" class="no-external">
+<div class="card-text listing-description delink">
 <p>Um tutorial sobre como utilizar o sistema de pubicação Quarto e a linguagem R usando o IDE RStudio.</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="../tutorials/quarto/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 7 outubro 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="TWFya2Rvd24lMkNMaW5ndWFnZW0lMjBkZSUyME1hcmNhJUMzJUE3JUMzJUEzbyUyQ1JlcHJvZHV0aWJpbGlkYWRl" data-listing-date-sort="1725505200000" data-listing-file-modified-sort="1742440558824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../tutorials/markdown/index.html" class="no-external">Markdown: Elementos Essenciais para Documentos do Sistema Quarto</a>
-</h3>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="TWFya2Rvd24lMkNMaW5ndWFnZW0lMjBkZSUyME1hcmNhJUMzJUE3JUMzJUEzbyUyQ1JlcHJvZHV0aWJpbGlkYWRl" data-listing-date-sort="1725505200000" data-listing-file-modified-sort="1742440558824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
+<a href="../tutorials/markdown/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="markdown/img/markdown-hexsticker.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Markdown: Elementos Essenciais para Documentos do Sistema Quarto
+</h5>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('TWFya2Rvd24='); return false;">Markdown</div>
@@ -340,23 +417,25 @@ Ciência de Dados Reproduzível e Auditável
 <div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdXRpYmlsaWRhZGU='); return false;">Reprodutibilidade</div>
 
 </div>
-<div class="delink listing-description"><a href="../tutorials/markdown/index.html" class="no-external">
+<div class="card-text listing-description delink">
 <p>Um tutorial simples sobre a linguagem de marcação Markdown para elaboração de documentos no sistema Quarto.</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="../tutorials/markdown/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 5 setembro 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="UiUyQ1JlcHJvZHV0aWJpbGlkYWRl" data-listing-date-sort="1720321200000" data-listing-file-modified-sort="1754097134667" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="124" data-listing-word-count-sort="24789">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../tutorials/R/index.html" class="no-external">Introdução à Linguagem R</a>
-</h3>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="UiUyQ1JlcHJvZHV0aWJpbGlkYWRl" data-listing-date-sort="1720321200000" data-listing-file-modified-sort="1754097134667" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="124" data-listing-word-count-sort="24789">
+<a href="../tutorials/R/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="R/img/Rlogo.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Introdução à Linguagem R
+</h5>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
@@ -364,23 +443,25 @@ Ciência de Dados Reproduzível e Auditável
 <div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdXRpYmlsaWRhZGU='); return false;">Reprodutibilidade</div>
 
 </div>
-<div class="delink listing-description"><a href="../tutorials/R/index.html" class="no-external">
+<div class="card-text listing-description delink">
 <p>Um tutorial básico sobre a linguagem R para Ciência de Dados.</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="../tutorials/R/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 7 julho 2024
 </div>
-</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Q29udHJvbGUlMjBkZSUyMHZlcnMlQzMlQTNvJTJDR2l0JTJDR2l0SHViJTJDUmVwcm9kdXRpYmlsaWRhZGU=" data-listing-date-sort="1717729200000" data-listing-file-modified-sort="1754177625499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="38" data-listing-word-count-sort="7491">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../tutorials/git/index.html" class="no-external">Controle de Versão com Git e GitHub</a>
-</h3>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="Q29udHJvbGUlMjBkZSUyMHZlcnMlQzMlQTNvJTJDR2l0JTJDR2l0SHViJTJDUmVwcm9kdXRpYmlsaWRhZGU=" data-listing-date-sort="1717729200000" data-listing-file-modified-sort="1754177625499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="38" data-listing-word-count-sort="7491">
+<a href="../tutorials/git/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="git/img/git-github-hexsticker.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Controle de Versão com Git e GitHub
+</h5>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('Q29udHJvbGUlMjBkZSUyMHZlcnMlQzMlQTNv'); return false;">Controle de versão</div>
@@ -392,17 +473,16 @@ Ciência de Dados Reproduzível e Auditável
 <div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdXRpYmlsaWRhZGU='); return false;">Reprodutibilidade</div>
 
 </div>
-<div class="delink listing-description"><a href="../tutorials/git/index.html" class="no-external">
+<div class="card-text listing-description delink">
 <p>Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o GitHub.</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="../tutorials/git/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 7 junho 2024
 </div>
-</a>
 </div>
+</div>
+</div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">Sem itens correspondentes</div>

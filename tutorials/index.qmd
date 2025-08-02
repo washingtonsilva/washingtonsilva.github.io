@@ -1,7 +1,9 @@
 ---
 title: "Tutoriais"
+subtitle: "Ferramentas para Ciência de Dados Reproduzível"
 lang: pt-BR
 page-layout: full
+toc: false
 listing:
     contents: 
       - git
@@ -10,46 +12,78 @@ listing:
       - quarto
       - R
     sort: "date desc"
-    type: default
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    page-size: 10
-    fields: [title, description, date, categories]
+    type: grid
+    grid-columns: 2
+    categories: true
+    sort-ui: [title, date]
+    filter-ui: [title, categories]
+    page-size: 8
+    fields: [title, description, date, categories, image]
+    field-display-names:
+      title: "Tutorial"
+      description: "Descrição"
+      date: "Atualizado em"
+      categories: "Tópicos"
 ---
 
-::: {.callout-note icon="false"}
+::: {.hero-banner}
 ## Ciência de Dados Reproduzível e Auditável
 
-Esta página reúne tutoriais desenvolvidos no âmbito do projeto de pesquisa 
-denominado "*Modelos de Aprendizagem Estatística em Finanças: Aplicações e Desenvolvimento de Soluções Reproduzíveis e Auditáveis*", 
-vinculado ao Mestrado Profissional em Administração do IFMG - 
-Campus Formiga.
+::: {.lead}
+Tutoriais desenvolvidos no âmbito do projeto "*Modelos de Aprendizagem Estatística em Finanças: Aplicações e Desenvolvimento de Soluções Reproduzíveis e Auditáveis*"
+:::
 
-Os materiais disponibilizados têm como objetivo principal fornecer 
-ferramentas e metodologias essenciais para a realização de análises 
-de dados reproduzíveis e auditáveis, seguindo as melhores práticas 
-recomendadas pela literatura científica. Eles são direcionados, em 
-primeiro lugar, aos alunos do Bacharelado em Administração e do 
-Mestrado Profissional em Administração do IFMG - Campus Formiga, mas 
-também podem ser úteis para profissionais como administradores, economistas, 
-contabilistas, auditores e outros que desejam adotar ferramentas 
-modernas no mundo corporativo e no setor público.
+---
 
-Estes tutoriais são especialmente úteis para disciplinas como Introdução 
-à Ciência de Dados, Econometria, entre outras, e podem ser utilizados 
-como material de treinamento para participantes de projetos de pesquisa 
-quantitativa. A abordagem proposta busca ensinar ferramentas que viabilizam a 
-adoção efetiva do princípio da reprodutibilidade, permitindo que os 
-resultados sejam replicados e verificados. Isso não apenas aumenta a 
-credibilidade do trabalho realizado, mas também contribui para a 
-adoção de práticas robustas e alinhadas com os padrões científicos 
-contemporâneos.
+### **Sobre os Materiais**
+
+Estes tutoriais fornecem **ferramentas e metodologias essenciais** para análises de dados reproduzíveis e auditáveis, seguindo as melhores práticas científicas.
+
+### **Público-Alvo**
+
+:::: {.columns}
+::: {.column width="50%"}
+**Estudantes**
+
+- Bacharelado em Administração
+- Mestrado Profissional em Administração  
+- Disciplinas de Ciência de Dados e Econometria
+:::
+
+::: {.column width="50%"}
+**Profissionais**
+
+- Administradores e Economistas
+- Contabilistas e Auditores
+- Analistas de dados corporativos
+:::
+::::
+
+### **Benefícios**
+
+::: {.callout-tip icon="false" appearance="minimal"}
+**Reprodutibilidade**: Resultados que podem ser replicados e verificados
+
+**Credibilidade**: Aumento da confiabilidade do trabalho realizado  
+
+**Padrões Modernos**: Práticas alinhadas com os padrões científicos contemporâneos
+:::
+
+---
 :::
 
 
+---
+
+## Tutoriais Disponíveis
 
 :::{#tutorials}
+:::
+
+---
+
+::: {.callout-note appearance="simple"}
+**Dica**: Use os filtros acima para encontrar rapidamente o tutorial que procura. Todos os materiais são constantemente atualizados para refletir as melhores práticas atuais.
 :::
 
 
