@@ -138,6 +138,106 @@ termos técnicos)
 
 
 
+## Blocos de Código
+
+Para incluir blocos de código, use três crases (```) antes e depois do código:
+
+````markdown
+```
+Este é um bloco de código simples.
+Preserva a formatação exata.
+```
+````
+
+**Resultado:**
+
+```
+Este é um bloco de código simples.
+Preserva a formatação exata.
+```
+
+### Blocos de Código com Linguagem
+
+Para destacar a sintaxe, especifique a linguagem:
+
+````markdown
+```r
+# Código em R
+dados <- read.csv("arquivo.csv")
+summary(dados)
+```
+
+```python
+# Código em Python
+import pandas as pd
+df = pd.read_csv("arquivo.csv")
+print(df.head())
+```
+
+```bash
+# Comandos de terminal
+git add .
+git commit -m "Atualiza análise"
+```
+````
+
+**Resultado:**
+
+```r
+# Código em R
+dados <- read.csv("arquivo.csv")
+summary(dados)
+```
+
+```python
+# Código em Python
+import pandas as pd
+df = pd.read_csv("arquivo.csv")
+print(df.head())
+```
+
+```bash
+# Comandos de terminal
+git add .
+git commit -m "Atualiza análise"
+```
+
+
+
+## Divisores Horizontais
+
+Para criar uma linha divisória:
+
+```markdown
+---
+```
+
+**Resultado:**
+
+---
+
+Útil para separar seções ou indicar mudanças de contexto.
+
+
+
+## Escape de Caracteres
+
+Para usar caracteres especiais literalmente, use a barra invertida `\`:
+
+```markdown
+\*Este texto não ficará em itálico\*
+\# Este não será um cabeçalho
+\[Este não será um link\]
+```
+
+**Resultado:**
+
+\*Este texto não ficará em itálico\*
+\# Este não será um cabeçalho
+\[Este não será um link\]
+
+
+
 ## Listas
 
 ### Listas Não-Ordenadas
@@ -200,6 +300,8 @@ Resultado:
 
 ## Links
 
+### Links Diretos
+
 ```markdown
 [Texto do link](https://www.exemplo.com)
 ```
@@ -207,6 +309,38 @@ Resultado:
 **Exemplo:**
 
 [IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br)
+
+### Links de Referência
+
+Para facilitar a leitura do código, você pode usar links de referência:
+
+```markdown
+Este é um [link de referência][1] e este é [outro link][link-exemplo].
+
+[1]: https://www.exemplo.com
+[link-exemplo]: https://www.outrosite.com "Título opcional"
+```
+
+**Resultado:**
+
+Este é um [link de referência][1] e este é [outro link][link-exemplo].
+
+[1]: https://www.exemplo.com
+[link-exemplo]: https://www.outrosite.com "Título opcional"
+
+### Links Automáticos
+
+URLs e emails podem ser transformados automaticamente em links:
+
+```markdown
+<https://www.exemplo.com>
+<email@exemplo.com>
+```
+
+**Resultado:**
+
+<https://www.exemplo.com>
+<email@exemplo.com>
 
 
 
@@ -327,7 +461,7 @@ $$
 Frações: 
 
 $$
-\frac{numerador}{denominador}$
+\frac{numerador}{denominador}
 $$
 
 Somatório: 
@@ -352,6 +486,18 @@ Limite:
 
 $$
 \lim_{x \to \infty} f(x)
+$$
+
+Raiz quadrada: 
+
+$$
+\sqrt{x} \text{ e } \sqrt[n]{x}
+$$
+
+Subscritos e sobrescritos: 
+
+$$
+x_1, x_2, \ldots, x_n \text{ e } x^2, e^{-x}
 $$
 ```
 
@@ -385,6 +531,70 @@ Limite:
 
 $$
 \lim_{x \to \infty} f(x)
+$$
+
+Raiz quadrada: 
+
+$$
+\sqrt{x} \text{ e } \sqrt[n]{x}
+$$
+
+Subscritos e sobrescritos: 
+
+$$
+x_1, x_2, \ldots, x_n \text{ e } x^2, e^{-x}
+$$
+
+### Equações Financeiras Comuns
+
+Para estudantes de Administração, algumas equações úteis:
+
+```markdown
+Valor Presente:
+
+$$
+VP = \frac{VF}{(1 + i)^n}
+$$
+
+Taxa de Retorno:
+
+$$
+ROI = \frac{Receita - Custo}{Custo} \times 100\%
+$$
+
+Média e Desvio Padrão:
+
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+$$
+
+$$
+s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}
+$$
+```
+
+**Resultado:**
+
+Valor Presente:
+
+$$
+VP = \frac{VF}{(1 + i)^n}
+$$
+
+Taxa de Retorno:
+
+$$
+ROI = \frac{Receita - Custo}{Custo} \times 100\%
+$$
+
+Média e Desvio Padrão:
+
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+$$
+
+$$
+s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}
 $$
 
 
@@ -442,10 +652,10 @@ Resultado:
 
 ## Callouts (Caixas de Destaque)
 
-O Quarto oferece caixas para destacar informações. 
+O Quarto oferece vários tipos de caixas para destacar informações. 
 
-Esses recursos funcionam perfeitamente para arquivos html e funcionam, 
-mas não tão perfeitamente, em arquivos pdf produzidos pelo Typst.
+Esses recursos funcionam perfeitamente para arquivos HTML e funcionam, 
+mas não tão perfeitamente, em arquivos PDF produzidos pelo Typst.
 
 ```markdown
 ::: {.callout-note}
@@ -465,10 +675,21 @@ Uma sugestão para melhorar seu documento.
 
 Um aviso para tomar cuidado.
 :::
+
+::: {.callout-important}
+## Importante
+
+Informação crítica que não deve ser ignorada.
+:::
+
+::: {.callout-caution}
+## Cuidado
+
+Um alerta sobre possíveis problemas.
+:::
 ```
 
-
-Resultado: 
+**Resultado:** 
 
 ::: {.callout-note}
 ## Nota
@@ -488,16 +709,273 @@ Uma sugestão para melhorar seu documento.
 Um aviso para tomar cuidado.
 :::
 
+::: {.callout-important}
+## Importante
+
+Informação crítica que não deve ser ignorada.
+:::
+
+::: {.callout-caution}
+## Cuidado
+
+Um alerta sobre possíveis problemas.
+:::
+
+### Callouts sem Ícones
+
+```markdown
+::: {.callout-note icon="false"}
+## Nota sem Ícone
+
+Callout mais limpo, sem ícone.
+:::
+```
+
+::: {.callout-note icon="false"}
+## Nota sem Ícone
+
+Callout mais limpo, sem ícone.
+:::
+
+## Referências Cruzadas (Cross-references)
+
+O Quarto permite criar referências automáticas para figuras, tabelas e seções:
+
+### Referências para Figuras
+
+```markdown
+![Logotipo do Markdown](img/markdown-hexsticker.png){#fig-logo width=30%}
+
+Como visto na @fig-logo, o Markdown tem um logotipo distintivo.
+```
+
+### Referências para Tabelas
+
+```markdown
+| Produto | Preço | Estoque |
+|---------|-------|---------|
+| A       | 25,90 | 42      |
+| B       | 15,50 | 38      |
+
+: Dados de Produtos {#tbl-produtos}
+
+A @tbl-produtos mostra os dados atualizados.
+```
+
+### Referências para Seções
+
+```markdown
+Como explicado na @sec-elementos, os elementos básicos são fundamentais.
+```
+
+## Colunas (Layout)
+
+O Quarto permite criar layouts de múltiplas colunas:
+
+```markdown
+:::: {.columns}
+
+::: {.column width="50%"}
+**Coluna da Esquerda**
+
+Conteúdo da primeira coluna.
+:::
+
+::: {.column width="50%"}
+**Coluna da Direita**
+
+Conteúdo da segunda coluna.
+:::
+
+::::
+```
+
+**Resultado:**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Coluna da Esquerda**
+
+Conteúdo da primeira coluna.
+:::
+
+::: {.column width="50%"}
+**Coluna da Direita**
+
+Conteúdo da segunda coluna.
+:::
+
+::::
+
+## Abas (Tabset)
+
+Para organizar conteúdo em abas:
+
+```markdown
+::: {.panel-tabset}
+
+## Aba 1
+
+Conteúdo da primeira aba.
+
+## Aba 2
+
+Conteúdo da segunda aba.
+
+:::
+```
+
+**Resultado:**
+
+::: {.panel-tabset}
+
+## Aba 1
+
+Conteúdo da primeira aba.
+
+## Aba 2
+
+Conteúdo da segunda aba.
+
+:::
+
+## Destaque de Texto
+
+```markdown
+Este texto contém uma [palavra destacada]{.mark}.
+
+[Este texto está destacado como uma caixa]{.bg-warning}.
+```
+
+**Resultado:**
+
+Este texto contém uma [palavra destacada]{.mark}.
+
+[Este texto está destacado como uma caixa]{.bg-warning}.
+
+
+
+# Exercícios Práticos
+
+::: {.callout-tip icon="false"}
+## Exercício 1: Estrutura Básica
+
+Crie um documento simples com:
+
+1. Um título principal
+2. Duas seções com subtítulos  
+3. Um parágrafo em cada seção
+4. Uma lista de 3 itens
+5. Um texto em **negrito** e outro em *itálico*
+
+---
+
+## Exercício 2: Tabela e Links
+
+1. Crie uma tabela com dados fictícios de vendas (produto, quantidade, valor)
+2. Adicione um link para um site de sua escolha
+3. Inclua uma equação matemática simples
+
+---
+
+## Exercício 3: Elementos Avançados
+
+1. Use pelo menos 2 tipos diferentes de callouts
+2. Crie um bloco de código (pode ser R, Python, ou texto simples)
+3. Adicione uma citação em bloco
+4. Experimente com layout de colunas
+
+**Dica**: Comece simples e vá adicionando elementos gradualmente!
+:::
+
 
 
 # Dicas Práticas
 
+## Organização de Arquivos
+
 1. **Seja consistente** na estrutura e formatação.
 2. **Divida o conteúdo** em seções lógicas.
 3. **Use cabeçalhos** para criar uma hierarquia clara.
-4. **Revise** a visualização do documento regularmente.
-5. **Mantenha imagens** em uma pasta separada (img) e organizada.
-6. **Aprenda gradualmente** - comece com os elementos básicos.
+4. **Mantenha imagens** em uma pasta separada (img/) e organizada.
+5. **Nomeie arquivos** de forma descritiva: `relatorio-vendas-2024.qmd`
+
+## Fluxo de Trabalho
+
+1. **Revise** a visualização do documento regularmente.
+2. **Aprenda gradualmente** - comece com os elementos básicos.
+3. **Use preview** do RStudio ou VS Code para ver resultados em tempo real.
+4. **Salve frequentemente** e use controle de versão (Git).
+
+## Formatação e Estilo
+
+1. **Evite overformatação** - o Markdown é sobre simplicidade.
+2. **Use espaços em branco** para melhorar a legibilidade do código.
+3. **Seja consistente** com a escolha de símbolos (*, -, _ etc.).
+4. **Teste** em diferentes formatos de saída (HTML, PDF).
+
+## Resolução de Problemas Comuns
+
+### Quebras de Linha não Funcionam
+- Lembre-se: duas linhas em branco criam novo parágrafo
+- Use dois espaços + Enter para quebra simples
+- Ou use `<br>` quando necessário
+
+### Caracteres Especiais
+- Use `\` para escapar caracteres: `\*`, `\#`, `\[`
+- Em equações, use `\{` e `\}` para chaves literais
+
+### Tabelas não Alinham
+- Certifique-se de que todas as linhas têm o mesmo número de colunas
+- Use espaços para alinhar visualmente no código
+- Teste com conteúdo simples primeiro
+
+
+
+# Recursos Adicionais
+
+## Documentação Oficial
+
+- [Quarto - Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html)
+- [Quarto - Cross References](https://quarto.org/docs/authoring/cross-references.html)
+- [Pandoc Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown)
+
+## Ferramentas Úteis
+
+### Editores com Suporte ao Markdown
+
+- **RStudio**: Excelente integração com Quarto
+- **VS Code**: Com extensões Quarto e Markdown
+- **Typora**: Editor WYSIWYG para Markdown
+- **Mark Text**: Editor focado em Markdown
+
+### Geradores de Tabelas
+
+- [Gerador de Tabelas](https://www.tablesgenerator.com/markdown_tables)
+- [Gerador de Tabelas Markdown](https://jakebathman.github.io/Markdown-Table-Generator/)
+
+### Referência Rápida
+
+- [Guia Rápido de Markdown](https://www.markdownguide.org/cheat-sheet/)
+- [Símbolos Matemáticos LaTeX](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
+
+## Próximos Passos
+
+Após dominar este conteúdo, considere aprender:
+
+1. **Bibliografia com Quarto**: Citações e referências automáticas
+2. **Parâmetros de documento**: Documentos dinâmicos e reproduzíveis
+3. **Extensões do Quarto**: Filtros e funcionalidades avançadas
+4. **Integração com R/Python**: Documentos com código executável
+
+::: {.callout-note icon="false"}
+## Lembre-se
+
+O Markdown é uma ferramenta poderosa justamente por sua simplicidade. 
+Comece com o básico e vá adicionando complexidade conforme sua necessidade. 
+O importante é criar documentos claros, bem estruturados e reproduzíveis.
+:::
 
 
 
@@ -515,14 +993,44 @@ com o sistema Quarto.
 
 # Glossário de Termos
 
+## C {.unnumbered}
+
+**Callout**: Elemento visual do Quarto usado para destacar informações importantes, dicas, avisos ou notas em caixas coloridas e formatadas.
+
+**Referência Cruzada**: Sistema de referências cruzadas que permite criar links automáticos para figuras, tabelas, seções e equações dentro do documento.
+
+## H {.unnumbered}
+
+**HTML**: HyperText Markup Language - linguagem de marcação padrão para criar páginas web. O Markdown pode ser convertido para HTML.
 
 ## L {.unnumbered}
 
-**Linguagem de Marcação**: Sistema de anotações inseridas em um texto para 
-definir como ele deve ser estruturado, formatado ou apresentado. Ao 
-contrário das linguagens de programação que executam comandos, as 
-linguagens de marcação utilizam tags ou comandos para identificar elementos 
-do documento (como títulos, parágrafos, listas) sem se preocupar com a 
-lógica computacional. Exemplos incluem HTML (para páginas web), XML 
-(para dados estruturados), LaTeX (para documentos científicos) e Markdown 
-(usada no Quarto para formatação simplificada de texto).
+**LaTeX**: Sistema de preparação de documentos amplamente usado para documentos científicos, especialmente eficaz para equações matemáticas complexas.
+
+**Linguagem de Marcação**: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou comandos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto).
+
+## M {.unnumbered}
+
+**Markdown**: Linguagem de marcação leve criada por John Gruber em 2004, projetada para ser fácil de ler e escrever, convertendo texto simples em HTML estruturado.
+
+## P {.unnumbered}
+
+**Pandoc**: Conversor universal de documentos que traduz entre diferentes formatos de marcação. É a base do sistema Quarto para conversão de documentos.
+
+## Q {.unnumbered}
+
+**Quarto**: Sistema de publicação científica e técnica de código aberto baseado em Pandoc, sucessor do R Markdown, que suporta múltiplas linguagens de programação.
+
+## R {.unnumbered}
+
+**Renderização**: Processo de conversão do documento Markdown/Quarto para o formato final (HTML, PDF, Word, etc.).
+
+**Reprodutibilidade**: Capacidade de reproduzir exatamente os mesmos resultados ao executar novamente uma análise ou processo de criação de documento.
+
+## S {.unnumbered}
+
+**Destaque de Sintaxe**: Funcionalidade que colore e formata código de acordo com a linguagem de programação especificada, facilitando a leitura.
+
+## Y {.unnumbered}
+
+**YAML**: Yet Another Markup Language - formato de serialização de dados usado no cabeçalho dos documentos Quarto para configurar metadados e opções de renderização.

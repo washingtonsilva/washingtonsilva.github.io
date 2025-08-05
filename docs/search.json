@@ -210,46 +210,214 @@
     "text": "2.3 Formatação de Texto\n*Este texto será em itálico* e _este também_\n\n**Este texto será em negrito** e __este também__\n\n***Este texto será em negrito e itálico***\n\n~~Este texto aparecerá riscado~~\n\n`código inline` (útil para comandos, variáveis ou \ntermos técnicos)\nResultado:\nEste texto será em itálico e este também\nEste texto será em negrito e este também\nEste texto será em negrito e itálico\nEste texto aparecerá tachado\ncódigo inline (útil para comandos, variáveis ou termos técnicos)"
   },
   {
+    "objectID": "tutorials/markdown/index.html#blocos-de-código",
+    "href": "tutorials/markdown/index.html#blocos-de-código",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "2.4 Blocos de Código",
+    "text": "2.4 Blocos de Código\nPara incluir blocos de código, use três crases (```) antes e depois do código:\n```\nEste é um bloco de código simples.\nPreserva a formatação exata.\n```\nResultado:\nEste é um bloco de código simples.\nPreserva a formatação exata.\n\n2.4.1 Blocos de Código com Linguagem\nPara destacar a sintaxe, especifique a linguagem:\n```r\n# Código em R\ndados &lt;- read.csv(\"arquivo.csv\")\nsummary(dados)\n```\n\n```python\n# Código em Python\nimport pandas as pd\ndf = pd.read_csv(\"arquivo.csv\")\nprint(df.head())\n```\n\n```bash\n# Comandos de terminal\ngit add .\ngit commit -m \"Atualiza análise\"\n```\nResultado:\n# Código em R\ndados &lt;- read.csv(\"arquivo.csv\")\nsummary(dados)\n# Código em Python\nimport pandas as pd\ndf = pd.read_csv(\"arquivo.csv\")\nprint(df.head())\n# Comandos de terminal\ngit add .\ngit commit -m \"Atualiza análise\""
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#divisores-horizontais",
+    "href": "tutorials/markdown/index.html#divisores-horizontais",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "2.5 Divisores Horizontais",
+    "text": "2.5 Divisores Horizontais\nPara criar uma linha divisória:\n---\nResultado:\n\nÚtil para separar seções ou indicar mudanças de contexto."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#escape-de-caracteres",
+    "href": "tutorials/markdown/index.html#escape-de-caracteres",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "2.6 Escape de Caracteres",
+    "text": "2.6 Escape de Caracteres\nPara usar caracteres especiais literalmente, use a barra invertida \\:\n\\*Este texto não ficará em itálico\\*\n\\# Este não será um cabeçalho\n\\[Este não será um link\\]\nResultado:\n*Este texto não ficará em itálico* # Este não será um cabeçalho [Este não será um link]"
+  },
+  {
     "objectID": "tutorials/markdown/index.html#listas",
     "href": "tutorials/markdown/index.html#listas",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "2.4 Listas",
-    "text": "2.4 Listas\n\n2.4.1 Listas Não-Ordenadas\n- Primeiro item\n- Segundo item\n  - Subitem 2.1\n  - Subitem 2.2\n- Terceiro item\nResultado:\n\nPrimeiro item\nSegundo item\n\nSubitem 2.1\nSubitem 2.2\n\nTerceiro item\n\nAlternativas: asteriscos (*) e (+) também podem ser usados para criar listas não ordenadas.\n\n\n2.4.2 Listas Ordenadas\n1. Primeiro passo\n2. Segundo passo\n   1. Subtarefa 2.1\n   2. Subtarefa 2.2\n3. Terceiro passo\nResultado:\n\nPrimeiro passo\nSegundo passo\n\nSubtarefa 2.1\nSubtarefa 2.2\n\nTerceiro passo\n\n\n\n2.4.3 Listas de Tarefas\n- [x] Tarefa concluída\n- [ ] Tarefa pendente\n- [ ] Tarefa a fazer\nResultado:\n\nTarefa concluída\nTarefa pendente\nTarefa a fazer"
+    "section": "2.7 Listas",
+    "text": "2.7 Listas\n\n2.7.1 Listas Não-Ordenadas\n- Primeiro item\n- Segundo item\n  - Subitem 2.1\n  - Subitem 2.2\n- Terceiro item\nResultado:\n\nPrimeiro item\nSegundo item\n\nSubitem 2.1\nSubitem 2.2\n\nTerceiro item\n\nAlternativas: asteriscos (*) e (+) também podem ser usados para criar listas não ordenadas.\n\n\n2.7.2 Listas Ordenadas\n1. Primeiro passo\n2. Segundo passo\n   1. Subtarefa 2.1\n   2. Subtarefa 2.2\n3. Terceiro passo\nResultado:\n\nPrimeiro passo\nSegundo passo\n\nSubtarefa 2.1\nSubtarefa 2.2\n\nTerceiro passo\n\n\n\n2.7.3 Listas de Tarefas\n- [x] Tarefa concluída\n- [ ] Tarefa pendente\n- [ ] Tarefa a fazer\nResultado:\n\nTarefa concluída\nTarefa pendente\nTarefa a fazer"
   },
   {
     "objectID": "tutorials/markdown/index.html#links",
     "href": "tutorials/markdown/index.html#links",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "2.5 Links",
-    "text": "2.5 Links\n[Texto do link](https://www.exemplo.com)\nExemplo:\nIFMG - Campus Formiga"
+    "section": "2.8 Links",
+    "text": "2.8 Links\n\n2.8.1 Links Diretos\n[Texto do link](https://www.exemplo.com)\nExemplo:\nIFMG - Campus Formiga\n\n\n2.8.2 Links de Referência\nPara facilitar a leitura do código, você pode usar links de referência:\nEste é um [link de referência][1] e este é [outro link][link-exemplo].\n\n[1]: https://www.exemplo.com\n[link-exemplo]: https://www.outrosite.com \"Título opcional\"\nResultado:\nEste é um link de referência e este é outro link.\n\n\n2.8.3 Links Automáticos\nURLs e emails podem ser transformados automaticamente em links:\n&lt;https://www.exemplo.com&gt;\n&lt;email@exemplo.com&gt;\nResultado:\nhttps://www.exemplo.com email@exemplo.com"
   },
   {
     "objectID": "tutorials/markdown/index.html#imagens",
     "href": "tutorials/markdown/index.html#imagens",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
-    "section": "2.6 Imagens",
-    "text": "2.6 Imagens\nPara incluir imagens externas em seus documentos:\n![Texto alternativo](img/imagem.jpg)\nNo Quarto, você pode adicionar atributos como largura e alinhamento:\n![](imagens/foto.jpg){width=60% fig-align=\"center\"}"
+    "section": "2.9 Imagens",
+    "text": "2.9 Imagens\nPara incluir imagens externas em seus documentos:\n![Texto alternativo](img/imagem.jpg)\nNo Quarto, você pode adicionar atributos como largura e alinhamento:\n![](imagens/foto.jpg){width=60% fig-align=\"center\"}"
   },
   {
     "objectID": "tutorials/markdown/index.html#integração-com-markdown",
     "href": "tutorials/markdown/index.html#integração-com-markdown",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
     "section": "3.1 Integração com Markdown:",
-    "text": "3.1 Integração com Markdown:\nMuitos sistemas baseados em Markdown, incluindo o sistema Quarto, permitem a incorporação de expressões LaTeX diretamente no texto. Esta integração é especialmente útil para incluir equações matemáticas em documentos:\n\n3.1.1 Expressões Matemáticas Inline\nUse $...$ para inserir expressões matemáticas LaTeX em linha com o texto:\nA fórmula da área do círculo é $A = \\pi r^2$, \nsendo $r$ o raio.\nResultado:\nA fórmula da área do círculo é A = \\pi r^2, onde r é o raio.\n\n\n3.1.2 Blocos de Equações\nUse $$...$$ para equações em destaque:\nA equação quadrática e sua solução:\n\n$$\nax^2 + bx + c = 0\n$$\n\n$$\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n$$\nResultado:\nA equação quadrática e sua solução:\n\nax^2 + bx + c = 0\n\n\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n\n\n\n3.1.3 Exemplos de Expressões Matemáticas Úteis\nFrações: \n\n$$\n\\frac{numerador}{denominador}$\n$$\n\nSomatório: \n\n$$\n\\sum_{i=1}^{n} x_i\n$$\n\nProdutório: \n\n$$\n\\prod_{i=1}^{n} x_i\n$$\n\nIntegral: \n\n$$\n\\int_{a}^{b} f(x) dx\n$$\n\nLimite: \n\n$$\n\\lim_{x \\to \\infty} f(x)\n$$\nResultado:\nFrações:\n\n\\frac{numerador}{denominador}\n\nSomatório:\n\n\\sum_{i=1}^{n} x_i\n\nProdutório:\n\n\\prod_{i=1}^{n} x_i\n\nIntegral:\n\n\\int_{a}^{b} f(x) dx\n\nLimite:\n\n\\lim_{x \\to \\infty} f(x)"
+    "text": "3.1 Integração com Markdown:\nMuitos sistemas baseados em Markdown, incluindo o sistema Quarto, permitem a incorporação de expressões LaTeX diretamente no texto. Esta integração é especialmente útil para incluir equações matemáticas em documentos:\n\n3.1.1 Expressões Matemáticas Inline\nUse $...$ para inserir expressões matemáticas LaTeX em linha com o texto:\nA fórmula da área do círculo é $A = \\pi r^2$, \nsendo $r$ o raio.\nResultado:\nA fórmula da área do círculo é A = \\pi r^2, onde r é o raio.\n\n\n3.1.2 Blocos de Equações\nUse $$...$$ para equações em destaque:\nA equação quadrática e sua solução:\n\n$$\nax^2 + bx + c = 0\n$$\n\n$$\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n$$\nResultado:\nA equação quadrática e sua solução:\n\nax^2 + bx + c = 0\n\n\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n\n\n\n3.1.3 Exemplos de Expressões Matemáticas Úteis\nFrações: \n\n$$\n\\frac{numerador}{denominador}\n$$\n\nSomatório: \n\n$$\n\\sum_{i=1}^{n} x_i\n$$\n\nProdutório: \n\n$$\n\\prod_{i=1}^{n} x_i\n$$\n\nIntegral: \n\n$$\n\\int_{a}^{b} f(x) dx\n$$\n\nLimite: \n\n$$\n\\lim_{x \\to \\infty} f(x)\n$$\n\nRaiz quadrada: \n\n$$\n\\sqrt{x} \\text{ e } \\sqrt[n]{x}\n$$\n\nSubscritos e sobrescritos: \n\n$$\nx_1, x_2, \\ldots, x_n \\text{ e } x^2, e^{-x}\n$$\nResultado:\nFrações:\n\n\\frac{numerador}{denominador}\n\nSomatório:\n\n\\sum_{i=1}^{n} x_i\n\nProdutório:\n\n\\prod_{i=1}^{n} x_i\n\nIntegral:\n\n\\int_{a}^{b} f(x) dx\n\nLimite:\n\n\\lim_{x \\to \\infty} f(x)\n\nRaiz quadrada:\n\n\\sqrt{x} \\text{ e } \\sqrt[n]{x}\n\nSubscritos e sobrescritos:\n\nx_1, x_2, \\ldots, x_n \\text{ e } x^2, e^{-x}\n\n\n\n3.1.4 Equações Financeiras Comuns\nPara estudantes de Administração, algumas equações úteis:\nValor Presente:\n\n$$\nVP = \\frac{VF}{(1 + i)^n}\n$$\n\nTaxa de Retorno:\n\n$$\nROI = \\frac{Receita - Custo}{Custo} \\times 100\\%\n$$\n\nMédia e Desvio Padrão:\n\n$$\n\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i\n$$\n\n$$\ns = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\n$$\nResultado:\nValor Presente:\n\nVP = \\frac{VF}{(1 + i)^n}\n\nTaxa de Retorno:\n\nROI = \\frac{Receita - Custo}{Custo} \\times 100\\%\n\nMédia e Desvio Padrão:\n\n\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i\n\n\ns = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}(x_i - \\bar{x})^2}"
   },
   {
     "objectID": "tutorials/markdown/index.html#callouts-caixas-de-destaque",
     "href": "tutorials/markdown/index.html#callouts-caixas-de-destaque",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
     "section": "6.1 Callouts (Caixas de Destaque)",
-    "text": "6.1 Callouts (Caixas de Destaque)\nO Quarto oferece caixas para destacar informações.\nEsses recursos funcionam perfeitamente para arquivos html e funcionam, mas não tão perfeitamente, em arquivos pdf produzidos pelo Typst.\n::: {.callout-note}\n## Nota\n\nUma informação importante a considerar.\n:::\n\n::: {.callout-tip}\n## Dica\n\nUma sugestão para melhorar seu documento.\n:::\n\n::: {.callout-warning}\n## Atenção\n\nUm aviso para tomar cuidado.\n:::\nResultado:\n\n\n\n\n\n\nNota\n\n\n\nUma informação importante a considerar.\n\n\n\n\n\n\n\n\nDica\n\n\n\nUma sugestão para melhorar seu documento.\n\n\n\n\n\n\n\n\nAtenção\n\n\n\nUm aviso para tomar cuidado."
+    "text": "6.1 Callouts (Caixas de Destaque)\nO Quarto oferece vários tipos de caixas para destacar informações.\nEsses recursos funcionam perfeitamente para arquivos HTML e funcionam, mas não tão perfeitamente, em arquivos PDF produzidos pelo Typst.\n::: {.callout-note}\n## Nota\n\nUma informação importante a considerar.\n:::\n\n::: {.callout-tip}\n## Dica\n\nUma sugestão para melhorar seu documento.\n:::\n\n::: {.callout-warning}\n## Atenção\n\nUm aviso para tomar cuidado.\n:::\n\n::: {.callout-important}\n## Importante\n\nInformação crítica que não deve ser ignorada.\n:::\n\n::: {.callout-caution}\n## Cuidado\n\nUm alerta sobre possíveis problemas.\n:::\nResultado:\n\n\n\n\n\n\nNota\n\n\n\nUma informação importante a considerar.\n\n\n\n\n\n\n\n\nDica\n\n\n\nUma sugestão para melhorar seu documento.\n\n\n\n\n\n\n\n\nAtenção\n\n\n\nUm aviso para tomar cuidado.\n\n\n\n\n\n\n\n\nImportante\n\n\n\nInformação crítica que não deve ser ignorada.\n\n\n\n\n\n\n\n\nCuidado\n\n\n\nUm alerta sobre possíveis problemas.\n\n\n\n6.1.1 Callouts sem Ícones\n::: {.callout-note icon=\"false\"}\n## Nota sem Ícone\n\nCallout mais limpo, sem ícone.\n:::\n\n\n\n\n\n\nNota sem Ícone\n\n\n\nCallout mais limpo, sem ícone."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#referências-cruzadas-cross-references",
+    "href": "tutorials/markdown/index.html#referências-cruzadas-cross-references",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "6.2 Referências Cruzadas (Cross-references)",
+    "text": "6.2 Referências Cruzadas (Cross-references)\nO Quarto permite criar referências automáticas para figuras, tabelas e seções:\n\n6.2.1 Referências para Figuras\n![Logotipo do Markdown](img/markdown-hexsticker.png){#fig-logo width=30%}\n\nComo visto na @fig-logo, o Markdown tem um logotipo distintivo.\n\n\n6.2.2 Referências para Tabelas\n| Produto | Preço | Estoque |\n|---------|-------|---------|\n| A       | 25,90 | 42      |\n| B       | 15,50 | 38      |\n\n: Dados de Produtos {#tbl-produtos}\n\nA @tbl-produtos mostra os dados atualizados.\n\n\n6.2.3 Referências para Seções\nComo explicado na @sec-elementos, os elementos básicos são fundamentais."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#colunas-layout",
+    "href": "tutorials/markdown/index.html#colunas-layout",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "6.3 Colunas (Layout)",
+    "text": "6.3 Colunas (Layout)\nO Quarto permite criar layouts de múltiplas colunas:\n:::: {.columns}\n\n::: {.column width=\"50%\"}\n**Coluna da Esquerda**\n\nConteúdo da primeira coluna.\n:::\n\n::: {.column width=\"50%\"}\n**Coluna da Direita**\n\nConteúdo da segunda coluna.\n:::\n\n::::\nResultado:\n\n\nColuna da Esquerda\nConteúdo da primeira coluna.\n\nColuna da Direita\nConteúdo da segunda coluna."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#abas-tabset",
+    "href": "tutorials/markdown/index.html#abas-tabset",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "6.4 Abas (Tabset)",
+    "text": "6.4 Abas (Tabset)\nPara organizar conteúdo em abas:\n::: {.panel-tabset}\n\n## Aba 1\n\nConteúdo da primeira aba.\n\n## Aba 2\n\nConteúdo da segunda aba.\n\n:::\nResultado:\n\nAba 1Aba 2\n\n\nConteúdo da primeira aba.\n\n\nConteúdo da segunda aba."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#destaque-de-texto",
+    "href": "tutorials/markdown/index.html#destaque-de-texto",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "6.5 Destaque de Texto",
+    "text": "6.5 Destaque de Texto\nEste texto contém uma [palavra destacada]{.mark}.\n\n[Este texto está destacado como uma caixa]{.bg-warning}.\nResultado:\nEste texto contém uma palavra destacada.\nEste texto está destacado como uma caixa."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#exercício-2-tabela-e-links",
+    "href": "tutorials/markdown/index.html#exercício-2-tabela-e-links",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "7.1 Exercício 2: Tabela e Links",
+    "text": "7.1 Exercício 2: Tabela e Links\n\nCrie uma tabela com dados fictícios de vendas (produto, quantidade, valor)\nAdicione um link para um site de sua escolha\nInclua uma equação matemática simples"
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#exercício-3-elementos-avançados",
+    "href": "tutorials/markdown/index.html#exercício-3-elementos-avançados",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "7.2 Exercício 3: Elementos Avançados",
+    "text": "7.2 Exercício 3: Elementos Avançados\n\nUse pelo menos 2 tipos diferentes de callouts\nCrie um bloco de código (pode ser R, Python, ou texto simples)\nAdicione uma citação em bloco\nExperimente com layout de colunas\n\nDica: Comece simples e vá adicionando elementos gradualmente!"
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#organização-de-arquivos",
+    "href": "tutorials/markdown/index.html#organização-de-arquivos",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "8.1 Organização de Arquivos",
+    "text": "8.1 Organização de Arquivos\n\nSeja consistente na estrutura e formatação.\nDivida o conteúdo em seções lógicas.\nUse cabeçalhos para criar uma hierarquia clara.\nMantenha imagens em uma pasta separada (img/) e organizada.\nNomeie arquivos de forma descritiva: relatorio-vendas-2024.qmd"
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#fluxo-de-trabalho",
+    "href": "tutorials/markdown/index.html#fluxo-de-trabalho",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "8.2 Fluxo de Trabalho",
+    "text": "8.2 Fluxo de Trabalho\n\nRevise a visualização do documento regularmente.\nAprenda gradualmente - comece com os elementos básicos.\nUse preview do RStudio ou VS Code para ver resultados em tempo real.\nSalve frequentemente e use controle de versão (Git)."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#formatação-e-estilo",
+    "href": "tutorials/markdown/index.html#formatação-e-estilo",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "8.3 Formatação e Estilo",
+    "text": "8.3 Formatação e Estilo\n\nEvite overformatação - o Markdown é sobre simplicidade.\nUse espaços em branco para melhorar a legibilidade do código.\nSeja consistente com a escolha de símbolos (*, -, _ etc.).\nTeste em diferentes formatos de saída (HTML, PDF)."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#resolução-de-problemas-comuns",
+    "href": "tutorials/markdown/index.html#resolução-de-problemas-comuns",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "8.4 Resolução de Problemas Comuns",
+    "text": "8.4 Resolução de Problemas Comuns\n\n8.4.1 Quebras de Linha não Funcionam\n\nLembre-se: duas linhas em branco criam novo parágrafo\nUse dois espaços + Enter para quebra simples\nOu use &lt;br&gt; quando necessário\n\n\n\n8.4.2 Caracteres Especiais\n\nUse \\ para escapar caracteres: \\*, \\#, \\[\nEm equações, use \\{ e \\} para chaves literais\n\n\n\n8.4.3 Tabelas não Alinham\n\nCertifique-se de que todas as linhas têm o mesmo número de colunas\nUse espaços para alinhar visualmente no código\nTeste com conteúdo simples primeiro"
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#documentação-oficial",
+    "href": "tutorials/markdown/index.html#documentação-oficial",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "9.1 Documentação Oficial",
+    "text": "9.1 Documentação Oficial\n\nQuarto - Markdown Basics\nQuarto - Cross References\nPandoc Markdown"
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#ferramentas-úteis",
+    "href": "tutorials/markdown/index.html#ferramentas-úteis",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "9.2 Ferramentas Úteis",
+    "text": "9.2 Ferramentas Úteis\n\n9.2.1 Editores com Suporte ao Markdown\n\nRStudio: Excelente integração com Quarto\nVS Code: Com extensões Quarto e Markdown\nTypora: Editor WYSIWYG para Markdown\nMark Text: Editor focado em Markdown\n\n\n\n9.2.2 Geradores de Tabelas\n\nGerador de Tabelas\nGerador de Tabelas Markdown\n\n\n\n9.2.3 Referência Rápida\n\nGuia Rápido de Markdown\nSímbolos Matemáticos LaTeX"
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#próximos-passos",
+    "href": "tutorials/markdown/index.html#próximos-passos",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "9.3 Próximos Passos",
+    "text": "9.3 Próximos Passos\nApós dominar este conteúdo, considere aprender:\n\nBibliografia com Quarto: Citações e referências automáticas\nParâmetros de documento: Documentos dinâmicos e reproduzíveis\nExtensões do Quarto: Filtros e funcionalidades avançadas\nIntegração com R/Python: Documentos com código executável\n\n\n\n\n\n\n\nLembre-se\n\n\n\nO Markdown é uma ferramenta poderosa justamente por sua simplicidade. Comece com o básico e vá adicionando complexidade conforme sua necessidade. O importante é criar documentos claros, bem estruturados e reproduzíveis."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#c",
+    "href": "tutorials/markdown/index.html#c",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "C",
+    "text": "C\nCallout: Elemento visual do Quarto usado para destacar informações importantes, dicas, avisos ou notas em caixas coloridas e formatadas.\nReferência Cruzada: Sistema de referências cruzadas que permite criar links automáticos para figuras, tabelas, seções e equações dentro do documento."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#h",
+    "href": "tutorials/markdown/index.html#h",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "H",
+    "text": "H\nHTML: HyperText Markup Language - linguagem de marcação padrão para criar páginas web. O Markdown pode ser convertido para HTML."
   },
   {
     "objectID": "tutorials/markdown/index.html#l",
     "href": "tutorials/markdown/index.html#l",
     "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
     "section": "L",
-    "text": "L\nLinguagem de Marcação: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou comandos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto)."
+    "text": "L\nLaTeX: Sistema de preparação de documentos amplamente usado para documentos científicos, especialmente eficaz para equações matemáticas complexas.\nLinguagem de Marcação: Sistema de anotações inseridas em um texto para definir como ele deve ser estruturado, formatado ou apresentado. Ao contrário das linguagens de programação que executam comandos, as linguagens de marcação utilizam tags ou comandos para identificar elementos do documento (como títulos, parágrafos, listas) sem se preocupar com a lógica computacional. Exemplos incluem HTML (para páginas web), XML (para dados estruturados), LaTeX (para documentos científicos) e Markdown (usada no Quarto para formatação simplificada de texto)."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#m",
+    "href": "tutorials/markdown/index.html#m",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "M",
+    "text": "M\nMarkdown: Linguagem de marcação leve criada por John Gruber em 2004, projetada para ser fácil de ler e escrever, convertendo texto simples em HTML estruturado."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#p",
+    "href": "tutorials/markdown/index.html#p",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "P",
+    "text": "P\nPandoc: Conversor universal de documentos que traduz entre diferentes formatos de marcação. É a base do sistema Quarto para conversão de documentos."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#q",
+    "href": "tutorials/markdown/index.html#q",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "Q",
+    "text": "Q\nQuarto: Sistema de publicação científica e técnica de código aberto baseado em Pandoc, sucessor do R Markdown, que suporta múltiplas linguagens de programação."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#r",
+    "href": "tutorials/markdown/index.html#r",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "R",
+    "text": "R\nRenderização: Processo de conversão do documento Markdown/Quarto para o formato final (HTML, PDF, Word, etc.).\nReprodutibilidade: Capacidade de reproduzir exatamente os mesmos resultados ao executar novamente uma análise ou processo de criação de documento."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#s",
+    "href": "tutorials/markdown/index.html#s",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "S",
+    "text": "S\nDestaque de Sintaxe: Funcionalidade que colore e formata código de acordo com a linguagem de programação especificada, facilitando a leitura."
+  },
+  {
+    "objectID": "tutorials/markdown/index.html#y",
+    "href": "tutorials/markdown/index.html#y",
+    "title": "Markdown: Elementos Essenciais para Documentos do Sistema Quarto",
+    "section": "Y",
+    "text": "Y\nYAML: Yet Another Markup Language - formato de serialização de dados usado no cabeçalho dos documentos Quarto para configurar metadados e opções de renderização."
   },
   {
     "objectID": "tutorials/git/index.html#instando-git-no-windows",
