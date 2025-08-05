@@ -232,18 +232,26 @@ cookieconsent.run({
   <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff"><span class="header-section-number">4.2</span> git diff</a></li>
   <li><a href="#git-restore" id="toc-git-restore" class="nav-link" data-scroll-target="#git-restore"><span class="header-section-number">4.3</span> git restore</a></li>
   </ul></li>
-  <li><a href="#workflow-para-trabalhar-colaborativamente" id="toc-workflow-para-trabalhar-colaborativamente" class="nav-link" data-scroll-target="#workflow-para-trabalhar-colaborativamente"><span class="header-section-number">5</span> Workflow para Trabalhar Colaborativamente</a>
+  <li><a href="#introdução-a-branches-ramificações" id="toc-introdução-a-branches-ramificações" class="nav-link" data-scroll-target="#introdução-a-branches-ramificações"><span class="header-section-number">5</span> Introdução a Branches (Ramificações)</a>
   <ul class="collapse">
-  <li><a href="#configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" id="toc-configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" class="nav-link" data-scroll-target="#configuração-inicial-para-o-exame-de-qualificacão-do-mestrado"><span class="header-section-number">5.1</span> Configuração Inicial para o Exame de Qualificacão do Mestrado</a></li>
-  <li><a href="#configuração-inicial---orientador" id="toc-configuração-inicial---orientador" class="nav-link" data-scroll-target="#configuração-inicial---orientador"><span class="header-section-number">5.2</span> Configuração Inicial - Orientador</a></li>
-  <li><a href="#ciclo-de-desenvolvimento" id="toc-ciclo-de-desenvolvimento" class="nav-link" data-scroll-target="#ciclo-de-desenvolvimento"><span class="header-section-number">5.3</span> Ciclo de Desenvolvimento</a></li>
-  <li><a href="#incorporação-de-feedback" id="toc-incorporação-de-feedback" class="nav-link" data-scroll-target="#incorporação-de-feedback"><span class="header-section-number">5.4</span> Incorporação de Feedback</a></li>
-  <li><a href="#boas-práticas-de-comunicação-e-convenções" id="toc-boas-práticas-de-comunicação-e-convenções" class="nav-link" data-scroll-target="#boas-práticas-de-comunicação-e-convenções"><span class="header-section-number">5.5</span> Boas Práticas de Comunicação e Convenções</a></li>
-  <li><a href="#lidando-com-conflitos" id="toc-lidando-com-conflitos" class="nav-link" data-scroll-target="#lidando-com-conflitos"><span class="header-section-number">5.6</span> Lidando com Conflitos</a></li>
-  <li><a href="#trabalhando-com-issues-do-github" id="toc-trabalhando-com-issues-do-github" class="nav-link" data-scroll-target="#trabalhando-com-issues-do-github"><span class="header-section-number">5.7</span> Trabalhando com Issues do GitHub</a></li>
-  <li><a href="#workflow-para-diferentes-tipos-de-revisão" id="toc-workflow-para-diferentes-tipos-de-revisão" class="nav-link" data-scroll-target="#workflow-para-diferentes-tipos-de-revisão"><span class="header-section-number">5.8</span> Workflow para Diferentes Tipos de Revisão</a></li>
-  <li><a href="#aplicando-este-workflow-a-outros-cenários" id="toc-aplicando-este-workflow-a-outros-cenários" class="nav-link" data-scroll-target="#aplicando-este-workflow-a-outros-cenários"><span class="header-section-number">5.9</span> Aplicando este Workflow a Outros Cenários</a></li>
-  <li><a href="#resumo-do-workflow" id="toc-resumo-do-workflow" class="nav-link" data-scroll-target="#resumo-do-workflow"><span class="header-section-number">5.10</span> Resumo do Workflow</a></li>
+  <li><a href="#comandos-básicos-de-branches" id="toc-comandos-básicos-de-branches" class="nav-link" data-scroll-target="#comandos-básicos-de-branches"><span class="header-section-number">5.1</span> Comandos Básicos de Branches</a></li>
+  <li><a href="#workflow-básico-com-branches" id="toc-workflow-básico-com-branches" class="nav-link" data-scroll-target="#workflow-básico-com-branches"><span class="header-section-number">5.2</span> Workflow Básico com Branches</a></li>
+  <li><a href="#branches-em-colaboração" id="toc-branches-em-colaboração" class="nav-link" data-scroll-target="#branches-em-colaboração"><span class="header-section-number">5.3</span> Branches em Colaboração</a></li>
+  <li><a href="#resolvendo-conflitos-entre-branches" id="toc-resolvendo-conflitos-entre-branches" class="nav-link" data-scroll-target="#resolvendo-conflitos-entre-branches"><span class="header-section-number">5.4</span> Resolvendo Conflitos entre Branches</a></li>
+  <li><a href="#boas-práticas-com-branches" id="toc-boas-práticas-com-branches" class="nav-link" data-scroll-target="#boas-práticas-com-branches"><span class="header-section-number">5.5</span> Boas Práticas com Branches</a></li>
+  </ul></li>
+  <li><a href="#workflow-para-trabalhar-colaborativamente" id="toc-workflow-para-trabalhar-colaborativamente" class="nav-link" data-scroll-target="#workflow-para-trabalhar-colaborativamente"><span class="header-section-number">6</span> Workflow para Trabalhar Colaborativamente</a>
+  <ul class="collapse">
+  <li><a href="#configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" id="toc-configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" class="nav-link" data-scroll-target="#configuração-inicial-para-o-exame-de-qualificacão-do-mestrado"><span class="header-section-number">6.1</span> Configuração Inicial para o Exame de Qualificacão do Mestrado</a></li>
+  <li><a href="#configuração-inicial---orientador" id="toc-configuração-inicial---orientador" class="nav-link" data-scroll-target="#configuração-inicial---orientador"><span class="header-section-number">6.2</span> Configuração Inicial - Orientador</a></li>
+  <li><a href="#ciclo-de-desenvolvimento" id="toc-ciclo-de-desenvolvimento" class="nav-link" data-scroll-target="#ciclo-de-desenvolvimento"><span class="header-section-number">6.3</span> Ciclo de Desenvolvimento</a></li>
+  <li><a href="#incorporação-de-feedback" id="toc-incorporação-de-feedback" class="nav-link" data-scroll-target="#incorporação-de-feedback"><span class="header-section-number">6.4</span> Incorporação de Feedback</a></li>
+  <li><a href="#boas-práticas-de-comunicação-e-convenções" id="toc-boas-práticas-de-comunicação-e-convenções" class="nav-link" data-scroll-target="#boas-práticas-de-comunicação-e-convenções"><span class="header-section-number">6.5</span> Boas Práticas de Comunicação e Convenções</a></li>
+  <li><a href="#lidando-com-conflitos" id="toc-lidando-com-conflitos" class="nav-link" data-scroll-target="#lidando-com-conflitos"><span class="header-section-number">6.6</span> Lidando com Conflitos</a></li>
+  <li><a href="#trabalhando-com-issues-do-github" id="toc-trabalhando-com-issues-do-github" class="nav-link" data-scroll-target="#trabalhando-com-issues-do-github"><span class="header-section-number">6.7</span> Trabalhando com Issues do GitHub</a></li>
+  <li><a href="#workflow-para-diferentes-tipos-de-revisão" id="toc-workflow-para-diferentes-tipos-de-revisão" class="nav-link" data-scroll-target="#workflow-para-diferentes-tipos-de-revisão"><span class="header-section-number">6.8</span> Workflow para Diferentes Tipos de Revisão</a></li>
+  <li><a href="#aplicando-este-workflow-a-outros-cenários" id="toc-aplicando-este-workflow-a-outros-cenários" class="nav-link" data-scroll-target="#aplicando-este-workflow-a-outros-cenários"><span class="header-section-number">6.9</span> Aplicando este Workflow a Outros Cenários</a></li>
+  <li><a href="#resumo-do-workflow" id="toc-resumo-do-workflow" class="nav-link" data-scroll-target="#resumo-do-workflow"><span class="header-section-number">6.10</span> Resumo do Workflow</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -913,7 +921,7 @@ Usando Git via Terminal no RStudio
 </section>
 <section id="comandos-úteis-para-o-dia-a-dia-opcional" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Comandos Úteis para o Dia a Dia (Opcional)</h1>
-<p>Após se sentir familiarizado e confortável com os 4 comandos essenciais explicandos na <a href="#sec-essenciais" class="quarto-xref">Seção&nbsp;3</a>, vale a pena conhecer e testar outros comandos úteis para o dia a dia, como o comando <code>git diff</code>.</p>
+<p>Após se sentir familiarizado e confortável com os 4 comandos essenciais explicandos na <a href="#sec-essenciais" class="quarto-xref">Seção&nbsp;3</a>, vale a pena conhecer e testar outros comandos úteis para o dia a dia, como os comandos <code>git fetch</code>, <code>git diff</code> e <code>git restore</code>.</p>
 <section id="git-fetch" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="git-fetch"><span class="header-section-number">4.1</span> git fetch</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -1100,8 +1108,278 @@ O que é <code>git restore</code>?
 </div>
 </section>
 </section>
-<section id="workflow-para-trabalhar-colaborativamente" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Workflow para Trabalhar Colaborativamente</h1>
+<section id="introdução-a-branches-ramificações" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Introdução a Branches (Ramificações)</h1>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+O que são Branches?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Branch</strong> (ou ramificação) é como criar uma “linha paralela” de desenvolvimento do seu projeto.</p></li>
+<li><p>Imagine seu projeto como o tronco de uma árvore, e os branches como galhos que se separam do tronco principal.</p></li>
+<li><p>Cada branch é uma versão independente do seu projeto onde você pode fazer experimentos, correções ou desenvolver novas funcionalidades sem afetar o trabalho principal.</p></li>
+<li><p><strong>Analogia</strong>: Se o seu projeto fosse um livro, o branch principal (<code>main</code>) seria a versão oficial. Um branch seria como fazer uma fotocópia do livro para testar uma nova estrutura de capítulos - você pode experimentar sem estragar o original.</p></li>
+</ul>
+<p><strong>Quando usar branches?</strong></p>
+<ul>
+<li><strong>Experimentação</strong>: Testar uma nova abordagem de análise sem comprometer o trabalho atual</li>
+<li><strong>Colaboração avançada</strong>: Cada pessoa trabalha em seu próprio branch</li>
+<li><strong>Correções urgentes</strong>: Fazer uma correção rápida enquanto desenvolve outras partes</li>
+<li><strong>Versões diferentes</strong>: Manter uma versão para apresentação e outra para desenvolvimento</li>
+</ul>
+</div>
+</div>
+<section id="comandos-básicos-de-branches" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="comandos-básicos-de-branches"><span class="header-section-number">5.1</span> Comandos Básicos de Branches</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabalhando com Branches
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. Ver quais branches existem:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Isso mostra todos os branches locais. O branch atual aparece marcado com um asterisco (*).</p>
+<p><strong>2. Criar um novo branch:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch nome-do-branch</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Exemplo:</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch experimento-analise</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Este comando cria um novo branch chamado “experimento-analise” baseado no estado atual do seu projeto.</p>
+<p><strong>3. Mudar para um branch diferente:</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout nome-do-branch</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Exemplo:</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout experimento-analise</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Criar e mudar para um novo branch (atalho):</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> nome-do-branch</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Exemplo:</strong></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> revisao-metodologia</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Isso é equivalente a fazer <code>git branch revisao-metodologia</code> seguido de <code>git checkout revisao-metodologia</code>.</p>
+<p><strong>5. Voltar para o branch principal:</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>6. Ver o histórico visual dos branches:</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--graph</span> <span class="at">--all</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Isso mostra uma representação visual de como os branches se relacionam.</p>
+</div>
+</div>
+</section>
+<section id="workflow-básico-com-branches" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="workflow-básico-com-branches"><span class="header-section-number">5.2</span> Workflow Básico com Branches</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemplo Prático: Experimentando uma Nova Análise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine que você quer testar uma abordagem diferente de análise de dados, mas não quer perder seu trabalho atual:</p>
+<p><strong>Passo 1: Criar um branch para o experimento</strong></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar em qual branch você está</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar e mudar para o branch de experimento</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> teste-nova-analise</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Passo 2: Trabalhar no branch experimental</strong></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer suas modificações experimentais nos arquivos</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Depois, salvar as mudanças normalmente:</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise experimental com método X"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Passo 3: Comparar com o trabalho original</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltar para o branch principal para comparar</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Seus arquivos agora mostram a versão original</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltar para o experimento</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout teste-nova-analise</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Seus arquivos mostram a versão experimental</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Passo 4: Decidir o que fazer</strong></p>
+<p>Se gostou do experimento:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltar para main</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporar as mudanças do experimento</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge teste-nova-analise</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Deletar o branch experimental (opcional)</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> teste-nova-analise</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Se não gostou do experimento:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltar para main</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Deletar o branch experimental</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-D</span> teste-nova-analise</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Dica</strong>: Use <code>-d</code> para deletar um branch que já foi mergeado, e <code>-D</code> para forçar a deleção de um branch não mergeado.</p>
+</div>
+</div>
+</section>
+<section id="branches-em-colaboração" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="branches-em-colaboração"><span class="header-section-number">5.3</span> Branches em Colaboração</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Usando Branches para Colaboração Avançada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Cenário</strong>: Orientador e orientando trabalhando simultaneamente em diferentes partes:</p>
+<p><strong>1. Orientando criando branch para nova seção:</strong></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar branch para trabalhar no capítulo 4</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> capitulo4-resultados</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Trabalhar normalmente</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise dos resultados - primeira versão"</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Enviar o branch para o GitHub</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin capitulo4-resultados</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. Orientador trabalhando em revisões em branch separado:</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Baixar o branch do orientando</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout capitulo4-resultados</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar e fazer sugestões</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Revisão: sugestões para melhoria dos gráficos"</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin capitulo4-resultados</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Incorporar o trabalho ao projeto principal:</strong></p>
+<p>Quando ambos estiverem satisfeitos:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltar para o branch principal</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporar as mudanças</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge capitulo4-resultados</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enviar para o GitHub</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Limpar o branch temporário (opcional)</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> capitulo4-resultados</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="at">--delete</span> capitulo4-resultados</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Vantagens desta abordagem:</strong></p>
+<ul>
+<li><strong>Isolamento</strong>: Trabalho experimental não afeta a versão principal</li>
+<li><strong>Colaboração segura</strong>: Cada pessoa pode trabalhar sem interferir no outro</li>
+<li><strong>Histórico claro</strong>: Fácil de ver quais mudanças vieram de qual branch</li>
+<li><strong>Backup automático</strong>: Cada branch pode ser enviado para o GitHub separadamente</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="resolvendo-conflitos-entre-branches" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="resolvendo-conflitos-entre-branches"><span class="header-section-number">5.4</span> Resolvendo Conflitos entre Branches</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quando Branches Conflitam
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Às vezes, ao fazer <code>git merge</code>, podem ocorrer conflitos se o mesmo arquivo foi modificado em ambos os branches:</p>
+<p><strong>1. Tentativa de merge com conflito:</strong></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge novo-capitulo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Se houver conflito, você verá:</p>
+<pre><code>CONFLICT (content): Merge conflict in capitulo2.qmd
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p><strong>2. Resolver o conflito:</strong></p>
+<ul>
+<li>Abra o arquivo com conflito no RStudio</li>
+<li>Você verá as marcações de conflito:</li>
+</ul>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto da versão main
+=======
+Texto da versão do branch
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; novo-capitulo</code></pre>
+<ul>
+<li>Edite o arquivo para manter o texto desejado</li>
+<li>Remova as marcações <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, e <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></li>
+<li>Salve o arquivo</li>
+</ul>
+<p><strong>3. Finalizar o merge:</strong></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add capitulo2.qmd</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Resolve conflito entre main e novo-capitulo"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Dica</strong>: Para evitar conflitos, comunique-se sobre quais arquivos cada pessoa está modificando.</p>
+</div>
+</div>
+</section>
+<section id="boas-práticas-com-branches" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="boas-práticas-com-branches"><span class="header-section-number">5.5</span> Boas Práticas com Branches</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recomendações para Uso de Branches
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. Nomenclatura clara:</strong></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bons nomes de branches:</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> correcao-referencias</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> analise-capitulo3</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> revisao-orientador-2024-08</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Evite nomes confusos:</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> branch1</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> teste</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> temporario</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. Branches de vida curta:</strong></p>
+<ul>
+<li>Use branches para tarefas específicas e temporárias</li>
+<li>Faça merge e delete quando a tarefa estiver completa</li>
+<li>Evite branches que ficam abertos por semanas</li>
+</ul>
+<p><strong>3. Sempre commitar antes de mudar de branch:</strong></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Antes de mudar de branch, salve seu trabalho</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Trabalho em progresso no capítulo 2"</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout outro-branch</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Manter branches atualizados:</strong></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Periodicamente, atualize seu branch com as mudanças do main</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout seu-branch</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>5. Para iniciantes:</strong></p>
+<ul>
+<li>Comece usando apenas o branch <code>main</code> até se sentir confortável</li>
+<li>Experimente branches para tarefas pequenas e bem definidas</li>
+<li>Pratique criar, mudar e deletar branches em um projeto de teste</li>
+</ul>
+<p><strong>Quando NÃO usar branches (para iniciantes):</strong></p>
+<ul>
+<li>Se você está apenas começando com Git</li>
+<li>Para projetos pequenos com uma pessoa</li>
+<li>Quando a comunicação com colaboradores já funciona bem sem branches</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="workflow-para-trabalhar-colaborativamente" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Workflow para Trabalhar Colaborativamente</h1>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1147,8 +1425,8 @@ Visão Geral do Workflow Colaborativo
 </ol>
 </div>
 </div>
-<section id="configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="configuração-inicial-para-o-exame-de-qualificacão-do-mestrado"><span class="header-section-number">5.1</span> Configuração Inicial para o Exame de Qualificacão do Mestrado</h2>
+<section id="configuração-inicial-para-o-exame-de-qualificacão-do-mestrado" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="configuração-inicial-para-o-exame-de-qualificacão-do-mestrado"><span class="header-section-number">6.1</span> Configuração Inicial para o Exame de Qualificacão do Mestrado</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1209,8 +1487,8 @@ Configuração Inicial - Orientando
 </div>
 </div>
 </section>
-<section id="configuração-inicial---orientador" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="configuração-inicial---orientador"><span class="header-section-number">5.2</span> Configuração Inicial - Orientador</h2>
+<section id="configuração-inicial---orientador" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="configuração-inicial---orientador"><span class="header-section-number">6.2</span> Configuração Inicial - Orientador</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1237,13 +1515,13 @@ Configuração do Ambiente do Orientador
 <li>Abra o Git Bash (Windows) ou Terminal (Mac/Linux)</li>
 <li>Verifique se suas credenciais estão configuradas:</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Se não estiverem configuradas ou precisarem ser atualizadas:</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Nome do Orientador"</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"orientador@email.com"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Nome do Orientador"</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"orientador@email.com"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Importante</strong>: Use o mesmo email cadastrado no GitHub.</p>
 <ol start="3" type="1">
 <li><strong>Clonar o repositório do orientando</strong>:</li>
@@ -1274,8 +1552,8 @@ Configuração do Ambiente do Orientador
 </div>
 </div>
 </section>
-<section id="ciclo-de-desenvolvimento" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="ciclo-de-desenvolvimento"><span class="header-section-number">5.3</span> Ciclo de Desenvolvimento</h2>
+<section id="ciclo-de-desenvolvimento" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="ciclo-de-desenvolvimento"><span class="header-section-number">6.3</span> Ciclo de Desenvolvimento</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1296,7 +1574,7 @@ Ciclo Diário/Semanal de Trabalho - Orientando
 <li><p>Clique na aba “Terminal” no painel inferior</p></li>
 <li><p>Execute o comando:</p></li>
 </ul>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Este comando baixa qualquer mudança que seu orientador possa ter feito.</p>
 <ol start="2" type="1">
 <li><strong>Trabalhe em seus arquivos normalmente no RStudio</strong>:</li>
@@ -1312,20 +1590,20 @@ Ciclo Diário/Semanal de Trabalho - Orientando
 <li><strong>Salve seu progresso usando o terminal Git Bash no RStudio</strong>:</li>
 </ol>
 <p>A cada conquista significativa ou no final do dia, <strong>sem sair do RStudio</strong>, use o terminal para:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verifique o que mudou</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Veja as alterações específicas (opcional)</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff arquivo-modificado.qmd</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicione os arquivos modificados (você pode especificar arquivos individuais)</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Salve as mudanças localmente com uma mensagem descritiva</span></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise descritiva no capítulo 3"</span></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Envie para o GitHub</span></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verifique o que mudou</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Veja as alterações específicas (opcional)</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff arquivo-modificado.qmd</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicione os arquivos modificados (você pode especificar arquivos individuais)</span></span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Salve as mudanças localmente com uma mensagem descritiva</span></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise descritiva no capítulo 3"</span></span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Envie para o GitHub</span></span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Benefícios deste fluxo de trabalho</strong>:</p>
 <ul>
 <li>Mantém tudo em um único ambiente (RStudio)</li>
@@ -1337,8 +1615,8 @@ Ciclo Diário/Semanal de Trabalho - Orientando
 </div>
 </div>
 </section>
-<section id="incorporação-de-feedback" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="incorporação-de-feedback"><span class="header-section-number">5.4</span> Incorporação de Feedback</h2>
+<section id="incorporação-de-feedback" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="incorporação-de-feedback"><span class="header-section-number">6.4</span> Incorporação de Feedback</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1354,17 +1632,17 @@ Quando seu Orientador Fornecer Feedback - Orientando
 <li><strong>Obtenha as mudanças feitas pelo orientador</strong>:</li>
 </ol>
 <p>Em um terminal Git Bash dentro do RStudio execute:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Isso baixa as alterações, comentários ou correções feitas pelo orientador.</p>
 <ol start="2" type="1">
 <li><strong>Revise as mudanças</strong>:</li>
 </ol>
 <p>Novamente, Em um terminal Git Bash dentro do RStudio execute:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver quais arquivos foram modificados pelo orientador</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver as mudanças específicas em um arquivo</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD~1 HEAD <span class="at">--</span> caminho/do/arquivo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver quais arquivos foram modificados pelo orientador</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver as mudanças específicas em um arquivo</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD~1 HEAD <span class="at">--</span> caminho/do/arquivo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Este comando mostra o que mudou entre a versão atual e a anterior.</p>
 <ol start="3" type="1">
 <li><strong>Trabalhe com as sugestões</strong>:</li>
@@ -1381,8 +1659,8 @@ Quando seu Orientador Fornecer Feedback - Orientando
 </div>
 </div>
 </section>
-<section id="boas-práticas-de-comunicação-e-convenções" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="boas-práticas-de-comunicação-e-convenções"><span class="header-section-number">5.5</span> Boas Práticas de Comunicação e Convenções</h2>
+<section id="boas-práticas-de-comunicação-e-convenções" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="boas-práticas-de-comunicação-e-convenções"><span class="header-section-number">6.5</span> Boas Práticas de Comunicação e Convenções</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1396,15 +1674,15 @@ Estabelecendo Convenções de Trabalho
 <p>Para minimizar conflitos e maximizar a eficiência na colaboração, é importante estabelecer algumas convenções e práticas de comunicação:</p>
 <p><strong>1. Convenções para mensagens de commit:</strong></p>
 <p>Estabeleça um padrão claro para as mensagens. Sugestões:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para o orientando:</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona: análise descritiva do capítulo 2"</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Corrige: formatação das tabelas na seção 3.1"</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Finaliza: primeira versão da metodologia"</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Para o orientador:</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Revisão: sugestões para o capítulo 2"</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Correção: ajustes na análise estatística"</span></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Comentário: questões sobre a metodologia"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para o orientando:</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona: análise descritiva do capítulo 2"</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Corrige: formatação das tabelas na seção 3.1"</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Finaliza: primeira versão da metodologia"</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Para o orientador:</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Revisão: sugestões para o capítulo 2"</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Correção: ajustes na análise estatística"</span></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Comentário: questões sobre a metodologia"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Comunicação sobre trabalho em andamento:</strong></p>
 <ul>
 <li><strong>Antes de trabalhar em uma seção</strong>: Comunique via email ou issue do GitHub qual seção você planeja trabalhar</li>
@@ -1428,8 +1706,8 @@ Estabelecendo Convenções de Trabalho
 </div>
 </div>
 </section>
-<section id="lidando-com-conflitos" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="lidando-com-conflitos"><span class="header-section-number">5.6</span> Lidando com Conflitos</h2>
+<section id="lidando-com-conflitos" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="lidando-com-conflitos"><span class="header-section-number">6.6</span> Lidando com Conflitos</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1472,35 +1750,35 @@ Texto do orientador (versão do GitHub)
 <li><strong>Concluindo a resolução via terminal</strong>:</li>
 </ol>
 <p>Após resolver todos os conflitos no editor, volte ao terminal no RStudio:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verifique se todos os conflitos foram resolvidos</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicione o arquivo resolvido</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add nome-do-arquivo.qmd</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Faça um commit da resolução</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Resolve conflito no arquivo nome-do-arquivo.qmd"</span></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Envie para o GitHub</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verifique se todos os conflitos foram resolvidos</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicione o arquivo resolvido</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add nome-do-arquivo.qmd</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Faça um commit da resolução</span></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Resolve conflito no arquivo nome-do-arquivo.qmd"</span></span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Envie para o GitHub</span></span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Dica</strong>: Comunique-se com seu orientador quando encontrar conflitos. Às vezes, uma conversa rápida pode esclarecer qual versão deve ser mantida.</p>
 <p><strong>Estratégias para Prevenir Conflitos:</strong></p>
 <ol type="1">
 <li><strong>Use <code>git fetch</code> antes de começar a trabalhar</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar se há mudanças antes de começar</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin main</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Se houver mudanças, aplicá-las primeiro</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar se há mudanças antes de começar</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin main</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Se houver mudanças, aplicá-las primeiro</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><strong>Faça backup antes de operações arriscadas</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer commit do trabalho atual antes de pull</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Backup antes de aplicar mudanças do orientador"</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer commit do trabalho atual antes de pull</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Backup antes de aplicar mudanças do orientador"</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><strong>Para conflitos complexos, considere usar uma ferramenta visual</strong>:</li>
 </ol>
@@ -1508,16 +1786,16 @@ Texto do orientador (versão do GitHub)
 <ol start="4" type="1">
 <li><strong>Em caso de emergência (quando há muitos conflitos)</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltar ao estado anterior (use com cuidado!)</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--abort</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Isso cancela o merge e volta ao estado antes do pull</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Depois você pode tentar novamente ou pedir ajuda</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltar ao estado anterior (use com cuidado!)</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--abort</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Isso cancela o merge e volta ao estado antes do pull</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Depois você pode tentar novamente ou pedir ajuda</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="trabalhando-com-issues-do-github" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="trabalhando-com-issues-do-github"><span class="header-section-number">5.7</span> Trabalhando com Issues do GitHub</h2>
+<section id="trabalhando-com-issues-do-github" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="trabalhando-com-issues-do-github"><span class="header-section-number">6.7</span> Trabalhando com Issues do GitHub</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1556,7 +1834,7 @@ Usando Issues para Organizar Tarefas
 <ol start="3" type="1">
 <li><strong>Referencie issues nos commits</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise de correlação solicitada na issue #5"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Adiciona análise de correlação solicitada na issue #5"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Isso cria uma referência cruzada que facilita acompanhar o histórico de mudanças e discussões.</p>
 <p><strong>Exemplos práticos de Issues para mestrado:</strong></p>
 <ol type="1">
@@ -1587,8 +1865,8 @@ Usando Issues para Organizar Tarefas
 </div>
 </div>
 </section>
-<section id="workflow-para-diferentes-tipos-de-revisão" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="workflow-para-diferentes-tipos-de-revisão"><span class="header-section-number">5.8</span> Workflow para Diferentes Tipos de Revisão</h2>
+<section id="workflow-para-diferentes-tipos-de-revisão" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="workflow-para-diferentes-tipos-de-revisão"><span class="header-section-number">6.8</span> Workflow para Diferentes Tipos de Revisão</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1601,27 +1879,27 @@ Adaptando o Workflow para Diferentes Situações
 <div class="callout-body-container callout-body">
 <p><strong>1. Revisão rápida (correções pontuais)</strong>:</p>
 <p>Orientador:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer pequenas correções diretamente</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Correções pontuais: ortografia e formatação"</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer pequenas correções diretamente</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Correções pontuais: ortografia e formatação"</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Revisão substancial (quando há muitas mudanças)</strong>:</p>
 <p>Para evitar conflitos em revisões grandes, considere usar um workflow alternativo:</p>
 <p>Orientador:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> revisao-capitulo2  <span class="co"># Criar branch temporário</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer todas as mudanças</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Revisão completa do capítulo 2"</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin revisao-capitulo2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> revisao-capitulo2  <span class="co"># Criar branch temporário</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer todas as mudanças</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Revisão completa do capítulo 2"</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin revisao-capitulo2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Depois, o orientando pode:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout revisao-capitulo2</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar as mudanças</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge revisao-capitulo2</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout revisao-capitulo2</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar as mudanças</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge revisao-capitulo2</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>3. Trabalho simultâneo em seções diferentes</strong>:</p>
 <ul>
 <li>Orientando trabalha nos capítulos 3-4</li>
@@ -1632,8 +1910,8 @@ Adaptando o Workflow para Diferentes Situações
 </div>
 </div>
 </section>
-<section id="aplicando-este-workflow-a-outros-cenários" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="aplicando-este-workflow-a-outros-cenários"><span class="header-section-number">5.9</span> Aplicando este Workflow a Outros Cenários</h2>
+<section id="aplicando-este-workflow-a-outros-cenários" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="aplicando-este-workflow-a-outros-cenários"><span class="header-section-number">6.9</span> Aplicando este Workflow a Outros Cenários</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1661,8 +1939,8 @@ Adaptando para Outras Colaborações
 </div>
 </div>
 </section>
-<section id="resumo-do-workflow" class="level2" data-number="5.10">
-<h2 data-number="5.10" class="anchored" data-anchor-id="resumo-do-workflow"><span class="header-section-number">5.10</span> Resumo do Workflow</h2>
+<section id="resumo-do-workflow" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="resumo-do-workflow"><span class="header-section-number">6.10</span> Resumo do Workflow</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1679,13 +1957,13 @@ Resumindo
 <li><p><strong>Trabalhe nos arquivos</strong> normalmente</p></li>
 <li><p><strong>Verifique mudanças</strong>: <code>git status</code> e <code>git diff</code></p></li>
 <li><p><strong>Salve seu progresso</strong>:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Mensagem descritiva"</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb71"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Mensagem descritiva"</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Repita</strong> diariamente ou quando concluir uma parte significativa</p></li>
 </ol>
-<section id="resumo-do-workflow-1" class="level2" data-number="5.11">
-<h2 data-number="5.11" class="anchored" data-anchor-id="resumo-do-workflow-1"><span class="header-section-number">5.11</span> Resumo do Workflow</h2>
+<section id="resumo-do-workflow-1" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="resumo-do-workflow-1"><span class="header-section-number">6.11</span> Resumo do Workflow</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1742,8 +2020,8 @@ Resumindo: Checklist Diário
 </div>
 </div>
 </section>
-<section id="solução-de-problemas-comuns" class="level2" data-number="5.12">
-<h2 data-number="5.12" class="anchored" data-anchor-id="solução-de-problemas-comuns"><span class="header-section-number">5.12</span> Solução de Problemas Comuns</h2>
+<section id="solução-de-problemas-comuns" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="solução-de-problemas-comuns"><span class="header-section-number">6.12</span> Solução de Problemas Comuns</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1756,26 +2034,26 @@ Problemas Frequentes e Soluções
 <div class="callout-body-container callout-body">
 <p><strong>1. “Esqueci de fazer pull antes de começar a trabalhar”</strong></p>
 <p>Solução:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer backup do trabalho atual</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Backup antes de sincronizar"</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Buscar mudanças do GitHub</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Se houver conflitos, resolvê-los como explicado anteriormente</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazer backup do trabalho atual</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Backup antes de sincronizar"</span></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Buscar mudanças do GitHub</span></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Se houver conflitos, resolvê-los como explicado anteriormente</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. “Fiz push mas o orientador não vê minhas mudanças”</strong></p>
 <p>Verificações: - Confirme que o push foi bem-sucedido (não houve mensagens de erro) - Peça ao orientador para fazer <code>git pull origin main</code> - Verifique se ambos estão no mesmo branch (main)</p>
 <p><strong>3. “Perdi trabalho após fazer pull”</strong></p>
 <p>Recuperação:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver histórico recente</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">-10</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrar o commit antes do problema</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show hash-do-commit</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Se necessário, recuperar versão anterior</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout hash-do-commit <span class="at">--</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver histórico recente</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">-10</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrar o commit antes do problema</span></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show hash-do-commit</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Se necessário, recuperar versão anterior</span></span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout hash-do-commit <span class="at">--</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>4. “Muitos conflitos, não sei como resolver”</strong></p>
 <p>Estratégia: 1. Conversar com o orientador sobre qual versão manter 2. Se for muito complexo: <code>git merge --abort</code> 3. Trabalhar em horários diferentes até resolver o conflito 4. Considerar usar branches para trabalho simultâneo</p>
 <p><strong>5. “RStudio não reconhece que estou em um repositório Git”</strong></p>
@@ -1783,8 +2061,8 @@ Problemas Frequentes e Soluções
 </div>
 </div>
 </section>
-<section id="dicas-para-usar-o-terminal-git-bash-no-rstudio" class="level2" data-number="5.13">
-<h2 data-number="5.13" class="anchored" data-anchor-id="dicas-para-usar-o-terminal-git-bash-no-rstudio"><span class="header-section-number">5.13</span> Dicas para usar o Terminal Git Bash no RStudio</h2>
+<section id="dicas-para-usar-o-terminal-git-bash-no-rstudio" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="dicas-para-usar-o-terminal-git-bash-no-rstudio"><span class="header-section-number">6.13</span> Dicas para usar o Terminal Git Bash no RStudio</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1808,62 +2086,62 @@ Dicas para usar o Terminal Git Bash no RStudio
 <ol start="2" type="1">
 <li><strong>Verificando rapidamente as mudanças</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver mudanças em um arquivo específico</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff caminho/para/arquivo.qmd</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver apenas os nomes dos arquivos modificados</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">-s</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver mudanças em um arquivo específico</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff caminho/para/arquivo.qmd</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver apenas os nomes dos arquivos modificados</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">-s</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><strong>Adicionando arquivos seletivamente</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar arquivos interativamente (pergunta arquivo por arquivo)</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-i</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar apenas partes específicas de um arquivo</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-p</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar arquivos interativamente (pergunta arquivo por arquivo)</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-i</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar apenas partes específicas de um arquivo</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-p</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
 <li><strong>Revertendo mudanças quando necessário</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usar git restore (comando moderno) em vez de checkout</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore nome-do-arquivo.qmd</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remover arquivo da staging area</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--staged</span> nome-do-arquivo.qmd</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Desfazer o último commit (mantendo as mudanças)</span></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usar git restore (comando moderno) em vez de checkout</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore nome-do-arquivo.qmd</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remover arquivo da staging area</span></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--staged</span> nome-do-arquivo.qmd</span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Desfazer o último commit (mantendo as mudanças)</span></span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
 <li><strong>Visualizando o histórico e colaboração</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver histórico resumido com autor</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--graph</span> <span class="at">--decorate</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver apenas os commits do orientador</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--author</span><span class="op">=</span><span class="st">"nome_do_orientador"</span></span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver mudanças entre commits</span></span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD~1 HEAD</span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver quem modificou cada linha de um arquivo</span></span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> blame arquivo.qmd</span>
-<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver histórico de um arquivo específico</span></span>
-<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-p</span> nome-do-arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver histórico resumido com autor</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--graph</span> <span class="at">--decorate</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver apenas os commits do orientador</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--author</span><span class="op">=</span><span class="st">"nome_do_orientador"</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver mudanças entre commits</span></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD~1 HEAD</span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver quem modificou cada linha de um arquivo</span></span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> blame arquivo.qmd</span>
+<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver histórico de um arquivo específico</span></span>
+<span id="cb77-14"><a href="#cb77-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-p</span> nome-do-arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">
 <li><strong>Comandos úteis para colaboração</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar diferenças com o repositório remoto</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin main</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD origin/main</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver arquivos modificados nos últimos commits</span></span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--name-only</span> HEAD~3</span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar um backup rápido</span></span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> tag backup-<span class="va">$(</span><span class="fu">date</span> +%Y%m%d<span class="va">)</span></span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver status de forma compacta</span></span>
-<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">-s</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar diferenças com o repositório remoto</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin main</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD origin/main</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver arquivos modificados nos últimos commits</span></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--name-only</span> HEAD~3</span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar um backup rápido</span></span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> tag backup-<span class="va">$(</span><span class="fu">date</span> +%Y%m%d<span class="va">)</span></span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver status de forma compacta</span></span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">-s</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">
 <li><strong>Mantendo o terminal aberto</strong>:</li>
 </ol>
@@ -1883,8 +2161,8 @@ Dicas para usar o Terminal Git Bash no RStudio
 </div>
 </div>
 </section>
-<section id="recuperando-versões-anteriores-de-arquivos" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Recuperando Versões Anteriores de Arquivos</h1>
+<section id="recuperando-versões-anteriores-de-arquivos" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Recuperando Versões Anteriores de Arquivos</h1>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1918,12 +2196,12 @@ Visualizando o Histórico de um Arquivo
 <ol type="1">
 <li><strong>Veja o histórico de commits do arquivo</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--follow</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--follow</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>O parâmetro <code>--follow</code> é útil para ver o histórico mesmo se o arquivo foi renomeado.</p>
 <ol start="2" type="1">
 <li><strong>Visualização mais compacta</strong>:</li>
 </ol>
-<div class="sourceCode" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--follow</span> <span class="at">--oneline</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--follow</span> <span class="at">--oneline</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Isso mostrará cada commit em uma única linha, com seu ID (hash) e mensagem.</p>
 <p>Exemplo de resultado:</p>
 <pre><code>a7f3de6 Atualiza análise estatística da seção 3
@@ -1945,10 +2223,10 @@ Visualizando o Conteúdo de uma Versão Antiga
 </div>
 <div class="callout-body-container callout-body">
 <p>Para verificar o conteúdo antes de recuperá-lo:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show hash:arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show hash:arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Substitua <code>hash</code> pelo ID do commit e <code>arquivo.qmd</code> pelo nome do seu arquivo.</p>
 <p><strong>Exemplo:</strong></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show f7d2e09:metodologia.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show f7d2e09:metodologia.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Isso mostrará o conteúdo do arquivo <code>metodologia.qmd</code> como estava no commit <code>f7d2e09</code>, sem alterar seu arquivo atual.</p>
 </div>
 </div>
@@ -1965,9 +2243,9 @@ Recuperando uma Versão Antiga
 <p>Há duas maneiras principais de recuperar uma versão antiga de um arquivo:</p>
 <p><strong>Método 1:</strong> Sobrescrever o arquivo atual</p>
 <p>Este método substitui completamente seu arquivo atual pela versão antiga:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout hash <span class="at">--</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout hash <span class="at">--</span> arquivo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Exemplo:</strong></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout f7d2e09 <span class="at">--</span> metodologia.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout f7d2e09 <span class="at">--</span> metodologia.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>O que acontece?</strong></p>
 <ul>
 <li>Seu arquivo atual é substituído pela versão antiga</li>
@@ -1975,13 +2253,13 @@ Recuperando uma Versão Antiga
 <li>Você ainda precisa adicionar e commitar esta mudança</li>
 </ul>
 <p>Depois de executar o comando acima, você precisará:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add metodologia.qmd</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Restaura versão anterior da metodologia"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add metodologia.qmd</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Restaura versão anterior da metodologia"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Método 2:</strong> Criar uma cópia da versão antiga</p>
 <p>Se você quiser manter seu arquivo atual e apenas examinar a versão antiga:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show hash:arquivo.qmd <span class="op">&gt;</span> arquivo_antigo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show hash:arquivo.qmd <span class="op">&gt;</span> arquivo_antigo.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Exemplo:</strong></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show f7d2e09:metodologia.qmd <span class="op">&gt;</span> metodologia_antiga.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show f7d2e09:metodologia.qmd <span class="op">&gt;</span> metodologia_antiga.qmd</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Isso criará um novo arquivo chamado <code>metodologia_antiga.qmd</code> com o conteúdo da versão antiga, sem afetar seu arquivo atual.</p>
 </div>
 </div>
@@ -2005,8 +2283,8 @@ Dicas e Observações
 </div>
 </div>
 </section>
-<section id="glossário-de-termos" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Glossário de Termos</h1>
+<section id="glossário-de-termos" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Glossário de Termos</h1>
 <section id="b" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="b">B</h2>
 <p><strong>Branch</strong>: Ramificação independente do código que permite trabalhar em funcionalidades ou correções sem afetar a linha principal de desenvolvimento.</p>
@@ -2068,8 +2346,8 @@ Dicas e Observações
 <p><strong>Working Directory</strong>: Diretório local onde os arquivos do projeto estão sendo editados ativamente.</p>
 </section>
 </section>
-<section id="referências" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Referências</h1>
+<section id="referências" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Referências</h1>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-blischak2016version" class="csl-entry" role="listitem">
 BLISCHAK, J. D.; DAVENPORT, E. R.; WILSON, G. <a href="https://doi.org/10.1371/journal.pcbi.1004668">A Quick Introduction to Version Control with Git and <span>GitHub</span></a>. <strong>PLoS Computational Biology</strong>, v. 12, n. 1, p. e1004668, 2016.
