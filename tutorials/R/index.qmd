@@ -1092,208 +1092,850 @@ do R por trás.
 
 
 
-# Data Frames e Tibbles {#sec-dataframes}
+# Estruturas de Dados em R {#sec-estruturas-dados}
 
 ::: {.callout-note icon="false"}
-## Por que aprender sobre `data frames` e `tibbles`?
+## Fundamentos das Estruturas de Dados
 
-- Em R, **data frames** e **tibbles** são as principais estruturas usadas para armazenar e analisar dados tabulares (como planilhas do Excel).
+R oferece diferentes tipos de estruturas para organizar e manipular dados, cada uma adequada para situações específicas. As principais estruturas são:
 
-- Eles representam **conjuntos de dados organizados em colunas e linhas**, onde cada coluna é um vetor.
+- **Vetores**: Sequências unidimensionais de elementos do mesmo tipo (já estudados)
+- **Matrizes**: Estruturas bidimensionais homogêneas (todos os elementos do mesmo tipo)
+- **Data Frames**: Estruturas bidimensionais heterogêneas (colunas podem ter tipos diferentes)
+- **Tibbles**: Versão moderna e aprimorada dos data frames
+- **Listas**: Estruturas flexíveis que podem conter qualquer tipo de objeto
 
-- Compreender o funcionamento dessas estruturas é essencial para importar, limpar, transformar, visualizar e modelar dados.
+Compreender estas estruturas é fundamental para escolher a abordagem mais adequada em diferentes contextos analíticos e para integrar-se efetivamente com o ecossistema de pacotes do R.
 :::
 
 
+## Matrizes  {#sec-matrizes}
 
-::: {.callout-tip}
-## Analogia
+Matrizes são estruturas bidimensionais que armazenam elementos do mesmo tipo organizados em linhas e colunas. Em econometria e análise quantitativa, matrizes são fundamentais para implementar modelos estatísticos, álgebra linear computacional e métodos numéricos avançados.
 
-Pense em um **data frame** como uma **planilha**:
+### Características das Matrizes
 
-- Cada **coluna** é uma variável (vetor).
-- Cada **linha** representa uma observação ou caso.
-- Um **tibble** é como uma **planilha moderna**: mantém as mesmas funcionalidades, mas com melhorias que evitam erros e facilitam o uso com dados reais.
+- **Homogeneidade**: Todos os elementos devem ser do mesmo tipo
+- **Dimensionalidade**: Possuem exatamente duas dimensões (linhas e colunas)
+- **Indexação**: Acessadas por índices [linha, coluna]
+- **Eficiência computacional**: Operações matemáticas otimizadas para cálculos científicos
+
+### Criando Matrizes
+
+```{r}
+#| label: matriz-criacao
+#| echo: true
+
+# Matrizes básicas para demonstrações
+A <- matrix(c(4, 2, 1, 3, 5, 2, 1, 2, 6), nrow = 3, ncol = 3, byrow = TRUE)
+B <- matrix(c(2, 1, 3, 1, 4, 2, 2, 1, 5), nrow = 3, ncol = 3, byrow = TRUE)
+
+A
+B
+
+# Matriz de dados econométricos
+set.seed(123)
+X <- matrix(c(rep(1, 5), 2:6, c(1.5, 2.0, 2.5, 3.0, 3.5)), nrow = 5, ncol = 3)
+colnames(X) <- c("intercepto", "X1", "X2")
+X
+```
+
+### Operações Aritméticas Básicas
+
+As operações elemento-a-elemento seguem as regras aritméticas usuais:
+
+```{r}
+#| label: matriz-aritmetica
+#| echo: true
+
+# Adição e subtração de matrizes
+A + B
+A - B
+
+# Multiplicação e divisão elemento por elemento (Hadamard)
+A * B
+A / B
+
+# Multiplicação por escalar
+2.5 * A
+```
+
+### Multiplicação Matricial e Transposta
+
+A multiplicação matricial é uma operação fundamental que difere da multiplicação elemento-a-elemento. Para que seja possível, o número de colunas da primeira matriz deve igual ao número de linhas da segunda.
+
+```{r}
+#| label: matriz-multiplicacao
+#| echo: true
+
+# Multiplicação matricial
+A %*% B
+
+# Transposta
+t(A)
+
+# Verificando propriedade: (AB)' = B'A'
+all.equal(t(A %*% B), t(B) %*% t(A))
+
+# Matriz simétrica: A %*% t(A)
+simetrica <- A %*% t(A)
+simetrica
+isSymmetric(simetrica)
+```
+
+### Determinante e Matriz Inversa
+
+O determinante é um escalar que fornece informações importantes sobre a matriz, incluindo se ela é invertível. Uma matriz é invertível se e somente se seu determinante é diferente de zero.
+
+```{r}
+#| label: matriz-determinante
+#| echo: true
+
+# Calculando determinantes
+det(A)
+det(B)
+
+# Propriedade: det(AB) = det(A) * det(B)
+det(A %*% B)
+det(A) * det(B)
+
+# Matriz inversa (quando determinante ≠ 0)
+A_inv <- solve(A)
+A_inv
+
+# Verificação: A * A^(-1) = I
+round(A %*% A_inv, 10)
+```
+
+### Matrizes Especiais
+
+R fornece funções para criar matrizes com propriedades específicas:
+
+```{r}
+#| label: matriz-especiais
+#| echo: true
+
+# Matriz identidade
+diag(3)
+
+# Matriz diagonal
+diag(c(2, 5, 3))
+
+# Extraindo diagonal de uma matriz
+diag(A)
+
+# Matriz triangular superior
+upper.tri(A, diag = TRUE) * A
+
+# Matriz triangular inferior
+lower.tri(A, diag = TRUE) * A
+```
+
+### Potências de Matrizes
+
+Para calcular potências de matrizes, utilizamos multiplicação matricial repetida:
+
+```{r}
+#| label: matriz-potencias
+#| echo: true
+
+# Função para calcular potência de matriz
+potencia_matriz <- function(matriz, n) {
+  if(n == 0) return(diag(nrow(matriz)))
+  if(n == 1) return(matriz)
+  
+  resultado <- matriz
+  for(i in 2:n) {
+    resultado <- resultado %*% matriz
+  }
+  return(resultado)
+}
+
+# Calculando A^2 e A^3
+potencia_matriz(A, 2)
+potencia_matriz(A, 3)
+
+# Verificação: A^2 = A %*% A
+all.equal(potencia_matriz(A, 2), A %*% A)
+```
+
+### Autovalores e Autovetores
+
+Autovalores e autovetores são conceitos centrais da álgebra linear. Para uma matriz A, um autovalor $\lambda$ e seu autovetor correspondente $v$ satisfazem a equação $Av = \lambda v$ Os autovalores fornecem informações fundamentais sobre as propriedades da matriz.
+
+```{r}
+#| label: matriz-eigen
+#| echo: true
+
+# Calculando autovalores e autovetores
+eigen_result <- eigen(A)
+eigen_result$values  # Autovalores
+eigen_result$vectors # Autovetores
+
+# Verificação da equação característica para o primeiro autovalor
+lambda1 <- eigen_result$values[1]
+v1 <- eigen_result$vectors[, 1]
+
+# Deve ser aproximadamente igual: A*v1 ≈ λ1*v1
+A %*% v1
+lambda1 * v1
+
+# Propriedades importantes
+sum(diag(A))          # Traço = soma dos autovalores
+sum(eigen_result$values)
+
+det(A)                # Determinante = produto dos autovalores
+prod(eigen_result$values)
+```
+
+### Decomposições Matriciais
+
+As decomposições matriciais são técnicas que expressam uma matriz como produto de matrizes com propriedades específicas, facilitando cálculos e análises.
+
+#### Decomposição QR
+
+A decomposição QR expressa uma matriz $A$ como produto $A = QR$, onde $Q$ é ortogonal e $R$ é triangular superior:
+
+```{r}
+#| label: matriz-qr
+#| echo: true
+
+qr_decomp <- qr(A)
+Q <- qr.Q(qr_decomp)
+R <- qr.R(qr_decomp)
+
+Q  # Matriz ortogonal
+R  # Matriz triangular superior
+
+# Verificação: A = Q * R
+all.equal(A, Q %*% R)
+
+# Propriedade da matriz ortogonal: Q'Q = I
+round(t(Q) %*% Q, 10)
+```
+
+#### Decomposição por Valores Singulares (SVD)
+
+A decomposição SVD expressa qualquer matriz $A$ como $A = UDV'$, onde $U$ e $V$ são ortogonais e $D$ é diagonal com valores singulares:
+
+```{r}
+#| label: matriz-svd
+#| echo: true
+
+svd_result <- svd(A)
+U <- svd_result$u
+d <- svd_result$d
+V <- svd_result$v
+
+d  # Valores singulares
+
+# Reconstrução: A = U * D * V'
+D <- diag(d)
+all.equal(A, U %*% D %*% t(V))
+
+# Aproximação de baixo posto (usando apenas os 2 maiores valores singulares)
+k <- 2
+A_aprox <- U[, 1:k] %*% diag(d[1:k]) %*% t(V[, 1:k])
+A_aprox
+```
+
+#### Decomposição de Cholesky
+
+A decomposição de Cholesky é aplicável a matrizes simétricas e positivas definidas, expressando $S = LL'$, onde $L$ é triangular:
+
+```{r}
+#| label: matriz-cholesky
+#| echo: true
+
+# Criando matriz simétrica positiva definida
+set.seed(456)
+M <- matrix(rnorm(9), 3, 3)
+S <- t(M) %*% M  # Garantidamente positiva definida
+
+S
+
+# Decomposição de Cholesky
+L <- chol(S)  # Triangular superior em R
+L
+
+# Verificação: S = L' * L
+all.equal(S, t(L) %*% L)
+```
+
+### Aplicações em Econometria
+
+#### Estimação por Mínimos Quadrados Ordinários
+
+A estimação por MQO utiliza intensivamente álgebra matricial. Para o modelo 
+$Y = X\beta + \varepsilon$, o estimador de MQO é $\hat{\beta} = (X'X)^(-1)X'Y$:
+
+```{r}
+#| label: matriz-mqo
+#| echo: true
+
+# Simulando dados
+set.seed(789)
+n <- 100
+X_reg <- cbind(1, rnorm(n), rnorm(n))  # Intercepto + 2 regressores
+beta_true <- c(2, 1.5, -0.8)
+epsilon <- rnorm(n, 0, 2)
+Y <- X_reg %*% beta_true + epsilon
+
+# Estimação: β̂ = (X'X)⁻¹X'Y
+XtX <- t(X_reg) %*% X_reg
+XtY <- t(X_reg) %*% Y
+beta_hat <- solve(XtX) %*% XtY
+
+beta_hat
+beta_true  # Para comparação
+
+# Matriz de covariância dos estimadores: σ²(X'X)⁻¹
+residuos <- Y - X_reg %*% beta_hat
+sigma2_hat <- sum(residuos^2) / (n - ncol(X_reg))
+cov_beta <- sigma2_hat * solve(XtX)
+
+# Erros padrão
+sqrt(diag(cov_beta))
+```
+
+#### Matriz de Projeção
+
+A matriz de projeção $H = X(X'X)^(-1)X'$ projeta o vetor $Y$ no espaço gerado pelas colunas de $X$:
+
+```{r}
+#| label: matriz-hat
+#| echo: true
+
+# Matriz "hat" (projeção)
+H <- X_reg %*% solve(XtX) %*% t(X_reg)
+
+# Propriedades importantes
+sum(diag(H))  # Traço = número de parâmetros
+ncol(X_reg)
+
+# Idempotência: H² = H
+all.equal(H, H %*% H, tolerance = 1e-10)
+
+# Simetria
+isSymmetric(H)
+```
+
+
+## Listas {#sec-listas}
+
+Listas são as estruturas mais flexíveis do R, fundamentais em econometria para armazenar resultados de simulações, outputs de modelos estatísticos e organizar dados de diferentes tipos e dimensões. São especialmente úteis em simulações de Monte Carlo e no desenvolvimento de funções econométricas personalizadas.
+
+### Características das Listas
+
+- **Heterogeneidade**: Podem conter elementos de tipos diferentes (números, matrizes, data frames, outras listas)
+- **Flexibilidade**: Cada elemento pode ser de qualquer classe ou estrutura
+- **Aninhamento**: Podem conter outras listas (estruturas hierárquicas)
+- **Nomeação**: Elementos podem ter nomes para acesso facilitado
+- **Armazenamento de resultados**: Ideais para guardar outputs complexos de análises
+
+### Criando Listas para Análises Econométricas
+
+```{r}
+#| label: lista-criacao
+#| echo: true
+
+# Lista para armazenar resultados de um modelo de regressão
+set.seed(123)
+n <- 100
+X <- cbind(1, rnorm(n), rnorm(n))  # Matriz de regressores
+beta_true <- c(2, 1.5, -0.8)      # Parâmetros verdadeiros
+epsilon <- rnorm(n, 0, 2)          # Termo de erro
+Y <- X %*% beta_true + epsilon     # Variável dependente
+
+# Estimação do modelo
+XtX_inv <- solve(t(X) %*% X)
+beta_hat <- XtX_inv %*% t(X) %*% Y
+residuos <- Y - X %*% beta_hat
+sigma2_hat <- sum(residuos^2) / (n - ncol(X))
+
+# Armazenando resultados em uma lista
+resultado_regressao <- list(
+  coeficientes = as.vector(beta_hat),
+  matriz_covariancia = sigma2_hat * XtX_inv,
+  residuos = as.vector(residuos),
+  R_quadrado = 1 - sum(residuos^2) / sum((Y - mean(Y))^2),
+  graus_liberdade = n - ncol(X),
+  observacoes = n,
+  dados = list(X = X, Y = Y)
+)
+
+# Visualizando a estrutura da lista
+str(resultado_regressao)
+```
+
+### Acessando Elementos de Listas
+
+```{r}
+#| label: lista-acesso
+#| echo: true
+
+# Acesso por nome com $
+resultado_regressao$coeficientes
+
+# Acesso por nome com [[]]
+resultado_regressao[["R_quadrado"]]
+
+# Acesso por índice
+resultado_regressao[[4]]  # R-quadrado
+
+# Acesso a elementos aninhados
+resultado_regressao$dados$Y[1:5]  # Primeiras 5 observações de Y
+
+# Múltiplos elementos (retorna uma lista)
+resultado_regressao[c("coeficientes", "R_quadrado")]
+```
+
+### Simulação de Monte Carlo com Listas
+
+```{r}
+#| label: lista-montecarlo
+#| echo: true
+
+# Função para simulação de Monte Carlo
+simulacao_regressao <- function(n, beta_true, sigma, n_sim = 1000) {
+  
+  # Lista para armazenar resultados de cada simulação
+  resultados <- list()
+  
+  for(i in 1:n_sim) {
+    # Gerando dados
+    X <- cbind(1, rnorm(n), rnorm(n))
+    epsilon <- rnorm(n, 0, sigma)
+    Y <- X %*% beta_true + epsilon
+    
+    # Estimando parâmetros
+    beta_hat <- solve(t(X) %*% X) %*% t(X) %*% Y
+    
+    # Armazenando resultado da i-ésima simulação
+    resultados[[i]] <- list(
+      beta_hat = as.vector(beta_hat),
+      iteracao = i
+    )
+  }
+  
+  return(resultados)
+}
+
+# Executando simulação (versão reduzida para demonstração)
+set.seed(456)
+sim_resultados <- simulacao_regressao(
+  n = 50, 
+  beta_true = c(1, 2, -1), 
+  sigma = 1, 
+  n_sim = 100
+)
+
+# Analisando resultados da simulação
+betas_simulados <- sapply(sim_resultados, function(x) x$beta_hat)
+media_betas <- rowMeans(betas_simulados)
+
+cat("Parâmetros verdadeiros:", c(1, 2, -1), "\n")
+cat("Média das estimativas:", round(media_betas, 3), "\n")
+cat("Número de simulações:", length(sim_resultados), "\n")
+```
+
+### Organizando Resultados de Múltiplos Modelos
+
+```{r}
+#| label: lista-modelos
+#| echo: true
+
+# Função para estimar e comparar diferentes modelos
+comparar_modelos <- function(Y, X1, X2, X3) {
+  
+  # Modelo 1: apenas X1
+  modelo1 <- lm(Y ~ X1)
+  
+  # Modelo 2: X1 e X2
+  modelo2 <- lm(Y ~ X1 + X2)
+  
+  # Modelo 3: X1, X2 e X3
+  modelo3 <- lm(Y ~ X1 + X2 + X3)
+  
+  # Organizando resultados em lista
+  comparacao <- list(
+    modelo_1 = list(
+      coeficientes = coef(modelo1),
+      R2 = summary(modelo1)$r.squared,
+      AIC = AIC(modelo1),
+      n_parametros = length(coef(modelo1))
+    ),
+    modelo_2 = list(
+      coeficientes = coef(modelo2),
+      R2 = summary(modelo2)$r.squared,
+      AIC = AIC(modelo2),
+      n_parametros = length(coef(modelo2))
+    ),
+    modelo_3 = list(
+      coeficientes = coef(modelo3),
+      R2 = summary(modelo3)$r.squared,
+      AIC = AIC(modelo3),
+      n_parametros = length(coef(modelo3))
+    ),
+    criterios_selecao = data.frame(
+      Modelo = c("Modelo 1", "Modelo 2", "Modelo 3"),
+      R2 = c(summary(modelo1)$r.squared, 
+             summary(modelo2)$r.squared, 
+             summary(modelo3)$r.squared),
+      AIC = c(AIC(modelo1), AIC(modelo2), AIC(modelo3))
+    )
+  )
+  
+  return(comparacao)
+}
+
+# Gerando dados para demonstração
+set.seed(789)
+n <- 80
+X1 <- rnorm(n)
+X2 <- rnorm(n)
+X3 <- rnorm(n)
+Y <- 2 + 1.5*X1 + 0.8*X2 + rnorm(n, 0, 1)
+
+# Executando comparação
+resultados_comparacao <- comparar_modelos(Y, X1, X2, X3)
+
+# Acessando resultados
+print("Critérios de Seleção:")
+print(resultados_comparacao$criterios_selecao)
+
+cat("\nR² do melhor modelo:", 
+    max(resultados_comparacao$criterios_selecao$R2), "\n")
+```
+
+### Armazenando Resultados de Testes Econométricos
+
+```{r}
+#| label: lista-testes
+#| echo: true
+
+# Função para realizar múltiplos testes diagnósticos
+testes_diagnosticos <- function(modelo) {
+  
+  # Teste de normalidade dos resíduos (Shapiro-Wilk)
+  teste_normalidade <- shapiro.test(residuals(modelo))
+  
+  # Teste de heterocedasticidade (Breusch-Pagan simplificado)
+  residuos2 <- residuals(modelo)^2
+  valores_ajustados <- fitted(modelo)
+  teste_hetero <- summary(lm(residuos2 ~ valores_ajustados))
+  
+  # Organizando resultados em lista estruturada
+  diagnosticos <- list(
+    normalidade = list(
+      estatistica = teste_normalidade$statistic,
+      p_valor = teste_normalidade$p.value,
+      interpretacao = ifelse(teste_normalidade$p.value > 0.05, 
+                           "Resíduos seguem distribuição normal", 
+                           "Evidência contra normalidade")
+    ),
+    heterocedasticidade = list(
+      R2 = teste_hetero$r.squared,
+      F_estatistica = teste_hetero$fstatistic[1],
+      interpretacao = ifelse(teste_hetero$r.squared < 0.1, 
+                           "Não há evidência de heterocedasticidade", 
+                           "Possível heterocedasticidade")
+    ),
+    resumo_modelo = list(
+      R2_ajustado = summary(modelo)$adj.r.squared,
+      erro_padrao = summary(modelo)$sigma,
+      observacoes = nobs(modelo)
+    )
+  )
+  
+  return(diagnosticos)
+}
+
+# Aplicando função de testes
+modelo_exemplo <- lm(Y ~ X1 + X2)
+resultados_testes <- testes_diagnosticos(modelo_exemplo)
+
+# Visualizando resultados
+str(resultados_testes, max.level = 2)
+print(resultados_testes$normalidade$interpretacao)
+print(resultados_testes$heterocedasticidade$interpretacao)
+```
+
+
+## Data Frames {#sec-dataframes}
+
+::: {.callout-note icon="false"}
+## Fundamentos das Estruturas Tabulares
+
+As estruturas tabulares organizam informações em formato de tabela, com linhas representando observações e colunas representando variáveis. Data frames e tibbles constituem a base para a maioria das análises estatísticas e financeiras.
+
+Estas estruturas permitem:
+
+- Armazenar dados heterogêneos (números, textos, valores lógicos) de forma organizada
+- Aplicar operações estatísticas e transformações por variável
+- Integrar-se com pacotes especializados para análises avançadas
+- Facilitar a importação e exportação de dados de diversas fontes
+
+Diferentemente das matrizes (homogêneas), data frames e tibbles permitem colunas de tipos diferentes, sendo ideais para conjuntos de dados típicos em administração e finanças.
 :::
 
+O data frame é a estrutura de dados mais utilizada em R para análises estatísticas. Conceptualmente similar a uma planilha, um data frame organiza dados em formato retangular onde cada linha representa uma observação e cada coluna representa uma variável.
 
+### Características Fundamentais
 
-## Criando uma `data frame` simples
+Um data frame possui as seguintes características essenciais:
+
+- **Estrutura retangular**: Todas as colunas devem ter o mesmo comprimento
+- **Colunas heterogêneas**: Cada coluna pode conter um tipo diferente de dados
+- **Colunas homogêneas**: Dentro de cada coluna, todos os elementos devem ser do mesmo tipo
+- **Indexação**: Linhas e colunas podem ser acessadas por índices numéricos ou nomes
+
+### Criando Data Frames
+
+A função `data.frame()` permite criar estruturas tabulares combinando vetores de mesmo comprimento:
 
 ```{r}
 #| label: df-criar
 #| echo: true
 
-# Dados hipotéticos de empresas
-empresa  <- c("A", "B", "C")
-receita  <- c(3.5, 5.2, 4.1)     # em R$ milhões
-metas    <- c(TRUE, TRUE, FALSE)
+# Dados de desempenho empresarial
+empresa <- c("TechCorp", "FinanceMax", "RetailPlus")
+receita_milhoes <- c(125.8, 89.3, 156.7)
+crescimento_percentual <- c(12.5, -3.2, 8.9)
+meta_atingida <- c(TRUE, FALSE, TRUE)
 
-emp_df <- data.frame(empresa, receita, metas)
+# Criando o data frame
+desempenho_empresas <- data.frame(
+  empresa = empresa,
+  receita_milhoes = receita_milhoes,
+  crescimento_percentual = crescimento_percentual,
+  meta_atingida = meta_atingida
+)
+
+# Exibindo o resultado
+desempenho_empresas
 ```
+
+### Estrutura e Propriedades
+
+Para compreender a estrutura interna de um data frame, utilizamos funções específicas:
 
 ```{r}
-#| label: df-print
+#| label: df-estrutura
 #| echo: true
 
-# Visualizando o data frame
-emp_df
+# Estrutura detalhada do objeto
+str(desempenho_empresas)
+
+# Dimensões: linhas e colunas
+dim(desempenho_empresas)
+
+# Nomes das colunas
+names(desempenho_empresas)
+
+# Nomes das linhas
+rownames(desempenho_empresas)
 ```
 
+### Acesso a Dados
 
-::: {.callout-note}
-## Estrutura interna
-
-Cada **coluna de um `data.frame` é um vetor**, e todos os vetores **devem ter o mesmo comprimento**. As colunas podem ter **tipos diferentes**, mas devem ser **homogêneas internamente**.
-:::
-
-
-
-## Convertendo para tibble
-
-```{r}
-#| label: df-tibble
-#| echo: true
-library(tibble)
-
-emp_tb <- as_tibble(emp_df)
-emp_tb
-```
-
-
-::: {.callout-tip}
-## Por que usar tibbles?
-
-- **Exibição inteligente**: Mostra apenas as primeiras linhas e colunas.
-- **Evita conversões automáticas perigosas** (como `stringsAsFactors`).
-- **Integra-se perfeitamente ao tidyverse (`dplyr`, `ggplot2`, `tidyr`)**.
-- **Mais leve para trabalhar com dados grandes ou listas aninhadas**.
-:::
-
-
-
-## Inspeção da estrutura
-
-```{r}
-#| label: df-inspecao
-#| echo: true
-
-# visão detalhada da tibble
-str(emp_tb)
-
-# visão geral da tibble
-glimpse(emp_tb)    
-
-# resumo estatístico das colunas numéricas
-summary(emp_tb)    
-```
-
-
-
-## Nomes e tipos das colunas
-
-```{r}
-#| label: df-nomes-tipos
-#| echo: true
-
-# nomes das colunas
-names(emp_tb)     
-
-# classe de cada coluna
-sapply(emp_tb, class) 
-```
-
-
-
-
-## Acessando colunas
+R oferece múltiplas formas de acessar elementos em data frames:
 
 ```{r}
 #| label: df-acesso
 #| echo: true
 
-# usando o operador $
-emp_tb$receita         
+# Acessando uma coluna específica pelo nome
+desempenho_empresas$receita_milhoes
+
+# Acessando múltiplas colunas
+desempenho_empresas[c("empresa", "receita_milhoes")]
+
+# Acessando por índices: linha 2, coluna 3
+desempenho_empresas[2, 3]
+
+# Filtrando observações por condição
+desempenho_empresas[desempenho_empresas$meta_atingida == TRUE, ]
 ```
 
+### Resumo Estatístico
 
-
-
-## Exemplo com dados financeiros reais
-
-Vamos utilizar o pacote `PerformanceAnalytics`, amplamente usado em finanças, para ilustrar o uso de `tibbles` com séries temporais reais.
+Para análises preliminares, a função `summary()` fornece estatísticas descritivas:
 
 ```{r}
-#| label: df-managers
+#| label: df-summary
 #| echo: true
 
-
-library(PerformanceAnalytics) # para obter a df `managers`
-library(tidyverse)  # carrega dplyr, tidyr, ggplot2, tibble etc.
-
-# Carrega os dados de performance de carteiras
-data(managers, package = "PerformanceAnalytics")  
-
-# Converte objeto xts -> tibble, salvando datas na coluna "date"
-managers_tb <- as_tibble(managers, rownames = "date")
-
-# Visão geral da tibble
-glimpse(managers_tb)
+summary(desempenho_empresas)
 ```
 
 
+## Tibbles {#sec-tibbles}
 
-::: {.callout-note}
-## O que aprendemos aqui?
+Tibbles são uma versão modernizada dos data frames, desenvolvida como parte do ecosistema tidyverse. Mantêm compatibilidade com data frames tradicionais, mas incorporam melhorias significativas para análise de dados contemporânea.
 
-- O objeto `managers_tb` contém **retornos mensais de carteiras e benchmarks**.
+### Principais Vantagens dos Tibbles
 
-- As colunas contêm séries de retornos como `ManagerA`, `SP500`, `Russell2000`, etc.
+::: {.callout-note icon="false"}
+## Melhorias em Relação aos Data Frames
 
-- A coluna `date` foi criada a partir dos nomes das linhas do objeto 
-original xts.
+- **Exibição otimizada**: Apresenta automaticamente apenas as primeiras linhas e colunas, evitando sobrecarga visual
+- **Informações de tipos**: Exibe o tipo de cada coluna na visualização
+- **Comportamento previsível**: Evita conversões automáticas indesejadas (como texto para fator)
+- **Performance superior**: Operações mais eficientes com conjuntos grandes de dados
+- **Integração com tidyverse**: Compatibilidade total com pacotes modernos de análise
 :::
 
-
-
-## Verificando tipos e valores ausentes
+### Convertendo Data Frames para Tibbles
 
 ```{r}
-#| label: df-validacao
+#| label: tibble-conversao
 #| echo: true
 
-# Verificando tipos atômicos e classes
-sapply(managers_tb, typeof)     
+library(tibble)
 
-# Verifica a presença dados faltantes
-colSums(is.na(managers_tb))     
+# Convertendo o data frame em tibble
+desempenho_tibble <- as_tibble(desempenho_empresas)
+
+# Exibindo o tibble
+desempenho_tibble
 ```
 
-::: {.callout-warning}
-## Importância de entender a estrutura
+### Criando Tibbles Diretamente
 
-Antes de aplicar qualquer modelo econométrico ou visualização, **é essencial garantir que os dados estão em um formato apropriado**:
+A função `tibble()` oferece uma sintaxe mais moderna para criação:
 
-- Verificar tipos (`character`, `numeric`, `logical`)
-- Detectar valores ausentes (`NA`)
-- Garantir que as colunas estejam nomeadas corretamente
-:::
+```{r}
+#| label: tibble-criacao
+#| echo: true
+
+# Criando tibble com dados financeiros trimestrais
+resultados_trim <- tibble(
+  trimestre = c("Q1", "Q2", "Q3", "Q4"),
+  receita = c(2.8, 3.1, 3.5, 4.2),
+  margem_bruta = c(0.32, 0.35, 0.38, 0.41),
+  roi = receita * margem_bruta / 2.5  # Calculando ROI diretamente
+)
+
+resultados_trim
+```
+
+### Inspeção Avançada de Tibbles
+
+O tibble oferece funções específicas para inspeção detalhada:
+
+```{r}
+#| label: tibble-inspecao
+#| echo: true
+
+# Visão geral compacta - função do pacote dplyr
+glimpse(resultados_trim)
+
+# Verificando tipos de dados de cada coluna individualmente
+class(resultados_trim$trimestre)
+class(resultados_trim$receita)
+class(resultados_trim$margem_bruta)
+class(resultados_trim$roi)
+```
+
+### Detecção de Valores Ausentes
+
+Para análises robustas, é fundamental identificar dados faltantes:
+
+```{r}
+#| label: tibble-na
+#| echo: true
+
+# Criando tibble com alguns valores ausentes para demonstração
+dados_com_na <- tibble(
+  empresa = c("Alpha", "Beta", "Gamma", "Delta"),
+  vendas = c(150, NA, 180, 165),
+  custo = c(120, 140, NA, 135),
+  lucro = vendas - custo
+)
+
+# Visualizando o tibble
+dados_com_na
+
+# Contando valores ausentes por coluna usando loop
+for(coluna in names(dados_com_na)) {
+  na_count <- sum(is.na(dados_com_na[[coluna]]))
+  cat("Coluna", coluna, ":", na_count, "valores ausentes\n")
+}
+
+# Identificando linhas com algum valor ausente
+dados_com_na[!complete.cases(dados_com_na), ]
+```
 
 
-::: {.callout-tip}
-## Trabalhar com dados reais
+## Exemplo Prático com Dados Financeiros Reais {#sec-exemplo-real}
 
-- Os dados do `PerformanceAnalytics` são amplamente utilizados para análise de performance de carteiras, avaliação de risco, regressões CAPM e outros modelos em finanças quantitativas.
+Para demonstrar a aplicação prática dessas estruturas, utilizaremos dados reais de performance de carteiras do pacote `PerformanceAnalytics`:
 
-- Utilizaremos este conjunto como **base para as próximas seções**: tidyverse, visualização e modelagem.
-:::
+```{r}
+#| label: exemplo-real
+#| echo: true
 
+library(PerformanceAnalytics)
+library(tidyverse)
+
+# Carregando dados de retornos de gestores e benchmarks
+data(managers, package = "PerformanceAnalytics")
+
+# Convertendo para tibble e preservando datas
+retornos_gestores <- as_tibble(managers, rownames = "data")
+
+# Exibindo estrutura dos dados
+glimpse(retornos_gestores)
+```
+
+### Análise Inicial dos Dados
+
+```{r}
+#| label: analise-inicial
+#| echo: true
+
+# Verificando período de análise
+range(retornos_gestores$data, na.rm = TRUE)
+
+# Contando observações válidas por gestor (excluindo valores ausentes)
+cat("Observações válidas por coluna:\n")
+for(coluna in names(retornos_gestores)[-1]) {  # Excluindo coluna 'data'
+  obs_validas <- sum(!is.na(retornos_gestores[[coluna]]))
+  cat(coluna, ":", obs_validas, "observações\n")
+}
+
+# Estatísticas descritivas dos primeiros três gestores
+summary(retornos_gestores[2:4])
+```
+
+### Preparação para Análises Avançadas
+
+Este conjunto de dados será utilizado nas próximas seções para demonstrar:
+
+- Manipulação de dados com dplyr
+- Visualizações com ggplot2  
+- Análises de performance e risco
+- Modelos econométricos aplicados
 
 
 ::: {.callout-note icon="false"}
-## Próximos passos
+## Consolidação do Aprendizado
 
-Agora que sabemos como criar, inspecionar e acessar `data frames` e `tibbles`, estamos prontos para trabalhar com **os pacotes do tidyverse**, que permitem manipular e transformar dados de forma elegante, eficiente e auditável.
+Nesta seção estabelecemos os fundamentos das principais estruturas de dados em R:
+
+- **Matrizes**: Estruturas bidimensionais homogêneas, ideais para cálculos matemáticos e operações de álgebra linear
+- **Listas**: Estruturas flexíveis que permitem armazenar objetos de diferentes tipos e complexidades
+- **Data frames**: Estruturas tabulares fundamentais para análise estatística com colunas heterogêneas
+- **Tibbles**: Evolução moderna dos data frames com melhorias práticas para ciência de dados
+
+**Critérios para Escolha da Estrutura:**
+
+- Use **matrizes** para operações matemáticas com dados homogêneos
+- Use **listas** para armazenar resultados complexos ou dados hierárquicos
+- Use **data frames/tibbles** para análises estatísticas com dados tabulares heterogêneos
+
+Compreender quando e como utilizar cada estrutura é fundamental para desenvolver análises eficientes e código limpo em contextos administrativos e financeiros.
 :::
 
 
