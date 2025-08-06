@@ -11,7 +11,7 @@ format:
 
 ## Pós-Graduação
 
-- **[Introdução à Ciência de Dados – MPA](https://washingtonsilva.github.io/site_mpa_icd2025/){target=_blank}**  
+- **Introdução à Ciência de Dados – MPA**  
   _Período: 2025.1_
 
 - **Econometria Aplicada à Finanças** <br>
@@ -21,7 +21,7 @@ format:
 
 ## Graduação
 
-- **[Introdução à Ciência de Dados – Bacharelado](https://washingtonsilva.github.io/site_bach_icd2025/){target=_blank}**  
+- **Introdução à Ciência de Dados** <br>
   _Período: 2025.1_
 
 - **Métodos Quantitativos Aplicados à Administração**
