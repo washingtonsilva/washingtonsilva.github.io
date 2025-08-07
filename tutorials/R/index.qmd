@@ -888,537 +888,419 @@ conhecimento fundamentará toda sua jornada na análise de dados com R.
 
 
 
-
-# Vetores em R {#sec-vetores}
-
-::: {.callout-note icon="false"}
-## Por que começar pelos vetores?
-
-- Vetores são a **estrutura de dados mais básica e fundamental** da linguagem R.
-- Toda variável simples em R — como um número, texto ou valor lógico — **é um vetor de comprimento 1**.
-- Vetores armazenam sequências de **valores homogêneos**, ou seja, todos os elementos têm o **mesmo tipo**: numérico, lógico ou texto.
-- Compreender vetores é **pré-requisito para manipular dados em estruturas mais avançadas**, como *data frames*, *tibbles* e listas.
-:::
-
-
-::: {.callout-tip}
-## Analogia
-
-Imagine que você está lidando com uma **planilha do Excel** onde cada coluna contém apenas um tipo de dado:
-
-- A coluna "Receitas Mensais" possui apenas números → vetor `numeric`
-- A coluna "Nome da Empresa" possui apenas textos → vetor `character`
-- A coluna "Meta Atingida?" possui apenas `TRUE` ou `FALSE` → vetor `logical`
-
-Cada coluna é, conceitualmente, **um vetor em R**: uma sequência ordenada, homogênea e indexada.
-:::
-
-
-
-
-## Criando vetores
-
-A função mais básica para criar vetores é `c()`, que significa "concatenar" ou "combinar".
-
-```{r}
-#| label: vet-criacao
-#| echo: true
-
-# Vetor de retornos mensais (%)
-retornos <- c(0.012, -0.005, 0.007, 0.013)
-
-# Sequência de inteiros de 1 a 4
-dias <- 1:4                 
-
-# Sequência trimestral: 1, 4, 7, 10
-meses <- seq(1, 12, by = 3) 
-
-# Vetor lógico repetido quatro vezes
-flags <- rep(TRUE, 4)       
-```
-
-
-
-::: {.callout-tip}
-## Sobre a função `c()`
-
-A função `c()` combina valores **do mesmo tipo** em um vetor.
-
-```{r}
-#| label: vet-cfunc
-#| echo: true
-c("IFMG", "UFV", "USP")      # vetor de textos
-c(TRUE, FALSE, TRUE)         # vetor lógico
-c(1.2, 2.5, 3.8)             # vetor numérico (double)
-```
-
-Se os elementos tiverem **tipos diferentes**, R fará *coerção implícita* para um tipo comum. Por exemplo:
-
-```{r}
-c(1, "texto", TRUE)  # Todos convertidos para texto (character)
-```
-:::
-
-
-
-
-## Indexação: selecionando elementos
-
-Vetores são indexados com colchetes `[]`. A indexação começa em **1** (não em zero, como em Python ou C).
-
-```{r}
-#| label: vet-index
-#| echo: true
-
-# Primeiro e último retorno
-retornos[1]                  
-retornos[length(retornos)]   
-
-# Excluindo o segundo elemento
-retornos[-2]                 
-
-# Selecionando apenas valores positivos
-retornos[retornos > 0]       
-```
-
-
-
-::: {.callout-note}
-## Filtro condicional em vetores
-
-Expressões como `retornos > 0` retornam um vetor lógico com `TRUE`/`FALSE`, que pode ser usado para **filtrar elementos**:
-
-```{r}
-#| echo: true
-retornos > 0  # vetor lógico
-retornos[retornos > 0]  # filtragem condicional
-```
-
-Este comportamento é fundamental para manipulação de dados no `dplyr`.
-:::
-
-
-
-
-## Operações vetorizadas e reciclagem
-
-Em R, você pode aplicar operações matemáticas diretamente sobre vetores.
-
-```{r}
-#| label: vet-ops
-#| echo: true
-
-# Aplicando desconto de IR (15%)
-ret_liq <- retornos * (1 - 0.15)  
-
-# Reciclagem de vetor: IR de 15% e 20% aplicados alternadamente
-taxas <- c(0.15, 0.20)
-ret_liq2 <- retornos * (1 - taxas)  
-```
-
-
-::: {.callout-warning}
-## Cuidado com a reciclagem automática
-
-Se os vetores tiverem **comprimentos incompatíveis**, R ainda assim executará a operação com uma **mensagem de aviso**, podendo gerar **resultados incorretos**.
-
-```{r}
-#| echo: true
-c(1, 2, 3) + c(10, 20)  # comprimento 3 e 2 => erro sutil
-```
-:::
-
-
-## Testando tipos e classes
-
-Vetores devem ter **elementos do mesmo tipo**, mas podemos verificar isso com:
-
-```{r}
-# Verifica o tipo atômico (typeof) e a classe do objeto
-typeof(retornos)  # double
-class(retornos)   # numeric
-```
-
-
-
-## Comprimento dos vetores
-
-Use `length()` para saber quantos elementos um vetor possui:
-
-```{r}
-length(retornos)
-```
-
-
-
-
-## Vetores de texto (character) e lógicos
-
-```{r}
-#| label: vet-text
-#| echo: true
-
-# Vetor de nomes de empresas
-empresas <- c("Empresa A", "Empresa B", "Empresa C")
-
-# Vetor lógico: metas atingidas?
-metas_atingidas <- c(TRUE, TRUE, FALSE)
-
-# Combinação com `cat()`
-cat("Metas atingidas:", metas_atingidas, "\n")
-```
-
-
-## Boas práticas com vetores
-
-- Prefira vetores **homogêneos e bem nomeados**
-- Use `typeof()` para detectar coerções indesejadas
-- Evite misturar tipos dentro de `c()` sem intenção
-
-
-::: {.callout-note icon="false"}
-## Próximos passos
-
-Vetores são a espinha dorsal de todas as estruturas de dados em R.
-Compreender seu comportamento é essencial para trabalhar com tabelas
-(`data.frames`, `tibbles`), realizar filtros, aplicar transformações
-e construir visualizações.
-
-Na próxima seção, vamos abordar os **data frames e tibbles**, que
-correspondem às tabelas que usamos no dia a dia — mas com todo o poder
-do R por trás.
-:::
-
-
-
-
 # Estruturas de Dados em R {#sec-estruturas-dados}
 
 ::: {.callout-note icon="false"}
 ## Fundamentos das Estruturas de Dados
 
-R oferece diferentes tipos de estruturas para organizar e manipular dados, cada uma adequada para situações específicas. As principais estruturas são:
+Em R, os dados são organizados em diferentes estruturas, cada uma adequada a tipos específicos de operações e análises. As principais estruturas de dados são:
 
-- **Vetores**: Sequências unidimensionais de elementos do mesmo tipo (já estudados)
-- **Matrizes**: Estruturas bidimensionais homogêneas (todos os elementos do mesmo tipo)
-- **Data Frames**: Estruturas bidimensionais heterogêneas (colunas podem ter tipos diferentes)
-- **Tibbles**: Versão moderna e aprimorada dos data frames
-- **Listas**: Estruturas flexíveis que podem conter qualquer tipo de objeto
+- **Vetores**: Sequências unidimensionais de elementos homogêneos.
+- **Matrizes**: Estruturas bidimensionais homogêneas.
+- **Data Frames**: Estruturas bidimensionais heterogêneas, semelhantes a tabelas.
+- **Tibbles**: Versões modernas e mais robustas dos data frames.
+- **Listas**: Estruturas flexíveis que podem conter diferentes tipos de objetos simultaneamente.
 
-Compreender estas estruturas é fundamental para escolher a abordagem mais adequada em diferentes contextos analíticos e para integrar-se efetivamente com o ecossistema de pacotes do R.
+A compreensão dessas estruturas facilita uma escolha eficiente para diferentes contextos analíticos, sendo essencial para utilizar efetivamente os pacotes e recursos avançados do R.
 :::
 
 
-## Matrizes  {#sec-matrizes}
 
-Matrizes são estruturas bidimensionais que armazenam elementos do mesmo tipo organizados em linhas e colunas. Em econometria e análise quantitativa, matrizes são fundamentais para implementar modelos estatísticos, álgebra linear computacional e métodos numéricos avançados.
+## Vetores {#sec-vetores}
 
-### Características das Matrizes
+::: {.callout-note icon="false"}
+## Importância dos Vetores
 
-- **Homogeneidade**: Todos os elementos devem ser do mesmo tipo
-- **Dimensionalidade**: Possuem exatamente duas dimensões (linhas e colunas)
-- **Indexação**: Acessadas por índices [linha, coluna]
-- **Eficiência computacional**: Operações matemáticas otimizadas para cálculos científicos
+- Vetores são a **estrutura fundamental** do R.
+- Toda variável simples no R é, por definição, um vetor com comprimento mínimo igual a 1.
+- Os elementos em um vetor são sempre do mesmo tipo (homogêneos).
+- Dominar vetores é essencial para compreender estruturas mais complexas, como data frames e listas.
+:::
 
-### Criando Matrizes
+
+
+### Criação de Vetores
+
+A função básica para criar vetores é `c()`, que concatena valores.
 
 ```{r}
-#| label: matriz-criacao
+#| label: criacao-vetores
 #| echo: true
 
-# Matrizes básicas para demonstrações
-A <- matrix(c(4, 2, 1, 3, 5, 2, 1, 2, 6), nrow = 3, ncol = 3, byrow = TRUE)
-B <- matrix(c(2, 1, 3, 1, 4, 2, 2, 1, 5), nrow = 3, ncol = 3, byrow = TRUE)
+# Vetor numérico simples
+dados <- c(3.5, 4.2, 6.7, 2.3)
+
+# Sequência de números inteiros de 1 a 10
+sequencia <- 1:10
+
+# Sequência espaçada uniformemente de 0 a 1 com intervalo 0.25
+intervalos <- seq(0, 1, by = 0.25)
+
+# Repetição de um valor lógico
+status <- rep(TRUE, times = 5)
+```
+
+
+
+
+::: {.callout-tip}
+## Coerção implícita em vetores
+
+Se você combinar tipos diferentes em um mesmo vetor, R converte automaticamente todos os elementos para um único tipo mais flexível:
+
+```{r}
+#| echo: true
+c(5, "R", TRUE)  # Todos convertidos para "character"
+```
+:::
+
+
+
+### Indexação de Vetores
+
+Utilize colchetes `[]` para selecionar elementos. Lembre-se de que a indexação no R começa por 1.
+
+```{r}
+#| label: indexacao-vetores
+#| echo: true
+
+# Primeiro elemento do vetor
+dados[1]
+
+# Último elemento do vetor
+dados[length(dados)]
+
+# Removendo o terceiro elemento
+dados[-3]
+
+# Selecionando elementos maiores que 4
+dados[dados > 4]
+```
+
+
+
+### Funções Matemáticas Aplicadas a Vetores
+
+R possui diversas funções que facilitam cálculos matemáticos e estatísticos diretamente aplicáveis a vetores. Algumas essenciais são:
+
+```{r}
+#| label: funcoes-matematicas-vetores
+#| echo: true
+
+numeros <- c(1, 3, 5, 7, 9)
+
+# Soma dos elementos
+sum(numeros)
+
+# Soma acumulada
+cumsum(numeros)
+
+# Produto dos elementos
+prod(numeros)
+
+# Produto acumulado
+cumprod(numeros)
+
+# Logaritmo natural dos elementos
+log(numeros)
+
+# Exponencial dos elementos
+exp(numeros)
+
+# Média
+mean(numeros)
+
+# Mediana
+median(numeros)
+
+# Desvio padrão
+sd(numeros)
+
+# Variância
+var(numeros)
+
+# Valor mínimo
+min(numeros)
+
+# Valor máximo
+max(numeros)
+```
+
+Essas funções são especialmente úteis em aplicações estatísticas e econométricas, como o cálculo de retornos médios, dispersão de dados financeiros ou identificação de extremos em séries temporais.
+
+
+
+### Operações Vetorizadas e Reciclagem
+
+Operações matemáticas são aplicadas diretamente em vetores, permitindo grande eficiência:
+
+```{r}
+#| label: operacoes-vetorizadas
+#| echo: true
+
+retornos <- c(0.02, 0.05, -0.03, 0.04)
+
+# Descontando uma taxa fixa (por exemplo, imposto de 10%)
+retornos_liquidos <- retornos * (1 - 0.10)
+
+# Usando reciclagem (taxas alternadas)
+taxas <- c(0.10, 0.15)
+retornos_alternados <- retornos * (1 - taxas)
+```
+
+
+
+::: {.callout-warning}
+## Atenção ao comportamento da reciclagem
+
+Se o comprimento dos vetores for incompatível, R recicla o vetor mais curto, o que pode gerar resultados inesperados:
+
+```{r}
+#| echo: true
+c(1, 2, 3) + c(10, 20)  # Resultado ambíguo, com aviso
+```
+:::
+
+
+
+### Tipos e Comprimento dos Vetores
+
+Sempre verifique o tipo e comprimento dos vetores para evitar problemas na análise:
+
+```{r}
+#| label: tipo-comprimento-vetor
+#| echo: true
+
+typeof(retornos)   # tipo interno do vetor
+class(retornos)    # classe do objeto
+length(retornos)   # número de elementos
+```
+
+
+
+### Vetores de Texto e Lógicos
+
+Além de numéricos, vetores podem conter caracteres (texto) ou valores lógicos:
+
+```{r}
+#| label: texto-logico-vetores
+#| echo: true
+
+# Vetor de caracteres
+instituicoes <- c("IFMG", "UFV", "USP")
+
+# Vetor lógico indicando se metas foram atingidas
+metas_atingidas <- c(TRUE, FALSE, TRUE)
+```
+
+
+
+### Boas Práticas com Vetores
+
+* Defina vetores homogêneos e com nomes claros.
+* Use `typeof()` e `class()` para checar e evitar coerções não desejadas.
+* Evite coerções implícitas acidentais mantendo elementos do mesmo tipo no vetor.
+
+
+
+
+## Matrizes {#sec-matrizes}
+
+Matrizes são estruturas bidimensionais que organizam elementos homogêneos em linhas e colunas. Em análises estatísticas, econométricas e métodos numéricos, matrizes desempenham papel central, especialmente devido à eficiência computacional nas operações de álgebra linear.
+
+
+
+### Características Fundamentais
+
+- **Homogeneidade**: Todos os elementos têm o mesmo tipo.
+- **Bidimensionalidade**: Estrutura formada por linhas e colunas.
+- **Indexação**: Elementos acessados por `[linha, coluna]`.
+- **Operações otimizadas**: Eficientes para cálculos matriciais.
+
+
+
+### Criação de Matrizes em R
+
+Em R, matrizes são criadas com a função `matrix()`. Esta função recebe um vetor de dados e distribui-os em uma matriz especificando o número de linhas (`nrow`) ou colunas (`ncol`). O parâmetro `byrow` define se o preenchimento será feito por linhas (`TRUE`) ou por colunas (`FALSE`, padrão).
+
+```{r}
+#| label: criacao-matrizes
+#| echo: true
+
+# Criação por linhas
+A <- matrix(c(4, 2, 1,
+              3, 5, 2,
+              1, 2, 6), nrow = 3, byrow = TRUE)
+
+# Criação por colunas (default)
+B <- matrix(c(2, 1, 2,
+              1, 4, 1,
+              3, 2, 5), nrow = 3)
 
 A
 B
 
-# Matriz de dados econométricos
+# Matriz econométrica simulada
 set.seed(123)
-X <- matrix(c(rep(1, 5), 2:6, c(1.5, 2.0, 2.5, 3.0, 3.5)), nrow = 5, ncol = 3)
-colnames(X) <- c("intercepto", "X1", "X2")
+X <- matrix(c(rep(1, 5), 2:6, seq(1.5, 3.5, 0.5)), nrow = 5)
+colnames(X) <- c("Intercepto", "X1", "X2")
 X
 ```
 
-### Operações Aritméticas Básicas
 
-As operações elemento-a-elemento seguem as regras aritméticas usuais:
+
+### Operações Aritméticas com Matrizes
+
+As operações básicas entre matrizes ocorrem elemento a elemento ou por meio de multiplicação matricial:
 
 ```{r}
-#| label: matriz-aritmetica
+#| label: operacoes-matrizes
 #| echo: true
 
-# Adição e subtração de matrizes
+# Operações elemento a elemento
 A + B
 A - B
-
-# Multiplicação e divisão elemento por elemento (Hadamard)
 A * B
 A / B
 
 # Multiplicação por escalar
-2.5 * A
-```
-
-### Multiplicação Matricial e Transposta
-
-A multiplicação matricial é uma operação fundamental que difere da multiplicação elemento-a-elemento. Para que seja possível, o número de colunas da primeira matriz deve igual ao número de linhas da segunda.
-
-```{r}
-#| label: matriz-multiplicacao
-#| echo: true
+3 * A
 
 # Multiplicação matricial
 A %*% B
 
-# Transposta
+# Matriz transposta
 t(A)
-
-# Verificando propriedade: (AB)' = B'A'
-all.equal(t(A %*% B), t(B) %*% t(A))
-
-# Matriz simétrica: A %*% t(A)
-simetrica <- A %*% t(A)
-simetrica
-isSymmetric(simetrica)
 ```
 
-### Determinante e Matriz Inversa
 
-O determinante é um escalar que fornece informações importantes sobre a matriz, incluindo se ela é invertível. Uma matriz é invertível se e somente se seu determinante é diferente de zero.
+
+### Determinante e Inversa
+
+O determinante indica se uma matriz quadrada é invertível (determinante diferente de zero). A inversa de uma matriz $A$ é a matriz $A^{-1}$ tal que $A A^{-1} = I$, onde $I$ é a matriz identidade.
 
 ```{r}
-#| label: matriz-determinante
+#| label: determinante-inversa
 #| echo: true
 
-# Calculando determinantes
 det(A)
-det(B)
 
-# Propriedade: det(AB) = det(A) * det(B)
-det(A %*% B)
-det(A) * det(B)
-
-# Matriz inversa (quando determinante ≠ 0)
-A_inv <- solve(A)
-A_inv
-
-# Verificação: A * A^(-1) = I
-round(A %*% A_inv, 10)
+# Inversa de A
+solve(A)
 ```
+
+
 
 ### Matrizes Especiais
 
-R fornece funções para criar matrizes com propriedades específicas:
+R permite criar matrizes especiais úteis em aplicações específicas:
 
 ```{r}
-#| label: matriz-especiais
+#| label: matrizes-especiais
 #| echo: true
 
-# Matriz identidade
+# Matriz identidade 3x3
 diag(3)
 
 # Matriz diagonal
-diag(c(2, 5, 3))
+D <- diag(c(2, 5, 3))
+D
 
-# Extraindo diagonal de uma matriz
+# Extração da diagonal de uma matriz
 diag(A)
 
-# Matriz triangular superior
-upper.tri(A, diag = TRUE) * A
-
-# Matriz triangular inferior
-lower.tri(A, diag = TRUE) * A
+# Matrizes triangulares
+A * upper.tri(A, diag = TRUE)  # Triangular superior
+A * lower.tri(A, diag = TRUE)  # Triangular inferior
 ```
 
-### Potências de Matrizes
 
-Para calcular potências de matrizes, utilizamos multiplicação matricial repetida:
-
-```{r}
-#| label: matriz-potencias
-#| echo: true
-
-# Função para calcular potência de matriz
-potencia_matriz <- function(matriz, n) {
-  if(n == 0) return(diag(nrow(matriz)))
-  if(n == 1) return(matriz)
-  
-  resultado <- matriz
-  for(i in 2:n) {
-    resultado <- resultado %*% matriz
-  }
-  return(resultado)
-}
-
-# Calculando A^2 e A^3
-potencia_matriz(A, 2)
-potencia_matriz(A, 3)
-
-# Verificação: A^2 = A %*% A
-all.equal(potencia_matriz(A, 2), A %*% A)
-```
 
 ### Autovalores e Autovetores
 
-Autovalores e autovetores são conceitos centrais da álgebra linear. Para uma matriz A, um autovalor $\lambda$ e seu autovetor correspondente $v$ satisfazem a equação $Av = \lambda v$ Os autovalores fornecem informações fundamentais sobre as propriedades da matriz.
+Para uma matriz quadrada $A$, um autovalor $\lambda$ e seu respectivo autovetor $v$ satisfazem:
+
+$$
+A v = \lambda v
+$$
 
 ```{r}
-#| label: matriz-eigen
+#| label: autovalores-autovetores
 #| echo: true
 
-# Calculando autovalores e autovetores
-eigen_result <- eigen(A)
-eigen_result$values  # Autovalores
-eigen_result$vectors # Autovetores
+eigen_A <- eigen(A)
 
-# Verificação da equação característica para o primeiro autovalor
-lambda1 <- eigen_result$values[1]
-v1 <- eigen_result$vectors[, 1]
-
-# Deve ser aproximadamente igual: A*v1 ≈ λ1*v1
-A %*% v1
-lambda1 * v1
-
-# Propriedades importantes
-sum(diag(A))          # Traço = soma dos autovalores
-sum(eigen_result$values)
-
-det(A)                # Determinante = produto dos autovalores
-prod(eigen_result$values)
+eigen_A$values  # Autovalores
+round(eigen_A$vectors, 3)  # Autovetores
 ```
+
+
 
 ### Decomposições Matriciais
 
-As decomposições matriciais são técnicas que expressam uma matriz como produto de matrizes com propriedades específicas, facilitando cálculos e análises.
+Decomposições matriciais facilitam cálculos complexos e análises estruturais, expressando matrizes como produtos de outras com propriedades específicas.
+
+
 
 #### Decomposição QR
 
-A decomposição QR expressa uma matriz $A$ como produto $A = QR$, onde $Q$ é ortogonal e $R$ é triangular superior:
+Expressa uma matriz $A$ como $A = QR$, onde $Q$ é ortogonal e $R$ é triangular superior.
 
 ```{r}
-#| label: matriz-qr
+#| label: decomposicao-qr
 #| echo: true
 
-qr_decomp <- qr(A)
-Q <- qr.Q(qr_decomp)
-R <- qr.R(qr_decomp)
+qr_A <- qr(A)
+Q <- qr.Q(qr_A)
+R <- qr.R(qr_A)
 
-Q  # Matriz ortogonal
-R  # Matriz triangular superior
-
-# Verificação: A = Q * R
-all.equal(A, Q %*% R)
-
-# Propriedade da matriz ortogonal: Q'Q = I
-round(t(Q) %*% Q, 10)
+Q
+R
 ```
+
+
 
 #### Decomposição por Valores Singulares (SVD)
 
-A decomposição SVD expressa qualquer matriz $A$ como $A = UDV'$, onde $U$ e $V$ são ortogonais e $D$ é diagonal com valores singulares:
+Expressa qualquer matriz $A$ como $A = U D V'$, onde $U$ e $V$ são ortogonais e $D$ é diagonal contendo valores singulares.
 
 ```{r}
-#| label: matriz-svd
+#| label: decomposicao-svd
 #| echo: true
 
-svd_result <- svd(A)
-U <- svd_result$u
-d <- svd_result$d
-V <- svd_result$v
+svd_A <- svd(A)
+U <- svd_A$u
+D <- diag(svd_A$d)
+V <- svd_A$v
 
-d  # Valores singulares
-
-# Reconstrução: A = U * D * V'
-D <- diag(d)
-all.equal(A, U %*% D %*% t(V))
-
-# Aproximação de baixo posto (usando apenas os 2 maiores valores singulares)
-k <- 2
-A_aprox <- U[, 1:k] %*% diag(d[1:k]) %*% t(V[, 1:k])
-A_aprox
+# Reconstrução de A
+U %*% D %*% t(V)
 ```
 
-#### Decomposição de Cholesky
 
-A decomposição de Cholesky é aplicável a matrizes simétricas e positivas definidas, expressando $S = LL'$, onde $L$ é triangular:
 
-```{r}
-#| label: matriz-cholesky
-#| echo: true
+### Aplicação Econométrica: Estimação por MQO
 
-# Criando matriz simétrica positiva definida
-set.seed(456)
-M <- matrix(rnorm(9), 3, 3)
-S <- t(M) %*% M  # Garantidamente positiva definida
+No modelo de regressão linear múltipla $Y = X \beta + \varepsilon$, a estimativa por Mínimos Quadrados Ordinários (MQO) é dada por:
 
-S
-
-# Decomposição de Cholesky
-L <- chol(S)  # Triangular superior em R
-L
-
-# Verificação: S = L' * L
-all.equal(S, t(L) %*% L)
-```
-
-### Aplicações em Econometria
-
-#### Estimação por Mínimos Quadrados Ordinários
-
-A estimação por MQO utiliza intensivamente álgebra matricial. Para o modelo 
-$Y = X\beta + \varepsilon$, o estimador de MQO é $\hat{\beta} = (X'X)^(-1)X'Y$:
+$$
+\hat{\beta} = (X'X)^{-1} X'Y
+$$
 
 ```{r}
-#| label: matriz-mqo
+#| label: estimacao-mqo
 #| echo: true
 
-# Simulando dados
 set.seed(789)
 n <- 100
-X_reg <- cbind(1, rnorm(n), rnorm(n))  # Intercepto + 2 regressores
-beta_true <- c(2, 1.5, -0.8)
-epsilon <- rnorm(n, 0, 2)
-Y <- X_reg %*% beta_true + epsilon
+X_reg <- cbind(1, rnorm(n), rnorm(n))
+beta_real <- c(2, 1.5, -0.8)
+Y <- X_reg %*% beta_real + rnorm(n)
 
-# Estimação: β̂ = (X'X)⁻¹X'Y
-XtX <- t(X_reg) %*% X_reg
-XtY <- t(X_reg) %*% Y
-beta_hat <- solve(XtX) %*% XtY
-
-beta_hat
-beta_true  # Para comparação
-
-# Matriz de covariância dos estimadores: σ²(X'X)⁻¹
-residuos <- Y - X_reg %*% beta_hat
-sigma2_hat <- sum(residuos^2) / (n - ncol(X_reg))
-cov_beta <- sigma2_hat * solve(XtX)
-
-# Erros padrão
-sqrt(diag(cov_beta))
+beta_est <- solve(t(X_reg) %*% X_reg) %*% t(X_reg) %*% Y
+beta_est
 ```
 
-#### Matriz de Projeção
-
-A matriz de projeção $H = X(X'X)^(-1)X'$ projeta o vetor $Y$ no espaço gerado pelas colunas de $X$:
-
-```{r}
-#| label: matriz-hat
-#| echo: true
-
-# Matriz "hat" (projeção)
-H <- X_reg %*% solve(XtX) %*% t(X_reg)
-
-# Propriedades importantes
-sum(diag(H))  # Traço = número de parâmetros
-ncol(X_reg)
-
-# Idempotência: H² = H
-all.equal(H, H %*% H, tolerance = 1e-10)
-
-# Simetria
-isSymmetric(H)
-```
 
 
 ## Listas {#sec-listas}
