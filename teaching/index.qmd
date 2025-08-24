@@ -24,9 +24,10 @@ format:
 - **Introdução à Ciência de Dados** <br>
   _Período: 2025.1_
 
-- **Métodos Quantitativos Aplicados à Administração**
+- **Visualização de Dados** <br>
+  _Período: 2025.2_
 
-- **Visualização de Dados**
+- **Métodos Quantitativos Aplicados à Administração**
 
 - **Análise Multivariada**
 
