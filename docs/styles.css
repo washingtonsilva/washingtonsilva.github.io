@@ -1,0 +1,533 @@
+/* =Typography
+-----------------------------------------------------------------------------*/
+/* Estilos básicos para o corpo do documento */
+body {
+  text-align: justify;                 /* Alinha o texto justificado (alinhado à esquerda e direita) */
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, Serif;  /* Define a hierarquia de fontes, começando com Merriweather */
+  font-size: 0.90em;                   /* Define o tamanho base da fonte como 90% do padrão do navegador */
+  line-height: 1.5em;                  /* Define o espaçamento entre linhas como 1.5x o tamanho da fonte */
+  background-color: #faf8f8;           /* Define um fundo levemente cinza claro (quase branco) para o site */
+}
+
+/* Estilo para código que aparece dentro de elementos pre */
+pre>code {
+  font-family: 'Hack', 'Source Code Pro', 'Courier New', 'Courier', monospace;  /* Usa fontes monoespaçadas para código */
+}
+
+/* Estilos para elementos de formulário e campos de busca */
+form,
+input[type="search"],
+select[multiple="multiple"] {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* Usa fontes sans-serif para formulários */
+}
+
+/* Estilos comuns para todos os níveis de cabeçalho (h1-h5) */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* Fontes sans-serif para cabeçalhos */
+  color: #36454f;                      /* Cor cinza escuro (charcoal) para os cabeçalhos */
+  font-weight: normal;                 /* Peso da fonte normal (não negrito) */
+}
+
+/* Estilo específico para cabeçalhos h1 */
+h1 {
+  font-size: 1.5em;                    /* Tamanho da fonte 150% do tamanho base */
+  padding-bottom: 1em;                 /* Espaço inferior de uma vez o tamanho da fonte */
+  line-height: 1.6em;                  /* Espaçamento entre linhas para h1 */
+}
+
+/* Estilo específico para cabeçalhos h2 */
+h2 {
+  font-size: 1.3em;                    /* Tamanho da fonte 130% do tamanho base */
+  border-bottom: 1px solid #b3cde0;    /* Linha horizontal azul clara abaixo de h2 */
+}
+
+/* Remove a borda inferior de links dentro de h2 */
+h2 a {
+  border-bottom: none;
+}
+
+/* Estilo específico para cabeçalhos h3 */
+h3 {
+  font-size: 1.1em;                    /* Tamanho da fonte 110% do tamanho base */
+}
+
+/* Estilo específico para cabeçalhos h6 */
+h6 {
+  font-size: 0.8em;                    /* Tamanho da fonte 80% do tamanho base */
+}
+
+/* Estilo para links */
+a {
+  color: #4673B8;                      /* Changed from #36454f to a distinct blue */
+  text-decoration: none;               /* Remove o sublinhado padrão dos links */
+  border-bottom: dotted 1px #A1A3A1;   /* Adiciona linha pontilhada cinza abaixo dos links */
+}
+
+/* Estilo para links quando o mouse passa por cima */
+a:hover {
+  color: blue;                         /* Slightly brighter blue for hover state */
+  text-decoration: underline;          /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilo para linhas horizontais */
+hr {
+  border-top: 1px solid #b3cde0;       /* Linha azul clara, mesma cor do sublinhado h2 */
+  margin-top: 5ex;                     /* Espaço acima da linha (5x altura da letra 'x') */
+  margin-bottom: 5ex;                  /* Espaço abaixo da linha */
+  max-width: 100%;                     /* Largura máxima de 100% */
+}
+
+/* Estilo para blocos de citação */
+blockquote {
+  color: #36454f;                      /* Mesma cor de texto dos cabeçalhos */
+  background: #e9e9e9;                 /* Fundo cinza claro */
+  border-left: 10px solid #ccc;        /* Borda esquerda cinza mais escura */
+  margin: 1.5em 10px;                  /* Margens externas */
+  padding: 0.5em 10px;                 /* Preenchimento interno */
+  quotes: "\201C""\201D""\2018""\2019"; /* Define os caracteres de aspas usados */
+  font-style: normal;                  /* Fonte normal (não itálica) */
+  font-size: 95%;                      /* Tamanho da fonte ligeiramente menor */
+}
+
+/* Estilo para parágrafos dentro de blockquotes */
+blockquote p {
+  color: #36454f;                      /* Mantém a mesma cor do texto */
+  display: inline;                     /* Exibe como inline para manter tudo na mesma linha */
+}
+
+/* Adiciona aspas decorativas antes do blockquote */
+blockquote:before {
+  color: #aaa;                         /* Cor cinza para as aspas */
+  content: open-quote;                 /* Insere o caractere de aspas de abertura */
+  font-size: 4em;                      /* Tamanho grande para as aspas */
+  line-height: 0.1em;                  /* Reduz o espaçamento de linha */
+  margin-right: 0.25em;                /* Espaçamento à direita das aspas */
+  vertical-align: -0.4em;              /* Alinha verticalmente as aspas */
+}
+
+/* Configuração para tabelas Bootstrap */
+.table {
+  --bs-table-bg:;                      /* Reset da variável de fundo da tabela Bootstrap */
+}
+
+/* Estilo para células da tabela */
+td, th {
+  background-color: #faf8f8;           /* Mesma cor de fundo do body */
+}
+
+/* Estilo comum para células de cabeçalho e corpo da tabela */
+table th,
+table td {
+  border-bottom: 0px;                  /* Remove bordas inferiores */
+  padding: 0.2em .2em;                 /* Adiciona preenchimento interno pequeno */
+}
+
+/* Estilo para listas não ordenadas */
+ul {
+  list-style: square;                  /* Usa marcadores quadrados em vez de círculos */
+}
+
+/* Estilo para termos de definição em listas de definição */
+dd {
+  margin-left: 2em;                    /* Recuo à esquerda para termos de definição */
+}
+
+
+/* =Code
+-----------------------------------------------------------------------------*/
+/* 
+ * NOTA: Esta seção foi modificada para melhorar o destaque de sintaxe
+ * para blocos de código, especialmente para código R e Python.
+ */
+
+/* Estilos comuns para todos os elementos relacionados a código */
+pre,
+code,
+kbd,
+samp,
+var,
+output {
+  font-size: 90%;                      /* Tamanho adequado para legibilidade */
+  font-style: normal;                  /* Estilo de fonte normal */
+  font-family: 'Source Code Pro', 'Hack', 'Fira Code', Consolas, 'Liberation Mono', monospace;  /* Fontes monoespaçadas otimizadas para código */
+}
+
+/* Melhorar a legibilidade de todos os blocos de código */
+pre {
+  padding: 1em;                        /* Preenchimento interno mais generoso */
+  background-color: #ffffff;           /* Fundo branco em vez de cinza para melhor contraste */
+  border: 1px solid #e1e1e8;           /* Borda cinza clara */
+  border-radius: 4px;                  /* Cantos arredondados */
+  overflow: auto;                      /* Adiciona barra de rolagem quando necessário */
+  line-height: 1.45;                   /* Espaçamento entre linhas para código */
+  margin-bottom: 1.5em;                /* Espaço após o bloco de código */
+  word-wrap: normal;                   /* Evita quebra de palavras */
+}
+
+/* Estilo específico para blocos de código com linguagem (como R, Python, etc.) */
+pre.sourceCode {
+  font-size: 110%;                      /* Tamanho de fonte consistente */
+  padding: 1em;                        /* Preenchimento interno */
+  border-radius: 5px;                  /* Cantos mais arredondados */
+  background-color: #ffffff;           /* Fundo branco para melhor legibilidade */
+  border-left: 3px solid #36454f;      /* Borda esquerda na cor charcoal por padrão */
+}
+
+/* Destaque para blocos de código R especificamente */
+pre.r, pre.sourceCode.r {
+  background-color: #fcfcfc;           /* Fundo levemente diferente para R */
+  border-left: 4px solid #2c9f42;      /* Borda verde para código R */
+}
+
+/* Destaque para blocos de código Python especificamente */
+pre.python, pre.sourceCode.python {
+  background-color: #fcfcfc;           /* Fundo levemente diferente para Python */
+  border-left: 4px solid #306998;      /* Borda azul para código Python */
+}
+
+/* Realce para blocos de código bash especificamente */
+pre.bash, pre.sourceCode.bash {
+  background-color: #f5f5f5;           /* Fundo cinza muito claro */
+  border-left: 4px solid #f0ad4e;      /* Borda amarela para código bash */
+}
+
+/* Estilo para código inline */
+code {
+  padding: 0.2em 0.4em;                /* Preenchimento pequeno para código inline */
+  margin: 0;                           /* Remove margens */
+  background-color: rgba(27, 31, 35, 0.05); /* Fundo cinza muito claro, quase imperceptível */
+  border-radius: 3px;                  /* Cantos arredondados suaves */
+  font-size: 100%;                      /* Tamanho ligeiramente menor que o texto normal */
+}
+
+/* Suporte para destaque de sintaxe - comentários */
+.hljs-comment, .hljs-quote, .co {
+  color: #032f62;                      /* Azul escuro para comentários */
+  font-style: italic;                  /* Itálico para comentários */
+}
+
+/* Suporte para destaque de sintaxe - palavras-chave */
+.hljs-keyword, .hljs-selector-tag, .kw, .fu {
+  color: #d73a49;                      /* Vermelho para palavras-chave */
+  font-weight: 600;                    /* Levemente mais negrito */
+}
+
+/* Suporte para destaque de sintaxe - strings */
+.hljs-string, .hljs-doctag, .st, .sc {
+  color: #032f62;                      /* Azul escuro para strings */
+}
+
+/* Suporte para destaque de sintaxe - números */
+.hljs-number, .hljs-literal, .dv, .fl {
+  color: #005cc5;                      /* Azul para números */
+}
+
+/* Suporte para destaque de sintaxe - funções */
+.hljs-title, .hljs-section, .hljs-name, .fu {
+  color: #6f42c1;                      /* Roxo para nomes de funções */
+}
+
+/* Suporte para destaque de sintaxe - operadores */
+.hljs-operator, .hljs-punctuation, .op {
+  color: #005cc5;                      /* Azul para operadores */
+}
+
+/* Suporte para destaque de sintaxe - valores especiais */
+.hljs-built_in, .hljs-builtin-name, .cn {
+  color: #e36209;                      /* Laranja para valores especiais (TRUE, FALSE, NULL, NA) */
+}
+
+/* Melhora a legibilidade do código na saída/output */
+pre.output, .sourceCode .output {
+  background-color: #f8f8f8;           /* Fundo cinza muito claro para saída */
+  color: #333333;                      /* Texto quase preto */
+  border-left: 4px solid #6a737d;      /* Borda cinza para saída */
+  font-style: normal;                  /* Não usa itálico */
+}
+
+/* Adiciona rótulos sutis para diferentes tipos de código */
+pre.r::before, pre.sourceCode.r::before {
+  content: "R";                        /* Rótulo "R" */
+  position: absolute;                  /* Posicionamento absoluto */
+  right: 10px;                         /* 10px da direita */
+  top: 5px;                            /* 5px do topo */
+  font-size: 0.8em;                    /* Tamanho pequeno */
+  color: #2c9f42;                      /* Verde para R */
+  font-weight: bold;                   /* Negrito */
+  opacity: 0.5;                        /* 50% de opacidade para não distrair */
+}
+
+pre.python::before, pre.sourceCode.python::before {
+  content: "Python";                   /* Rótulo "Python" */
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 0.8em;
+  color: #306998;                      /* Azul para Python */
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+/* Ajustes para integração com Quarto */
+div.sourceCode {
+  margin-bottom: 1.5em;                /* Espaço após blocos de código */
+  background-color: transparent;       /* Fundo transparente para o container */
+  border: none;                        /* Sem borda no container */
+}
+
+/* Remover o fundo do pré dentro de sourceCode para evitar duplicação */
+div.sourceCode pre {
+  background-color: #ffffff;           /* Fundo branco para código */
+}
+
+/* Estilos para elementos de navegação e rodapé */
+nav,
+.footer {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* Fontes sans-serif */
+  font-size: 100%;                     /* Tamanho de fonte padrão */
+}
+
+/* Remove a borda inferior dos links na barra de navegação */
+a.nav-link,a.navbar-brand {
+  border-bottom: 0;
+}
+
+/* Estilo para links da navegação ao passar o mouse */
+a.nav-link:hover,a.navbar-brand:hover {
+  color: #efce14;                      /* Muda para amarelo dourado ao passar o mouse */
+}
+
+
+/* Badges */
+/* Estilos para diferentes tipos de badges/etiquetas */
+
+/* Define a cor do texto para badges vermelhos */
+a.badge.badge-red {
+  color: #fff;                         /* Texto branco para contraste */
+}
+
+/* Define a cor do texto para badges azuis */
+a.badge.badge-blue {
+  color: #fff;                         /* Texto branco para contraste */
+}
+
+/* Define a cor do texto para badges verdes */
+a.badge.badge-green {
+  color: #fff;                         /* Texto branco para contraste */
+}
+
+/* Estilo para badges grandes */
+.badge-large {
+  font-size: 18px;                     /* Tamanho de fonte maior */
+  text-transform: none;                /* Não transforma o texto (duplicado no código original) */
+  padding: 5px 5px 3px 5px;            /* Preenchimento interno */
+  text-transform: none;                /* Não transforma o texto (duplicado) */
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* Fontes sans-serif */
+}
+
+/* Define a fonte para todos os badges */
+.badge {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Estilos comuns para labels e badges */
+.label,
+.badge {
+  background: #e0e3e5;                 /* Fundo cinza claro */
+  font-size: 12.75px;                  /* Tamanho de fonte pequeno */
+  display: inline-block;               /* Exibe como bloco inline */
+  line-height: 1;                      /* Altura da linha igual ao tamanho da fonte */
+  padding: 4px 7px 3px 7px;            /* Preenchimento interno */
+  color: #0f0f0f;                      /* Texto quase preto */
+  text-align: center;                  /* Centraliza o texto */
+  font-weight: normal;                 /* Peso da fonte normal */
+  text-transform: uppercase;           /* Converte texto para maiúsculas */
+}
+
+/* Estilo para labels com contorno */
+.label-outline {
+  background: none;                    /* Sem fundo */
+  border: 1px solid #0f0f0f;           /* Borda preta */
+  padding: 3px 6px 2px 6px;            /* Preenchimento interno ligeiramente menor */
+}
+
+/* Arredonda os cantos de todos os badges */
+.badge {
+  border-radius: 15px;                 /* Cantos bem arredondados (formato pílula) */
+}
+
+/* Estilo para badges pequenos */
+.badge-small {
+  font-size: 11.25px;                  /* Tamanho de fonte ainda menor */
+  padding: 5px 5px 3px 5px;            /* Preenchimento interno */
+}
+
+/* Define cor de texto branca para vários tipos de labels/badges */
+.label-black,
+.label-blue,
+.label-red,
+.label-green,
+.badge-black,
+.badge-blue,
+.badge-red,
+.badge-green {
+  color: #ffffff;                      /* Texto branco para todos esses tipos */
+}
+
+/* Fundo preto para labels/badges pretos */
+.label-black,
+.badge-black {
+  background: #0f0f0f;                 /* Fundo preto */
+}
+
+/* Fundo azul para labels/badges azuis */
+.label-blue,
+.badge-blue {
+  background: #4673B8;                 /* Fundo azul */
+}
+
+/* Fundo vermelho para labels/badges vermelhos */
+.label-red,
+.badge-red {
+  background: #BD666D;                 /* Fundo vermelho */
+}
+
+/* Fundo verde para labels/badges verdes */
+.label-green,
+.badge-green {
+  background: #2c9f42;                 /* Fundo verde */
+}
+
+/* Fundo amarelo para labels/badges amarelos */
+.label-yellow,
+.badge-yellow {
+  background: #ffc800;                 /* Fundo amarelo */
+}
+
+/* Fundo branco para labels/badges brancos */
+.label-white,
+.badge-white {
+  background: #ffffff;                 /* Fundo branco */
+}
+
+/* Estilo para imagens alinhadas à esquerda */
+.image-left {
+  float: left;                         /* Flutua à esquerda (texto flui ao redor) */
+  margin: 0 1em 1em 0;                 /* Margens: 0 acima, 1em direita, 1em abaixo, 0 esquerda */
+}
+
+/* Espaçamento para itens de lista com ícones Font Awesome */
+.fa-ul>li {
+  margin: 0.5em;                       /* Margem externa ao redor de cada item */
+}
+
+/* Estilo para metadados de título no Quarto */
+.quarto-title-meta {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* Fontes sans-serif */
+  background-color: #ddd;              /* Fundo cinza médio */
+  -moz-border-radius: 10px;            /* Cantos arredondados para Firefox */
+  -webkit-border-radius: 10px;         /* Cantos arredondados para Safari/Chrome */
+  border-radius: 10px;                 /* Cantos arredondados para navegadores modernos */
+}
+
+/* Estilo para cabeçalhos de metadados */
+.quarto-title-meta-heading {
+  margin: 1ex 1ex 0 1ex;               /* Margens: 1ex acima, 1ex direita, 0 abaixo, 1ex esquerda */
+}
+
+/* Estilo para conteúdo de metadados */
+.quarto-title-meta-contents {
+  margin: 0ex 1ex 1ex 1ex;             /* Margens: 0 acima, 1ex direita, 1ex abaixo, 1ex esquerda */
+}
+
+/* Configuração para contêiner de vídeo responsivo */
+.video-player {
+  position: relative;                  /* Posicionamento relativo para conter iframe */
+  overflow: hidden;                    /* Oculta qualquer conteúdo que ultrapasse as dimensões */
+  width: 100%;                         /* Largura de 100% do contêiner pai */
+  padding-top: 56.25%;                 /* Proporção 16:9 (9÷16=0.5625 or 56.25%) */
+}
+
+/* Estilo para iframes de YouTube dentro do contêiner de vídeo */
+.youtube-player {
+  position: absolute;                  /* Posicionamento absoluto dentro do contêiner */
+  top: 0;                              /* Alinhado ao topo */
+  left: 0;                             /* Alinhado à esquerda */
+  bottom: 0;                           /* Esticado até a parte inferior */
+  right: 0;                            /* Esticado até a parte direita */
+  width: 100%;                         /* Largura total */
+  height: 100%;                        /* Altura total */
+}
+
+/* Estilo para nuvem de categorias em listagens Quarto */
+.quarto-listing-category.category-cloud {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* Fontes sans-serif */
+}
+
+/* Estilo para legendas de figuras */
+.figure-caption {
+  color: var(--darkgray);              /* Usa variável CSS para cor cinza escuro */
+  background-color: var(--lightgray);  /* Usa variável CSS para cor cinza claro */
+  padding-left: 20px;                  /* Recuo à esquerda */
+  font-size: 12pt;                     /* Tamanho da fonte em pontos */
+  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;  /* Fontes sans-serif */
+}
+
+/* Estilo para links no template "trestles" do Quarto ao passar o mouse */
+div.quarto-about-trestles .about-entity .about-link:hover {
+  background-color: #36454f;           /* Fundo cinza escuro (charcoal) */
+  color: #ebebeb;                      /* Texto quase branco */
+}
+
+/* Estilo para categorias ao passar o mouse */
+.quarto-category:hover, .listing-category:hover {
+  background-color: #36454f;           /* Fundo cinza escuro (charcoal) */
+  color: #ebebeb;                      /* Texto quase branco */
+  opacity: .6;                         /* 60% de opacidade */
+}
+
+/* Define a fonte para elementos de categorias e grupos de ações */
+.quarto-category, .listing-category, .listing-actions-group, .about-link-text {
+  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;  /* Fontes sans-serif */
+}
+
+/* Estilo específico para um formulário de inscrição */
+#mlb2-4240669.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody, 
+#mlb2-4240669.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
+  padding: 0px;                        /* Remove o preenchimento interno */
+}
+
+
+/* 
+ * Estilo para ícones de chunks de código
+ * Cria um elemento visual que indica onde há blocos de código no documento
+ */
+.code-chunk-icon {
+  display: inline-block;          /* Faz o elemento se comportar como inline-block para ter dimensões próprias */
+  background-color: #5cb85c;      /* Cor de fundo verde */
+  color: white;                   /* Cor do texto em branco para contraste */
+  font-weight: bold;              /* Texto em negrito */
+  padding: 2px 4px;               /* Espaçamento interno (superior/inferior e esquerda/direita) */
+  border-radius: 3px;             /* Arredondamento dos cantos */
+  position: relative;             /* Posicionamento relativo para o pseudo-elemento */
+  font-family: monospace;         /* Fonte monoespaçada, ideal para código */
+  font-size: 0.9em;               /* Tamanho da fonte ligeiramente menor */
+}
+
+/* 
+ * Pseudo-elemento que adiciona o símbolo "+" ao ícone
+ * Cria um pequeno indicador visual de adição no canto superior esquerdo
+ */
+.code-chunk-icon::before {
+  content: "+";                   /* Conteúdo a ser exibido (símbolo de adição) */
+  position: absolute;             /* Posicionamento absoluto em relação ao elemento pai */
+  top: -5px;                      /* Desloca 5px para cima */
+  left: -2px;                     /* Desloca 2px para a esquerda */
+  font-size: 70%;                 /* Tamanho da fonte reduzido para 70% */
+  color: white;                   /* Cor branca para o símbolo */
+  font-weight: bold;              /* Estilo negrito para o símbolo */
+}

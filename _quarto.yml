@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "*.md"
+
 website:
   cookie-consent:
     type: express
@@ -31,19 +32,24 @@ website:
       - icon: github
         href: https://github.com/washingtonsilva
       - icon: linkedin
-        href: https://www.linkedin.com/in/washingtonssilva/
+        href: "https://www.linkedin.com/in/washingtonssilva/"
     background: "#000000"
+
 date-format: "D MMMM YYYY"
+
+execute:
+  freeze: auto     # não reexecuta posts antigos se o .qmd não mudou
+  cache: true      # ativa cache do knitr (acelera chunks pesados)
+
 format:
   html:
     theme: tango
-    embed-resources: true
+    embed-resources: false
     css: styles.css
     toc: true
     html-math-method: katex
     include-in-header:
       - file: header.html
       - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-
+          <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
