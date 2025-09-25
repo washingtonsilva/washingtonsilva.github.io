@@ -1,7 +1,7 @@
 ---
 lang: pt
 date: "2025-09-24"
-title: "Estimação por Máxima Verossimilhança"
+title: "Estimação por Máxima Verossimilhança I"
 author: Washington S. da Silva
 format:
   html:
@@ -17,9 +17,9 @@ crossref:
 execute: 
   warning: false
   message: false
+image: log-vero.png
 ---
 
-# Estimação por Máxima Verossimilhança I
 
 Este é um exemplo apresentado por @hansen2022ps. Ele é interessante 
 (e complicado) por apresentar um caso no qual a derivação do estimador 
@@ -51,7 +51,7 @@ ser zero.
 ```{r}
 #| label: fig-fdp
 #| fig-align: center
-#| fig-cap: "Função densidade de probabilidade de X."
+#| fig-cap: "Função densidade de probabilidade de X, elaborada com códig R."
 #| echo: false
 
 # Diagrama esquemático da fdp Uniforme(0, theta) sem fixar theta
