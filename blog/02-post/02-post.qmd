@@ -1,0 +1,302 @@
+---
+lang: pt
+date: "2025-09-24"
+title: "Estimação por Máxima Verossimilhança"
+author: Washington S. da Silva
+bibliography: referencias.bib
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+categories:
+  - econometrics
+crossref:
+  fig-prefix: 'Fig.'
+  tbl-prefix: 'Tab.'
+execute: 
+  warning: false
+  message: false
+---
+
+# Estimação por Máxima Verossimilhança I
+
+Este é um exemplo apresentado por @hansen2022ps. Ele é interessante 
+(e complicado) por apresentar um caso no qual a derivação do estimador 
+de máxima verossimilhança é difícil, pelo fato de a função de log-verossimilhança 
+não ser diferenciável no ponto de máximo. Assim, é um caso didático importante. A
+intenção desta nota é fornecer mais detalhes sobre o exemplo 
+para fins didáticos.
+
+
+## Seja $X \sim U[0,\theta]$, qual o estimador de MV de $\theta$?
+
+Se $X \sim U[0,\theta]$, sabemos que sua função densidade de 
+probabilidade é:
+
+$$
+f(x|\theta) = 
+\begin{cases}
+\frac{1}{\theta}, & 0 \leq x \leq \theta \\
+0, & \text{caso contrário}
+\end{cases}
+$$
+
+A @fig-fdp ilustra a fdp de $X$. Analisando a @fig-fdp, podemos deduzir 
+que a densidade de $X$ depende também do suporte definido por $\theta$, 
+ou seja, se alguma realização $x_i$ estiver fora do intervalo permitido, 
+a densidade de $X$ e, por consequência, a função de verossimilhança podem 
+ser zero.
+
+```{r}
+#| label: fig-fdp
+#| fig-align: center
+#| fig-cap: "Função densidade de probabilidade de X."
+#| echo: false
+
+# Diagrama esquemático da fdp Uniforme(0, theta) sem fixar theta
+op <- par(mar = c(4, 4, 2, 1))
+plot(NA, xlim = c(0, 1), ylim = c(0, 1),
+     xlab = expression(X), ylab = expression(f(x)),
+     xaxt = "n", yaxt = "n", bty = "l")
+
+# posições normalizadas para 0 e theta (apenas para desenho)
+x0 <- 0.15 
+xt <- 0.85 
+y <- 0.65
+
+# densidade constante em [0, theta]
+segments(x0, y, xt, y, lwd = 2.5)
+
+# linhas pontilhadas até o eixo x
+segments(x0, 0, x0, y, lty = 2)
+segments(xt, 0, xt, y, lty = 2)
+
+# extremos: fechado em 0 e em theta (consistente com 0 <= x <= theta)
+points(x0, y, pch = 16)
+points(xt, y, pch = 16)
+
+# rótulos simbólicos
+axis(1, at = c(x0, xt), labels = c(expression(0), expression(theta)))
+axis(2, at = c(0, y), labels = c(expression(0), expression(1/theta)), las = 1)
+par(op)
+```
+
+
+Para uma amostra aleatória de $X$, a função de verossimilhança é:
+
+$$
+\begin{align*}
+L(\theta) &= \prod_{i=1}^n f(x_i|\theta) \\
+          &= \prod_{i=1}^n \frac{1}{\theta} \\
+          &= \Bigl(\frac{1}{\theta}\Bigr)^n \\
+          &= \frac{1}{\theta^n}
+\end{align*}
+$$
+
+Conforme notamos, se algum $x_i > \theta$, então $f(x_i|\theta) = 0$, o
+que implica $L(\theta) = 0$.
+
+A função de log-verossimilhança ($l(\theta) = \log L(\theta)$) é:
+
+$$
+\begin{align*}
+l(\theta) &= \log L(\theta) \\
+          &= \log \Bigl(\frac{1}{\theta^n}\Bigr)  \\
+          &= -n \log(\theta) 
+\end{align*}
+$$
+
+Seja $M_n = \max_{i \leq n} X_i$ (o máximo, i.e., a $n\$-ésima estatística 
+de ordem da amostra aleatória). Note que a única restrição que importa em 
+relação ao suporte de $X$ é:
+
+$$
+\theta \geq M_n,
+$$
+
+pois $\theta$ precisa ser maior ou igual ao maior valor observado na 
+amostra para que todos os $x_i$ estejam no suporte da distribuição. 
+Portanto:
+
+- Se $\theta \geq M_n$, todos os dados ($x_i$) estarão no suporte de $X$:
+
+$$
+L(\theta) = \frac{1}{\theta^n}, \quad l(\theta) = -n \log \theta.
+$$
+
+- Se $\theta < M_n$, pelo menos um dado estará fora do suporte de $X$:
+
+$$
+L(\theta)=0 \;\;\Rightarrow\;\; l(\theta) = -\infty.
+$$
+
+
+Assim, podemos escrever a função de log-verossimilhança como:
+
+$$
+l(\theta)  = 
+\begin{cases}
+-n \log(\theta), & M_n \leq \theta \\
+-\infty, & \text{caso contrário}
+\end{cases}
+$$
+
+A @fig-logvero ilustra a função de log-verossimilhança.
+
+```{r}
+#| label: fig-logvero
+#| fig-align: center
+#| fig-cap: "Função de log-verossimilhança elaborada com código R para reproduzir a Fig. 10.4 de @hansen2022ps."
+#| echo: false
+
+## --- Amostra de exemplo (ajuste se quiser) --------------------------------
+x <- c(0.25, 0.35, 0.45, 0.80, 0.90)
+
+n  <- length(x)
+Mn <- max(x)                           # M_n = \hat{\theta}
+
+## --- Faixa de theta e log-verossimilhança ---------------------------------
+x_right     <- max(2, 1.2 * Mn)        # garante espaço à direita (>=2 como no livro)
+theta_grid  <- seq(Mn, x_right, length.out = 500)   # só para theta >= \hat{\theta}
+l_theta     <- -n * log(theta_grid)
+l_at_Mn     <- -n * log(Mn)
+
+## --- Limites do gráfico (dinâmicos para não cortar nada) ------------------
+y_top    <- if (l_at_Mn > 0) 1.08 * l_at_Mn else 0     # inclui o ponto mesmo se > 0
+y_bottom <- min(l_theta) - 0.05 * abs(min(l_theta))     # pequena folga abaixo
+
+## --- Plot -----------------------------------------------------------------
+op <- par(mar = c(4.5, 4.5, 1.0, 1.0))
+plot(NA, xlim = c(0, x_right), ylim = c(y_bottom, y_top),
+     xlab = expression(theta), ylab = "", yaxt = "n", bty = "l")
+
+## Curva l_n(theta) para theta >= \hat{theta}
+lines(theta_grid, l_theta, lwd = 2)
+
+## Linha vertical em \hat{theta} (desde o fundo do painel)
+segments(Mn, y_bottom, Mn, l_at_Mn, lwd = 2)
+
+## Ponto em (\hat{theta}, l(\hat{theta}))
+points(Mn, l_at_Mn, pch = 16, cex = 1.2)
+
+## Linha tracejada no nível l(\hat{theta}) apenas à esquerda de \hat{theta}
+segments(0, l_at_Mn, Mn, l_at_Mn, lty = 2)
+
+## Cruzes para as observações estritamente menores que \hat{theta}
+xi_left <- x[x < Mn]
+if (length(xi_left)) {
+  points(xi_left, rep(l_at_Mn, length(xi_left)), pch = 4, lwd = 1.5, cex = 1.1)
+}
+
+## Rótulos como no livro
+text(Mn, l_at_Mn, expression(hat(theta)), pos = 3, xpd = NA)
+
+theta_lbl <- min(Mn + 0.15 * (x_right), x_right - 0.05 * x_right)  # evita sair da área
+text(theta_lbl, -n * log(theta_lbl), expression(l[n](theta)), pos = 4)
+
+## Eixo x
+axis(1, at = pretty(c(0, x_right), n = 5))
+par(op)
+```
+
+Conforme @hansen2022ps, esta é uma função de log-verossimilhança de 
+formato incomum. Para $\theta < M_n$ ela é infinita negativa e, como vimos, é finita 
+($l(\theta) = -n \log \theta$) e negativamente inclinada (estritamente decrescente) 
+para $\theta \geq M_n$. E a função atinge seu máximo em $M_n$. Portanto, o estimador 
+de máxima verossimilhança de $\theta$ é **máximo** (a $n$-ésima estatística de ordem) d
+a amostra.
+
+$$
+\hat{\theta} = \max_{i \leq n} X_i = \max\{X_1, X_2, \dots, X_n\}.
+$$
+
+Segundo @hansen2022ps, talvez isso não seja surpreendente. Ao definir 
+$\hat{\theta} = \max_{i \leq n} X_i$, a densidade $U[0,\hat \theta]$ é consistente 
+com os dados observados. Entre todas as densidades consistentes com os dados 
+observados, esta densidade tem a maior densidade, que atinge a maior verossimilhança, 
+assim como o estimador de máxima verossimilhança. 
+
+A @fig-cons ilustra a consistência da densidade $U[0,\hat \theta]$ com os dados citada 
+por @hansen2022ps. A densidade uniforme de $X$ só é válida se cobrir todos os dados. Entre as opções consistentes 
+($\theta \geq M_n$), a escolha $\theta = M_n$ tem a maior altura e, portanto, maximiza a verossimilhança.
+
+```{r}
+#| label: fig-cons
+#| fig-align: center
+#| fig-cap: "A densidade uniforme de X só é válida se cobrir todos os dados."
+#| fig-width: 7
+#| fig-height: 6
+#| echo: false
+
+library(ggplot2)
+
+# Dados (4 cruzes < 0.90 + 1 ponto em 0.90)
+x  <- c(0.25, 0.35, 0.45, 0.62, 0.90)
+n  <- length(x)
+Mn <- max(x)
+
+# Candidatas de theta
+theta1 <- 0.80   # inválida (theta1 < Mn)
+theta2 <- Mn     # MLE (theta2 = Mn)
+theta3 <- 1.60   # válida maior
+
+# Data frames
+df_cross <- data.frame(x = x[x < Mn], y = 0)
+df_mn    <- data.frame(x = Mn, y = 0)
+lines_df <- data.frame(
+  xstart = 0,
+  xend   = c(theta1, theta2, theta3),
+  y      = 1 / c(theta1, theta2, theta3),
+  tipo   = factor(c("Inválida  (θ1<Mn)", "MLE  (θ2=Mn)", "Válida maior  (θ3>Mn)"),
+                  levels = c("Inválida  (θ1<Mn)", "MLE  (θ2=Mn)", "Válida maior  (θ3>Mn)"))
+)
+
+x_right <- 2
+p <- ggplot() +
+  # linhas horizontais de densidade
+  geom_segment(data = lines_df,
+               aes(x = xstart, xend = xend, y = y, yend = y, color = tipo, linetype = tipo),
+               linewidth = 1.2) +
+  # linhas verticais em cada theta (ajuda a ler o suporte)
+  geom_segment(aes(x = theta1, xend = theta1, y = 0, yend = 1/theta1),
+               color = "firebrick", linetype = 2) +
+  geom_segment(aes(x = theta2, xend = theta2, y = 0, yend = 1/theta2),
+             color = "black", linetype = 2, linewidth = 0.7) +
+  geom_segment(aes(x = theta3, xend = theta3, y = 0, yend = 1/theta3),
+               color = "steelblue4", linetype = 3) +
+  # dados: cruzes (< Mn) e ponto sólido em Mn
+  geom_point(data = df_cross, aes(x = x, y = y), shape = 4, stroke = 1.2, size = 3) +
+  geom_point(data = df_mn,    aes(x = x, y = y), shape = 16, size = 2.8) +
+  # anotações (usar strings + parse=TRUE)
+  annotate("text", x = theta2, y = 1/theta2, label = "hat(theta) == M[n]",
+           parse = TRUE, vjust = -0.6) +
+  annotate("text", x = theta1, y = 1/theta1, label = "theta[1] < M[n] ~ '(inválida)'",
+           parse = TRUE, vjust = -0.6, color = "firebrick") +
+  annotate("text", x = theta3, y = 1/theta3, label = "theta[3] > M[n] ~ '(válida, menor altura)'",
+           parse = TRUE, vjust = -0.6, color = "steelblue4") +
+  annotate("text", x = Mn, y = -0.02 * (1/theta2), label = "M[n]",
+           parse = TRUE, vjust = 1.2) +
+  scale_x_continuous(name = "x", limits = c(0, x_right), breaks = seq(0, x_right, 0.5)) +
+  scale_y_continuous(name = expression(f(x))) +
+  scale_color_manual(values = c("Inválida  (θ1<Mn)"     = "firebrick",
+                                "MLE  (θ2=Mn)"          = "black",
+                                "Válida maior  (θ3>Mn)" = "steelblue4")) +
+  scale_linetype_manual(values = c("Inválida  (θ1<Mn)"     = 2,
+                                   "MLE  (θ2=Mn)"          = 1,
+                                   "Válida maior  (θ3>Mn)" = 3)) +
+  theme_minimal(base_size = 11) +
+  theme(legend.position = "top",
+        panel.grid.minor = element_blank(),
+        legend.title = element_blank())
+
+p
+```
+
+
+@hansen2022ps argumenta que uma característica interessante e diferente dessa 
+função de log-verossimilhança é que ela não é diferenciável no máximo. Portanto, o estimador 
+de MV não satisfaz a condição de primeira ordem e, por implicação, o estimador de MV não pode 
+ser encontrado resolvendo condições de primeira ordem.
+
+
+# Referências
+
+::: {#refs}
+:::

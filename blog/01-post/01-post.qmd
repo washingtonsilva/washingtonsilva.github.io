@@ -1,5 +1,6 @@
 ---
 lang: pt
+author: Washington S. da Silva
 date: "2025-02-28"
 title: "Tempo"
 categories:

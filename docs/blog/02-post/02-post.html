@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Natália Duarte de Medeiros, Francisval de Melo Carvalho, Caio Peixoto Chain, Gideon Carvalho de Benedicto, Washington Santos da Silva">
-<meta name="dcterms.date" content="2018-06-01">
+<meta name="author" content="Washington S. da Silva">
 
-<title>Capital Structure and Information Asymmetry: A Study of Brazilian Publicly Traded Companies of Testile and Electricity Industries – Washington S. da Silva</title>
+<title>Estimação por Máxima Verossimilhança – Washington S. da Silva</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,29 +21,49 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dd253e6d6795a5383deabdf755b9504a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dd253e6d6795a5383deabdf755b9504a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,17 +78,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X7TV071MD7"></script>
@@ -94,7 +113,7 @@ cookieconsent.run({
   "preferences_center_close_button_hide":false,
   "website_name":""
   ,
-"language":"en"
+"language":"pt"
   });
 });
 </script> 
@@ -104,8 +123,51 @@ cookieconsent.run({
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<link rel="stylesheet" href="../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -115,32 +177,32 @@ cookieconsent.run({
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Washington S. da Silva</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../publications/index.html"> 
+    <a class="nav-link" href="../../publications/index.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../tutorials/index.html"> 
+    <a class="nav-link" href="../../tutorials/index.html"> 
 <span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html"> 
+    <a class="nav-link" href="../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
 </ul>
@@ -154,75 +216,175 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#estimação-por-máxima-verossimilhança-i" id="toc-estimação-por-máxima-verossimilhança-i" class="nav-link active" data-scroll-target="#estimação-por-máxima-verossimilhança-i">Estimação por Máxima Verossimilhança I</a>
+  <ul class="collapse">
+  <li><a href="#seja-x-sim-u0theta-qual-o-estimador-de-mv-de-theta" id="toc-seja-x-sim-u0theta-qual-o-estimador-de-mv-de-theta" class="nav-link" data-scroll-target="#seja-x-sim-u0theta-qual-o-estimador-de-mv-de-theta">Seja <span class="math inline">X \sim U[0,\theta]</span>, qual o estimador de MV de <span class="math inline">\theta</span>?</a></li>
+  </ul></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Capital Structure and Information Asymmetry: A Study of Brazilian Publicly Traded Companies of Testile and Electricity Industries</h1>
-</div>
+<h1 class="title">Estimação por Máxima Verossimilhança</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">econometrics</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Autor</div>
     <div class="quarto-title-meta-contents">
-            <p>Natália Duarte de Medeiros, Francisval de Melo Carvalho, Caio Peixoto Chain, Gideon Carvalho de Benedicto, Washington Santos da Silva 
-      </p>
+             <p>Washington S. da Silva </p>
           </div>
   </div>
-  
+    
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">1 June 2018</p>
+      <p class="date">24 setembro 2025</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Publication details</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">
-        <em>Revista de Administração da Universidade Federal de Santa Maria</em>, 11:2, 268-289
-      </p>
-    </div>
+    
   </div>
   
-  <div>
-    <div class="quarto-title-meta-heading">Links</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date" style="color: #fff !important;">
-            <a href="https://doi.org/10.5902/1983465913257" class="badge badge badge-blue">DOI</a>
-                                    <a href="https://www.redalyc.org/journal/2734/273457120006/273457120006_2.pdf" class="badge badge badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;pdf</a>
-                  
-      
-      
-      
-      </p>
-    </div>
-
-  </div>
-</div>
 
 
-
-
-
-
-
-<p>&nbsp;</p>
 </header>
 
 
-<p>Abstract</p>
-<p>Given the various theories of capital structure and the Pecking Order theory, the present study related the information asymmetry and the capital structure of companies aiming to verify if information asymmetry affects the definition of the capital structure of Brazilian companies held in the electric power industry and textile. The research involved a sample of 53 companies, 31 of the electricity and 22 textiles sector during the years 2008 to 2012. The methodology used was regression with panel data, it allows the same unit cross-sectional monitored over time. The results showed that information asymmetry is an important determinant of capital structure, but that the sectors diverge with respect to the Pecking Order Theory. In the case of the energy sector to reduce information asymmetry led to a propensity for debt, while the textile sector, the opposite occurred, as companies less susceptible to information asymmetry are averse to debt.</p>
+<section id="estimação-por-máxima-verossimilhança-i" class="level1">
+<h1>Estimação por Máxima Verossimilhança I</h1>
+<p>Este é um exemplo apresentado por <span class="citation" data-cites="hansen2022ps">Hansen (<a href="#ref-hansen2022ps" role="doc-biblioref">2022</a>)</span>. Ele é interessante (e complicado) por apresentar um caso no qual a derivação do estimador de máxima verossimilhança é difícil, pelo fato de a função de log-verossimilhança não ser diferenciável no ponto de máximo. Assim, é um caso didático importante. A intenção desta nota é fornecer mais detalhes sobre o exemplo para fins didáticos.</p>
+<section id="seja-x-sim-u0theta-qual-o-estimador-de-mv-de-theta" class="level2">
+<h2 class="anchored" data-anchor-id="seja-x-sim-u0theta-qual-o-estimador-de-mv-de-theta">Seja <span class="math inline">X \sim U[0,\theta]</span>, qual o estimador de MV de <span class="math inline">\theta</span>?</h2>
+<p>Se <span class="math inline">X \sim U[0,\theta]</span>, sabemos que sua função densidade de probabilidade é:</p>
+<p><span class="math display">
+f(x|\theta) =
+\begin{cases}
+\frac{1}{\theta}, &amp; 0 \leq x \leq \theta \\
+0, &amp; \text{caso contrário}
+\end{cases}
+</span></p>
+<p>A <a href="#fig-fdp" class="quarto-xref">Fig.&nbsp;1</a> ilustra a fdp de <span class="math inline">X</span>. Analisando a <a href="#fig-fdp" class="quarto-xref">Fig.&nbsp;1</a>, podemos deduzir que a densidade de <span class="math inline">X</span> depende também do suporte definido por <span class="math inline">\theta</span>, ou seja, se alguma realização <span class="math inline">x_i</span> estiver fora do intervalo permitido, a densidade de <span class="math inline">X</span> e, por consequência, a função de verossimilhança podem ser zero.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-fdp" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02-post_files/figure-html/fig-fdp-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Função densidade de probabilidade de X.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Para uma amostra aleatória de <span class="math inline">X</span>, a função de verossimilhança é:</p>
+<p><span class="math display">
+\begin{align*}
+L(\theta) &amp;= \prod_{i=1}^n f(x_i|\theta) \\
+          &amp;= \prod_{i=1}^n \frac{1}{\theta} \\
+          &amp;= \Bigl(\frac{1}{\theta}\Bigr)^n \\
+          &amp;= \frac{1}{\theta^n}
+\end{align*}
+</span></p>
+<p>Conforme notamos, se algum <span class="math inline">x_i &gt; \theta</span>, então <span class="math inline">f(x_i|\theta) = 0</span>, o que implica <span class="math inline">L(\theta) = 0</span>.</p>
+<p>A função de log-verossimilhança (<span class="math inline">l(\theta) = \log L(\theta)</span>) é:</p>
+<p><span class="math display">
+\begin{align*}
+l(\theta) &amp;= \log L(\theta) \\
+          &amp;= \log \Bigl(\frac{1}{\theta^n}\Bigr)  \\
+          &amp;= -n \log(\theta)
+\end{align*}
+</span></p>
+<p>Seja <span class="math inline">M_n = \max_{i \leq n} X_i</span> (o máximo, i.e., a $n$-ésima estatística de ordem da amostra aleatória). Note que a única restrição que importa em relação ao suporte de <span class="math inline">X</span> é:</p>
+<p><span class="math display">
+\theta \geq M_n,
+</span></p>
+<p>pois <span class="math inline">\theta</span> precisa ser maior ou igual ao maior valor observado na amostra para que todos os <span class="math inline">x_i</span> estejam no suporte da distribuição. Portanto:</p>
+<ul>
+<li>Se <span class="math inline">\theta \geq M_n</span>, todos os dados (<span class="math inline">x_i</span>) estarão no suporte de <span class="math inline">X</span>:</li>
+</ul>
+<p><span class="math display">
+L(\theta) = \frac{1}{\theta^n}, \quad l(\theta) = -n \log \theta.
+</span></p>
+<ul>
+<li>Se <span class="math inline">\theta &lt; M_n</span>, pelo menos um dado estará fora do suporte de <span class="math inline">X</span>:</li>
+</ul>
+<p><span class="math display">
+L(\theta)=0 \;\;\Rightarrow\;\; l(\theta) = -\infty.
+</span></p>
+<p>Assim, podemos escrever a função de log-verossimilhança como:</p>
+<p><span class="math display">
+l(\theta)  =
+\begin{cases}
+-n \log(\theta), &amp; M_n \leq \theta \\
+-\infty, &amp; \text{caso contrário}
+\end{cases}
+</span></p>
+<p>A <a href="#fig-logvero" class="quarto-xref">Fig.&nbsp;2</a> ilustra a função de log-verossimilhança.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-logvero" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-logvero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02-post_files/figure-html/fig-logvero-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-logvero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Função de log-verossimilhança elaborada com código R para reproduzir a Fig. 10.4 de <span class="citation" data-cites="hansen2022ps">Hansen (<a href="#ref-hansen2022ps" role="doc-biblioref">2022</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Conforme <span class="citation" data-cites="hansen2022ps">Hansen (<a href="#ref-hansen2022ps" role="doc-biblioref">2022</a>)</span>, esta é uma função de log-verossimilhança de formato incomum. Para <span class="math inline">\theta &lt; M_n</span> ela é infinita negativa e, como vimos, é finita (<span class="math inline">l(\theta) = -n \log \theta</span>) e negativamente inclinada (estritamente decrescente) para <span class="math inline">\theta \geq M_n</span>. E a função atinge seu máximo em <span class="math inline">M_n</span>. Portanto, o estimador de máxima verossimilhança de <span class="math inline">\theta</span> é <strong>máximo</strong> (a <span class="math inline">n</span>-ésima estatística de ordem) d a amostra.</p>
+<p><span class="math display">
+\hat{\theta} = \max_{i \leq n} X_i = \max\{X_1, X_2, \dots, X_n\}.
+</span></p>
+<p>Segundo <span class="citation" data-cites="hansen2022ps">Hansen (<a href="#ref-hansen2022ps" role="doc-biblioref">2022</a>)</span>, talvez isso não seja surpreendente. Ao definir <span class="math inline">\hat{\theta} = \max_{i \leq n} X_i</span>, a densidade <span class="math inline">U[0,\hat \theta]</span> é consistente com os dados observados. Entre todas as densidades consistentes com os dados observados, esta densidade tem a maior densidade, que atinge a maior verossimilhança, assim como o estimador de máxima verossimilhança.</p>
+<p>A <a href="#fig-cons" class="quarto-xref">Fig.&nbsp;3</a> ilustra a consistência da densidade <span class="math inline">U[0,\hat \theta]</span> com os dados citada por <span class="citation" data-cites="hansen2022ps">Hansen (<a href="#ref-hansen2022ps" role="doc-biblioref">2022</a>)</span>. A densidade uniforme de <span class="math inline">X</span> só é válida se cobrir todos os dados. Entre as opções consistentes (<span class="math inline">\theta \geq M_n</span>), a escolha <span class="math inline">\theta = M_n</span> tem a maior altura e, portanto, maximiza a verossimilhança.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-cons" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02-post_files/figure-html/fig-cons-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: A densidade uniforme de X só é válida se cobrir todos os dados.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="citation" data-cites="hansen2022ps">Hansen (<a href="#ref-hansen2022ps" role="doc-biblioref">2022</a>)</span> argumenta que uma característica interessante e diferente dessa função de log-verossimilhança é que ela não é diferenciável no máximo. Portanto, o estimador de MV não satisfaz a condição de primeira ordem e, por implicação, o estimador de MV não pode ser encontrado resolvendo condições de primeira ordem.</p>
+</section>
+</section>
+<section id="referências" class="level1">
+<h1>Referências</h1>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-hansen2022ps" class="csl-entry" role="listitem">
+HANSEN, B. E. <strong>Probability and Statistics for Economists</strong>. Princeton, NJ: Princeton University Press, 2022.
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -250,12 +412,12 @@ cookieconsent.run({
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiada");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiada");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -652,7 +814,6 @@ cookieconsent.run({
     </div>
   </div>
 </footer>
-
 
 
 

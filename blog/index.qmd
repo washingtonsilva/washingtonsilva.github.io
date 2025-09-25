@@ -4,7 +4,8 @@ lang: pt
 description: (R)eflexões
 listing:
   contents: 
-    - p01
+    - 01-post
+    - 02-post
   sort: "date desc"
   type: default
   categories: false

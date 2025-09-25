@@ -27,3 +27,5 @@ Icon
 *.swp
 *.swo
 
+
+**/*.quarto_ipynb
