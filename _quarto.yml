@@ -37,10 +37,6 @@ website:
 
 date-format: "D MMMM YYYY"
 
-execute:
-  freeze: auto     # não reexecuta posts antigos se o .qmd não mudou
-  cache: true      # ativa cache do knitr (acelera chunks pesados)
-
 format:
   html:
     theme: tango

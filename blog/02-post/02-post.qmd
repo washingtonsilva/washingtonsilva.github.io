@@ -216,9 +216,10 @@ com os dados observados. Entre todas as densidades consistentes com os dados
 observados, esta densidade tem a maior densidade, que atinge a maior verossimilhança, 
 assim como o estimador de máxima verossimilhança.
 
-A @fig-cons ilustra a consistência da densidade $U[0,\hat \theta]$ com os dados citada 
-por @hansen2022ps. A densidade uniforme de $X$ só é válida se cobrir todos os dados. Entre as opções consistentes 
-($\theta \geq M_n$), a escolha $\theta = M_n$ tem a maior altura e, portanto, maximiza a verossimilhança.
+A @fig-cons ilustra a consistência da densidade $U[0,\hat \theta]$ com os dados. A densidade 
+uniforme de $X$ só é válida se cobrir todos os dados. Entre as opções consistentes 
+($\theta \geq M_n$), a escolha $\theta = M_n$ tem a maior altura e, portanto, 
+maximiza a verossimilhança.
 
 ```{r}
 #| label: fig-cons
