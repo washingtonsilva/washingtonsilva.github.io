@@ -42,11 +42,10 @@ f(x|\theta) =
 \end{cases}
 $$
 
-A @fig-fdp ilustra a fdp de $X$. Analisando a @fig-fdp, podemos deduzir 
-que a densidade de $X$ depende também do suporte definido por $\theta$, 
-ou seja, se alguma realização $x_i$ estiver fora do intervalo permitido, 
-a densidade de $X$ e, por consequência, a função de verossimilhança podem 
-ser zero.
+A @fig-fdp ilustra a fdp de $X$. Pela análise, percebemos que a densidade de $X$ depende do 
+suporte definido por $\theta$: se alguma realização $x_i$ estiver fora do intervalo permitido, 
+tanto a densidade de $X$ quanto a função de verossimilhança podem ser nulas.
+
 
 ```{r}
 #| label: fig-fdp
@@ -204,18 +203,18 @@ Conforme @hansen2022ps, esta é uma função de log-verossimilhança de
 formato incomum. Para $\theta < M_n$ ela é infinita negativa e, como vimos, é finita 
 ($l(\theta) = -n \log \theta$) e negativamente inclinada (estritamente decrescente) 
 para $\theta \geq M_n$. E a função atinge seu máximo em $M_n$. Portanto, o estimador 
-de máxima verossimilhança de $\theta$ é **máximo** (a $n$-ésima estatística de ordem) d
-a amostra.
+de máxima verossimilhança de $\theta$ é **máximo** (a $n$-ésima estatística de ordem) 
+da amostra.
 
 $$
 \hat{\theta} = \max_{i \leq n} X_i = \max\{X_1, X_2, \dots, X_n\}.
 $$
 
-Segundo @hansen2022ps, talvez isso não seja surpreendente. Ao definir 
+Ainda segundo o autor, talvez isso não seja surpreendente. Ao definir 
 $\hat{\theta} = \max_{i \leq n} X_i$, a densidade $U[0,\hat \theta]$ é consistente 
 com os dados observados. Entre todas as densidades consistentes com os dados 
 observados, esta densidade tem a maior densidade, que atinge a maior verossimilhança, 
-assim como o estimador de máxima verossimilhança. 
+assim como o estimador de máxima verossimilhança.
 
 A @fig-cons ilustra a consistência da densidade $U[0,\hat \theta]$ com os dados citada 
 por @hansen2022ps. A densidade uniforme de $X$ só é válida se cobrir todos os dados. Entre as opções consistentes 
