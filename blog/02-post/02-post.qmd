@@ -21,7 +21,7 @@ image: log-vero.png
 ---
 
 
-Este é um exemplo apresentado por @hansen2022ps. Ele é interessante 
+Este é um exemplo apresentado por @hansen2022ps. Ele é relevante 
 (e complicado) por apresentar um caso no qual a derivação do estimador 
 de máxima verossimilhança é difícil, pelo fato de a função de log-verossimilhança 
 não ser diferenciável no ponto de máximo. Assim, é um caso didático importante. A
@@ -294,10 +294,10 @@ p
 ```
 
 
-@hansen2022ps argumenta que uma característica interessante e diferente dessa 
-função de log-verossimilhança é que ela não é diferenciável no máximo. Portanto, o estimador 
-de MV não satisfaz a condição de primeira ordem e, por implicação, o estimador de MV não pode 
-ser encontrado resolvendo condições de primeira ordem.
+@hansen2022ps argumenta que uma característica "interessante e diferente" (traduzo como 
+chata e confusa) dessa função de log-verossimilhança é que ela não é diferenciável no máximo. P
+ortanto, o estimador de MV não satisfaz a condição de primeira ordem e, por implicação, o 
+estimador de MV não pode ser encontrado resolvendo condições de primeira ordem.
 
 
 # Referências
