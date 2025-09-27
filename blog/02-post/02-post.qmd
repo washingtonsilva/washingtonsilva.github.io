@@ -106,7 +106,7 @@ l(\theta) &= \log L(\theta) \\
 \end{align*}
 $$
 
-Seja $M_n = \max_{i \leq n} X_i$ (o máximo, i.e., a $n\$-ésima estatística 
+Seja $M_n = \max_{i \leq n} X_i$ (o máximo, i.e., a n-ésima estatística 
 de ordem da amostra aleatória). Note que a única restrição que importa em 
 relação ao suporte de $X$ é:
 
