@@ -1232,20 +1232,6 @@
     "text": "Estimação por Máxima Verossimilhança I\n\n\n\n\n\n\n\n\n24 setembro 2025\n\n\nWashington S. da Silva\n\n\n\n\n\n\n\n\n\n\n\n\nTempo\n\n\n\n\n\n\n\n\n28 fevereiro 2025\n\n\nWashington S. da Silva\n\n\n\n\n\nNenhum item correspondente"
   },
   {
-    "objectID": "blog/01-post/01-post.html",
-    "href": "blog/01-post/01-post.html",
-    "title": "Tempo",
-    "section": "",
-    "text": "“…Não podemos evitar a morte. O problema é que você acha que tem tempo. Lembre-se da brevidade da vida.”\n— Jack Kornfield"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "blog/02-post/02-post.html",
     "href": "blog/02-post/02-post.html",
     "title": "Estimação por Máxima Verossimilhança I",
@@ -1258,6 +1244,34 @@
     "title": "Estimação por Máxima Verossimilhança I",
     "section": "Seja X \\sim U[0,\\theta], qual o estimador de MV de \\theta?",
     "text": "Seja X \\sim U[0,\\theta], qual o estimador de MV de \\theta?\nSe X \\sim U[0,\\theta], sabemos que sua função densidade de probabilidade é:\n\nf(x|\\theta) =\n\\begin{cases}\n\\frac{1}{\\theta}, & 0 \\leq x \\leq \\theta \\\\\n0, & \\text{caso contrário}\n\\end{cases}\n\nA Fig. 1 ilustra a fdp de X. Pela análise, percebemos que a densidade de X depende do suporte definido por \\theta: se alguma realização x_i estiver fora do intervalo permitido, tanto a densidade de X quanto a função de verossimilhança podem ser nulas.\n\n\n\n\n\n\n\n\nFigura 1: Função densidade de probabilidade de X, elaborada com códig R.\n\n\n\n\n\nPara uma amostra aleatória de X, a função de verossimilhança é:\n\n\\begin{align*}\nL(\\theta) &= \\prod_{i=1}^n f(x_i|\\theta) \\\\\n          &= \\prod_{i=1}^n \\frac{1}{\\theta} \\\\\n          &= \\Bigl(\\frac{1}{\\theta}\\Bigr)^n \\\\\n          &= \\frac{1}{\\theta^n}\n\\end{align*}\n\nConforme notamos, se algum x_i &gt; \\theta, então f(x_i|\\theta) = 0, o que implica L(\\theta) = 0.\nA função de log-verossimilhança (l(\\theta) = \\log L(\\theta)) é:\n\n\\begin{align*}\nl(\\theta) &= \\log L(\\theta) \\\\\n          &= \\log \\Bigl(\\frac{1}{\\theta^n}\\Bigr)  \\\\\n          &= -n \\log(\\theta)\n\\end{align*}\n\nSeja M_n = \\max_{i \\leq n} X_i (o máximo, i.e., a n-ésima estatística de ordem da amostra aleatória). Note que a única restrição que importa em relação ao suporte de X é:\n\n\\theta \\geq M_n,\n\npois \\theta precisa ser maior ou igual ao maior valor observado na amostra para que todos os x_i estejam no suporte da distribuição. Portanto:\n\nSe \\theta \\geq M_n, todos os dados (x_i) estarão no suporte de X:\n\n\nL(\\theta) = \\frac{1}{\\theta^n}, \\quad l(\\theta) = -n \\log \\theta.\n\n\nSe \\theta &lt; M_n, pelo menos um dado estará fora do suporte de X:\n\n\nL(\\theta)=0 \\;\\;\\Rightarrow\\;\\; l(\\theta) = -\\infty.\n\nAssim, podemos escrever a função de log-verossimilhança como:\n\nl(\\theta)  =\n\\begin{cases}\n-n \\log(\\theta), & M_n \\leq \\theta \\\\\n-\\infty, & \\text{caso contrário}\n\\end{cases}\n\nA Fig. 2 ilustra a função de log-verossimilhança.\n\n\n\n\n\n\n\n\nFigura 2: Função de log-verossimilhança elaborada com código R para reproduzir a Fig. 10.4 de Hansen (2022).\n\n\n\n\n\nConforme Hansen (2022), esta é uma função de log-verossimilhança de formato incomum. Para \\theta &lt; M_n ela é infinita negativa e, como vimos, é finita (l(\\theta) = -n \\log \\theta) e negativamente inclinada (estritamente decrescente) para \\theta \\geq M_n. E a função atinge seu máximo em M_n. Portanto, o estimador de máxima verossimilhança de \\theta é máximo (a n-ésima estatística de ordem) da amostra.\n\n\\hat{\\theta} = \\max_{i \\leq n} X_i = \\max\\{X_1, X_2, \\dots, X_n\\}.\n\nAinda segundo o autor, talvez isso não seja surpreendente. Ao definir \\hat{\\theta} = \\max_{i \\leq n} X_i, a densidade U[0,\\hat \\theta] é consistente com os dados observados. Entre todas as densidades consistentes com os dados observados, esta densidade tem a maior densidade, que atinge a maior verossimilhança, assim como o estimador de máxima verossimilhança.\nA Fig. 3 ilustra a consistência da densidade U[0,\\hat \\theta] com os dados. A densidade uniforme de X só é válida se cobrir todos os dados. Entre as opções consistentes (\\theta \\geq M_n), a escolha \\theta = M_n tem a maior altura e, portanto, maximiza a verossimilhança.\n\n\n\n\n\n\n\n\nFigura 3: A densidade uniforme de X só é válida se cobrir todos os dados.\n\n\n\n\n\nHansen (2022) argumenta que uma característica “interessante e diferente” (traduzo como chata e confusa) dessa função de log-verossimilhança é que ela não é diferenciável no máximo. P ortanto, o estimador de MV não satisfaz a condição de primeira ordem e, por implicação, o estimador de MV não pode ser encontrado resolvendo condições de primeira ordem."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "blog/01-post/01-post.html",
+    "href": "blog/01-post/01-post.html",
+    "title": "Tempo",
+    "section": "",
+    "text": "“…Não podemos evitar a morte. O problema é que você acha que tem tempo. Lembre-se da brevidade da vida.”\n— Jack Kornfield"
+  },
+  {
+    "objectID": "blog/03-post/03-post.html",
+    "href": "blog/03-post/03-post.html",
+    "title": "Leituras",
+    "section": "",
+    "text": "“Já Metrodoro, o primeiro discípulo de Epicuro, sobrescreveu um capítulo da seguinte maneira:…[Sobre a causa da felicidade que há em nós ser maior do que aquela que se origina das coisas.] - Clemente de Alexandria, Stromata 2, 21, p. 362.”\n\n\n“E, realmente, o principal para o bem-estar do ser humano, sim, para todo o seu modo de existência, é evidentemente aquilo que reside ou sucede dentro dele mesmo. Pois aqui encontram-se imediatamente seu bem ou mal-estar, os quais são em primeira instância resultado de seu sentir, querer e pensar, enquanto que tudo situado fora tem apenas influência mediata sobre eles.”\n\n\n“O mundo em que cada um vive depende em primeiro lugar de sua apreensão dele, regula-se, portanto, segundo as diferentes cabeças: de acordo com elas, o mundo resultará pobre, trivial e superficial, ou rico, interessante e significativo.”\n\n\n“Por isso diz Horácio de si:  …[Gemas, mármore, marfim, estátuas tirrenas, quadros,  Pratarias e vestes getúlicas tingidas de púrpura:  Há quem não os tenha, há quem não os busque.  (Epístolas II, 2, 180-182)]  E Sócrates disse, ao ver artigos de luxo expostos à venda:”Quantas coisas há de que não necessito.”  Por conseguinte, aquilo que somos, a personalidade, é o absolutamente primário e essencial para uma vida feliz.”\n\n\n“Aquilo que alguém tem em si mesmo é, pois, o mais essencial para uma vida feliz. E apenas por isso ser via de regra tão pouco que, no fundo, a maioria daqueles que estão acima da luta com a necessidade se sentem tão infelizes quanto os que nela ainda se debatem. Seu vazio interior, a insipidez de sua consciência, a pobreza de seu espírito leva-os a companhias que, por sua vez, são compostas de outros iguais a eles; pois similis simili gaudet [o semelhante aprecia o semelhante].”"
+  },
+  {
+    "objectID": "blog/03-post/03-post.html#capítulo-i-divisão-fundamental",
+    "href": "blog/03-post/03-post.html#capítulo-i-divisão-fundamental",
+    "title": "Leituras",
+    "section": "",
+    "text": "“Já Metrodoro, o primeiro discípulo de Epicuro, sobrescreveu um capítulo da seguinte maneira:…[Sobre a causa da felicidade que há em nós ser maior do que aquela que se origina das coisas.] - Clemente de Alexandria, Stromata 2, 21, p. 362.”\n\n\n“E, realmente, o principal para o bem-estar do ser humano, sim, para todo o seu modo de existência, é evidentemente aquilo que reside ou sucede dentro dele mesmo. Pois aqui encontram-se imediatamente seu bem ou mal-estar, os quais são em primeira instância resultado de seu sentir, querer e pensar, enquanto que tudo situado fora tem apenas influência mediata sobre eles.”\n\n\n“O mundo em que cada um vive depende em primeiro lugar de sua apreensão dele, regula-se, portanto, segundo as diferentes cabeças: de acordo com elas, o mundo resultará pobre, trivial e superficial, ou rico, interessante e significativo.”\n\n\n“Por isso diz Horácio de si:  …[Gemas, mármore, marfim, estátuas tirrenas, quadros,  Pratarias e vestes getúlicas tingidas de púrpura:  Há quem não os tenha, há quem não os busque.  (Epístolas II, 2, 180-182)]  E Sócrates disse, ao ver artigos de luxo expostos à venda:”Quantas coisas há de que não necessito.”  Por conseguinte, aquilo que somos, a personalidade, é o absolutamente primário e essencial para uma vida feliz.”\n\n\n“Aquilo que alguém tem em si mesmo é, pois, o mais essencial para uma vida feliz. E apenas por isso ser via de regra tão pouco que, no fundo, a maioria daqueles que estão acima da luta com a necessidade se sentem tão infelizes quanto os que nela ainda se debatem. Seu vazio interior, a insipidez de sua consciência, a pobreza de seu espírito leva-os a companhias que, por sua vez, são compostas de outros iguais a eles; pois similis simili gaudet [o semelhante aprecia o semelhante].”"
   },
   {
     "objectID": "index.html",

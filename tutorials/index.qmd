@@ -10,7 +10,6 @@ listing:
       - markdown
       - rstudio
       - quarto
-      - R
     sort: "date desc"
     type: grid
     grid-columns: 2
