@@ -8,21 +8,23 @@ format:
 ---
 
 
-
 ## Pós-Graduação
 
 - **Introdução à Ciência de Dados – MPA**  
-  _Períodos: 2021.1, 2022.2, 2023.1, 2024.1, 2025.1_
+  _Períodos: 2021.1, 2022.2, 2023.1, 2024.1, 2025.1, 2026.1_
 
 - **Econometria Aplicada à Finanças** <br>
-  _Períodos: 2024.1, 2025.2_
+  _Períodos: 2024.2, 2025.2_
+
+- **Econometria II** <br>
+  _Períodos: 2026.1_
 
 ---
 
 ## Graduação
 
 - **Introdução à Ciência de Dados** <br>
-  _Períodos: 2024.1, 2025.1_
+  _Períodos: 2024.1, 2025.1, 2026.1_
 
 - **Visualização de Dados** <br>
   _Período: 2025.2_
