@@ -25,6 +25,10 @@ format:
 - **Documentos Técnicos e Científicos com Quarto e LaTeX** <br>
   _Períodos: 2026.2_
 
+- **Visualização de Dados com R** 
+
+- **Programação Aplicada com R**
+
 ---
 
 ## Graduação
@@ -32,10 +36,10 @@ format:
 - **Introdução à Ciência de Dados** <br>
   _Períodos: 2024.1, 2025.1, 2026.1_
 
-- **Introdução à Ciência de Dados II** <br>
+- **Introdução à Ciência de Dados II** 
 
-- **Visualização de Dados** <br>
+- **Visualização de Dados com R** 
 
 - **Métodos Quantitativos Aplicados à Administração**
 
-- **Análise Multivariada** <br> 
+- **Análise Multivariada** 

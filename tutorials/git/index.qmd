@@ -1,8 +1,8 @@
 ---
 title: "Controle de Versão com Git e GitHub"
 description: | 
-  Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o 
-  GitHub.
+  Introdução prática ao uso de Git e GitHub para versionar arquivos,
+  acompanhar mudanças e organizar colaboração.
 lang: "pt"
 date: "2024-06-07"
 toc: true
@@ -1901,6 +1901,8 @@ O ciclo de trabalho com seu orientador segue este padrão:
    ```
    
 5. **Repita** diariamente ou quando concluir uma parte significativa
+
+:::
 
 ## Resumo do Workflow
 

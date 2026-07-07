@@ -531,3 +531,148 @@ div.quarto-about-trestles .about-entity .about-link:hover {
   color: white;                   /* Cor branca para o símbolo */
   font-weight: bold;              /* Estilo negrito para o símbolo */
 }
+
+/* =Tutorials Index
+-----------------------------------------------------------------------------*/
+body.tutorials-index {
+  text-align: left;
+}
+
+body.tutorials-index #title-block-header {
+  margin-bottom: 1.5rem;
+}
+
+body.tutorials-index #title-block-header .quarto-title {
+  max-width: 42rem;
+}
+
+body.tutorials-index #title-block-header .title {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  padding-bottom: 0.2rem;
+}
+
+body.tutorials-index #title-block-header .subtitle {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #66757f;
+  margin-top: 0.25rem;
+}
+
+body.tutorials-index .tutorials-intro {
+  margin: 0 0 2rem 0;
+  padding: 1.4rem 1.6rem;
+  background-color: #f4f1ec;
+  border: 1px solid #ddd6cc;
+  border-radius: 6px;
+}
+
+body.tutorials-index .tutorials-intro .lead {
+  max-width: 38rem;
+  margin-bottom: 1rem;
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2f3b43;
+}
+
+body.tutorials-index .tutorials-intro .columns {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d8d1c7;
+}
+
+body.tutorials-index .tutorials-intro p,
+body.tutorials-index .tutorials-intro ul {
+  margin-bottom: 0;
+}
+
+body.tutorials-index .tutorials-intro strong {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #36454f;
+}
+
+body.tutorials-index .tutorials-intro ul {
+  padding-left: 1.2rem;
+}
+
+body.tutorials-index h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+body.tutorials-index section#tutoriais {
+  margin-bottom: 0;
+}
+
+body.tutorials-index section#tutoriais > div#listing-tutorials:empty {
+  display: none;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials {
+  margin-top: 0.5rem;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials .listing-actions-group {
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.25rem;
+  background-color: #f7f5f1;
+  border: 1px solid #e1dbd2;
+  border-radius: 6px;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials .quarto-grid-item.card {
+  background-color: #ffffff;
+  border: 1px solid #ddd6cc;
+  border-radius: 6px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials .quarto-grid-item.card:hover {
+  border-color: #c9c0b5;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials .card-body {
+  padding: 1.1rem 1.15rem 1rem;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials .listing-title {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: #2f3b43;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials .listing-description p {
+  margin-bottom: 0.75rem;
+}
+
+body.tutorials-index .quarto-listing#listing-tutorials .listing-date {
+  color: #66757f;
+  font-size: 0.9rem;
+}
+
+body.tutorials-index .quarto-listing-category-title {
+  font-family: 'Fira Sans', 'Trebuchet MS', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #66757f;
+}
+
+@media (max-width: 768px) {
+  body.tutorials-index #title-block-header .title {
+    font-size: 1.75rem;
+  }
+
+  body.tutorials-index .tutorials-intro {
+    padding: 1.15rem 1.1rem;
+  }
+
+  body.tutorials-index .tutorials-intro .lead {
+    font-size: 1rem;
+  }
+}

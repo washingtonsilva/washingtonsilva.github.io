@@ -1,88 +1,58 @@
 ---
 title: "Tutoriais"
-subtitle: "Ferramentas para Ciência de Dados Reproduzível"
+subtitle: "Git, Markdown, RStudio e Quarto"
 lang: pt-BR
 page-layout: full
 toc: false
+body-classes: tutorials-index
 listing:
-    contents: 
-      - git
-      - markdown
-      - rstudio
-      - quarto
-    sort: "date desc"
-    type: grid
-    grid-columns: 2
-    categories: true
-    sort-ui: [title, date]
-    filter-ui: [title, categories]
-    page-size: 8
-    fields: [title, description, date, categories, image]
-    field-display-names:
-      title: "Tutorial"
-      description: "Descrição"
-      date: "Atualizado em"
-      categories: "Tópicos"
+  id: tutorials
+  contents: 
+    - git
+    - markdown
+    - rstudio
+    - quarto
+  sort: "date desc"
+  type: grid
+  grid-columns: 2
+  categories: true
+  page-size: 8
+  fields: [title, description, date, categories, image]
+  field-display-names:
+    title: "Tutorial"
+    description: "Descrição"
+    date: "Atualizado em"
+    categories: "Tópicos"
 ---
 
-::: {.hero-banner}
-## Ciência de Dados Reproduzível e Auditável
+::: {.tutorials-intro}
 
 ::: {.lead}
-Tutoriais desenvolvidos no âmbito do projeto "*Modelos de Aprendizagem Estatística em Finanças: Aplicações e Desenvolvimento de Soluções Reproduzíveis e Auditáveis*"
+Guias práticos para versionamento, documentação técnica e publicação de análises reproduzíveis.
 :::
-
----
-
-### **Sobre os Materiais**
-
-Estes tutoriais fornecem **ferramentas e metodologias essenciais** para análises de dados reproduzíveis e auditáveis, seguindo as melhores práticas científicas.
-
-### **Público-Alvo**
 
 :::: {.columns}
-::: {.column width="50%"}
-**Estudantes**
+::: {.column width="55%"}
+**Abrange**
 
-- Bacharelado em Administração
-- Mestrado Profissional em Administração  
-- Disciplinas de Ciência de Dados e Econometria
+- Git e GitHub
+- Markdown e Quarto
+- RStudio e organização de projetos
 :::
 
-::: {.column width="50%"}
-**Profissionais**
+::: {.column width="45%"}
+**Indicado para**
 
-- Administradores e Economistas
-- Contabilistas e Auditores
-- Analistas de dados corporativos
+- estudantes de graduação e pós-graduação
+- pesquisadores, docentes e analistas
 :::
 ::::
 
-### **Benefícios**
-
-::: {.callout-tip icon="false" appearance="minimal"}
-**Reprodutibilidade**: Resultados que podem ser replicados e verificados
-
-**Credibilidade**: Aumento da confiabilidade do trabalho realizado  
-
-**Padrões Modernos**: Práticas alinhadas com os padrões científicos contemporâneos
 :::
 
----
-:::
+## Tutoriais
 
-
----
-
-## Tutoriais Disponíveis
-
-:::{#tutorials}
-:::
-
----
-
-::: {.callout-note appearance="simple"}
-**Dica**: Use os filtros acima para encontrar rapidamente o tutorial que procura. Todos os materiais são constantemente atualizados para refletir as melhores práticas atuais.
+:::{#listing-tutorials}
 :::
 
 

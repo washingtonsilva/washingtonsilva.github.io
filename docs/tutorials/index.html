@@ -77,20 +77,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-tutorials .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-date','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-description','listing-date','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-tutorials'] = new List('listing-tutorials', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -131,7 +131,6 @@ cookieconsent.run({
 </script> 
   
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
-<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -182,7 +181,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed tutorials-index quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -234,7 +233,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Tutoriais</h1>
-<p class="subtitle lead">Ferramentas para Ciência de Dados Reproduzível</p>
+<p class="subtitle lead">Git, Markdown, RStudio e Quarto</p>
 </div>
 
 
@@ -251,101 +250,40 @@ window.Quarto = {
 </header>
 
 
-<div class="hero-banner">
-<section id="ciência-de-dados-reproduzível-e-auditável" class="level2">
-<h2 class="anchored" data-anchor-id="ciência-de-dados-reproduzível-e-auditável">Ciência de Dados Reproduzível e Auditável</h2>
+<div class="tutorials-intro">
 <div class="lead">
-<p>Tutoriais desenvolvidos no âmbito do projeto “<em>Modelos de Aprendizagem Estatística em Finanças: Aplicações e Desenvolvimento de Soluções Reproduzíveis e Auditáveis</em>”</p>
+<p>Guias práticos para versionamento, documentação técnica e publicação de análises reproduzíveis.</p>
 </div>
-<hr>
-<section id="sobre-os-materiais" class="level3">
-<h3 class="anchored" data-anchor-id="sobre-os-materiais"><strong>Sobre os Materiais</strong></h3>
-<p>Estes tutoriais fornecem <strong>ferramentas e metodologias essenciais</strong> para análises de dados reproduzíveis e auditáveis, seguindo as melhores práticas científicas.</p>
-</section>
-<section id="público-alvo" class="level3">
-<h3 class="anchored" data-anchor-id="público-alvo"><strong>Público-Alvo</strong></h3>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Estudantes</strong></p>
+<div class="column" style="width:55%;">
+<p><strong>Abrange</strong></p>
 <ul>
-<li>Bacharelado em Administração</li>
-<li>Mestrado Profissional em Administração<br>
-</li>
-<li>Disciplinas de Ciência de Dados e Econometria</li>
+<li>Git e GitHub</li>
+<li>Markdown e Quarto</li>
+<li>RStudio e organização de projetos</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Profissionais</strong></p>
+</div><div class="column" style="width:45%;">
+<p><strong>Indicado para</strong></p>
 <ul>
-<li>Administradores e Economistas</li>
-<li>Contabilistas e Auditores</li>
-<li>Analistas de dados corporativos</li>
+<li>estudantes de graduação e pós-graduação</li>
+<li>pesquisadores, docentes e analistas</li>
 </ul>
 </div>
 </div>
-</section>
-<section id="benefícios" class="level3">
-<h3 class="anchored" data-anchor-id="benefícios"><strong>Benefícios</strong></h3>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>Reprodutibilidade</strong>: Resultados que podem ser replicados e verificados</p>
-<p><strong>Credibilidade</strong>: Aumento da confiabilidade do trabalho realizado</p>
-<p><strong>Padrões Modernos</strong>: Práticas alinhadas com os padrões científicos contemporâneos</p>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="tutoriais-disponíveis" class="level2">
-<h2 class="anchored" data-anchor-id="tutoriais-disponíveis">Tutoriais Disponíveis</h2>
-<div id="tutorials">
+<section id="tutoriais" class="level2">
+<h2 class="anchored" data-anchor-id="tutoriais">Tutoriais</h2>
+<div id="listing-tutorials">
 
-</div>
-<hr>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Dica</strong>: Use os filtros acima para encontrar rapidamente o tutorial que procura. Todos os materiais são constantemente atualizados para refletir as melhores práticas atuais.</p>
-</div>
-</div>
 </div>
 
 
 
 </section>
-</div>
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Ordenar por</option>
-      <option value="index" data-direction="asc">Padrão</option>
-      <option value="listing-title" data-direction="asc">
-        Tutorial
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Atualizado em - Mais antigo
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Atualizado em - O mais novo
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filtro">
-    </div>
-</div>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-tutorials">
 <div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="QW1iaWVudGUlMjBkZSUyMERlc2Vudm9sdmltZW50byUyMEludGVncmFkbyUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbyUyQ1Npc3RlbWElMjBRdWFydG8=" data-listing-date-sort="1733540400000" data-listing-file-modified-sort="1742476879804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2429">
+<div class="g-col-1" data-index="0" data-categories="QW1iaWVudGUlMjBkZSUyMERlc2Vudm9sdmltZW50byUyMEludGVncmFkbyUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbyUyQ1Npc3RlbWElMjBRdWFydG8=" data-listing-date-sort="1733540400000" data-listing-file-modified-sort="1783449511458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2429">
 <a href="../tutorials/rstudio/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="rstudio/img/logo-rstudio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -365,7 +303,7 @@ RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R
 
 </div>
 <div class="card-text listing-description delink">
-<p>Um tutorial básico sobre o RStudio, um ambiente de desenvolvimento integrado simples e eficiente para a linguagem R.</p>
+<p>Visão geral do RStudio como ambiente de trabalho para projetos com R, Quarto e rotinas reproduzíveis.</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -375,7 +313,7 @@ RStudio: Ambiente de Desenvolvimento Integrado para a Linguagem R
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="U2lzdGVtYSUyMFF1YXJ0byUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbw==" data-listing-date-sort="1728270000000" data-listing-file-modified-sort="1743446270421" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4138">
+<div class="g-col-1" data-index="1" data-categories="U2lzdGVtYSUyMFF1YXJ0byUyQ1JlcHJvZHV0aWJpbGlkYWRlJTJDUlN0dWRpbw==" data-listing-date-sort="1728270000000" data-listing-file-modified-sort="1783449511441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4140">
 <a href="../tutorials/quarto/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="quarto/img/logo-quarto.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -393,7 +331,7 @@ Quarto: Um Sistema de Publicação Técnica e Científica
 
 </div>
 <div class="card-text listing-description delink">
-<p>Um tutorial sobre como utilizar o sistema de pubicação Quarto e a linguagem R usando o IDE RStudio.</p>
+<p>Introdução ao Quarto para produzir documentos técnicos e científicos com texto, código e resultados integrados.</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -403,7 +341,7 @@ Quarto: Um Sistema de Publicação Técnica e Científica
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="TWFya2Rvd24lMkNMaW5ndWFnZW0lMjBkZSUyME1hcmNhJUMzJUE3JUMzJUEzbyUyQ1JlcHJvZHV0aWJpbGlkYWRl" data-listing-date-sort="1725505200000" data-listing-file-modified-sort="1754424403264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2336">
+<div class="g-col-1" data-index="2" data-categories="TWFya2Rvd24lMkNMaW5ndWFnZW0lMjBkZSUyME1hcmNhJUMzJUE3JUMzJUEzbyUyQ1JlcHJvZHV0aWJpbGlkYWRl" data-listing-date-sort="1725505200000" data-listing-file-modified-sort="1783449511442" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2336">
 <a href="../tutorials/markdown/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="markdown/img/markdown-hexsticker.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -421,7 +359,7 @@ Markdown: Elementos Essenciais para Documentos do Sistema Quarto
 
 </div>
 <div class="card-text listing-description delink">
-<p>Um tutorial simples sobre a linguagem de marcação Markdown para elaboração de documentos no sistema Quarto.</p>
+<p>Guia introdutório de Markdown para estruturar textos técnicos com clareza no ecossistema Quarto.</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
@@ -431,7 +369,7 @@ Markdown: Elementos Essenciais para Documentos do Sistema Quarto
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Q29udHJvbGUlMjBkZSUyMHZlcnMlQzMlQTNvJTJDR2l0JTJDR2l0SHViJTJDUmVwcm9kdXRpYmlsaWRhZGU=" data-listing-date-sort="1717729200000" data-listing-file-modified-sort="1754423577621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43" data-listing-word-count-sort="8404">
+<div class="g-col-1" data-index="3" data-categories="Q29udHJvbGUlMjBkZSUyMHZlcnMlQzMlQTNvJTJDR2l0JTJDR2l0SHViJTJDUmVwcm9kdXRpYmlsaWRhZGU=" data-listing-date-sort="1717729200000" data-listing-file-modified-sort="1783449511440" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43" data-listing-word-count-sort="8404">
 <a href="../tutorials/git/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="git/img/git-github-hexsticker.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -451,7 +389,7 @@ Controle de Versão com Git e GitHub
 
 </div>
 <div class="card-text listing-description delink">
-<p>Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o GitHub.</p>
+<p>Introdução prática ao uso de Git e GitHub para versionar arquivos, acompanhar mudanças e organizar colaboração.</p>
 </div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">

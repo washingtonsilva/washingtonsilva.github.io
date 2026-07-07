@@ -1,8 +1,8 @@
 ---
 title: "Quarto: Um Sistema de Publicação Técnica e Científica"
 description: | 
-  Um tutorial sobre como utilizar o sistema de pubicação Quarto e a 
-  linguagem R usando o IDE RStudio.
+  Introdução ao Quarto para produzir documentos técnicos e científicos com
+  texto, código e resultados integrados.
 lang: "pt-BR"
 date: "2024-10-07"
 toc: true
@@ -271,7 +271,7 @@ format:
 ## Sintáxe YAML
 
 :::columns
-:::{.column width="50%" style="max-height: 1000px"}
+:::{.column style="width: 50%; max-height: 1000px"}
 ```yaml
 ---
 title: "Título do Document"
@@ -289,7 +289,7 @@ format:
 ```
 :::
 
-:::{.column width="50%" style="font-size: .85em"}
+:::{.column style="width: 50%; font-size: .85em"}
 
 ::: incremental
 - Definindo um único valor com

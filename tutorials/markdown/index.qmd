@@ -1,7 +1,8 @@
 ---
 title: "Markdown: Elementos Essenciais para Documentos do Sistema Quarto"
 description: | 
-  Um tutorial simples sobre a linguagem de marcação Markdown para elaboração de documentos no sistema Quarto.
+  Guia introdutório de Markdown para estruturar textos técnicos com clareza
+  no ecossistema Quarto.
 lang: "pt"
 date: "2024-09-05"
 toc: true

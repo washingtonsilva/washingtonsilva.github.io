@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Dr.&nbsp;Washington S. da Silva">
-<meta name="description" content="Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o GitHub.">
+<meta name="description" content="Introdução prática ao uso de Git e GitHub para versionar arquivos, acompanhar mudanças e organizar colaboração.">
 
 <title>Controle de Versão com Git e GitHub – Washington S. da Silva</title>
 <style>
@@ -157,7 +157,6 @@ cookieconsent.run({
 </script> 
   
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
-<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -255,7 +254,28 @@ cookieconsent.run({
   <li><a href="#workflow-para-diferentes-tipos-de-revisão" id="toc-workflow-para-diferentes-tipos-de-revisão" class="nav-link" data-scroll-target="#workflow-para-diferentes-tipos-de-revisão"><span class="header-section-number">6.8</span> Workflow para Diferentes Tipos de Revisão</a></li>
   <li><a href="#aplicando-este-workflow-a-outros-cenários" id="toc-aplicando-este-workflow-a-outros-cenários" class="nav-link" data-scroll-target="#aplicando-este-workflow-a-outros-cenários"><span class="header-section-number">6.9</span> Aplicando este Workflow a Outros Cenários</a></li>
   <li><a href="#resumo-do-workflow" id="toc-resumo-do-workflow" class="nav-link" data-scroll-target="#resumo-do-workflow"><span class="header-section-number">6.10</span> Resumo do Workflow</a></li>
+  <li><a href="#resumo-do-workflow-1" id="toc-resumo-do-workflow-1" class="nav-link" data-scroll-target="#resumo-do-workflow-1"><span class="header-section-number">6.11</span> Resumo do Workflow</a></li>
+  <li><a href="#solução-de-problemas-comuns" id="toc-solução-de-problemas-comuns" class="nav-link" data-scroll-target="#solução-de-problemas-comuns"><span class="header-section-number">6.12</span> Solução de Problemas Comuns</a></li>
+  <li><a href="#dicas-para-usar-o-terminal-git-bash-no-rstudio" id="toc-dicas-para-usar-o-terminal-git-bash-no-rstudio" class="nav-link" data-scroll-target="#dicas-para-usar-o-terminal-git-bash-no-rstudio"><span class="header-section-number">6.13</span> Dicas para usar o Terminal Git Bash no RStudio</a></li>
   </ul></li>
+  <li><a href="#recuperando-versões-anteriores-de-arquivos" id="toc-recuperando-versões-anteriores-de-arquivos" class="nav-link" data-scroll-target="#recuperando-versões-anteriores-de-arquivos"><span class="header-section-number">7</span> Recuperando Versões Anteriores de Arquivos</a></li>
+  <li><a href="#glossário-de-termos" id="toc-glossário-de-termos" class="nav-link" data-scroll-target="#glossário-de-termos"><span class="header-section-number">8</span> Glossário de Termos</a>
+  <ul class="collapse">
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">B</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">F</a></li>
+  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">G</a></li>
+  <li><a href="#h" id="toc-h" class="nav-link" data-scroll-target="#h">H</a></li>
+  <li><a href="#i" id="toc-i" class="nav-link" data-scroll-target="#i">I</a></li>
+  <li><a href="#m" id="toc-m" class="nav-link" data-scroll-target="#m">M</a></li>
+  <li><a href="#o" id="toc-o" class="nav-link" data-scroll-target="#o">O</a></li>
+  <li><a href="#p" id="toc-p" class="nav-link" data-scroll-target="#p">P</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#s" id="toc-s" class="nav-link" data-scroll-target="#s">S</a></li>
+  <li><a href="#t" id="toc-t" class="nav-link" data-scroll-target="#t">T</a></li>
+  <li><a href="#w" id="toc-w" class="nav-link" data-scroll-target="#w">W</a></li>
+  </ul></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">9</span> Referências</a></li>
   </ul>
 </nav>
 </nav>
@@ -279,7 +299,7 @@ cookieconsent.run({
 
 <div>
   <div class="description">
-    <p>Um tutorial básico sobre o uso do sistema de controle de versão Git e sobre o GitHub.</p>
+    <p>Introdução prática ao uso de Git e GitHub para versionar arquivos, acompanhar mudanças e organizar colaboração.</p>
   </div>
 </div>
 
@@ -1965,6 +1985,9 @@ Texto do orientador (versão do GitHub)
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Repita</strong> diariamente ou quando concluir uma parte significativa</p></li>
 </ol>
+</div>
+</div>
+</section>
 <section id="resumo-do-workflow-1" class="level2" data-number="6.11">
 <h2 data-number="6.11" class="anchored" data-anchor-id="resumo-do-workflow-1"><span class="header-section-number">6.11</span> Resumo do Workflow</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -2163,6 +2186,7 @@ Texto do orientador (versão do GitHub)
 </ul>
 </div>
 </div>
+</section>
 </section>
 <section id="recuperando-versões-anteriores-de-arquivos" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Recuperando Versões Anteriores de Arquivos</h1>
@@ -2364,10 +2388,6 @@ OLIVEIRA, D. <strong>Git4Noobs: Tutorial de Git para iniciantes</strong>GitHub R
 </div>
 
 
-</section>
-</div>
-</div>
-</section>
 </section>
 
 </main> <!-- /main -->
