@@ -1636,5 +1636,26 @@
     "title": "Deposition of Potentially Toxic Metals in the Soil from Surrounding Cement Plants in a Karst Area of Southeastern Brazil",
     "section": "",
     "text": "Abstract\nCement factories are the main sources of environmental pollutants among the different industrial activities, including soil contamination by potentially toxic metals. The karst region of Southeastern Brazil is known for the implementation of large cement producing facilities. This study aims to evaluate whether there is an increase in the concentration of PTM in the soil surrounding the cement plants and to estimate their harmfulness to both local human population and environment. In total, 18 soil samples were collected from the surroundings of three cement plants as well as four soil samples from areas outside the influence of cement plants and concentration of the following potentially toxic metals (PTM) were estimated: Cd, Pb, Co, Cu, Cr, Mn, Ni, and Zn. The results revealed that all PTM concentrations from cement plant surroundings were significantly higher than PTM concentrations from control areas and no PTM concentrations from CPS or CA soil samples exceeded national and global contamination thresholds. However, Igeo Index indicated low level soil contamination by Pb, Cu, and Cr, as well as high levels for Co. We could not verify significant non-carcinogenic risk to health for any soil sample, but carcinogenic risk analysis revealed different levels of carcinogenic risk among the sampled locations, for both adults and children. Our results indicate that exclusively evaluating the concentration of potentially toxic metals is not enough to verify the potential harmful effects of cement production for the surrounding population. Here we evidence that additional indices, based on both contamination indices and health risk assessments, should be considered for better evaluation of the impacts of cement production activity."
+  },
+  {
+    "objectID": "tutorials/r-tidyverse/index.html",
+    "href": "tutorials/r-tidyverse/index.html",
+    "title": "R e tidyverse: um fluxo de análise reproduzível",
+    "section": "",
+    "text": "Este material é uma introdução prática ao uso de R com o tidyverse para análises reproduzíveis. Ele foi organizado a partir de exemplos, exercícios e erros recorrentes da disciplina Introdução à Ciência de Dados ministrada no Mestrado Profissional em Administração do IFMG em 2026.\nUse-o se você já instalou R e RStudio e quer construir análises de dados com mais segurança. Para instalar ou configurar ferramentas, consulte antes os tutoriais de RStudio, Quarto e Git/GitHub. Para formatar a parte textual de relatórios, consulte o tutorial de Markdown.\n\n\n\n\n\n\nNotaAo final, você deverá conseguir\n\n\n\n\norganizar um projeto e usar caminhos relativos;\nimportar e inspecionar um arquivo CSV;\ntransformar, resumir e ordenar dados com dplyr;\nconverter dados do formato amplo para o longo com pivot_longer();\ncombinar tabelas com left_join() e conferir as chaves usadas na combinação;\nconstruir uma sequência encadeada de etapas de análise (pipeline), testar seus resultados e localizar erros elementares antes de entregar um trabalho.\n\n\n\n\n\n\n\n\n\nImportanteComo usar este material\n\n\n\nDigite e adapte os exemplos em um projeto RStudio próprio. Não tente apenas ler o código. Ao fim de cada seção, altere pelo menos um parâmetro, filtro ou variável e confira o efeito no resultado."
+  },
+  {
+    "objectID": "tutorials/r-tidyverse/index.html#leitura-estruturante",
+    "href": "tutorials/r-tidyverse/index.html#leitura-estruturante",
+    "title": "R e tidyverse: um fluxo de análise reproduzível",
+    "section": "12.1 Leitura estruturante",
+    "text": "12.1 Leitura estruturante\nR para Ciência de Dados é a referência principal para este tutorial (Wickham, Çetinkaya-Rundel e Grolemund, 2023). O livro aprofunda o fluxo de trabalho, a transformação, a organização, a importação e as combinações de dados apresentados aqui. A tradução em português é particularmente adequada para consultar esses temas; comece pelos capítulos 2 a 7 e, quando precisar combinar tabelas, pelo capítulo 19.\nPara quem ainda precisa consolidar fundamentos da linguagem R — objetos, vetores, tipos de dados, condicionais, funções e depuração — a leitura adequada é Introdução à Linguagem R: seus fundamentos e sua prática (Faria, 2024). Esse estudo é complementar e deve ser feito de forma autônoma quando a formação prévia não for suficiente para acompanhar este tutorial."
+  },
+  {
+    "objectID": "tutorials/r-tidyverse/index.html#documentação-para-consulta-pontual",
+    "href": "tutorials/r-tidyverse/index.html#documentação-para-consulta-pontual",
+    "title": "R e tidyverse: um fluxo de análise reproduzível",
+    "section": "12.2 Documentação para consulta pontual",
+    "text": "12.2 Documentação para consulta pontual\nAs documentações oficiais são mais úteis quando você já tem uma pergunta concreta ou uma mensagem de erro para investigar:\n\nhere: caminhos relativos e raiz do projeto;\nreadr: importação de arquivos de texto, inclusive CSV;\ndplyr: transformação, agrupamento e combinação de tabelas;\ntidyr: organização de dados entre formatos amplo e longo."
   }
 ]

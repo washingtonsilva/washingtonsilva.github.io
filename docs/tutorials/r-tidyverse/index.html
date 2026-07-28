@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Dr.&nbsp;Washington S. da Silva">
+<meta name="description" content="Tutorial prático para importar, organizar, transformar e combinar dados em R, com foco em projetos reproduzíveis e aplicações em Finanças.">
+
+<title>R e tidyverse: um fluxo de análise reproduzível – Washington S. da Silva</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d4ada93aa0718424afd7de2af90a732e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X7TV071MD7"></script>
+
+<script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-X7TV071MD7', { 'anonymize_ip': true});
+</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"headline",
+  "consent_type":"express",
+  "palette":"dark",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"pt-BR"
+  });
+});
+</script> 
+  
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Washington S. da Silva</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications/index.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorials/index.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul class="collapse">
+  <li><a href="#para-quem-é-este-tutorial" id="toc-para-quem-é-este-tutorial" class="nav-link active" data-scroll-target="#para-quem-é-este-tutorial"><span class="header-section-number">1</span> Para quem é este tutorial</a></li>
+  <li><a href="#o-fluxo-que-vamos-seguir" id="toc-o-fluxo-que-vamos-seguir" class="nav-link" data-scroll-target="#o-fluxo-que-vamos-seguir"><span class="header-section-number">2</span> O fluxo que vamos seguir</a></li>
+  <li><a href="#projeto-arquivos-e-caminhos" id="toc-projeto-arquivos-e-caminhos" class="nav-link" data-scroll-target="#projeto-arquivos-e-caminhos"><span class="header-section-number">3</span> Projeto, arquivos e caminhos</a></li>
+  <li><a href="#importar-e-inspecionar-antes-de-analisar" id="toc-importar-e-inspecionar-antes-de-analisar" class="nav-link" data-scroll-target="#importar-e-inspecionar-antes-de-analisar"><span class="header-section-number">4</span> Importar e inspecionar antes de analisar</a></li>
+  <li><a href="#tibbles-pipes-e-uma-pergunta-analítica" id="toc-tibbles-pipes-e-uma-pergunta-analítica" class="nav-link" data-scroll-target="#tibbles-pipes-e-uma-pergunta-analítica"><span class="header-section-number">5</span> Tibbles, pipes e uma pergunta analítica</a></li>
+  <li><a href="#agrupar-e-resumir" id="toc-agrupar-e-resumir" class="nav-link" data-scroll-target="#agrupar-e-resumir"><span class="header-section-number">6</span> Agrupar e resumir</a></li>
+  <li><a href="#criar-categorias-com-transparência" id="toc-criar-categorias-com-transparência" class="nav-link" data-scroll-target="#criar-categorias-com-transparência"><span class="header-section-number">7</span> Criar categorias com transparência</a></li>
+  <li><a href="#dados-amplos-e-dados-longos" id="toc-dados-amplos-e-dados-longos" class="nav-link" data-scroll-target="#dados-amplos-e-dados-longos"><span class="header-section-number">8</span> Dados amplos e dados longos</a></li>
+  <li><a href="#combinar-tabelas-sem-perder-o-controle" id="toc-combinar-tabelas-sem-perder-o-controle" class="nav-link" data-scroll-target="#combinar-tabelas-sem-perder-o-controle"><span class="header-section-number">9</span> Combinar tabelas sem perder o controle</a></li>
+  <li><a href="#checklist-de-confiabilidade" id="toc-checklist-de-confiabilidade" class="nav-link" data-scroll-target="#checklist-de-confiabilidade"><span class="header-section-number">10</span> Checklist de confiabilidade</a></li>
+  <li><a href="#exercícios-para-praticar" id="toc-exercícios-para-praticar" class="nav-link" data-scroll-target="#exercícios-para-praticar"><span class="header-section-number">11</span> Exercícios para praticar</a></li>
+  <li><a href="#leituras-e-documentação-de-apoio" id="toc-leituras-e-documentação-de-apoio" class="nav-link" data-scroll-target="#leituras-e-documentação-de-apoio"><span class="header-section-number">12</span> Leituras e documentação de apoio</a>
+  <ul class="collapse">
+  <li><a href="#leitura-estruturante" id="toc-leitura-estruturante" class="nav-link" data-scroll-target="#leitura-estruturante"><span class="header-section-number">12.1</span> Leitura estruturante</a></li>
+  <li><a href="#documentação-para-consulta-pontual" id="toc-documentação-para-consulta-pontual" class="nav-link" data-scroll-target="#documentação-para-consulta-pontual"><span class="header-section-number">12.2</span> Documentação para consulta pontual</a></li>
+  </ul></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">13</span> Referências</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">R e tidyverse: um fluxo de análise reproduzível</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">tidyverse</div>
+    <div class="quarto-category">Dados organizados</div>
+    <div class="quarto-category">Reprodutibilidade</div>
+    <div class="quarto-category">Finanças</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Tutorial prático para importar, organizar, transformar e combinar dados em R, com foco em projetos reproduzíveis e aplicações em Finanças.</p>
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autor</div>
+  <div class="quarto-title-meta-heading">Afiliação</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof.&nbsp;Dr.&nbsp;Washington S. da Silva </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.formiga.ifmg.edu.br/mestrado">
+            IFMG — Campus Formiga
+            </a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">27 julho 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="para-quem-é-este-tutorial" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Para quem é este tutorial</h1>
+<p>Este material é uma introdução prática ao uso de R com o <strong>tidyverse</strong> para análises reproduzíveis. Ele foi organizado a partir de exemplos, exercícios e erros recorrentes da disciplina Introdução à Ciência de Dados ministrada no Mestrado Profissional em Administração do IFMG em 2026.</p>
+<p>Use-o se você já instalou R e RStudio e quer construir análises de dados com mais segurança. Para instalar ou configurar ferramentas, consulte antes os tutoriais de <a href="../rstudio/">RStudio</a>, <a href="../quarto/">Quarto</a> e <a href="../git/">Git/GitHub</a>. Para formatar a parte textual de relatórios, consulte o tutorial de <a href="../markdown/">Markdown</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Ao final, você deverá conseguir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>organizar um projeto e usar caminhos relativos;</li>
+<li>importar e inspecionar um arquivo CSV;</li>
+<li>transformar, resumir e ordenar dados com <code>dplyr</code>;</li>
+<li>converter dados do formato amplo para o longo com <code>pivot_longer()</code>;</li>
+<li>combinar tabelas com <code>left_join()</code> e conferir as chaves usadas na combinação;</li>
+<li>construir uma sequência encadeada de etapas de análise (<em>pipeline</em>), testar seus resultados e localizar erros elementares antes de entregar um trabalho.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Como usar este material
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Digite e adapte os exemplos em um <strong>projeto RStudio próprio</strong>. Não tente apenas ler o código. Ao fim de cada seção, altere pelo menos um parâmetro, filtro ou variável e confira o efeito no resultado.</p>
+</div>
+</div>
+</section>
+<section id="o-fluxo-que-vamos-seguir" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> O fluxo que vamos seguir</h1>
+<p>Uma análise aplicada raramente começa por uma função isolada. Em geral, ela segue esta sequência:</p>
+<ol type="1">
+<li>definir uma pergunta e abrir o projeto correto;</li>
+<li>importar e inspecionar os dados;</li>
+<li>preparar a estrutura necessária para a análise;</li>
+<li>transformar e resumir os dados;</li>
+<li>conferir se o resultado responde à pergunta.</li>
+</ol>
+<p>O tidyverse é um conjunto de pacotes com funções de nomes e usos padronizados para essas etapas. O pacote <code>readr</code> importa arquivos; <code>dplyr</code> transforma e combina tabelas; <code>tidyr</code> organiza formatos; e <code>tibble</code> ajuda a criar e visualizar tabelas. O comando abaixo carrega esse conjunto e o pacote <code>here</code>, usado para localizar arquivos dentro do projeto.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Antes do primeiro uso neste computador, instale os dois pacotes necessários na aba <strong>Console</strong> do RStudio:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instala, uma única vez, os pacotes usados neste tutorial</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"here"</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Em cada nova sessão, carregue-os com <code>library(tidyverse)</code> e <code>library(here)</code>, como no código anterior. Não coloque <code>install.packages()</code> no início de scripts ou relatórios: isso torna a execução lenta e menos previsível.</p>
+</section>
+<section id="projeto-arquivos-e-caminhos" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Projeto, arquivos e caminhos</h1>
+<p>Um projeto reproduzível separa arquivos de dados, scripts e relatórios. Uma estrutura inicial simples é:</p>
+<pre class="text"><code>meu-projeto/
+├── data/
+│   ├── raw/       # dados recebidos ou baixados
+│   └── clean/     # dados preparados pelo seu código
+├── scripts/       # scripts R
+├── relatorios/    # arquivos .qmd e produtos finais
+└── meu-projeto.Rproj</code></pre>
+<p>Abra o arquivo <code>.Rproj</code> antes de começar. Evite <code>setwd()</code> e caminhos absolutos como <code>C:/Users/...</code>: eles normalmente funcionam apenas no seu computador.</p>
+<p>Com <code>here()</code>, um caminho é descrito a partir da raiz do projeto:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define um caminho relativo a partir da raiz do projeto</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>agencias_csv <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data/raw/agencias.csv"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Antes de importar, confirme que você abriu o projeto correto e que o arquivo está realmente em <code>data/raw/</code>. Uma mensagem de “arquivo não encontrado” quase sempre indica um destes dois problemas.</p>
+</section>
+<section id="importar-e-inspecionar-antes-de-analisar" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Importar e inspecionar antes de analisar</h1>
+<p>Este tutorial usa três arquivos <strong>sintéticos</strong>, preparados exclusivamente para fins didáticos. Baixe-os e salve-os na pasta <code>data/raw/</code> de um projeto RStudio seu:</p>
+<ul>
+<li><a href="dados/agencias.csv">agencias.csv</a></li>
+<li><a href="dados/credito_trimestral.csv">credito_trimestral.csv</a></li>
+<li><a href="dados/inadimplencia.csv">inadimplencia.csv</a></li>
+</ul>
+<p>Cada linha de <code>agencias.csv</code> identifica uma agência; <code>credito_trimestral.csv</code> registra seu volume de crédito por trimestre; e <code>inadimplencia.csv</code> registra a taxa de inadimplência para cada combinação agência–trimestre. O fluxo mínimo é definir o caminho, importar e inspecionar imediatamente:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Arquivo</th>
+<th>Unidade de observação</th>
+<th>Informação principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>agencias.csv</code></td>
+<td>uma agência</td>
+<td>cidade e número de cooperados</td>
+</tr>
+<tr class="even">
+<td><code>credito_trimestral.csv</code></td>
+<td>uma agência</td>
+<td>crédito em cada trimestre, em milhares de reais fictícios</td>
+</tr>
+<tr class="odd">
+<td><code>inadimplencia.csv</code></td>
+<td>uma agência–trimestre</td>
+<td>taxa de inadimplência em proporção: <code>0.021</code> corresponde a 2,1%</td>
+</tr>
+</tbody>
+</table>
+<p>Os valores e as entidades são fictícios. Eles servem para praticar o fluxo de análise, não para descrever uma instituição real.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define o caminho relativo para o arquivo csv</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># usando a função here() do pacote here</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>agencias_csv <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data/raw/agencias.csv"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># importa o arquivo csv com a função readr do pacote readr</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># e armazena os dados no objeto agencias</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>agencias <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(agencias_csv)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe visão geral dos dados importados</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(agencias)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># visualiza as primeiras linhas da tabela</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(agencias)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>glimpse()</code> mostra o número de linhas, o nome e o tipo das colunas. Use-o antes de escrever um pipeline: ele evita erros causados por nomes diferentes, colunas lidas como texto ou valores ausentes inesperados.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Perguntas de inspeção
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de transformar uma tabela, responda: qual é a unidade de observação, ou seja, o que cada linha representa? Quais colunas identificam uma observação? Há valores faltantes? Os nomes e tipos das colunas são os que você espera?</p>
+</div>
+</div>
+</section>
+<section id="tibbles-pipes-e-uma-pergunta-analítica" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Tibbles, pipes e uma pergunta analítica</h1>
+<p>Uma <em>tibble</em> é uma tabela usada pelo tidyverse. Ela exibe os dados de modo mais compacto que uma <code>data.frame</code> tradicional. A função <code>tribble()</code> é uma forma prática de digitar pequenas tabelas manualmente, útil em exemplos e testes. Para manter este exemplo autossuficiente, criaremos uma base simulada de indicadores anuais:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma tibble simulada de indicadores anuais</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>indicadores <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>empresa,        <span class="sc">~</span>setor,        <span class="sc">~</span>ano, <span class="sc">~</span>ativo_total, <span class="sc">~</span>resultado_liquido,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Alfa Energia"</span>,  <span class="st">"Energia"</span>,    <span class="dv">2025</span>,      <span class="dv">820000</span>,              <span class="dv">49200</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Beta Varejo"</span>,   <span class="st">"Varejo"</span>,     <span class="dv">2025</span>,      <span class="dv">460000</span>,              <span class="dv">13800</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Gama Saúde"</span>,    <span class="st">"Saúde"</span>,      <span class="dv">2025</span>,      <span class="dv">610000</span>,              <span class="dv">42700</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Delta Varejo"</span>,  <span class="st">"Varejo"</span>,     <span class="dv">2025</span>,      <span class="dv">390000</span>,               <span class="dv">7800</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Épsilon Banco"</span>, <span class="st">"Financeiro"</span>, <span class="dv">2025</span>,     <span class="dv">1250000</span>,              <span class="dv">87500</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica a estrutura da tibble criada</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(indicadores)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>O pipe nativo <code>|&gt;</code> lê-se como “e então”. Ele permite escrever um <em>pipeline</em>, ou seja, uma sequência encadeada de etapas de análise. A pergunta abaixo é: <strong>quais empresas têm retorno sobre ativos (ROA, do inglês <em>return on assets</em>) acima de 5%, ordenadas do maior para o menor?</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcula o ROA, seleciona empresas com rentabilidade acima de 5%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># e organiza o resultado do maior para o menor ROA</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>empresas_rentaveis <span class="ot">&lt;-</span> indicadores <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">roa =</span> resultado_liquido <span class="sc">/</span> ativo_total) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(roa <span class="sc">&gt;</span> <span class="fl">0.05</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(empresa, setor, ativo_total, resultado_liquido, roa) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(roa))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe o objeto que responde à pergunta analítica</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>empresas_rentaveis</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Cada verbo tem uma função específica:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Verbo</th>
+<th>Pergunta que ajuda a responder</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>select()</code></td>
+<td>Quais colunas são relevantes?</td>
+</tr>
+<tr class="even">
+<td><code>filter()</code></td>
+<td>Quais linhas atendem à condição?</td>
+</tr>
+<tr class="odd">
+<td><code>mutate()</code></td>
+<td>Que nova variável preciso calcular?</td>
+</tr>
+<tr class="even">
+<td><code>arrange()</code></td>
+<td>Em que ordem devo ver o resultado?</td>
+</tr>
+<tr class="odd">
+<td><code>group_by()</code> + <code>summarise()</code></td>
+<td>Como resumir grupos de observações?</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Não pule a atribuição
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um pipeline só altera um objeto se você atribuir o resultado. O código abaixo apenas exibe uma nova tabela; ele não modifica <code>indicadores</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># este pipeline apenas exibe uma nova tabela; não altera indicadores</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>indicadores <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">roa =</span> resultado_liquido <span class="sc">/</span> ativo_total)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Quando quiser conservar o resultado, atribua-o a um nome claro, como em <code>indicadores_com_roa &lt;- ...</code>.</p>
+</div>
+</div>
+</section>
+<section id="agrupar-e-resumir" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Agrupar e resumir</h1>
+<p>Agora responda à pergunta: <strong>qual é o ativo total e o ROA médio simples por setor?</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcula o ROA e resume número de empresas, ativo e ROA médio simples por setor</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>resumo_setor <span class="ot">&lt;-</span> indicadores <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">roa =</span> resultado_liquido <span class="sc">/</span> ativo_total) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(setor) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">empresas =</span> <span class="fu">n</span>(),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ativo_total =</span> <span class="fu">sum</span>(ativo_total),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">roa_medio_simples =</span> <span class="fu">mean</span>(roa)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(roa_medio_simples))</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe o resumo por setor</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>resumo_setor</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>group_by()</code> não produz, sozinho, uma tabela resumida; ele altera o modo como o próximo verbo opera. <code>summarise()</code> é que reduz várias linhas a uma ou mais estatísticas por grupo. Neste exemplo, cada linha de <code>resumo_setor</code> representa um setor.</p>
+<p>Como conferência, o resultado deve ter quatro linhas. Os setores Financeiro e Saúde têm ROA médio simples de 7%; Energia, de 6%; e Varejo, de 2,5%. O setor Varejo tem duas empresas e ativo total de 850.000.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Média simples não é ROA agregado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>mean(roa)</code> dá o mesmo peso a cada empresa. Portanto, ele responde à pergunta sobre a média dos ROAs das empresas, e não necessariamente sobre a rentabilidade do conjunto de ativos do setor. Para calcular o ROA agregado, some primeiro o resultado líquido e o ativo total; depois divida um pelo outro:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcula o ROA agregado a partir dos totais de cada setor</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>resumo_setor_agregado <span class="ot">&lt;-</span> indicadores <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(setor) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">resultado_liquido =</span> <span class="fu">sum</span>(resultado_liquido),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ativo_total =</span> <span class="fu">sum</span>(ativo_total),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">roa_agregado =</span> resultado_liquido <span class="sc">/</span> ativo_total</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(roa_agregado))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe o resumo com o ROA agregado por setor</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>resumo_setor_agregado</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="criar-categorias-com-transparência" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Criar categorias com transparência</h1>
+<p>Classificações são úteis, mas os critérios precisam aparecer no código. Neste exemplo, a coluna <code>faixa_roa</code> documenta uma regra simples de análise:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcula o ROA e classifica cada empresa conforme os limites definidos</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>indicadores_classificados <span class="ot">&lt;-</span> indicadores <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">roa =</span> resultado_liquido <span class="sc">/</span> ativo_total,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">faixa_roa =</span> <span class="fu">case_when</span>(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      roa <span class="sc">&gt;=</span> <span class="fl">0.08</span> <span class="sc">~</span> <span class="st">"Alta"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      roa <span class="sc">&gt;=</span> <span class="fl">0.04</span> <span class="sc">~</span> <span class="st">"Intermediária"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>        <span class="sc">~</span> <span class="st">"Baixa"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># conta empresas em cada faixa de rentabilidade</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>indicadores_classificados <span class="sc">|&gt;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(faixa_roa)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Em <code>case_when()</code>, as condições são testadas de cima para baixo. Por isso, a ordem importa: a faixa mais restritiva vem primeiro. O caso final <code>TRUE ~ ...</code> garante que nenhuma observação fique sem classificação por acidente.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Regra didática, não modelo de risco
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Os limites usados em <code>faixa_roa</code> e, mais adiante, em <code>risco</code> são regras simples para praticar código. Eles não estimam risco financeiro e não devem orientar decisões reais sem definição substantiva, validação e informações adequadas.</p>
+</div>
+</div>
+</section>
+<section id="dados-amplos-e-dados-longos" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Dados amplos e dados longos</h1>
+<p>Planilhas gerenciais frequentemente armazenam trimestres em colunas. Isso é conveniente para leitura humana, mas dificulta agrupamentos e gráficos. Importe o arquivo de crédito, que está nesse formato amplo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define o caminho relativo do arquivo de crédito trimestral</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>credito_csv <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data/raw/credito_trimestral.csv"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># importa os dados no formato amplo</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>credito_amplo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(credito_csv)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica a estrutura antes da reorganização</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(credito_amplo)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>pivot_longer()</code> transforma as colunas trimestrais em duas variáveis: uma para o trimestre e outra para o volume de crédito.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transforma as colunas trimestrais em duas variáveis: trimestre e volume de crédito</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>credito_longo <span class="ot">&lt;-</span> credito_amplo <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>id_agencia,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"trimestre"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"volume_credito"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># exibe os dados reorganizados no formato longo</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>credito_longo</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Depois dessa transformação, cada linha representa uma combinação <strong>agência–trimestre</strong>. Essa unidade de observação precisa orientar todos os <em>joins</em>, cálculos e resumos posteriores.</p>
+<p>Como conferência, <code>credito_longo</code> deve ter 12 linhas: três agências em quatro trimestres. Ele deve conter as colunas <code>id_agencia</code>, <code>trimestre</code> e <code>volume_credito</code>.</p>
+</section>
+<section id="combinar-tabelas-sem-perder-o-controle" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Combinar tabelas sem perder o controle</h1>
+<p>Um <em>join</em> é uma combinação de informações de tabelas diferentes. Uma chave é a coluna, ou conjunto de colunas, usado para identificar e alinhar registros entre tabelas. O cadastro <code>agencias</code> já foi importado acima; agora importe a tabela de inadimplência trimestral:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define o caminho relativo do arquivo de inadimplência trimestral</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>inadimplencia_csv <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data/raw/inadimplencia.csv"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># importa os dados de inadimplência</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>inadimplencia <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(inadimplencia_csv)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica a estrutura dos dados importados</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(inadimplencia)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Como <code>agencias</code> tem uma linha por agência, a chave <code>id_agencia</code> basta no primeiro <em>join</em>. Já <code>credito_longo</code> e <code>inadimplencia</code> têm uma linha por agência–trimestre; a chave precisa conter as duas colunas. <code>left_join()</code> preserva todas as linhas da tabela que inicia o <em>pipeline</em> e acrescenta as informações correspondentes da outra tabela.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># acrescenta o cadastro das agências usando a chave id_agencia</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># acrescenta a inadimplência usando a chave composta agência-trimestre</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># e cria indicadores de crédito por cooperado e de risco</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dados_completos <span class="ot">&lt;-</span> credito_longo <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(agencias, <span class="at">by =</span> <span class="st">"id_agencia"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inadimplencia, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id_agencia"</span>, <span class="st">"trimestre"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">credito_por_cooperado =</span> volume_credito <span class="sc">/</span> cooperados,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">risco =</span> <span class="fu">case_when</span>(</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>      taxa_inadimplencia <span class="sc">&lt;</span> <span class="fl">0.03</span> <span class="sc">~</span> <span class="st">"Baixo"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>      taxa_inadimplencia <span class="sc">&lt;</span> <span class="fl">0.045</span> <span class="sc">~</span> <span class="st">"Moderado"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Alto"</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica a estrutura final após os joins e as novas variáveis</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dados_completos)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Como conferência, <code>dados_completos</code> deve manter 12 linhas e não pode ter valores ausentes em <code>taxa_inadimplencia</code>. Com estes dados, a classificação de risco produz apenas as categorias <code>"Baixo"</code> e <code>"Moderado"</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Confira as chaves antes do join
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um <em>join</em> com chave incompleta pode duplicar linhas silenciosamente. Antes de unir tabelas, descubra a unidade de observação de cada uma. Depois, compare o número esperado de linhas e procure valores ausentes nas novas colunas. Após <code>count()</code>, a coluna <code>n</code> informa quantas linhas existem em cada combinação.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># verifica se há mais de uma linha por combinação agência-trimestre</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>credito_longo <span class="sc">|&gt;</span> <span class="fu">count</span>(id_agencia, trimestre) <span class="sc">|&gt;</span> <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># aplica a mesma verificação à tabela de inadimplência</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>inadimplencia <span class="sc">|&gt;</span> <span class="fu">count</span>(id_agencia, trimestre) <span class="sc">|&gt;</span> <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Se esses comandos retornarem linhas, a combinação agência–trimestre não é única e deve ser entendida antes do <code>left_join()</code>.</p>
+</div>
+</div>
+</section>
+<section id="checklist-de-confiabilidade" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Checklist de confiabilidade</h1>
+<p>Antes de considerar uma análise pronta, faça estas verificações:</p>
+<ol type="1">
+<li>Abra o projeto RStudio correto; não use <code>setwd()</code>.</li>
+<li>Reinicie a sessão do R e execute o script de cima para baixo.</li>
+<li>Use <code>glimpse()</code> após importar e após uma combinação relevante de tabelas.</li>
+<li>Imprima os objetos que respondem à pergunta analítica.</li>
+<li>Confira se as chaves utilizadas na combinação representam a unidade de cada linha.</li>
+<li>Dê nomes específicos a objetos; não reutilize <code>resultado</code> para coisas diferentes.</li>
+<li>Só então registre a alteração no Git e atualize o repositório remoto.</li>
+</ol>
+<p>Esse processo simples previne problemas comuns: objeto criado com um nome e usado com outro, coluna esquecida em uma chave composta, filtro aplicado à tabela errada e código que funciona apenas porque há objetos antigos na memória.</p>
+</section>
+<section id="exercícios-para-praticar" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Exercícios para praticar</h1>
+<p>Resolva em um script novo, sem copiar uma solução completa. Use os exemplos anteriores como referência, mas escreva e teste cada etapa.</p>
+<ol type="1">
+<li>A partir de <code>dados_completos</code>, produza uma tabela por cidade com volume de crédito total, inadimplência média e número de agências. Ordene pelo volume total.</li>
+<li>Altere os limites da classificação de risco e explique, em comentário, qual decisão de gestão essa nova regra representaria.</li>
+<li>Crie uma pequena tabela com uma meta trimestral por agência e una-a a <code>dados_completos</code>. Antes do <em>join</em>, escreva qual deve ser a chave e quantas linhas você espera no resultado.</li>
+<li>Crie um arquivo Quarto curto que descreva uma das análises, inclua o código e apresente uma conclusão de três frases. Execute as células uma a uma e renderize o HTML.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Próximo passo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O tidyverse ajuda a preparar dados e comunicar análises; ele não substitui o raciocínio substantivo, estatístico ou econométrico. Ao iniciar uma análise, comece pela pergunta de pesquisa e use o código para tornar o caminho até a resposta explícito, verificável e reproduzível.</p>
+</div>
+</div>
+</section>
+<section id="leituras-e-documentação-de-apoio" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Leituras e documentação de apoio</h1>
+<p>Esta seção serve para continuar o estudo depois de executar o tutorial. Ela não substitui a prática: use-a para esclarecer uma dúvida específica, ampliar um tópico ou revisar um conceito antes de aplicá-lo em seu próprio projeto.</p>
+<section id="leitura-estruturante" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="leitura-estruturante"><span class="header-section-number">12.1</span> Leitura estruturante</h2>
+<p><strong>R para Ciência de Dados</strong> é a referência principal para este tutorial <span class="citation" data-cites="r4ds2ed">(<a href="#ref-r4ds2ed" role="doc-biblioref">Wickham, Çetinkaya-Rundel e Grolemund, 2023</a>)</span>. O livro aprofunda o fluxo de trabalho, a transformação, a organização, a importação e as combinações de dados apresentados aqui. A <a href="https://pt.r4ds.hadley.nz" target="_blank">tradução em português</a> é particularmente adequada para consultar esses temas; comece pelos capítulos 2 a 7 e, quando precisar combinar tabelas, pelo capítulo 19.</p>
+<p>Para quem ainda precisa consolidar fundamentos da linguagem R — objetos, vetores, tipos de dados, condicionais, funções e depuração — a leitura adequada é <strong>Introdução à Linguagem R: seus fundamentos e sua prática</strong> <span class="citation" data-cites="faria2024intro">(<a href="#ref-faria2024intro" role="doc-biblioref">Faria, 2024</a>)</span>. Esse estudo é complementar e deve ser feito de forma autônoma quando a formação prévia não for suficiente para acompanhar este tutorial.</p>
+</section>
+<section id="documentação-para-consulta-pontual" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="documentação-para-consulta-pontual"><span class="header-section-number">12.2</span> Documentação para consulta pontual</h2>
+<p>As documentações oficiais são mais úteis quando você já tem uma pergunta concreta ou uma mensagem de erro para investigar:</p>
+<ul>
+<li><a href="https://here.r-lib.org/" target="_blank">here</a>: caminhos relativos e raiz do projeto;</li>
+<li><a href="https://readr.tidyverse.org/" target="_blank">readr</a>: importação de arquivos de texto, inclusive CSV;</li>
+<li><a href="https://dplyr.tidyverse.org/" target="_blank">dplyr</a>: transformação, agrupamento e combinação de tabelas;</li>
+<li><a href="https://tidyr.tidyverse.org/" target="_blank">tidyr</a>: organização de dados entre formatos amplo e longo.</li>
+</ul>
+</section>
+</section>
+<section id="referências" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Referências</h1>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-faria2024intro" class="csl-entry" role="listitem">
+FARIA, P. D. <strong><a href="https://pedropark99.github.io/Introducao_R/">Introdução à Linguagem R: seus fundamentos e sua prática</a></strong>. 5. ed. Belo Horizonte: [s.n.], 2024.
+</div>
+<div id="ref-r4ds2ed" class="csl-entry" role="listitem">
+WICKHAM, H.; ÇETINKAYA-RUNDEL, M.; GROLEMUND, G. <strong><a href="https://r4ds.hadley.nz/">R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</a></strong>. 2. ed. [s.l.] O’Reilly Media, 2023.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/washingtonsilva\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2023, Washington Santos da Silva</p>
+</div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/washingtonsilva">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/washingtonssilva/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

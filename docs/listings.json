@@ -29,6 +29,7 @@
   {
     "listing": "/tutorials/index.html",
     "items": [
+      "/tutorials/r-tidyverse/index.html",
       "/tutorials/rstudio/index.html",
       "/tutorials/quarto/index.html",
       "/tutorials/markdown/index.html",

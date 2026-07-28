@@ -1,0 +1,407 @@
+---
+title: "R e tidyverse: um fluxo de análise reproduzível"
+description: >
+  Tutorial prático para importar, organizar, transformar e combinar dados em R,
+  com foco em projetos reproduzíveis e aplicações em Finanças.
+lang: pt-BR
+date: "2026-07-27"
+toc: true
+number-sections: true
+toc-depth: 2
+toc-location: left
+highlight-style: github
+categories: [R, tidyverse, Dados organizados, Reprodutibilidade, Finanças]
+author:
+  - name: Prof. Dr. Washington S. da Silva
+    affiliation: IFMG — Campus Formiga
+    affiliation-url: https://www.formiga.ifmg.edu.br/mestrado
+bibliography: referencias.bib
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+execute:
+  echo: true
+  eval: false
+  warning: false
+  message: false
+---
+
+# Para quem é este tutorial
+
+Este material é uma introdução prática ao uso de R com o **tidyverse** para
+análises reproduzíveis. Ele foi organizado a partir de exemplos, exercícios e
+erros recorrentes da disciplina Introdução à Ciência de Dados ministrada no
+Mestrado Profissional em Administração do IFMG em 2026.
+
+Use-o se você já instalou R e RStudio e quer construir análises de dados com
+mais segurança. Para instalar ou configurar ferramentas, consulte antes os
+tutoriais de [RStudio](../rstudio/), [Quarto](../quarto/) e
+[Git/GitHub](../git/). Para formatar a parte textual de relatórios, consulte o
+tutorial de [Markdown](../markdown/).
+
+::: {.callout-note}
+## Ao final, você deverá conseguir
+
+- organizar um projeto e usar caminhos relativos;
+- importar e inspecionar um arquivo CSV;
+- transformar, resumir e ordenar dados com `dplyr`;
+- converter dados do formato amplo para o longo com `pivot_longer()`;
+- combinar tabelas com `left_join()` e conferir as chaves usadas na combinação;
+- construir uma sequência encadeada de etapas de análise (*pipeline*), testar
+  seus resultados e localizar erros elementares antes de entregar um trabalho.
+:::
+
+::: {.callout-important}
+## Como usar este material
+
+Digite e adapte os exemplos em um **projeto RStudio próprio**. Não tente apenas
+ler o código. Ao fim de cada seção, altere pelo menos um parâmetro, filtro ou
+variável e confira o efeito no resultado.
+:::
+
+# O fluxo que vamos seguir
+
+Uma análise aplicada raramente começa por uma função isolada. Em geral, ela
+segue esta sequência:
+
+1. definir uma pergunta e abrir o projeto correto;
+2. importar e inspecionar os dados;
+3. preparar a estrutura necessária para a análise;
+4. transformar e resumir os dados;
+5. conferir se o resultado responde à pergunta.
+
+O tidyverse é um conjunto de pacotes com funções de nomes e usos padronizados
+para essas etapas. O pacote `readr` importa arquivos; `dplyr` transforma e
+combina tabelas; `tidyr` organiza formatos; e `tibble` ajuda a criar e
+visualizar tabelas. O comando abaixo carrega esse conjunto e o pacote `here`,
+usado para localizar arquivos dentro do projeto.
+
+```{r}
+{{< include exemplos/_00-pacotes.R >}}
+```
+
+Antes do primeiro uso neste computador, instale os dois pacotes necessários na
+aba **Console** do RStudio:
+
+```{r eval=FALSE}
+{{< include exemplos/_01-instalacao.R >}}
+```
+
+Em cada nova sessão, carregue-os com `library(tidyverse)` e `library(here)`,
+como no código anterior. Não coloque `install.packages()` no início de scripts
+ou relatórios: isso torna a execução lenta e menos previsível.
+
+# Projeto, arquivos e caminhos
+
+Um projeto reproduzível separa arquivos de dados, scripts e relatórios. Uma
+estrutura inicial simples é:
+
+```text
+meu-projeto/
+├── data/
+│   ├── raw/       # dados recebidos ou baixados
+│   └── clean/     # dados preparados pelo seu código
+├── scripts/       # scripts R
+├── relatorios/    # arquivos .qmd e produtos finais
+└── meu-projeto.Rproj
+```
+
+Abra o arquivo `.Rproj` antes de começar. Evite `setwd()` e caminhos absolutos
+como `C:/Users/...`: eles normalmente funcionam apenas no seu computador.
+
+Com `here()`, um caminho é descrito a partir da raiz do projeto:
+
+```{r}
+{{< include exemplos/_02-caminho-agencias.R >}}
+```
+
+Antes de importar, confirme que você abriu o projeto correto e que o arquivo
+está realmente em `data/raw/`. Uma mensagem de "arquivo não encontrado" quase
+sempre indica um destes dois problemas.
+
+# Importar e inspecionar antes de analisar
+
+Este tutorial usa três arquivos **sintéticos**, preparados exclusivamente para
+fins didáticos. Baixe-os e salve-os na pasta `data/raw/` de um projeto RStudio
+seu:
+
+- [agencias.csv](dados/agencias.csv)
+- [credito_trimestral.csv](dados/credito_trimestral.csv)
+- [inadimplencia.csv](dados/inadimplencia.csv)
+
+Cada linha de `agencias.csv` identifica uma agência; `credito_trimestral.csv`
+registra seu volume de crédito por trimestre; e `inadimplencia.csv` registra a
+taxa de inadimplência para cada combinação agência–trimestre. O fluxo mínimo é
+definir o caminho, importar e inspecionar imediatamente:
+
+| Arquivo | Unidade de observação | Informação principal |
+|---|---|---|
+| `agencias.csv` | uma agência | cidade e número de cooperados |
+| `credito_trimestral.csv` | uma agência | crédito em cada trimestre, em milhares de reais fictícios |
+| `inadimplencia.csv` | uma agência–trimestre | taxa de inadimplência em proporção: `0.021` corresponde a 2,1% |
+
+Os valores e as entidades são fictícios. Eles servem para praticar o fluxo de
+análise, não para descrever uma instituição real.
+
+```{r}
+{{< include exemplos/_03-importar-agencias.R >}}
+```
+
+`glimpse()` mostra o número de linhas, o nome e o tipo das colunas. Use-o
+antes de escrever um pipeline: ele evita erros causados por nomes diferentes,
+colunas lidas como texto ou valores ausentes inesperados.
+
+::: {.callout-tip}
+## Perguntas de inspeção
+
+Antes de transformar uma tabela, responda: qual é a unidade de observação, ou
+seja, o que cada linha representa? Quais colunas identificam uma observação?
+Há valores faltantes? Os nomes e tipos das colunas são os que você espera?
+:::
+
+# Tibbles, pipes e uma pergunta analítica
+
+Uma *tibble* é uma tabela usada pelo tidyverse. Ela exibe os dados de modo mais
+compacto que uma `data.frame` tradicional. A função `tribble()` é uma forma
+prática de digitar pequenas tabelas manualmente, útil em exemplos e testes.
+Para manter este exemplo autossuficiente, criaremos uma base simulada de
+indicadores anuais:
+
+```{r}
+{{< include exemplos/_04-criar-indicadores.R >}}
+```
+
+O pipe nativo `|>` lê-se como “e então”. Ele permite escrever um *pipeline*,
+ou seja, uma sequência encadeada de etapas de análise. A pergunta abaixo é:
+**quais empresas têm retorno sobre ativos (ROA, do inglês *return on assets*)
+acima de 5%, ordenadas do maior para o menor?**
+
+```{r}
+{{< include exemplos/_05-empresas-rentaveis.R >}}
+```
+
+Cada verbo tem uma função específica:
+
+| Verbo | Pergunta que ajuda a responder |
+|---|---|
+| `select()` | Quais colunas são relevantes? |
+| `filter()` | Quais linhas atendem à condição? |
+| `mutate()` | Que nova variável preciso calcular? |
+| `arrange()` | Em que ordem devo ver o resultado? |
+| `group_by()` + `summarise()` | Como resumir grupos de observações? |
+
+::: {.callout-warning}
+## Não pule a atribuição
+
+Um pipeline só altera um objeto se você atribuir o resultado. O código abaixo
+apenas exibe uma nova tabela; ele não modifica `indicadores`.
+
+```{r}
+{{< include exemplos/_06-pipeline-sem-atribuicao.R >}}
+```
+
+Quando quiser conservar o resultado, atribua-o a um nome claro, como em
+`indicadores_com_roa <- ...`.
+:::
+
+# Agrupar e resumir
+
+Agora responda à pergunta: **qual é o ativo total e o ROA médio simples por
+setor?**
+
+```{r}
+{{< include exemplos/_07-resumo-setor.R >}}
+```
+
+`group_by()` não produz, sozinho, uma tabela resumida; ele altera o modo como
+o próximo verbo opera. `summarise()` é que reduz várias linhas a uma ou mais
+estatísticas por grupo. Neste exemplo, cada linha de `resumo_setor` representa
+um setor.
+
+Como conferência, o resultado deve ter quatro linhas. Os setores Financeiro e
+Saúde têm ROA médio simples de 7%; Energia, de 6%; e Varejo, de 2,5%. O setor
+Varejo tem duas empresas e ativo total de 850.000.
+
+::: {.callout-note}
+## Média simples não é ROA agregado
+
+`mean(roa)` dá o mesmo peso a cada empresa. Portanto, ele responde à pergunta
+sobre a média dos ROAs das empresas, e não necessariamente sobre a
+rentabilidade do conjunto de ativos do setor. Para calcular o ROA agregado,
+some primeiro o resultado líquido e o ativo total; depois divida um pelo outro:
+
+```{r}
+{{< include exemplos/_08-roa-agregado.R >}}
+```
+:::
+
+# Criar categorias com transparência
+
+Classificações são úteis, mas os critérios precisam aparecer no código. Neste
+exemplo, a coluna `faixa_roa` documenta uma regra simples de análise:
+
+```{r}
+{{< include exemplos/_09-classificar-indicadores.R >}}
+```
+
+Em `case_when()`, as condições são testadas de cima para baixo. Por isso, a
+ordem importa: a faixa mais restritiva vem primeiro. O caso final `TRUE ~ ...`
+garante que nenhuma observação fique sem classificação por acidente.
+
+::: {.callout-warning}
+## Regra didática, não modelo de risco
+
+Os limites usados em `faixa_roa` e, mais adiante, em `risco` são regras simples
+para praticar código. Eles não estimam risco financeiro e não devem orientar
+decisões reais sem definição substantiva, validação e informações adequadas.
+:::
+
+# Dados amplos e dados longos
+
+Planilhas gerenciais frequentemente armazenam trimestres em colunas. Isso é
+conveniente para leitura humana, mas dificulta agrupamentos e gráficos. Importe
+o arquivo de crédito, que está nesse formato amplo:
+
+```{r}
+{{< include exemplos/_10-importar-credito.R >}}
+```
+
+`pivot_longer()` transforma as colunas trimestrais em duas variáveis: uma para
+o trimestre e outra para o volume de crédito.
+
+```{r}
+{{< include exemplos/_11-organizar-credito.R >}}
+```
+
+Depois dessa transformação, cada linha representa uma combinação
+**agência–trimestre**. Essa unidade de observação precisa orientar todos os
+*joins*, cálculos e resumos posteriores.
+
+Como conferência, `credito_longo` deve ter 12 linhas: três agências em quatro
+trimestres. Ele deve conter as colunas `id_agencia`, `trimestre` e
+`volume_credito`.
+
+# Combinar tabelas sem perder o controle
+
+Um *join* é uma combinação de informações de tabelas diferentes. Uma chave é a
+coluna, ou conjunto de colunas, usado para identificar e alinhar registros
+entre tabelas. O cadastro `agencias` já foi importado acima; agora importe a
+tabela de inadimplência trimestral:
+
+```{r}
+{{< include exemplos/_12-importar-inadimplencia.R >}}
+```
+
+Como `agencias` tem uma linha por agência, a chave `id_agencia` basta no
+primeiro *join*. Já `credito_longo` e `inadimplencia` têm uma linha por
+agência–trimestre; a chave precisa conter as duas colunas. `left_join()`
+preserva todas as linhas da tabela que inicia o *pipeline* e acrescenta as
+informações correspondentes da outra tabela.
+
+```{r}
+{{< include exemplos/_13-combinar-tabelas.R >}}
+```
+
+Como conferência, `dados_completos` deve manter 12 linhas e não pode ter valores
+ausentes em `taxa_inadimplencia`. Com estes dados, a classificação de risco
+produz apenas as categorias `"Baixo"` e `"Moderado"`.
+
+::: {.callout-important}
+## Confira as chaves antes do join
+
+Um *join* com chave incompleta pode duplicar linhas silenciosamente. Antes de
+unir tabelas, descubra a unidade de observação de cada uma. Depois, compare o
+número esperado de linhas e procure valores ausentes nas novas colunas. Após
+`count()`, a coluna `n` informa quantas linhas existem em cada combinação.
+
+```{r}
+{{< include exemplos/_14-verificar-chaves.R >}}
+```
+
+Se esses comandos retornarem linhas, a combinação agência–trimestre não é
+única e deve ser entendida antes do `left_join()`.
+:::
+
+# Checklist de confiabilidade
+
+Antes de considerar uma análise pronta, faça estas verificações:
+
+1. Abra o projeto RStudio correto; não use `setwd()`.
+2. Reinicie a sessão do R e execute o script de cima para baixo.
+3. Use `glimpse()` após importar e após uma combinação relevante de tabelas.
+4. Imprima os objetos que respondem à pergunta analítica.
+5. Confira se as chaves utilizadas na combinação representam a unidade de cada
+   linha.
+6. Dê nomes específicos a objetos; não reutilize `resultado` para coisas
+   diferentes.
+7. Só então registre a alteração no Git e atualize o repositório remoto.
+
+Esse processo simples previne problemas comuns: objeto criado com um nome e
+usado com outro, coluna esquecida em uma chave composta, filtro aplicado à
+tabela errada e código que funciona apenas porque há objetos antigos na
+memória.
+
+# Exercícios para praticar
+
+Resolva em um script novo, sem copiar uma solução completa. Use os exemplos
+anteriores como referência, mas escreva e teste cada etapa.
+
+1. A partir de `dados_completos`, produza uma tabela por cidade com volume de
+   crédito total, inadimplência média e número de agências. Ordene pelo volume
+   total.
+2. Altere os limites da classificação de risco e explique, em comentário, qual
+   decisão de gestão essa nova regra representaria.
+3. Crie uma pequena tabela com uma meta trimestral por agência e una-a a
+   `dados_completos`. Antes do *join*, escreva qual deve ser a chave e quantas
+   linhas você espera no resultado.
+4. Crie um arquivo Quarto curto que descreva uma das análises, inclua o código
+   e apresente uma conclusão de três frases. Execute as células uma a uma e
+   renderize o HTML.
+
+::: {.callout-tip}
+## Próximo passo
+
+O tidyverse ajuda a preparar dados e comunicar análises; ele não substitui o
+raciocínio substantivo, estatístico ou econométrico. Ao iniciar uma análise,
+comece pela pergunta de pesquisa e use o código para tornar o caminho até a
+resposta explícito, verificável e reproduzível.
+:::
+
+# Leituras e documentação de apoio
+
+Esta seção serve para continuar o estudo depois de executar o tutorial. Ela
+não substitui a prática: use-a para esclarecer uma dúvida específica, ampliar
+um tópico ou revisar um conceito antes de aplicá-lo em seu próprio projeto.
+
+## Leitura estruturante
+
+**R para Ciência de Dados** é a referência principal para este tutorial
+[@r4ds2ed]. O livro aprofunda o fluxo de trabalho, a transformação, a
+organização, a importação e as combinações de dados apresentados aqui. A
+[tradução em português](https://pt.r4ds.hadley.nz){target="_blank"} é
+particularmente adequada para consultar esses temas; comece pelos capítulos 2
+a 7 e, quando precisar combinar tabelas, pelo capítulo 19.
+
+Para quem ainda precisa consolidar fundamentos da linguagem R — objetos,
+vetores, tipos de dados, condicionais, funções e depuração — a leitura
+adequada é **Introdução à Linguagem R: seus fundamentos e sua prática**
+[@faria2024intro]. Esse estudo é complementar e deve ser feito de forma
+autônoma quando a formação prévia não for suficiente para acompanhar este
+tutorial.
+
+## Documentação para consulta pontual
+
+As documentações oficiais são mais úteis quando você já tem uma pergunta
+concreta ou uma mensagem de erro para investigar:
+
+- [here](https://here.r-lib.org/){target="_blank"}: caminhos relativos e raiz
+  do projeto;
+- [readr](https://readr.tidyverse.org/){target="_blank"}: importação de
+  arquivos de texto, inclusive CSV;
+- [dplyr](https://dplyr.tidyverse.org/){target="_blank"}: transformação,
+  agrupamento e combinação de tabelas;
+- [tidyr](https://tidyr.tidyverse.org/){target="_blank"}: organização de dados
+  entre formatos amplo e longo.
+
+# Referências
+
+::: {#refs}
+:::

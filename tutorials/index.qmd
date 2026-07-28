@@ -1,6 +1,6 @@
 ---
 title: "Tutoriais"
-subtitle: "Git, Markdown, RStudio e Quarto"
+subtitle: "R/tidyverse, Git, Markdown, RStudio e Quarto"
 lang: pt-BR
 page-layout: full
 toc: false
@@ -11,6 +11,7 @@ listing:
     - git
     - markdown
     - rstudio
+    - r-tidyverse
     - quarto
   sort: "date desc"
   type: grid
@@ -54,8 +55,6 @@ Guias práticos para versionamento, documentação técnica e publicação de an
 
 :::{#listing-tutorials}
 :::
-
-
 
 
 
