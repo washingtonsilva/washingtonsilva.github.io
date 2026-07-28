@@ -1,5 +1,22 @@
 [
   {
+    "listing": "/tutorials/index.html",
+    "items": [
+      "/tutorials/r-tidyverse/index.html",
+      "/tutorials/rstudio/index.html",
+      "/tutorials/quarto/index.html",
+      "/tutorials/markdown/index.html",
+      "/tutorials/git/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/02-post/02-post.html",
+      "/blog/01-post/01-post.html"
+    ]
+  },
+  {
     "listing": "/publications/index.html",
     "items": [
       "/publications/efeito_cotas.html",
@@ -17,23 +34,6 @@
       "/publications/time_speckle.html",
       "/publications/hedge.html",
       "/publications/arch.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/02-post/02-post.html",
-      "/blog/01-post/01-post.html"
-    ]
-  },
-  {
-    "listing": "/tutorials/index.html",
-    "items": [
-      "/tutorials/r-tidyverse/index.html",
-      "/tutorials/rstudio/index.html",
-      "/tutorials/quarto/index.html",
-      "/tutorials/markdown/index.html",
-      "/tutorials/git/index.html"
     ]
   }
 ]
