@@ -5,6 +5,7 @@ project:
     - "*.qmd"
     - "*.md"
     - "!codex.md"
+    - "!blog/03-post/03-post.qmd"
     - "!tutorials/dbca/index.qmd"
 
 website:

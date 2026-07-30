@@ -24,6 +24,8 @@ execute:
   message: false
 ---
 
+![](img/Rlogo.svg){fig-alt="Logotipo oficial da linguagem R" width=35% fig-align="center"}
+
 # Para quem é este tutorial
 
 Este material é uma introdução prática ao uso de R com o **tidyverse** para
