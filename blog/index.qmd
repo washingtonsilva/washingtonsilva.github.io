@@ -6,6 +6,7 @@ listing:
   contents: 
     - 01-post
     - 02-post
+    - 04-post
   sort: "date desc"
   type: default
   categories: false

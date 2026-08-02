@@ -1,0 +1,196 @@
+---
+lang: pt-BR
+date: "2026-08-02"
+title: "Introdução ao Método da Máxima Verossimilhança"
+author: Washington S. da Silva
+format:
+  html:
+    embed-resources: true   # só para este post
+    fig-format: svg  
+bibliography: referencias.bib
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+categories:
+  - econometrics
+crossref:
+  fig-prefix: 'Fig.'
+  tbl-prefix: 'Tab.'
+execute: 
+  warning: false
+  message: false
+image: img/loglik.jpeg
+---
+
+# Método da Máxima Verossimilhança
+
+O [método da máxima verossimilhança](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation){target="_blank"}
+(*MLE*, do inglês *Maximum Likelihood Estimation*) é amplamente utilizado em
+estatística para estimar parâmetros de modelos probabilísticos. Ele se baseia
+na escolha dos valores dos parâmetros que maximizam a função de
+verossimilhança.
+
+
+## Função de Verossimilhança
+
+Considere uma amostra aleatória $X_1, X_2, \dots, X_n$, independente e
+identicamente distribuída, de um modelo com vetor de parâmetros
+$\boldsymbol{\theta} = (\theta_1, \theta_2, \dots, \theta_k)$. Denotando as
+observações por $\mathbf{x} = (x_1, x_2, \dots, x_n)$, a função de
+verossimilhança é:
+
+$$
+L(\theta; \mathbf{x}) = \prod_{i=1}^n f(x_i \mid \theta)
+$$
+
+Em modelos contínuos, $f(x_i \mid \theta)$ é uma densidade de probabilidade;
+em modelos discretos, é uma função de probabilidade. Em ambos os casos, ela é
+condicionada ao vetor de parâmetros $\theta$.
+
+
+**Função de Log-Verossimilhança**
+
+A função log-verossimilhança, denotada por $\ell(\theta)$, simplifica a
+otimização e é expressa por:
+
+$$
+\ell(\theta; \mathbf{x}) = \log L(\theta; \mathbf{x}) = \sum_{i=1}^n \log f(x_i \mid \theta)
+$$
+
+
+
+## Um problema de otimização
+
+Os estimadores de máxima verossimilhança são obtidos maximizando a função de
+log-verossimilhança. Para cada componente $\theta_j$ do vetor de parâmetros,
+as condições de primeira ordem são:
+
+$$
+\frac{\partial \ell(\theta; \mathbf{x})}{\partial \theta_j} = 0
+\quad \text{para } j = 1, \dots, k
+$$
+
+As soluções dessas equações são pontos candidatos. O máximo deve ser
+confirmado pelas condições de segunda ordem ou pela comparação dos valores da
+função de log-verossimilhança, conforme o problema.
+
+
+
+## Como Encontrar o Máximo?
+
+**Objetivo:** encontrar os valores de $\boldsymbol{\theta} = (\theta_1, \dots,
+\theta_k)$ que maximizam $\ell(\boldsymbol{\theta})$.
+
+**Analiticamente:** às vezes, é possível.
+
+- Calcule as derivadas parciais de $\ell(\boldsymbol{\theta})$ em relação a
+  cada parâmetro.
+- Iguale cada derivada parcial a zero:
+
+$$
+\frac{\partial \ell(\boldsymbol{\theta})}{\partial \theta_j} = 0,
+\quad j = 1, \dots, k
+$$
+
+- Resolva o sistema para obter os valores candidatos de
+  $\hat{\boldsymbol{\theta}}$.
+- Verifique as condições de **segunda ordem**: para um máximo estrito em um
+  ponto interno, a matriz Hessiana da log-verossimilhança deve ser negativa
+  definida no ponto candidato.
+
+**Numericamente:** na maioria dos problemas reais, usa-se um método de
+otimização numérico.
+
+O algoritmo procura os valores dos parâmetros que maximizam a função de
+log-verossimilhança.
+
+
+
+## Função de (log-)Verossimilhança
+
+![Esta curva resume todas as informações que os dados fornecem  
+sobre o vetor de parâmetros $\theta$, assumindo o modelo.](img/loglik.jpeg){fig-align="center" width="80%"}
+
+
+## Estimadores de Máxima Verossimilhança dos Parâmetros de uma Distribuição Normal
+
+Seja $X \sim N(\mu,\sigma^2)$. Sua função densidade de probabilidade (fdp) é:
+
+$$
+f(x \mid \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}
+\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+$$
+
+Agora, considere $X_1, X_2, \dots, X_n \overset{\text{i.i.d.}}{\sim}
+\mathcal{N}(\mu, \sigma^2)$. O vetor de parâmetros é
+$\boldsymbol{\theta} = (\mu, \sigma^2)$. Para os dados observados, a função
+de verossimilhança é:
+
+$$
+L(\mu, \sigma^2) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left( -\frac{(x_i - \mu)^2}{2\sigma^2} \right)
+$$
+
+A **log-verossimilhança** é dada por:
+
+$$
+\log L(\mu, \sigma^2) = -\frac{n}{2} \log(2\pi \sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^n (x_i - \mu)^2
+$$
+
+Para obter o estimador de máxima verossimilhança de $\mu$, mantemos $\sigma^2$ fixo e derivamos:
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial \mu} \log L(\mu, \sigma^2) 
+&= \frac{\partial}{\partial \mu} \left[ -\frac{1}{2\sigma^2} \sum_{i=1}^n (x_i - \mu)^2 \right] \\
+&= -\frac{1}{2\sigma^2} \cdot \sum_{i=1}^n \frac{\partial}{\partial \mu} (x_i - \mu)^2 \\
+&= -\frac{1}{2\sigma^2} \cdot \sum_{i=1}^n [-2(x_i - \mu)] \\
+&= \frac{1}{\sigma^2} \sum_{i=1}^n (x_i - \mu)
+\end{aligned}
+$$
+
+Igualando a zero e resolvendo:
+
+$$
+\frac{1}{\sigma^2} \sum_{i=1}^n (x_i - \mu) = 0
+\;\Rightarrow\;
+\sum_{i=1}^n (x_i - \mu) = 0
+\;\Rightarrow\;
+n\bar{x} - n\mu = 0
+\;\Rightarrow\;
+\boxed{\widehat{\mu} = \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i}
+$$
+
+
+Esse estimador é **não-viesado**:
+
+$$
+E(\widehat{\mu}) = E(\bar{x}) = \mu
+$$
+
+e sua variância e desvio-padrão são:
+
+$$
+\mathrm{Var}(\bar{x}) = \frac{\sigma^2}{n}, \quad \mathrm{DP}(\bar{x}) = \frac{\sigma}{\sqrt{n}}
+$$
+
+Para encontrar o EMV de $\sigma^2$, derivamos a log-verossimilhança em relação a $\sigma^2$, mantendo $\mu = \bar{x}$:
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial \sigma^2} \log L(\mu, \sigma^2)
+&= -\frac{n}{2} \cdot \frac{1}{\sigma^2} + \frac{1}{2\sigma^4} \sum_{i=1}^n (x_i - \mu)^2 \\
+&= -\frac{n}{2\sigma^2} + \frac{1}{2\sigma^4} \sum_{i=1}^n (x_i - \bar{x})^2
+\end{aligned}
+$$
+
+Igualando a zero:
+
+$$
+-\frac{n}{2\sigma^2} + \frac{1}{2\sigma^4} \sum_{i=1}^n (x_i - \bar{x})^2 = 0
+$$
+
+Multiplicando ambos os lados por $2\sigma^4$:
+
+$$
+-n\sigma^2 + \sum_{i=1}^n (x_i - \bar{x})^2 = 0
+\;\Rightarrow\;
+\boxed{\widehat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2}
+$$

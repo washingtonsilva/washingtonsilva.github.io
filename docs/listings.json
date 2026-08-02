@@ -12,6 +12,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/04-post/04-post.html",
       "/blog/02-post/02-post.html",
       "/blog/01-post/01-post.html"
     ]
