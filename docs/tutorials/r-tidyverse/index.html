@@ -301,7 +301,7 @@ cookieconsent.run({
 </div>
 <section id="para-quem-é-este-tutorial" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Para quem é este tutorial</h1>
-<p>Este material é uma introdução prática ao uso de R com o <strong>tidyverse</strong> para análises reproduzíveis. Ele foi organizado a partir de exemplos, exercícios e erros recorrentes da disciplina Introdução à Ciência de Dados ministrada no Mestrado Profissional em Administração do IFMG em 2026.</p>
+<p>Este material é uma introdução prática ao uso de R com o <strong>tidyverse</strong> para análises reproduzíveis. Ele foi organizado a partir de exemplos, exercícios e outros materiais da disciplina Introdução à Ciência de Dados ministrada no Bacharelado em Administração e no <a href="https://formiga.ifmg.edu.br/mestrado" target="_blank">Mestrado Profissional em Administração</a> do IFMG Campus Formiga em 2026.</p>
 <p>Use-o se você já instalou R e RStudio e quer construir análises de dados com mais segurança. Para instalar ou configurar ferramentas, consulte antes os tutoriais de <a href="../rstudio/">RStudio</a>, <a href="../quarto/">Quarto</a> e <a href="../git/">Git/GitHub</a>. Para formatar a parte textual de relatórios, consulte o tutorial de <a href="../markdown/">Markdown</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -349,15 +349,16 @@ cookieconsent.run({
 </ol>
 <p>O tidyverse é um conjunto de pacotes com funções de nomes e usos padronizados para essas etapas. O pacote <code>readr</code> importa arquivos; <code>dplyr</code> transforma e combina tabelas; <code>tidyr</code> organiza formatos; e <code>tibble</code> ajuda a criar e visualizar tabelas. O comando abaixo carrega esse conjunto e o pacote <code>here</code>, usado para localizar arquivos dentro do projeto.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># carrega os pacotes</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Antes do primeiro uso neste computador, instale os dois pacotes necessários na aba <strong>Console</strong> do RStudio:</p>
+<p>Antes de usar pacotes R em seu computador, você deve instalá-los, o que é feito apenas uma vez. Você pode usar a aba <em>Packages -&gt; Install</em> do RStudio ou instalar os dois pacotes necessários na aba <strong>Console</strong> do RStudio:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instala, uma única vez, os pacotes usados neste tutorial</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"here"</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Em cada nova sessão, carregue-os com <code>library(tidyverse)</code> e <code>library(here)</code>, como no código anterior. Não coloque <code>install.packages()</code> no início de scripts ou relatórios: isso torna a execução lenta e menos previsível.</p>
+<p>Em cada nova sessão, carregue-os com <code>library(tidyverse)</code> e <code>library(here)</code>, como no código anterior. Não coloque <code>install.packages()</code> no início de scripts ou relatórios.</p>
 </section>
 <section id="projeto-arquivos-e-caminhos" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Projeto, arquivos e caminhos</h1>

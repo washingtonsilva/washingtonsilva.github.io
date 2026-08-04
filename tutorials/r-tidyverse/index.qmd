@@ -30,8 +30,10 @@ execute:
 
 Este material é uma introdução prática ao uso de R com o **tidyverse** para
 análises reproduzíveis. Ele foi organizado a partir de exemplos, exercícios e
-erros recorrentes da disciplina Introdução à Ciência de Dados ministrada no
-Mestrado Profissional em Administração do IFMG em 2026.
+outros materiais da disciplina Introdução à Ciência de Dados ministrada no 
+Bacharelado em Administração e no 
+[Mestrado Profissional em Administração](https://formiga.ifmg.edu.br/mestrado){target="_blank"}
+do IFMG Campus Formiga em 2026.
 
 Use-o se você já instalou R e RStudio e quer construir análises de dados com
 mais segurança. Para instalar ou configurar ferramentas, consulte antes os
@@ -80,8 +82,9 @@ usado para localizar arquivos dentro do projeto.
 {{< include exemplos/_00-pacotes.R >}}
 ```
 
-Antes do primeiro uso neste computador, instale os dois pacotes necessários na
-aba **Console** do RStudio:
+Antes de usar pacotes R em seu computador, você deve instalá-los, o que é 
+feito apenas uma vez. Você pode usar a aba *Packages -> Install* do 
+RStudio ou instalar os dois pacotes necessários na aba **Console** do RStudio:
 
 ```{r eval=FALSE}
 {{< include exemplos/_01-instalacao.R >}}
@@ -89,7 +92,7 @@ aba **Console** do RStudio:
 
 Em cada nova sessão, carregue-os com `library(tidyverse)` e `library(here)`,
 como no código anterior. Não coloque `install.packages()` no início de scripts
-ou relatórios: isso torna a execução lenta e menos previsível.
+ou relatórios.
 
 # Projeto, arquivos e caminhos
 
