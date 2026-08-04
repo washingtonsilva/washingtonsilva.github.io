@@ -396,7 +396,7 @@
     "href": "tutorials/index.html",
     "title": "Tutoriais",
     "section": "",
-    "text": "Guias práticos para versionamento, documentação técnica e publicação de análises reproduzíveis.\n\n\n\nAbrange\n\nGit e GitHub\nMarkdown e Quarto\nRStudio e organização de projetos\n\n\nIndicado para\n\nestudantes de graduação e pós-graduação\npesquisadores, docentes e analistas"
+    "text": "Guias práticos para versionamento, documentação técnica e publicação de análises reproduzíveis.\n\n\n\nAbrange\n\nGit e GitHub\nLinguagem R e tidyverse\nMarkdown e Quarto\nRStudio e organização de projetos\n\n\nIndicado para\n\nestudantes de graduação e pós-graduação\npesquisadores, docentes e analistas"
   },
   {
     "objectID": "tutorials/index.html#tutoriais",

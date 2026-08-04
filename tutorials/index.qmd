@@ -37,6 +37,7 @@ Guias práticos para versionamento, documentação técnica e publicação de an
 **Abrange**
 
 - Git e GitHub
+- Linguagem R e tidyverse
 - Markdown e Quarto
 - RStudio e organização de projetos
 :::
