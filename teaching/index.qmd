@@ -40,8 +40,8 @@ format:
 
 - **Visualização de Dados com R** 
 
-- **Métodos Quantitativos Aplicados à Administração**
+- **Métodos Quantitativos Aplicados à Administração** <br>
   _Períodos: 2026.2_
 
-- **Análise Multivariada**
+- **Análise Multivariada** <br>
   _Períodos: 2023.2_ 
